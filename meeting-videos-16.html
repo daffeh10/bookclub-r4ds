@@ -518,11 +518,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">20.8</span> Meeting Videos</h2>
 <div id="cohort-5-16" class="section level3">
 <h3><span class="header-section-number">20.8.1</span> Cohort 5</h3>
-<iframe src="https://www.youtube.com/embed/URL" width="100%" height="400px" data-external="1">
+<iframe src="https://www.youtube.com/embed/rsRImj294pM" width="100%" height="400px" data-external="1">
 </iframe>
 <details>
 <p><summary> Meeting chat log </summary></p>
-<pre><code>LOG</code></pre>
+<pre><code>
+00:39:35    Jon Harmon (jonthegeek):    .Machine$double.eps
+00:40:36    Jon Harmon (jonthegeek):    &gt; .Machine$integer.max
+[1] 2147483647
+00:41:23    Federica Gazzelloni:    ?`.Machine`
+00:42:11    Ryan Metcalf:   Some really fun reading about CPU “inner” workings: https://www.geeksforgeeks.org/computer-organization-von-neumann-architecture/
+00:42:35    Jon Harmon (jonthegeek):    &gt; typeof(.Machine$integer.max + 1)
+[1] &quot;double&quot;
+00:42:55    Jon Harmon (jonthegeek):    &gt; .Machine$integer.max + 1L
+[1] NA
+Warning message:
+In .Machine$integer.max + 1L : NAs produced by integer overflow
+00:43:52    Becki R. (she/her): thanks for the link, Ryan!
+00:44:44    Jon Harmon (jonthegeek):    &gt; sqrt(2)**2 == 2
+[1] FALSE
+00:45:16    Jon Harmon (jonthegeek):    &gt; dplyr::near(sqrt(2)**2, 2)
+[1] TRUE
+00:57:52    Ryan Metcalf:   Not directly related to Cache or RAM….But similar. It is where you get FAT, FAT32, NTFS, ExFat, EXT, EXT3, etc…etc… there are hundreds of file allocation.
+00:59:29    Sandra Muroy:   thanks Ryan!
+01:02:08    Becki R. (she/her): I&#39;m finding the info on computer architecture (?) fascinating so I appreciate the detour.
+01:03:05    Sandra Muroy:   I&#39;m glad :)
+01:10:01    Ryan Metcalf:   I think I just had an epiphany!!! Is this were the “Big Endian” and “Little Endian” comes in? The leading bit representing positive and negative?
+01:10:27    Jon Harmon (jonthegeek):    &gt; typeof(0L)
+[1] &quot;integer&quot;
+01:12:42    Jon Harmon (jonthegeek):    &gt; .Machine$double.xmax
+[1] 1.797693e+308
+01:15:53    Jon Harmon (jonthegeek):    &gt; 1:10 + 1
+ [1]  2  3  4  5  6  7  8  9 10 11
+01:16:19    Jon Harmon (jonthegeek):    &gt; 1:10 + 2:11
+ [1]  3  5  7  9 11 13 15 17 19 21</code></pre>
 </details>
 </div>
 <div id="cohort-6-14" class="section level3">
