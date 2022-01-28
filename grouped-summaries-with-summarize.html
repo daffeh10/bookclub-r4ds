@@ -24,7 +24,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-01-22" />
+<meta name="date" content="2022-01-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -552,7 +552,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb159-3"><a href="grouped-summaries-with-summarize.html#cb159-3"></a></span>
 <span id="cb159-4"><a href="grouped-summaries-with-summarize.html#cb159-4"></a><span class="co"># calculate mean departure delay for each day</span></span>
 <span id="cb159-5"><a href="grouped-summaries-with-summarize.html#cb159-5"></a><span class="kw">summarize</span>(by_day, <span class="dt">delay =</span> <span class="kw">mean</span>(dep_delay, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;month&#39;. You can override using the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;month&#39;. You can override using the
+## `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 365 × 4
 ## # Groups:   year, month [12]
 ##     year month   day delay
@@ -576,7 +577,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb162-2"><a href="grouped-summaries-with-summarize.html#cb162-2"></a>flights <span class="op">%&gt;%</span></span>
 <span id="cb162-3"><a href="grouped-summaries-with-summarize.html#cb162-3"></a><span class="st">  </span><span class="kw">group_by</span>(year, month, day) <span class="op">%&gt;%</span></span>
 <span id="cb162-4"><a href="grouped-summaries-with-summarize.html#cb162-4"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">delay =</span> <span class="kw">mean</span>(dep_delay, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;month&#39;. You can override using the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;month&#39;. You can override using the
+## `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 365 × 4
 ## # Groups:   year, month [12]
 ##     year month   day delay
@@ -728,7 +730,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb177-2"><a href="grouped-summaries-with-summarize.html#cb177-2"></a>not_cancelled <span class="op">%&gt;%</span></span>
 <span id="cb177-3"><a href="grouped-summaries-with-summarize.html#cb177-3"></a><span class="st">  </span><span class="kw">group_by</span>(year, month, day) <span class="op">%&gt;%</span></span>
 <span id="cb177-4"><a href="grouped-summaries-with-summarize.html#cb177-4"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">hour_count =</span> <span class="kw">sum</span>(arr_delay <span class="op">&gt;</span><span class="st"> </span><span class="dv">60</span>))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;month&#39;. You can override using the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;month&#39;. You can override using the
+## `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 365 × 4
 ## # Groups:   year, month [12]
 ##     year month   day hour_count
@@ -748,7 +751,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb180-2"><a href="grouped-summaries-with-summarize.html#cb180-2"></a>not_cancelled <span class="op">%&gt;%</span></span>
 <span id="cb180-3"><a href="grouped-summaries-with-summarize.html#cb180-3"></a><span class="st">  </span><span class="kw">group_by</span>(year, month, day) <span class="op">%&gt;%</span></span>
 <span id="cb180-4"><a href="grouped-summaries-with-summarize.html#cb180-4"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">hour_prop =</span> <span class="kw">mean</span>(arr_delay <span class="op">&gt;</span><span class="st"> </span><span class="dv">60</span>))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;month&#39;. You can override using the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;month&#39;. You can override using the
+## `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 365 × 4
 ## # Groups:   year, month [12]
 ##     year month   day hour_prop
@@ -772,7 +776,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb183-2"><a href="grouped-summaries-with-summarize.html#cb183-2"></a>daily &lt;-<span class="st"> </span><span class="kw">group_by</span>(flights, year, month, day)</span></code></pre></div>
 <div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="grouped-summaries-with-summarize.html#cb184-1"></a><span class="co"># number flights per day</span></span>
 <span id="cb184-2"><a href="grouped-summaries-with-summarize.html#cb184-2"></a>(per_day &lt;-<span class="st"> </span><span class="kw">summarize</span>(daily, <span class="dt">flights =</span> <span class="kw">n</span>()))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;month&#39;. You can override using the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;month&#39;. You can override using the
+## `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 365 × 4
 ## # Groups:   year, month [12]
 ##     year month   day flights
@@ -790,7 +795,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # … with 355 more rows</code></pre>
 <div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="grouped-summaries-with-summarize.html#cb187-1"></a> <span class="co"># number flights per month</span></span>
 <span id="cb187-2"><a href="grouped-summaries-with-summarize.html#cb187-2"></a>(per_month &lt;-<span class="st"> </span><span class="kw">summarize</span>(per_day, <span class="dt">flights =</span> <span class="kw">sum</span>(flights)))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by &#39;year&#39;. You can override using the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;year&#39;. You can override using the `.groups`
+## argument.</code></pre>
 <pre><code>## # A tibble: 12 × 3
 ## # Groups:   year [1]
 ##     year month flights
