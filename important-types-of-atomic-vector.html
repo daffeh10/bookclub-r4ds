@@ -24,7 +24,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-01-28" />
+<meta name="date" content="2022-02-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -404,9 +404,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.4.5" data-path="using-atomic-vectors.html"><a href="using-atomic-vectors.html#subsetting"><i class="fa fa-check"></i><b>20.4.5</b> Subsetting</a></li>
 <li class="chapter" data-level="20.4.6" data-path="using-atomic-vectors.html"><a href="using-atomic-vectors.html#exercises-5"><i class="fa fa-check"></i><b>20.4.6</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="20.5" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html"><i class="fa fa-check"></i><b>20.5</b> Recursive vectors (lists)</a></li>
+<li class="chapter" data-level="20.5" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html"><i class="fa fa-check"></i><b>20.5</b> Recursive vectors (lists)</a><ul>
+<li class="chapter" data-level="20.5.1" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html#visualising-lists"><i class="fa fa-check"></i><b>20.5.1</b> Visualising lists</a></li>
+<li class="chapter" data-level="20.5.2" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html#subsetting-1"><i class="fa fa-check"></i><b>20.5.2</b> Subsetting</a></li>
+<li class="chapter" data-level="20.5.3" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html#lists-of-condiments"><i class="fa fa-check"></i><b>20.5.3</b> Lists of condiments</a></li>
+<li class="chapter" data-level="20.5.4" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html#exercises-6"><i class="fa fa-check"></i><b>20.5.4</b> Exercises</a></li>
+</ul></li>
 <li class="chapter" data-level="20.6" data-path="attributes.html"><a href="attributes.html"><i class="fa fa-check"></i><b>20.6</b> Attributes</a></li>
-<li class="chapter" data-level="20.7" data-path="augmented-vectors.html"><a href="augmented-vectors.html"><i class="fa fa-check"></i><b>20.7</b> Augmented vectors</a></li>
+<li class="chapter" data-level="20.7" data-path="augmented-vectors.html"><a href="augmented-vectors.html"><i class="fa fa-check"></i><b>20.7</b> Augmented vectors</a><ul>
+<li class="chapter" data-level="20.7.1" data-path="augmented-vectors.html"><a href="augmented-vectors.html#factors-1"><i class="fa fa-check"></i><b>20.7.1</b> Factors</a></li>
+<li class="chapter" data-level="20.7.2" data-path="augmented-vectors.html"><a href="augmented-vectors.html#dates-and-date-times"><i class="fa fa-check"></i><b>20.7.2</b> Dates and date-times</a></li>
+<li class="chapter" data-level="20.7.3" data-path="augmented-vectors.html"><a href="augmented-vectors.html#tibbles-1"><i class="fa fa-check"></i><b>20.7.3</b> Tibbles</a></li>
+<li class="chapter" data-level="20.7.4" data-path="augmented-vectors.html"><a href="augmented-vectors.html#exercises-7"><i class="fa fa-check"></i><b>20.7.4</b> Exercises</a></li>
+</ul></li>
 <li class="chapter" data-level="20.8" data-path="meeting-videos-16.html"><a href="meeting-videos-16.html"><i class="fa fa-check"></i><b>20.8</b> Meeting Videos</a><ul>
 <li class="chapter" data-level="20.8.1" data-path="meeting-videos-16.html"><a href="meeting-videos-16.html#cohort-5-16"><i class="fa fa-check"></i><b>20.8.1</b> Cohort 5</a></li>
 <li class="chapter" data-level="20.8.2" data-path="meeting-videos-16.html"><a href="meeting-videos-16.html#cohort-6-14"><i class="fa fa-check"></i><b>20.8.2</b> Cohort 6</a></li>
@@ -595,7 +605,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Most complex atomic vector because each element of a character vector is a string, and a string contains an arbitrary amount of data.</li>
 <li>R uses a global string pool.
 <ul>
-<li>Implying that each unique string is only story in memory once.</li>
+<li>Implying that each unique string is only stored in memory once.</li>
 <li>And every use of the string points to that representation.
 <ul>
 <li>This reduces the amount of memory needed by duplicated strings. To see this, let’s use <code>pryr::object_size()</code>:</li>
@@ -608,7 +618,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb464-4"><a href="important-types-of-atomic-vector.html#cb464-4"></a>y &lt;-<span class="st"> </span><span class="kw">rep</span>(x, <span class="dv">1000</span>)</span>
 <span id="cb464-5"><a href="important-types-of-atomic-vector.html#cb464-5"></a>pryr<span class="op">::</span><span class="kw">object_size</span>(y)</span></code></pre></div>
 <p><code>y</code> doesn’t take up 1,000x as much memory as <code>x</code>, because each element of <code>y</code> is just a pointer to that same string.</p>
-<p>A pointer is 8 bytes, so 1000 pointers to a 152 B string is 8 * 1000 + 152 = 8.14 kB. <em>I am lost :(</em></p>
+<p>A pointer is 8 bytes, so 1000 pointers to a 152 B string is 8 * 1000 + 152 = 8.14 kB.</p>
 </div>
 <div id="missing-values-2" class="section level3">
 <h3><span class="header-section-number">20.3.4</span> Missing values</h3>

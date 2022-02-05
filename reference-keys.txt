@@ -217,8 +217,16 @@ naming-vectors
 subsetting
 exercises-5
 recursive-vectors-lists
+visualising-lists
+subsetting-1
+lists-of-condiments
+exercises-6
 attributes
 augmented-vectors
+factors-1
+dates-and-date-times
+tibbles-1
+exercises-7
 meeting-videos-16
 cohort-5-16
 cohort-6-14

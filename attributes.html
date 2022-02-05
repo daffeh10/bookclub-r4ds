@@ -24,7 +24,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-01-28" />
+<meta name="date" content="2022-02-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -404,9 +404,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.4.5" data-path="using-atomic-vectors.html"><a href="using-atomic-vectors.html#subsetting"><i class="fa fa-check"></i><b>20.4.5</b> Subsetting</a></li>
 <li class="chapter" data-level="20.4.6" data-path="using-atomic-vectors.html"><a href="using-atomic-vectors.html#exercises-5"><i class="fa fa-check"></i><b>20.4.6</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="20.5" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html"><i class="fa fa-check"></i><b>20.5</b> Recursive vectors (lists)</a></li>
+<li class="chapter" data-level="20.5" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html"><i class="fa fa-check"></i><b>20.5</b> Recursive vectors (lists)</a><ul>
+<li class="chapter" data-level="20.5.1" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html#visualising-lists"><i class="fa fa-check"></i><b>20.5.1</b> Visualising lists</a></li>
+<li class="chapter" data-level="20.5.2" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html#subsetting-1"><i class="fa fa-check"></i><b>20.5.2</b> Subsetting</a></li>
+<li class="chapter" data-level="20.5.3" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html#lists-of-condiments"><i class="fa fa-check"></i><b>20.5.3</b> Lists of condiments</a></li>
+<li class="chapter" data-level="20.5.4" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html#exercises-6"><i class="fa fa-check"></i><b>20.5.4</b> Exercises</a></li>
+</ul></li>
 <li class="chapter" data-level="20.6" data-path="attributes.html"><a href="attributes.html"><i class="fa fa-check"></i><b>20.6</b> Attributes</a></li>
-<li class="chapter" data-level="20.7" data-path="augmented-vectors.html"><a href="augmented-vectors.html"><i class="fa fa-check"></i><b>20.7</b> Augmented vectors</a></li>
+<li class="chapter" data-level="20.7" data-path="augmented-vectors.html"><a href="augmented-vectors.html"><i class="fa fa-check"></i><b>20.7</b> Augmented vectors</a><ul>
+<li class="chapter" data-level="20.7.1" data-path="augmented-vectors.html"><a href="augmented-vectors.html#factors-1"><i class="fa fa-check"></i><b>20.7.1</b> Factors</a></li>
+<li class="chapter" data-level="20.7.2" data-path="augmented-vectors.html"><a href="augmented-vectors.html#dates-and-date-times"><i class="fa fa-check"></i><b>20.7.2</b> Dates and date-times</a></li>
+<li class="chapter" data-level="20.7.3" data-path="augmented-vectors.html"><a href="augmented-vectors.html#tibbles-1"><i class="fa fa-check"></i><b>20.7.3</b> Tibbles</a></li>
+<li class="chapter" data-level="20.7.4" data-path="augmented-vectors.html"><a href="augmented-vectors.html#exercises-7"><i class="fa fa-check"></i><b>20.7.4</b> Exercises</a></li>
+</ul></li>
 <li class="chapter" data-level="20.8" data-path="meeting-videos-16.html"><a href="meeting-videos-16.html"><i class="fa fa-check"></i><b>20.8</b> Meeting Videos</a><ul>
 <li class="chapter" data-level="20.8.1" data-path="meeting-videos-16.html"><a href="meeting-videos-16.html#cohort-5-16"><i class="fa fa-check"></i><b>20.8.1</b> Cohort 5</a></li>
 <li class="chapter" data-level="20.8.2" data-path="meeting-videos-16.html"><a href="meeting-videos-16.html#cohort-6-14"><i class="fa fa-check"></i><b>20.8.2</b> Cohort 6</a></li>
@@ -516,6 +526,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="attributes" class="section level2">
 <h2><span class="header-section-number">20.6</span> Attributes</h2>
+<ul>
+<li>Any vector can contain arbitrary additional metadata through its <strong>attributes</strong>.
+<ul>
+<li>Can be thought as named list of vectors that can be attached to any object.</li>
+</ul></li>
+<li>We can get and set individual attribute values with <code>attr()</code> or see them all at once with <code>attributes()</code>.</li>
+</ul>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="attributes.html#cb517-1"></a>x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></span>
+<span id="cb517-2"><a href="attributes.html#cb517-2"></a><span class="kw">attr</span>(x, <span class="st">&quot;greeting&quot;</span>)</span>
+<span id="cb517-3"><a href="attributes.html#cb517-3"></a><span class="kw">attr</span>(x, <span class="st">&quot;greeting&quot;</span>) &lt;-<span class="st"> &quot;Hi!&quot;</span></span>
+<span id="cb517-4"><a href="attributes.html#cb517-4"></a><span class="kw">attr</span>(x, <span class="st">&quot;farewell&quot;</span>) &lt;-<span class="st"> &quot;Bye!&quot;</span></span>
+<span id="cb517-5"><a href="attributes.html#cb517-5"></a><span class="kw">attributes</span>(x)</span></code></pre></div>
+<ul>
+<li>Three very important attributes that used to implement fundamental parts of R:
+<ul>
+<li><strong>Names</strong> are used to name the elements of a vector.</li>
+<li><strong>Dimensions</strong> (dims, for short) make a vector behave like a matrix or array.</li>
+<li><strong>Class</strong> is used to implement the S3 object oriented system.</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Note: We have learnt of the names, and we won’t discuss matrices in this discussion as matrices aren;t used in this book!</p>
+</blockquote>
+<ul>
+<li>Class controls how <strong>generic functions</strong> work.
+<ul>
+<li>Generic functions are key to object programming since they make functions behave differently for different classes of input. The discussion of object programming is covered in details in Advanced R: <a href="http://adv-r.had.co.nz/OO-essentials.html#s3" class="uri">http://adv-r.had.co.nz/OO-essentials.html#s3</a></li>
+</ul></li>
+<li>An example of generic function:</li>
+</ul>
+<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="attributes.html#cb518-1"></a>as.Date</span></code></pre></div>
+<ul>
+<li>The call to “UseMethod” means that this is a generic function, and it calls a specific <strong>method</strong>, a function, based on the class of the first argument.</li>
+</ul>
+<blockquote>
+<p>Note: All methods are functions; not all functions are methods.</p>
+</blockquote>
+<ul>
+<li>To list all the methods for a generic, use <code>methods()</code>:</li>
+</ul>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="attributes.html#cb519-1"></a><span class="kw">methods</span>(<span class="st">&quot;as.Date&quot;</span>)</span></code></pre></div>
+<ul>
+<li>For example, if <code>x</code> is a character vector, <code>as.Date()</code> will call <code>as.Date.character()</code>; if it’s a factor, it’ll call <code>as.Date.factor().</code></li>
+<li>We can see the specific implementation of a method with <code>getS3method()</code>:</li>
+</ul>
+<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="attributes.html#cb520-1"></a><span class="kw">getS3method</span>(<span class="st">&quot;as.Date&quot;</span>, <span class="st">&quot;default&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="attributes.html#cb521-1"></a><span class="kw">getS3method</span>(<span class="st">&quot;as.Date&quot;</span>, <span class="st">&quot;numeric&quot;</span>)</span></code></pre></div>
+<ul>
+<li>The most important S3 generic is <code>print()</code> -&gt; controls how the object is printed when we type its name at the console.</li>
+<li>Subsetting functions: <code>[</code>, <code>[[</code> and <code>$</code> are other important generics.</li>
+</ul>
 </div>
             </section>
 
