@@ -201,7 +201,6 @@ conditional-execution
 function-arguments
 return-values
 environment
-lexical-scoping---r-will-look-outside-the-function-in-the-environment-for-definitions-of-variables-if-it-is-not-defined-within.
 meeting-videos-15
 cohort-5-15
 cohort-6-13
