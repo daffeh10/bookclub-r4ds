@@ -24,7 +24,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-03-03" />
+<meta name="date" content="2022-03-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -543,36 +543,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li>Use <code>list()</code> to create lists.</li>
 </ul>
-<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="recursive-vectors-lists.html#cb505-1"></a>(xl &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="recursive-vectors-lists.html#cb507-1"></a>(xl &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span></code></pre></div>
 <ul>
 <li>We use the function <code>str()</code> to assess the structure.</li>
 </ul>
-<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="recursive-vectors-lists.html#cb506-1"></a><span class="kw">str</span>(xl)</span>
-<span id="cb506-2"><a href="recursive-vectors-lists.html#cb506-2"></a>dplyr<span class="op">::</span><span class="kw">glimpse</span>(xl)</span>
-<span id="cb506-3"><a href="recursive-vectors-lists.html#cb506-3"></a><span class="co">#seems one and the same thing?</span></span></code></pre></div>
+<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="recursive-vectors-lists.html#cb508-1"></a><span class="kw">str</span>(xl)</span>
+<span id="cb508-2"><a href="recursive-vectors-lists.html#cb508-2"></a>dplyr<span class="op">::</span><span class="kw">glimpse</span>(xl)</span>
+<span id="cb508-3"><a href="recursive-vectors-lists.html#cb508-3"></a><span class="co">#seems one and the same thing?</span></span></code></pre></div>
 <ul>
 <li>Lists can be named:</li>
 </ul>
-<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="recursive-vectors-lists.html#cb507-1"></a>xl_named &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">a =</span> <span class="dv">1</span>, <span class="dt">b =</span> <span class="dv">2</span>, <span class="dt">c =</span> <span class="dv">3</span>)</span>
-<span id="cb507-2"><a href="recursive-vectors-lists.html#cb507-2"></a><span class="kw">str</span>(xl_named)</span></code></pre></div>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="recursive-vectors-lists.html#cb509-1"></a>xl_named &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">a =</span> <span class="dv">1</span>, <span class="dt">b =</span> <span class="dv">2</span>, <span class="dt">c =</span> <span class="dv">3</span>)</span>
+<span id="cb509-2"><a href="recursive-vectors-lists.html#cb509-2"></a><span class="kw">str</span>(xl_named)</span></code></pre></div>
 <ul>
 <li><code>list()</code> can contain a mix of objects unlike atomic vectors.</li>
 </ul>
-<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="recursive-vectors-lists.html#cb508-1"></a>yl &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;a&quot;</span>, 1L, <span class="fl">1.5</span>, <span class="ot">TRUE</span>)</span>
-<span id="cb508-2"><a href="recursive-vectors-lists.html#cb508-2"></a><span class="kw">str</span>(yl)</span></code></pre></div>
+<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="recursive-vectors-lists.html#cb510-1"></a>yl &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;a&quot;</span>, 1L, <span class="fl">1.5</span>, <span class="ot">TRUE</span>)</span>
+<span id="cb510-2"><a href="recursive-vectors-lists.html#cb510-2"></a><span class="kw">str</span>(yl)</span></code></pre></div>
 <ul>
 <li>Lists can contain other lists!</li>
 </ul>
-<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="recursive-vectors-lists.html#cb509-1"></a>zl &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">list</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="kw">list</span>(<span class="dv">3</span>, <span class="dv">4</span>))</span>
-<span id="cb509-2"><a href="recursive-vectors-lists.html#cb509-2"></a><span class="kw">str</span>(zl)</span></code></pre></div>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="recursive-vectors-lists.html#cb511-1"></a>zl &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">list</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="kw">list</span>(<span class="dv">3</span>, <span class="dv">4</span>))</span>
+<span id="cb511-2"><a href="recursive-vectors-lists.html#cb511-2"></a><span class="kw">str</span>(zl)</span></code></pre></div>
 <div id="visualising-lists" class="section level3 hasAnchor">
 <h3><span class="header-section-number">20.5.1</span> Visualising lists<a href="recursive-vectors-lists.html#visualising-lists" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Let’s see a visual representation of lists. E.g.,</li>
 </ul>
-<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="recursive-vectors-lists.html#cb510-1"></a>x1 &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>))</span>
-<span id="cb510-2"><a href="recursive-vectors-lists.html#cb510-2"></a>x2 &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">list</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="kw">list</span>(<span class="dv">3</span>, <span class="dv">4</span>))</span>
-<span id="cb510-3"><a href="recursive-vectors-lists.html#cb510-3"></a>x3 &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span>, <span class="kw">list</span>(<span class="dv">2</span>, <span class="kw">list</span>(<span class="dv">3</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="recursive-vectors-lists.html#cb512-1"></a>x1 &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>))</span>
+<span id="cb512-2"><a href="recursive-vectors-lists.html#cb512-2"></a>x2 &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">list</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="kw">list</span>(<span class="dv">3</span>, <span class="dv">4</span>))</span>
+<span id="cb512-3"><a href="recursive-vectors-lists.html#cb512-3"></a>x3 &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span>, <span class="kw">list</span>(<span class="dv">2</span>, <span class="kw">list</span>(<span class="dv">3</span>)))</span></code></pre></div>
 <p>A visual drawing of the lists:</p>
 <p><img src="./images/visual_rep_lists.PNG" /></p>
 <p>There are three principles:</p>
@@ -587,26 +587,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>We can subset lists using three ways, let’s see the example below.</li>
 </ul>
-<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="recursive-vectors-lists.html#cb511-1"></a>a &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">a =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">b =</span> <span class="st">&quot;a string&quot;</span>, <span class="dt">c =</span> pi, <span class="dt">d =</span> <span class="kw">list</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">-5</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="recursive-vectors-lists.html#cb513-1"></a>a &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">a =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">b =</span> <span class="st">&quot;a string&quot;</span>, <span class="dt">c =</span> pi, <span class="dt">d =</span> <span class="kw">list</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">-5</span>))</span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li><code>[</code> extracts a sub-list. And the result will always be a list.</li>
 </ol>
-<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="recursive-vectors-lists.html#cb512-1"></a><span class="kw">str</span>(a[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span>
-<span id="cb512-2"><a href="recursive-vectors-lists.html#cb512-2"></a></span>
-<span id="cb512-3"><a href="recursive-vectors-lists.html#cb512-3"></a><span class="kw">str</span>(a[<span class="dv">4</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="recursive-vectors-lists.html#cb514-1"></a><span class="kw">str</span>(a[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span>
+<span id="cb514-2"><a href="recursive-vectors-lists.html#cb514-2"></a></span>
+<span id="cb514-3"><a href="recursive-vectors-lists.html#cb514-3"></a><span class="kw">str</span>(a[<span class="dv">4</span>])</span></code></pre></div>
 <p>We can also subset lists with a logical, integer or character vector as seen in vectors.</p>
 <ol start="2" style="list-style-type: decimal">
 <li><code>[[</code> extracts a single component from a list. It removes a level of hierarchy from the list.</li>
 </ol>
-<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="recursive-vectors-lists.html#cb513-1"></a><span class="kw">str</span>(a[[<span class="dv">1</span>]])</span>
-<span id="cb513-2"><a href="recursive-vectors-lists.html#cb513-2"></a></span>
-<span id="cb513-3"><a href="recursive-vectors-lists.html#cb513-3"></a><span class="kw">str</span>(a[[<span class="dv">4</span>]])</span></code></pre></div>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="recursive-vectors-lists.html#cb515-1"></a><span class="kw">str</span>(a[[<span class="dv">1</span>]])</span>
+<span id="cb515-2"><a href="recursive-vectors-lists.html#cb515-2"></a></span>
+<span id="cb515-3"><a href="recursive-vectors-lists.html#cb515-3"></a><span class="kw">str</span>(a[[<span class="dv">4</span>]])</span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li><code>$</code> is a shorthand to extract named elements of a list. It works similarly to <code>[[</code> except that you don’t need to use quotes.</li>
 </ol>
-<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="recursive-vectors-lists.html#cb514-1"></a>a<span class="op">$</span>a</span>
-<span id="cb514-2"><a href="recursive-vectors-lists.html#cb514-2"></a></span>
-<span id="cb514-3"><a href="recursive-vectors-lists.html#cb514-3"></a>a[[<span class="st">&quot;a&quot;</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="recursive-vectors-lists.html#cb516-1"></a>a<span class="op">$</span>a</span>
+<span id="cb516-2"><a href="recursive-vectors-lists.html#cb516-2"></a></span>
+<span id="cb516-3"><a href="recursive-vectors-lists.html#cb516-3"></a>a[[<span class="st">&quot;a&quot;</span>]]</span></code></pre></div>
 <ul>
 <li>Difference between <code>[</code> and <code>[[</code> is important for lists:
 <ul>
@@ -641,8 +641,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol style="list-style-type: decimal">
 <li>Draw the following lists as nested sets:</li>
 </ol>
-<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="recursive-vectors-lists.html#cb515-1"></a><span class="kw">list</span>(<span class="kw">list</span>(<span class="kw">list</span>(<span class="kw">list</span>(<span class="kw">list</span>(<span class="kw">list</span>(a))))))</span>
-<span id="cb515-2"><a href="recursive-vectors-lists.html#cb515-2"></a><span class="kw">list</span>(a, b, <span class="kw">list</span>(c, d), <span class="kw">list</span>(e, f))</span></code></pre></div>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="recursive-vectors-lists.html#cb517-1"></a><span class="kw">list</span>(<span class="kw">list</span>(<span class="kw">list</span>(<span class="kw">list</span>(<span class="kw">list</span>(<span class="kw">list</span>(a))))))</span>
+<span id="cb517-2"><a href="recursive-vectors-lists.html#cb517-2"></a><span class="kw">list</span>(a, b, <span class="kw">list</span>(c, d), <span class="kw">list</span>(e, f))</span></code></pre></div>
 <p>To draw pretty a visual diagram, refer to <a href="http://rich-iannone.github.io/DiagrammeR/graphviz_and_mermaid.html">DiagramR</a> R Package to render <a href="https://www.graphviz.org/">Graphviz</a> diagrams.</p>
 <p>But what I have is hand-drawn. Not pretty!! :)</p>
 <p>For a:
@@ -652,11 +652,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 2. What happens if you subset a tibble as if you’re subsetting a list? What are the key differences between a list and a tibble?</p>
 <p>Subsetting a tibble works the same way as a list; a data frame can be thought of as a list of columns.</p>
 <p>The key difference between a list and a tibble -&gt; <strong>all the elements (columns) of a tibble must have the same length (number of rows). Lists can have vectors with different lengths as elements.</strong></p>
-<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="recursive-vectors-lists.html#cb516-1"></a>x &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">a =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">b =</span> <span class="dv">3</span><span class="op">:</span><span class="dv">4</span>)</span>
-<span id="cb516-2"><a href="recursive-vectors-lists.html#cb516-2"></a>x[[<span class="st">&quot;a&quot;</span>]]</span>
-<span id="cb516-3"><a href="recursive-vectors-lists.html#cb516-3"></a>x[<span class="st">&quot;a&quot;</span>]</span>
-<span id="cb516-4"><a href="recursive-vectors-lists.html#cb516-4"></a>x[<span class="dv">1</span>]</span>
-<span id="cb516-5"><a href="recursive-vectors-lists.html#cb516-5"></a>x[<span class="dv">1</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="recursive-vectors-lists.html#cb518-1"></a>x &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">a =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">b =</span> <span class="dv">3</span><span class="op">:</span><span class="dv">4</span>)</span>
+<span id="cb518-2"><a href="recursive-vectors-lists.html#cb518-2"></a>x[[<span class="st">&quot;a&quot;</span>]]</span>
+<span id="cb518-3"><a href="recursive-vectors-lists.html#cb518-3"></a>x[<span class="st">&quot;a&quot;</span>]</span>
+<span id="cb518-4"><a href="recursive-vectors-lists.html#cb518-4"></a>x[<span class="dv">1</span>]</span>
+<span id="cb518-5"><a href="recursive-vectors-lists.html#cb518-5"></a>x[<span class="dv">1</span>, ]</span></code></pre></div>
 </div>
 </div>
             </section>

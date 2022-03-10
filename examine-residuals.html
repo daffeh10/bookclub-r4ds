@@ -24,7 +24,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-03-03" />
+<meta name="date" content="2022-03-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -536,26 +536,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="examine-residuals" class="section level2 hasAnchor">
 <h2><span class="header-section-number">24.3</span> Examine Residuals<a href="examine-residuals.html#examine-residuals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="examine-residuals.html#cb541-1"></a>diamonds2 &lt;-<span class="st"> </span>diamonds2 <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb541-2"><a href="examine-residuals.html#cb541-2"></a><span class="st">  </span><span class="kw">add_residuals</span>(mod_diamond, <span class="st">&quot;log_resid&quot;</span>)</span>
-<span id="cb541-3"><a href="examine-residuals.html#cb541-3"></a></span>
-<span id="cb541-4"><a href="examine-residuals.html#cb541-4"></a><span class="kw">ggplot</span>(diamonds2) <span class="op">+</span></span>
-<span id="cb541-5"><a href="examine-residuals.html#cb541-5"></a><span class="st">  </span><span class="kw">aes</span>(log_carat, log_resid) <span class="op">+</span></span>
-<span id="cb541-6"><a href="examine-residuals.html#cb541-6"></a><span class="st">  </span><span class="kw">geom_hex</span>(<span class="dt">bins =</span> <span class="dv">50</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="examine-residuals.html#cb546-1"></a>diamonds2 &lt;-<span class="st"> </span>diamonds2 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb546-2"><a href="examine-residuals.html#cb546-2"></a><span class="st">  </span><span class="kw">add_residuals</span>(mod_diamond, <span class="st">&quot;log_resid&quot;</span>)</span>
+<span id="cb546-3"><a href="examine-residuals.html#cb546-3"></a></span>
+<span id="cb546-4"><a href="examine-residuals.html#cb546-4"></a><span class="kw">ggplot</span>(diamonds2) <span class="op">+</span></span>
+<span id="cb546-5"><a href="examine-residuals.html#cb546-5"></a><span class="st">  </span><span class="kw">aes</span>(log_carat, log_resid) <span class="op">+</span></span>
+<span id="cb546-6"><a href="examine-residuals.html#cb546-6"></a><span class="st">  </span><span class="kw">geom_hex</span>(<span class="dt">bins =</span> <span class="dv">50</span>)</span></code></pre></div>
 <pre><code>## Warning: Computation failed in `stat_binhex()`:</code></pre>
 <p><img src="bookclub-r4ds_files/figure-html/24-residuals-1.png" width="672" /></p>
-<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="examine-residuals.html#cb543-1"></a>base_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(diamonds2) <span class="op">+</span></span>
-<span id="cb543-2"><a href="examine-residuals.html#cb543-2"></a><span class="st">  </span><span class="kw">aes</span>(<span class="dt">y =</span> log_resid) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb543-3"><a href="examine-residuals.html#cb543-3"></a><span class="st">  </span><span class="kw">geom_boxplot</span>()</span>
-<span id="cb543-4"><a href="examine-residuals.html#cb543-4"></a></span>
-<span id="cb543-5"><a href="examine-residuals.html#cb543-5"></a>base_plot <span class="op">+</span></span>
-<span id="cb543-6"><a href="examine-residuals.html#cb543-6"></a><span class="st">  </span><span class="kw">aes</span>(cut)</span></code></pre></div>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="examine-residuals.html#cb548-1"></a>base_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(diamonds2) <span class="op">+</span></span>
+<span id="cb548-2"><a href="examine-residuals.html#cb548-2"></a><span class="st">  </span><span class="kw">aes</span>(<span class="dt">y =</span> log_resid) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb548-3"><a href="examine-residuals.html#cb548-3"></a><span class="st">  </span><span class="kw">geom_boxplot</span>()</span>
+<span id="cb548-4"><a href="examine-residuals.html#cb548-4"></a></span>
+<span id="cb548-5"><a href="examine-residuals.html#cb548-5"></a>base_plot <span class="op">+</span></span>
+<span id="cb548-6"><a href="examine-residuals.html#cb548-6"></a><span class="st">  </span><span class="kw">aes</span>(cut)</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/24-residuals-plots-1.png" width="672" /></p>
-<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="examine-residuals.html#cb544-1"></a>base_plot <span class="op">+</span></span>
-<span id="cb544-2"><a href="examine-residuals.html#cb544-2"></a><span class="st">  </span><span class="kw">aes</span>(color)</span></code></pre></div>
+<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="examine-residuals.html#cb549-1"></a>base_plot <span class="op">+</span></span>
+<span id="cb549-2"><a href="examine-residuals.html#cb549-2"></a><span class="st">  </span><span class="kw">aes</span>(color)</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/24-residuals-plots-2.png" width="672" /></p>
-<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="examine-residuals.html#cb545-1"></a>base_plot <span class="op">+</span></span>
-<span id="cb545-2"><a href="examine-residuals.html#cb545-2"></a><span class="st">  </span><span class="kw">aes</span>(clarity)</span></code></pre></div>
+<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="examine-residuals.html#cb550-1"></a>base_plot <span class="op">+</span></span>
+<span id="cb550-2"><a href="examine-residuals.html#cb550-2"></a><span class="st">  </span><span class="kw">aes</span>(clarity)</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/24-residuals-plots-3.png" width="672" /></p>
 </div>
             </section>

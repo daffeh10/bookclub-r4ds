@@ -24,7 +24,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-03-03" />
+<meta name="date" content="2022-03-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -536,75 +536,75 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="feature-engineering" class="section level2 hasAnchor">
 <h2><span class="header-section-number">24.5</span> Feature Engineering<a href="feature-engineering.html#feature-engineering" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="feature-engineering.html#cb551-1"></a>daily &lt;-<span class="st"> </span>flights <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb551-2"><a href="feature-engineering.html#cb551-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">date =</span> <span class="kw">make_date</span>(year, month, day)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb551-3"><a href="feature-engineering.html#cb551-3"></a><span class="st">  </span><span class="kw">group_by</span>(date) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb551-4"><a href="feature-engineering.html#cb551-4"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>())</span>
-<span id="cb551-5"><a href="feature-engineering.html#cb551-5"></a></span>
-<span id="cb551-6"><a href="feature-engineering.html#cb551-6"></a><span class="kw">ggplot</span>(daily) <span class="op">+</span></span>
-<span id="cb551-7"><a href="feature-engineering.html#cb551-7"></a><span class="st">  </span><span class="kw">aes</span>(date, n) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb551-8"><a href="feature-engineering.html#cb551-8"></a><span class="st">  </span><span class="kw">geom_line</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="feature-engineering.html#cb556-1"></a>daily &lt;-<span class="st"> </span>flights <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb556-2"><a href="feature-engineering.html#cb556-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">date =</span> <span class="kw">make_date</span>(year, month, day)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb556-3"><a href="feature-engineering.html#cb556-3"></a><span class="st">  </span><span class="kw">group_by</span>(date) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb556-4"><a href="feature-engineering.html#cb556-4"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>())</span>
+<span id="cb556-5"><a href="feature-engineering.html#cb556-5"></a></span>
+<span id="cb556-6"><a href="feature-engineering.html#cb556-6"></a><span class="kw">ggplot</span>(daily) <span class="op">+</span></span>
+<span id="cb556-7"><a href="feature-engineering.html#cb556-7"></a><span class="st">  </span><span class="kw">aes</span>(date, n) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb556-8"><a href="feature-engineering.html#cb556-8"></a><span class="st">  </span><span class="kw">geom_line</span>()</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/24-flights-1.png" width="672" /></p>
 <p>Feature engineering = using data to create new features to use in models</p>
-<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="feature-engineering.html#cb552-1"></a>daily &lt;-<span class="st"> </span>daily <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb552-2"><a href="feature-engineering.html#cb552-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">wday =</span> <span class="kw">wday</span>(date, <span class="dt">label =</span> <span class="ot">TRUE</span>, <span class="dt">week_start =</span> <span class="dv">1</span>))</span>
-<span id="cb552-3"><a href="feature-engineering.html#cb552-3"></a><span class="kw">ggplot</span>(daily) <span class="op">+</span></span>
-<span id="cb552-4"><a href="feature-engineering.html#cb552-4"></a><span class="st">  </span><span class="kw">aes</span>(wday, n) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb552-5"><a href="feature-engineering.html#cb552-5"></a><span class="st">  </span><span class="kw">geom_boxplot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="feature-engineering.html#cb557-1"></a>daily &lt;-<span class="st"> </span>daily <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb557-2"><a href="feature-engineering.html#cb557-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">wday =</span> <span class="kw">wday</span>(date, <span class="dt">label =</span> <span class="ot">TRUE</span>, <span class="dt">week_start =</span> <span class="dv">1</span>))</span>
+<span id="cb557-3"><a href="feature-engineering.html#cb557-3"></a><span class="kw">ggplot</span>(daily) <span class="op">+</span></span>
+<span id="cb557-4"><a href="feature-engineering.html#cb557-4"></a><span class="st">  </span><span class="kw">aes</span>(wday, n) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb557-5"><a href="feature-engineering.html#cb557-5"></a><span class="st">  </span><span class="kw">geom_boxplot</span>()</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/24-wday-1.png" width="672" /></p>
-<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="feature-engineering.html#cb553-1"></a>mod &lt;-<span class="st"> </span><span class="kw">lm</span>(n <span class="op">~</span><span class="st"> </span>wday, <span class="dt">data =</span> daily)</span>
-<span id="cb553-2"><a href="feature-engineering.html#cb553-2"></a></span>
-<span id="cb553-3"><a href="feature-engineering.html#cb553-3"></a>grid &lt;-<span class="st"> </span>daily <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb553-4"><a href="feature-engineering.html#cb553-4"></a><span class="st">  </span><span class="kw">data_grid</span>(wday) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb553-5"><a href="feature-engineering.html#cb553-5"></a><span class="st">  </span><span class="kw">add_predictions</span>(mod, <span class="st">&quot;n&quot;</span>)</span>
-<span id="cb553-6"><a href="feature-engineering.html#cb553-6"></a></span>
-<span id="cb553-7"><a href="feature-engineering.html#cb553-7"></a><span class="kw">ggplot</span>(daily) <span class="op">+</span></span>
-<span id="cb553-8"><a href="feature-engineering.html#cb553-8"></a><span class="st">  </span><span class="kw">aes</span>(wday, n) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb553-9"><a href="feature-engineering.html#cb553-9"></a><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></span>
-<span id="cb553-10"><a href="feature-engineering.html#cb553-10"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> grid, <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="feature-engineering.html#cb558-1"></a>mod &lt;-<span class="st"> </span><span class="kw">lm</span>(n <span class="op">~</span><span class="st"> </span>wday, <span class="dt">data =</span> daily)</span>
+<span id="cb558-2"><a href="feature-engineering.html#cb558-2"></a></span>
+<span id="cb558-3"><a href="feature-engineering.html#cb558-3"></a>grid &lt;-<span class="st"> </span>daily <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb558-4"><a href="feature-engineering.html#cb558-4"></a><span class="st">  </span><span class="kw">data_grid</span>(wday) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb558-5"><a href="feature-engineering.html#cb558-5"></a><span class="st">  </span><span class="kw">add_predictions</span>(mod, <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb558-6"><a href="feature-engineering.html#cb558-6"></a></span>
+<span id="cb558-7"><a href="feature-engineering.html#cb558-7"></a><span class="kw">ggplot</span>(daily) <span class="op">+</span></span>
+<span id="cb558-8"><a href="feature-engineering.html#cb558-8"></a><span class="st">  </span><span class="kw">aes</span>(wday, n) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb558-9"><a href="feature-engineering.html#cb558-9"></a><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></span>
+<span id="cb558-10"><a href="feature-engineering.html#cb558-10"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> grid, <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">4</span>)</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/24-wday-mod-1.png" width="672" /></p>
-<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="feature-engineering.html#cb554-1"></a>daily &lt;-<span class="st"> </span>daily <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb554-2"><a href="feature-engineering.html#cb554-2"></a><span class="st">  </span><span class="kw">add_residuals</span>(mod)</span>
-<span id="cb554-3"><a href="feature-engineering.html#cb554-3"></a></span>
-<span id="cb554-4"><a href="feature-engineering.html#cb554-4"></a>base_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(daily) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb554-5"><a href="feature-engineering.html#cb554-5"></a><span class="st">  </span><span class="kw">aes</span>(date, resid) <span class="op">+</span></span>
-<span id="cb554-6"><a href="feature-engineering.html#cb554-6"></a><span class="st">  </span><span class="kw">geom_ref_line</span>(<span class="dt">h =</span> <span class="dv">0</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb554-7"><a href="feature-engineering.html#cb554-7"></a><span class="st">  </span><span class="kw">geom_line</span>()</span>
-<span id="cb554-8"><a href="feature-engineering.html#cb554-8"></a></span>
-<span id="cb554-9"><a href="feature-engineering.html#cb554-9"></a>base_plot</span></code></pre></div>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="feature-engineering.html#cb559-1"></a>daily &lt;-<span class="st"> </span>daily <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb559-2"><a href="feature-engineering.html#cb559-2"></a><span class="st">  </span><span class="kw">add_residuals</span>(mod)</span>
+<span id="cb559-3"><a href="feature-engineering.html#cb559-3"></a></span>
+<span id="cb559-4"><a href="feature-engineering.html#cb559-4"></a>base_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(daily) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb559-5"><a href="feature-engineering.html#cb559-5"></a><span class="st">  </span><span class="kw">aes</span>(date, resid) <span class="op">+</span></span>
+<span id="cb559-6"><a href="feature-engineering.html#cb559-6"></a><span class="st">  </span><span class="kw">geom_ref_line</span>(<span class="dt">h =</span> <span class="dv">0</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb559-7"><a href="feature-engineering.html#cb559-7"></a><span class="st">  </span><span class="kw">geom_line</span>()</span>
+<span id="cb559-8"><a href="feature-engineering.html#cb559-8"></a></span>
+<span id="cb559-9"><a href="feature-engineering.html#cb559-9"></a>base_plot</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/24-wday-residuals-1.png" width="672" /></p>
-<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="feature-engineering.html#cb555-1"></a>base_plot <span class="op">+</span></span>
-<span id="cb555-2"><a href="feature-engineering.html#cb555-2"></a><span class="st">  </span><span class="kw">aes</span>(<span class="dt">color =</span> wday)</span></code></pre></div>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="feature-engineering.html#cb560-1"></a>base_plot <span class="op">+</span></span>
+<span id="cb560-2"><a href="feature-engineering.html#cb560-2"></a><span class="st">  </span><span class="kw">aes</span>(<span class="dt">color =</span> wday)</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/24-wday-residuals-2.png" width="672" /></p>
-<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="feature-engineering.html#cb556-1"></a>base_plot <span class="op">+</span><span class="st"> </span></span>
-<span id="cb556-2"><a href="feature-engineering.html#cb556-2"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">span =</span> <span class="fl">0.20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="feature-engineering.html#cb561-1"></a>base_plot <span class="op">+</span><span class="st"> </span></span>
+<span id="cb561-2"><a href="feature-engineering.html#cb561-2"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">span =</span> <span class="fl">0.20</span>)</span></code></pre></div>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <p><img src="bookclub-r4ds_files/figure-html/24-wday-residuals-3.png" width="672" /></p>
-<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="feature-engineering.html#cb558-1"></a>daily <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb558-2"><a href="feature-engineering.html#cb558-2"></a><span class="st">  </span><span class="kw">filter</span>(resid <span class="op">&lt;</span><span class="st"> </span><span class="dv">-100</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb558-3"><a href="feature-engineering.html#cb558-3"></a><span class="st">  </span><span class="kw">pull</span>(date, wday)</span></code></pre></div>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="feature-engineering.html#cb563-1"></a>daily <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb563-2"><a href="feature-engineering.html#cb563-2"></a><span class="st">  </span><span class="kw">filter</span>(resid <span class="op">&lt;</span><span class="st"> </span><span class="dv">-100</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb563-3"><a href="feature-engineering.html#cb563-3"></a><span class="st">  </span><span class="kw">pull</span>(date, wday)</span></code></pre></div>
 <pre><code>##          Tue          Sun          Sun          Thu          Fri          Sun 
 ## &quot;2013-01-01&quot; &quot;2013-01-20&quot; &quot;2013-05-26&quot; &quot;2013-07-04&quot; &quot;2013-07-05&quot; &quot;2013-09-01&quot; 
 ##          Thu          Fri          Tue          Wed          Tue 
 ## &quot;2013-11-28&quot; &quot;2013-11-29&quot; &quot;2013-12-24&quot; &quot;2013-12-25&quot; &quot;2013-12-31&quot;</code></pre>
-<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="feature-engineering.html#cb560-1"></a>term &lt;-<span class="st"> </span><span class="cf">function</span>(date) {</span>
-<span id="cb560-2"><a href="feature-engineering.html#cb560-2"></a>  <span class="kw">cut</span>(date, </span>
-<span id="cb560-3"><a href="feature-engineering.html#cb560-3"></a>    <span class="dt">breaks =</span> <span class="kw">ymd</span>(<span class="dv">20130101</span>, <span class="dv">20130605</span>, <span class="dv">20130825</span>, <span class="dv">20140101</span>),</span>
-<span id="cb560-4"><a href="feature-engineering.html#cb560-4"></a>    <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;spring&quot;</span>, <span class="st">&quot;summer&quot;</span>, <span class="st">&quot;fall&quot;</span>) </span>
-<span id="cb560-5"><a href="feature-engineering.html#cb560-5"></a>  )</span>
-<span id="cb560-6"><a href="feature-engineering.html#cb560-6"></a>}</span>
-<span id="cb560-7"><a href="feature-engineering.html#cb560-7"></a></span>
-<span id="cb560-8"><a href="feature-engineering.html#cb560-8"></a>daily &lt;-<span class="st"> </span>daily <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb560-9"><a href="feature-engineering.html#cb560-9"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">term =</span> <span class="kw">term</span>(date)) </span>
-<span id="cb560-10"><a href="feature-engineering.html#cb560-10"></a></span>
-<span id="cb560-11"><a href="feature-engineering.html#cb560-11"></a>mod2 &lt;-<span class="st"> </span>MASS<span class="op">::</span><span class="kw">rlm</span>(n <span class="op">~</span><span class="st"> </span>wday <span class="op">*</span><span class="st"> </span>term, <span class="dt">data =</span> daily)</span>
-<span id="cb560-12"><a href="feature-engineering.html#cb560-12"></a></span>
-<span id="cb560-13"><a href="feature-engineering.html#cb560-13"></a>daily <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb560-14"><a href="feature-engineering.html#cb560-14"></a><span class="st">  </span><span class="kw">add_residuals</span>(mod2, <span class="st">&quot;resid&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb560-15"><a href="feature-engineering.html#cb560-15"></a><span class="st">  </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></span>
-<span id="cb560-16"><a href="feature-engineering.html#cb560-16"></a><span class="st">  </span><span class="kw">aes</span>(date, resid) <span class="op">+</span></span>
-<span id="cb560-17"><a href="feature-engineering.html#cb560-17"></a><span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>, <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">colour =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb560-18"><a href="feature-engineering.html#cb560-18"></a><span class="st">  </span><span class="kw">geom_line</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="feature-engineering.html#cb565-1"></a>term &lt;-<span class="st"> </span><span class="cf">function</span>(date) {</span>
+<span id="cb565-2"><a href="feature-engineering.html#cb565-2"></a>  <span class="kw">cut</span>(date, </span>
+<span id="cb565-3"><a href="feature-engineering.html#cb565-3"></a>    <span class="dt">breaks =</span> <span class="kw">ymd</span>(<span class="dv">20130101</span>, <span class="dv">20130605</span>, <span class="dv">20130825</span>, <span class="dv">20140101</span>),</span>
+<span id="cb565-4"><a href="feature-engineering.html#cb565-4"></a>    <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;spring&quot;</span>, <span class="st">&quot;summer&quot;</span>, <span class="st">&quot;fall&quot;</span>) </span>
+<span id="cb565-5"><a href="feature-engineering.html#cb565-5"></a>  )</span>
+<span id="cb565-6"><a href="feature-engineering.html#cb565-6"></a>}</span>
+<span id="cb565-7"><a href="feature-engineering.html#cb565-7"></a></span>
+<span id="cb565-8"><a href="feature-engineering.html#cb565-8"></a>daily &lt;-<span class="st"> </span>daily <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb565-9"><a href="feature-engineering.html#cb565-9"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">term =</span> <span class="kw">term</span>(date)) </span>
+<span id="cb565-10"><a href="feature-engineering.html#cb565-10"></a></span>
+<span id="cb565-11"><a href="feature-engineering.html#cb565-11"></a>mod2 &lt;-<span class="st"> </span>MASS<span class="op">::</span><span class="kw">rlm</span>(n <span class="op">~</span><span class="st"> </span>wday <span class="op">*</span><span class="st"> </span>term, <span class="dt">data =</span> daily)</span>
+<span id="cb565-12"><a href="feature-engineering.html#cb565-12"></a></span>
+<span id="cb565-13"><a href="feature-engineering.html#cb565-13"></a>daily <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb565-14"><a href="feature-engineering.html#cb565-14"></a><span class="st">  </span><span class="kw">add_residuals</span>(mod2, <span class="st">&quot;resid&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb565-15"><a href="feature-engineering.html#cb565-15"></a><span class="st">  </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb565-16"><a href="feature-engineering.html#cb565-16"></a><span class="st">  </span><span class="kw">aes</span>(date, resid) <span class="op">+</span></span>
+<span id="cb565-17"><a href="feature-engineering.html#cb565-17"></a><span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>, <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">colour =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb565-18"><a href="feature-engineering.html#cb565-18"></a><span class="st">  </span><span class="kw">geom_line</span>()</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/24-seasonal-1.png" width="672" /></p>
 </div>
             </section>

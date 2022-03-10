@@ -24,7 +24,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-03-03" />
+<meta name="date" content="2022-03-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -536,22 +536,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="build-a-linear-model" class="section level2 hasAnchor">
 <h2><span class="header-section-number">24.2</span> Build a Linear Model<a href="build-a-linear-model.html#build-a-linear-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="build-a-linear-model.html#cb539-1"></a>diamonds2 &lt;-<span class="st"> </span>diamonds <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb539-2"><a href="build-a-linear-model.html#cb539-2"></a><span class="st">  </span><span class="kw">filter</span>(carat <span class="op">&lt;=</span><span class="st"> </span><span class="fl">2.5</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb539-3"><a href="build-a-linear-model.html#cb539-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">log_price =</span> <span class="kw">log2</span>(price), <span class="dt">log_carat =</span> <span class="kw">log2</span>(carat))</span>
-<span id="cb539-4"><a href="build-a-linear-model.html#cb539-4"></a></span>
-<span id="cb539-5"><a href="build-a-linear-model.html#cb539-5"></a>mod_diamond &lt;-<span class="st"> </span><span class="kw">lm</span>(log_price <span class="op">~</span><span class="st"> </span>log_carat, <span class="dt">data =</span> diamonds2)</span>
-<span id="cb539-6"><a href="build-a-linear-model.html#cb539-6"></a></span>
-<span id="cb539-7"><a href="build-a-linear-model.html#cb539-7"></a>grid &lt;-<span class="st"> </span>diamonds2 <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb539-8"><a href="build-a-linear-model.html#cb539-8"></a><span class="st">  </span><span class="kw">data_grid</span>(<span class="dt">carat =</span> <span class="kw">seq_range</span>(carat, <span class="dv">20</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb539-9"><a href="build-a-linear-model.html#cb539-9"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">log_carat =</span> <span class="kw">log2</span>(carat)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb539-10"><a href="build-a-linear-model.html#cb539-10"></a><span class="st">  </span><span class="kw">add_predictions</span>(mod_diamond, <span class="st">&quot;log_price&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb539-11"><a href="build-a-linear-model.html#cb539-11"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">price =</span> <span class="dv">2</span> <span class="op">^</span><span class="st"> </span>log_price)</span>
-<span id="cb539-12"><a href="build-a-linear-model.html#cb539-12"></a></span>
-<span id="cb539-13"><a href="build-a-linear-model.html#cb539-13"></a><span class="kw">ggplot</span>(diamonds2) <span class="op">+</span></span>
-<span id="cb539-14"><a href="build-a-linear-model.html#cb539-14"></a><span class="st">  </span><span class="kw">aes</span>(carat, price) <span class="op">+</span></span>
-<span id="cb539-15"><a href="build-a-linear-model.html#cb539-15"></a><span class="st">  </span><span class="kw">geom_hex</span>(<span class="dt">bins =</span> <span class="dv">50</span>) <span class="op">+</span></span>
-<span id="cb539-16"><a href="build-a-linear-model.html#cb539-16"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">data =</span> grid, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="build-a-linear-model.html#cb544-1"></a>diamonds2 &lt;-<span class="st"> </span>diamonds <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb544-2"><a href="build-a-linear-model.html#cb544-2"></a><span class="st">  </span><span class="kw">filter</span>(carat <span class="op">&lt;=</span><span class="st"> </span><span class="fl">2.5</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb544-3"><a href="build-a-linear-model.html#cb544-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">log_price =</span> <span class="kw">log2</span>(price), <span class="dt">log_carat =</span> <span class="kw">log2</span>(carat))</span>
+<span id="cb544-4"><a href="build-a-linear-model.html#cb544-4"></a></span>
+<span id="cb544-5"><a href="build-a-linear-model.html#cb544-5"></a>mod_diamond &lt;-<span class="st"> </span><span class="kw">lm</span>(log_price <span class="op">~</span><span class="st"> </span>log_carat, <span class="dt">data =</span> diamonds2)</span>
+<span id="cb544-6"><a href="build-a-linear-model.html#cb544-6"></a></span>
+<span id="cb544-7"><a href="build-a-linear-model.html#cb544-7"></a>grid &lt;-<span class="st"> </span>diamonds2 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb544-8"><a href="build-a-linear-model.html#cb544-8"></a><span class="st">  </span><span class="kw">data_grid</span>(<span class="dt">carat =</span> <span class="kw">seq_range</span>(carat, <span class="dv">20</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb544-9"><a href="build-a-linear-model.html#cb544-9"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">log_carat =</span> <span class="kw">log2</span>(carat)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb544-10"><a href="build-a-linear-model.html#cb544-10"></a><span class="st">  </span><span class="kw">add_predictions</span>(mod_diamond, <span class="st">&quot;log_price&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb544-11"><a href="build-a-linear-model.html#cb544-11"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">price =</span> <span class="dv">2</span> <span class="op">^</span><span class="st"> </span>log_price)</span>
+<span id="cb544-12"><a href="build-a-linear-model.html#cb544-12"></a></span>
+<span id="cb544-13"><a href="build-a-linear-model.html#cb544-13"></a><span class="kw">ggplot</span>(diamonds2) <span class="op">+</span></span>
+<span id="cb544-14"><a href="build-a-linear-model.html#cb544-14"></a><span class="st">  </span><span class="kw">aes</span>(carat, price) <span class="op">+</span></span>
+<span id="cb544-15"><a href="build-a-linear-model.html#cb544-15"></a><span class="st">  </span><span class="kw">geom_hex</span>(<span class="dt">bins =</span> <span class="dv">50</span>) <span class="op">+</span></span>
+<span id="cb544-16"><a href="build-a-linear-model.html#cb544-16"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">data =</span> grid, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## Warning: Computation failed in `stat_binhex()`:</code></pre>
 <p><img src="bookclub-r4ds_files/figure-html/24-lm-1.png" width="672" /></p>
 </div>
