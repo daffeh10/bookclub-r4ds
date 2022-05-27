@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-05-12" />
+<meta name="date" content="2022-05-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -49,7 +49,6 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
@@ -59,18 +58,18 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -90,7 +89,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -140,85 +139,89 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">R for Data Science Book Club</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
+<ul>
 <li class="chapter" data-level="" data-path="book-club-meetings.html"><a href="book-club-meetings.html"><i class="fa fa-check"></i>Book club meetings</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="introduction-preface.html"><a href="introduction-preface.html"><i class="fa fa-check"></i><b>1</b> Introduction (Preface)</a><ul>
+<li class="chapter" data-level="1" data-path="introduction-preface.html"><a href="introduction-preface.html"><i class="fa fa-check"></i><b>1</b> Introduction (Preface)</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="a-typical-data-science-project.html"><a href="a-typical-data-science-project.html"><i class="fa fa-check"></i><b>1.1</b> A typical data science project</a></li>
 <li class="chapter" data-level="1.2" data-path="the-order-of-content-in-this-book.html"><a href="the-order-of-content-in-this-book.html"><i class="fa fa-check"></i><b>1.2</b> The order of content in this book</a></li>
 <li class="chapter" data-level="1.3" data-path="not-covered-by-this-book.html"><a href="not-covered-by-this-book.html"><i class="fa fa-check"></i><b>1.3</b> Not covered by this book</a></li>
 <li class="chapter" data-level="1.4" data-path="setting-up-an-environment.html"><a href="setting-up-an-environment.html"><i class="fa fa-check"></i><b>1.4</b> Setting up an environment</a></li>
 <li class="chapter" data-level="1.5" data-path="running-r-code.html"><a href="running-r-code.html"><i class="fa fa-check"></i><b>1.5</b> Running R code</a></li>
 <li class="chapter" data-level="1.6" data-path="getting-help.html"><a href="getting-help.html"><i class="fa fa-check"></i><b>1.6</b> Getting help</a></li>
-<li class="chapter" data-level="1.7" data-path="meeting-videos.html"><a href="meeting-videos.html"><i class="fa fa-check"></i><b>1.7</b> Meeting Videos</a><ul>
+<li class="chapter" data-level="1.7" data-path="meeting-videos.html"><a href="meeting-videos.html"><i class="fa fa-check"></i><b>1.7</b> Meeting Videos</a>
+<ul>
 <li class="chapter" data-level="1.7.1" data-path="meeting-videos.html"><a href="meeting-videos.html#cohort-5"><i class="fa fa-check"></i><b>1.7.1</b> Cohort 5</a></li>
 <li class="chapter" data-level="1.7.2" data-path="meeting-videos.html"><a href="meeting-videos.html#cohort-6"><i class="fa fa-check"></i><b>1.7.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>I Explore</b></span></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>3</b> Data visualisation</a><ul>
+<li class="chapter" data-level="3" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>3</b> Data visualisation</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="loading-packages-in-r.html"><a href="loading-packages-in-r.html"><i class="fa fa-check"></i><b>3.1</b> Loading Packages in R</a></li>
-<li class="chapter" data-level="3.2" data-path="first-steps.html"><a href="first-steps.html"><i class="fa fa-check"></i><b>3.2</b> First Steps</a><ul>
+<li class="chapter" data-level="3.2" data-path="first-steps.html"><a href="first-steps.html"><i class="fa fa-check"></i><b>3.2</b> First Steps</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="first-steps.html"><a href="first-steps.html#how-to-visualise-your-data-using-ggplot2"><i class="fa fa-check"></i><b>3.2.1</b> How to visualise your data using ggplot2</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="geometry.html"><a href="geometry.html"><i class="fa fa-check"></i><b>3.3</b> Geometry</a></li>
 <li class="chapter" data-level="3.4" data-path="aesthetic-mappings.html"><a href="aesthetic-mappings.html"><i class="fa fa-check"></i><b>3.4</b> Aesthetic mappings</a></li>
 <li class="chapter" data-level="3.5" data-path="common-problems.html"><a href="common-problems.html"><i class="fa fa-check"></i><b>3.5</b> Common problems</a></li>
-<li class="chapter" data-level="3.6" data-path="other-function-and-features.html"><a href="other-function-and-features.html"><i class="fa fa-check"></i><b>3.6</b> Other function and features</a><ul>
+<li class="chapter" data-level="3.6" data-path="other-function-and-features.html"><a href="other-function-and-features.html"><i class="fa fa-check"></i><b>3.6</b> Other function and features</a>
+<ul>
 <li class="chapter" data-level="3.6.1" data-path="other-function-and-features.html"><a href="other-function-and-features.html#facets"><i class="fa fa-check"></i><b>3.6.1</b> Facets</a></li>
 <li class="chapter" data-level="3.6.2" data-path="other-function-and-features.html"><a href="other-function-and-features.html#statistical-transformations"><i class="fa fa-check"></i><b>3.6.2</b> Statistical transformations</a></li>
 <li class="chapter" data-level="3.6.3" data-path="other-function-and-features.html"><a href="other-function-and-features.html#position-adjustments"><i class="fa fa-check"></i><b>3.6.3</b> Position adjustments</a></li>
 <li class="chapter" data-level="3.6.4" data-path="other-function-and-features.html"><a href="other-function-and-features.html#coordinate-systems"><i class="fa fa-check"></i><b>3.6.4</b> Coordinate systems</a></li>
 <li class="chapter" data-level="3.6.5" data-path="other-function-and-features.html"><a href="other-function-and-features.html#theme"><i class="fa fa-check"></i><b>3.6.5</b> Theme</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="to-summarize-the-gg-in-ggplot.html"><a href="to-summarize-the-gg-in-ggplot.html"><i class="fa fa-check"></i><b>3.7</b> To summarize: The gg in {ggplot}</a><ul>
+<li class="chapter" data-level="3.7" data-path="to-summarize-the-gg-in-ggplot.html"><a href="to-summarize-the-gg-in-ggplot.html"><i class="fa fa-check"></i><b>3.7</b> To summarize: The gg in {ggplot}</a>
+<ul>
 <li class="chapter" data-level="3.7.1" data-path="to-summarize-the-gg-in-ggplot.html"><a href="to-summarize-the-gg-in-ggplot.html#exercises"><i class="fa fa-check"></i><b>3.7.1</b> Exercises:</a></li>
 <li class="chapter" data-level="3.7.2" data-path="to-summarize-the-gg-in-ggplot.html"><a href="to-summarize-the-gg-in-ggplot.html#resources"><i class="fa fa-check"></i><b>3.7.2</b> Resources:</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="meeting-videos-1.html"><a href="meeting-videos-1.html"><i class="fa fa-check"></i><b>3.8</b> Meeting Videos</a><ul>
+<li class="chapter" data-level="3.8" data-path="meeting-videos-1.html"><a href="meeting-videos-1.html"><i class="fa fa-check"></i><b>3.8</b> Meeting Videos</a>
+<ul>
 <li class="chapter" data-level="3.8.1" data-path="meeting-videos-1.html"><a href="meeting-videos-1.html#cohort-5-1"><i class="fa fa-check"></i><b>3.8.1</b> Cohort 5</a></li>
 <li class="chapter" data-level="3.8.2" data-path="meeting-videos-1.html"><a href="meeting-videos-1.html#cohort-6-1"><i class="fa fa-check"></i><b>3.8.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="workflow-basics.html"><a href="workflow-basics.html"><i class="fa fa-check"></i><b>4</b> Workflow: basics</a><ul>
+<li class="chapter" data-level="4" data-path="workflow-basics.html"><a href="workflow-basics.html"><i class="fa fa-check"></i><b>4</b> Workflow: basics</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="the-console-pane.html"><a href="the-console-pane.html"><i class="fa fa-check"></i><b>4.1</b> The Console Pane</a></li>
-<li class="chapter" data-level="" data-path="the-script-pane.html"><a href="the-script-pane.html"><i class="fa fa-check"></i>The Script Pane</a></li>
-<li class="chapter" data-level="" data-path="the-environment-pane.html"><a href="the-environment-pane.html"><i class="fa fa-check"></i>The Environment Pane</a></li>
-<li class="chapter" data-level="" data-path="the-other-pane.html"><a href="the-other-pane.html"><i class="fa fa-check"></i>The Other Pane</a></li>
-<li class="chapter" data-level="" data-path="using-the-console.html"><a href="using-the-console.html"><i class="fa fa-check"></i>Using the Console</a></li>
-<li class="chapter" data-level="" data-path="using-the-console-1.html"><a href="using-the-console-1.html"><i class="fa fa-check"></i>Using the Console</a></li>
-<li class="chapter" data-level="" data-path="using-the-console-2.html"><a href="using-the-console-2.html"><i class="fa fa-check"></i>Using the Console</a></li>
-<li class="chapter" data-level="" data-path="using-the-console-3.html"><a href="using-the-console-3.html"><i class="fa fa-check"></i>Using the Console</a></li>
-<li class="chapter" data-level="" data-path="assigning-names.html"><a href="assigning-names.html"><i class="fa fa-check"></i>Assigning Names</a></li>
-<li class="chapter" data-level="" data-path="assigning-and-printing.html"><a href="assigning-and-printing.html"><i class="fa fa-check"></i>Assigning and Printing</a></li>
-<li class="chapter" data-level="" data-path="pronouncing-code.html"><a href="pronouncing-code.html"><i class="fa fa-check"></i>Pronouncing Code</a></li>
 <li class="chapter" data-level="4.2" data-path="naming-things.html"><a href="naming-things.html"><i class="fa fa-check"></i><b>4.2</b> Naming Things</a></li>
 <li class="chapter" data-level="4.3" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>4.3</b> Functions</a></li>
-<li class="chapter" data-level="" data-path="functions-1.html"><a href="functions-1.html"><i class="fa fa-check"></i>Functions</a></li>
-<li class="chapter" data-level="" data-path="other-rstudio-features.html"><a href="other-rstudio-features.html"><i class="fa fa-check"></i>Other RStudio Features</a></li>
-<li class="chapter" data-level="4.4" data-path="meeting-videos-2.html"><a href="meeting-videos-2.html"><i class="fa fa-check"></i><b>4.4</b> Meeting Videos</a><ul>
+<li class="chapter" data-level="4.4" data-path="meeting-videos-2.html"><a href="meeting-videos-2.html"><i class="fa fa-check"></i><b>4.4</b> Meeting Videos</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="meeting-videos-2.html"><a href="meeting-videos-2.html#cohort-5-2"><i class="fa fa-check"></i><b>4.4.1</b> Cohort 5</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>5</b> Data transformation</a><ul>
-<li class="chapter" data-level="5.1" data-path="introduction-1.html"><a href="introduction-1.html"><i class="fa fa-check"></i><b>5.1</b> Introduction</a><ul>
+<li class="chapter" data-level="5" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>5</b> Data transformation</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="introduction-1.html"><a href="introduction-1.html"><i class="fa fa-check"></i><b>5.1</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="5.1.1" data-path="introduction-1.html"><a href="introduction-1.html#prerequisites"><i class="fa fa-check"></i><b>5.1.1</b> Prerequisites</a></li>
 <li class="chapter" data-level="5.1.2" data-path="introduction-1.html"><a href="introduction-1.html#nycflights13"><i class="fa fa-check"></i><b>5.1.2</b> nycflights13</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="comparisons-and-logical-operators.html"><a href="comparisons-and-logical-operators.html"><i class="fa fa-check"></i><b>5.2</b> Comparisons and logical operators</a><ul>
+<li class="chapter" data-level="5.2" data-path="comparisons-and-logical-operators.html"><a href="comparisons-and-logical-operators.html"><i class="fa fa-check"></i><b>5.2</b> Comparisons and logical operators</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="comparisons-and-logical-operators.html"><a href="comparisons-and-logical-operators.html#comparisons"><i class="fa fa-check"></i><b>5.2.1</b> Comparisons</a></li>
 <li class="chapter" data-level="5.2.2" data-path="comparisons-and-logical-operators.html"><a href="comparisons-and-logical-operators.html#logical-operators"><i class="fa fa-check"></i><b>5.2.2</b> Logical operators</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="filter-rows-with-filter.html"><a href="filter-rows-with-filter.html"><i class="fa fa-check"></i><b>5.3</b> Filter rows with filter()</a><ul>
+<li class="chapter" data-level="5.3" data-path="filter-rows-with-filter.html"><a href="filter-rows-with-filter.html"><i class="fa fa-check"></i><b>5.3</b> Filter rows with filter()</a>
+<ul>
 <li class="chapter" data-level="5.3.1" data-path="filter-rows-with-filter.html"><a href="filter-rows-with-filter.html#missing-values"><i class="fa fa-check"></i><b>5.3.1</b> Missing values</a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="arrange-rows-with-arrange.html"><a href="arrange-rows-with-arrange.html"><i class="fa fa-check"></i><b>5.4</b> Arrange rows with arrange()</a></li>
 <li class="chapter" data-level="5.5" data-path="select-columns-with-select.html"><a href="select-columns-with-select.html"><i class="fa fa-check"></i><b>5.5</b> Select columns with select()</a></li>
-<li class="chapter" data-level="5.6" data-path="add-new-variables-with-mutate.html"><a href="add-new-variables-with-mutate.html"><i class="fa fa-check"></i><b>5.6</b> Add new variables with mutate()</a><ul>
+<li class="chapter" data-level="5.6" data-path="add-new-variables-with-mutate.html"><a href="add-new-variables-with-mutate.html"><i class="fa fa-check"></i><b>5.6</b> Add new variables with mutate()</a>
+<ul>
 <li class="chapter" data-level="5.6.1" data-path="add-new-variables-with-mutate.html"><a href="add-new-variables-with-mutate.html#useful-creation-functions"><i class="fa fa-check"></i><b>5.6.1</b> Useful creation functions</a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="grouped-summaries-with-summarize.html"><a href="grouped-summaries-with-summarize.html"><i class="fa fa-check"></i><b>5.7</b> Grouped summaries with summarize()</a><ul>
+<li class="chapter" data-level="5.7" data-path="grouped-summaries-with-summarize.html"><a href="grouped-summaries-with-summarize.html"><i class="fa fa-check"></i><b>5.7</b> Grouped summaries with summarize()</a>
+<ul>
 <li class="chapter" data-level="5.7.1" data-path="grouped-summaries-with-summarize.html"><a href="grouped-summaries-with-summarize.html#combining-multiple-operations-with-the-pipe"><i class="fa fa-check"></i><b>5.7.1</b> Combining multiple operations with the pipe</a></li>
 <li class="chapter" data-level="5.7.2" data-path="grouped-summaries-with-summarize.html"><a href="grouped-summaries-with-summarize.html#counts"><i class="fa fa-check"></i><b>5.7.2</b> Counts</a></li>
 <li class="chapter" data-level="5.7.3" data-path="grouped-summaries-with-summarize.html"><a href="grouped-summaries-with-summarize.html#useful-summary-functions"><i class="fa fa-check"></i><b>5.7.3</b> Useful summary functions</a></li>
@@ -226,23 +229,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.7.5" data-path="grouped-summaries-with-summarize.html"><a href="grouped-summaries-with-summarize.html#ungrouping"><i class="fa fa-check"></i><b>5.7.5</b> Ungrouping</a></li>
 </ul></li>
 <li class="chapter" data-level="5.8" data-path="grouped-mutates-and-filters.html"><a href="grouped-mutates-and-filters.html"><i class="fa fa-check"></i><b>5.8</b> Grouped mutates (and filters)</a></li>
-<li class="chapter" data-level="5.9" data-path="meeting-videos-3.html"><a href="meeting-videos-3.html"><i class="fa fa-check"></i><b>5.9</b> Meeting Videos</a><ul>
+<li class="chapter" data-level="5.9" data-path="meeting-videos-3.html"><a href="meeting-videos-3.html"><i class="fa fa-check"></i><b>5.9</b> Meeting Videos</a>
+<ul>
 <li class="chapter" data-level="5.9.1" data-path="meeting-videos-3.html"><a href="meeting-videos-3.html#cohort-5-3"><i class="fa fa-check"></i><b>5.9.1</b> Cohort 5</a></li>
 <li class="chapter" data-level="5.9.2" data-path="meeting-videos-3.html"><a href="meeting-videos-3.html#cohort-6-2"><i class="fa fa-check"></i><b>5.9.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="workflow-scripts.html"><a href="workflow-scripts.html"><i class="fa fa-check"></i><b>6</b> Workflow: scripts</a><ul>
-<li class="chapter" data-level="6.1" data-path="meeting-videos-4.html"><a href="meeting-videos-4.html"><i class="fa fa-check"></i><b>6.1</b> Meeting Videos</a><ul>
+<li class="chapter" data-level="6" data-path="workflow-scripts.html"><a href="workflow-scripts.html"><i class="fa fa-check"></i><b>6</b> Workflow: scripts</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="meeting-videos-4.html"><a href="meeting-videos-4.html"><i class="fa fa-check"></i><b>6.1</b> Meeting Videos</a>
+<ul>
 <li class="chapter" data-level="6.1.1" data-path="meeting-videos-4.html"><a href="meeting-videos-4.html#cohort-5-4"><i class="fa fa-check"></i><b>6.1.1</b> Cohort 5</a></li>
 <li class="chapter" data-level="6.1.2" data-path="meeting-videos-4.html"><a href="meeting-videos-4.html#cohort-6-3"><i class="fa fa-check"></i><b>6.1.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>7</b> Exploratory Data Analysis</a><ul>
+<li class="chapter" data-level="7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>7</b> Exploratory Data Analysis</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="learning-objectives.html"><a href="learning-objectives.html"><i class="fa fa-check"></i><b>7.1</b> Learning objectives</a></li>
 <li class="chapter" data-level="7.2" data-path="overall-vocabulary.html"><a href="overall-vocabulary.html"><i class="fa fa-check"></i><b>7.2</b> Overall Vocabulary</a></li>
 <li class="chapter" data-level="7.3" data-path="variation.html"><a href="variation.html"><i class="fa fa-check"></i><b>7.3</b> Variation</a></li>
 <li class="chapter" data-level="7.4" data-path="missing-values-1.html"><a href="missing-values-1.html"><i class="fa fa-check"></i><b>7.4</b> Missing values</a></li>
-<li class="chapter" data-level="7.5" data-path="covariation.html"><a href="covariation.html"><i class="fa fa-check"></i><b>7.5</b> Covariation</a><ul>
+<li class="chapter" data-level="7.5" data-path="covariation.html"><a href="covariation.html"><i class="fa fa-check"></i><b>7.5</b> Covariation</a>
+<ul>
 <li class="chapter" data-level="7.5.1" data-path="covariation.html"><a href="covariation.html#categorical-continuous"><i class="fa fa-check"></i><b>7.5.1</b> categorical + continuous</a></li>
 <li class="chapter" data-level="7.5.2" data-path="covariation.html"><a href="covariation.html#categorical-categorical"><i class="fa fa-check"></i><b>7.5.2</b> categorical + categorical</a></li>
 <li class="chapter" data-level="7.5.3" data-path="covariation.html"><a href="covariation.html#continuous-continuous"><i class="fa fa-check"></i><b>7.5.3</b> continuous + continuous</a></li>
@@ -250,81 +258,99 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.6" data-path="finding-patterns.html"><a href="finding-patterns.html"><i class="fa fa-check"></i><b>7.6</b> Finding Patterns</a></li>
 <li class="chapter" data-level="7.7" data-path="simplified-ggplot2.html"><a href="simplified-ggplot2.html"><i class="fa fa-check"></i><b>7.7</b> Simplified ggplot2</a></li>
 <li class="chapter" data-level="7.8" data-path="learning-more.html"><a href="learning-more.html"><i class="fa fa-check"></i><b>7.8</b> Learning More</a></li>
-<li class="chapter" data-level="7.9" data-path="meeting-videos-5.html"><a href="meeting-videos-5.html"><i class="fa fa-check"></i><b>7.9</b> Meeting Videos</a><ul>
+<li class="chapter" data-level="7.9" data-path="meeting-videos-5.html"><a href="meeting-videos-5.html"><i class="fa fa-check"></i><b>7.9</b> Meeting Videos</a>
+<ul>
 <li class="chapter" data-level="7.9.1" data-path="meeting-videos-5.html"><a href="meeting-videos-5.html#cohort-5-5"><i class="fa fa-check"></i><b>7.9.1</b> Cohort 5</a></li>
 <li class="chapter" data-level="7.9.2" data-path="meeting-videos-5.html"><a href="meeting-videos-5.html#cohort-6-4"><i class="fa fa-check"></i><b>7.9.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="workflow-projects.html"><a href="workflow-projects.html"><i class="fa fa-check"></i><b>8</b> Workflow: projects</a><ul>
-<li class="chapter" data-level="8.1" data-path="meeting-videos-6.html"><a href="meeting-videos-6.html"><i class="fa fa-check"></i><b>8.1</b> Meeting Videos</a><ul>
+<li class="chapter" data-level="8" data-path="workflow-projects.html"><a href="workflow-projects.html"><i class="fa fa-check"></i><b>8</b> Workflow: projects</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="meeting-videos-6.html"><a href="meeting-videos-6.html"><i class="fa fa-check"></i><b>8.1</b> Meeting Videos</a>
+<ul>
 <li class="chapter" data-level="8.1.1" data-path="meeting-videos-6.html"><a href="meeting-videos-6.html#cohort-5-6"><i class="fa fa-check"></i><b>8.1.1</b> Cohort 5</a></li>
 <li class="chapter" data-level="8.1.2" data-path="meeting-videos-6.html"><a href="meeting-videos-6.html#cohort-6-5"><i class="fa fa-check"></i><b>8.1.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>II Wrangle</b></span></li>
 <li class="chapter" data-level="9" data-path="introduction-2.html"><a href="introduction-2.html"><i class="fa fa-check"></i><b>9</b> Introduction</a></li>
-<li class="chapter" data-level="10" data-path="tibbles.html"><a href="tibbles.html"><i class="fa fa-check"></i><b>10</b> Tibbles</a><ul>
+<li class="chapter" data-level="10" data-path="tibbles.html"><a href="tibbles.html"><i class="fa fa-check"></i><b>10</b> Tibbles</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="slide-1.html"><a href="slide-1.html"><i class="fa fa-check"></i><b>10.1</b> Slide 1</a></li>
 <li class="chapter" data-level="10.2" data-path="slide-2.html"><a href="slide-2.html"><i class="fa fa-check"></i><b>10.2</b> Slide 2</a></li>
-<li class="chapter" data-level="10.3" data-path="meeting-videos-7.html"><a href="meeting-videos-7.html"><i class="fa fa-check"></i><b>10.3</b> Meeting Videos</a><ul>
+<li class="chapter" data-level="10.3" data-path="meeting-videos-7.html"><a href="meeting-videos-7.html"><i class="fa fa-check"></i><b>10.3</b> Meeting Videos</a>
+<ul>
 <li class="chapter" data-level="10.3.1" data-path="meeting-videos-7.html"><a href="meeting-videos-7.html#cohort-5-7"><i class="fa fa-check"></i><b>10.3.1</b> Cohort 5</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="data-import.html"><a href="data-import.html"><i class="fa fa-check"></i><b>11</b> Data import</a><ul>
+<li class="chapter" data-level="11" data-path="data-import.html"><a href="data-import.html"><i class="fa fa-check"></i><b>11</b> Data import</a>
+<ul>
 <li class="chapter" data-level="11.1" data-path="slide-1-1.html"><a href="slide-1-1.html"><i class="fa fa-check"></i><b>11.1</b> Slide 1</a></li>
 <li class="chapter" data-level="11.2" data-path="slide-2-1.html"><a href="slide-2-1.html"><i class="fa fa-check"></i><b>11.2</b> Slide 2</a></li>
-<li class="chapter" data-level="11.3" data-path="meeting-videos-8.html"><a href="meeting-videos-8.html"><i class="fa fa-check"></i><b>11.3</b> Meeting Videos</a><ul>
+<li class="chapter" data-level="11.3" data-path="meeting-videos-8.html"><a href="meeting-videos-8.html"><i class="fa fa-check"></i><b>11.3</b> Meeting Videos</a>
+<ul>
 <li class="chapter" data-level="11.3.1" data-path="meeting-videos-8.html"><a href="meeting-videos-8.html#cohort-5-8"><i class="fa fa-check"></i><b>11.3.1</b> Cohort 5</a></li>
 <li class="chapter" data-level="11.3.2" data-path="meeting-videos-8.html"><a href="meeting-videos-8.html#cohort-6-6"><i class="fa fa-check"></i><b>11.3.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>12</b> Tidy data</a><ul>
+<li class="chapter" data-level="12" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>12</b> Tidy data</a>
+<ul>
 <li class="chapter" data-level="12.1" data-path="slide-1-2.html"><a href="slide-1-2.html"><i class="fa fa-check"></i><b>12.1</b> Slide 1</a></li>
 <li class="chapter" data-level="12.2" data-path="slide-2-2.html"><a href="slide-2-2.html"><i class="fa fa-check"></i><b>12.2</b> Slide 2</a></li>
-<li class="chapter" data-level="12.3" data-path="meeting-videos-9.html"><a href="meeting-videos-9.html"><i class="fa fa-check"></i><b>12.3</b> Meeting Videos</a><ul>
+<li class="chapter" data-level="12.3" data-path="meeting-videos-9.html"><a href="meeting-videos-9.html"><i class="fa fa-check"></i><b>12.3</b> Meeting Videos</a>
+<ul>
 <li class="chapter" data-level="12.3.1" data-path="meeting-videos-9.html"><a href="meeting-videos-9.html#cohort-5-9"><i class="fa fa-check"></i><b>12.3.1</b> Cohort 5</a></li>
 <li class="chapter" data-level="12.3.2" data-path="meeting-videos-9.html"><a href="meeting-videos-9.html#cohort-6-7"><i class="fa fa-check"></i><b>12.3.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>13</b> Relational data</a><ul>
+<li class="chapter" data-level="13" data-path="relational-data.html"><a href="relational-data.html"><i class="fa fa-check"></i><b>13</b> Relational data</a>
+<ul>
 <li class="chapter" data-level="13.1" data-path="introduction-3.html"><a href="introduction-3.html"><i class="fa fa-check"></i><b>13.1</b> Introduction</a></li>
 <li class="chapter" data-level="13.2" data-path="nycflights13-1.html"><a href="nycflights13-1.html"><i class="fa fa-check"></i><b>13.2</b> nycflights13</a></li>
 <li class="chapter" data-level="13.3" data-path="keys.html"><a href="keys.html"><i class="fa fa-check"></i><b>13.3</b> Keys</a></li>
-<li class="chapter" data-level="13.4" data-path="mutating-joins.html"><a href="mutating-joins.html"><i class="fa fa-check"></i><b>13.4</b> Mutating joins</a><ul>
+<li class="chapter" data-level="13.4" data-path="mutating-joins.html"><a href="mutating-joins.html"><i class="fa fa-check"></i><b>13.4</b> Mutating joins</a>
+<ul>
 <li class="chapter" data-level="13.4.1" data-path="mutating-joins.html"><a href="mutating-joins.html#understanding-joins"><i class="fa fa-check"></i><b>13.4.1</b> Understanding joins</a></li>
 <li class="chapter" data-level="13.4.2" data-path="mutating-joins.html"><a href="mutating-joins.html#inner-join"><i class="fa fa-check"></i><b>13.4.2</b> Inner join</a></li>
 <li class="chapter" data-level="13.4.3" data-path="mutating-joins.html"><a href="mutating-joins.html#outer-joins"><i class="fa fa-check"></i><b>13.4.3</b> Outer joins</a></li>
 <li class="chapter" data-level="13.4.4" data-path="mutating-joins.html"><a href="mutating-joins.html#duplicate-keys"><i class="fa fa-check"></i><b>13.4.4</b> Duplicate keys</a></li>
 </ul></li>
 <li class="chapter" data-level="13.5" data-path="filtering-joins.html"><a href="filtering-joins.html"><i class="fa fa-check"></i><b>13.5</b> Filtering joins</a></li>
-<li class="chapter" data-level="13.6" data-path="some-more-things-to-consider.html"><a href="some-more-things-to-consider.html"><i class="fa fa-check"></i><b>13.6</b> Some more things to consider</a><ul>
+<li class="chapter" data-level="13.6" data-path="some-more-things-to-consider.html"><a href="some-more-things-to-consider.html"><i class="fa fa-check"></i><b>13.6</b> Some more things to consider</a>
+<ul>
 <li class="chapter" data-level="13.6.1" data-path="some-more-things-to-consider.html"><a href="some-more-things-to-consider.html#join-problems"><i class="fa fa-check"></i><b>13.6.1</b> Join problems</a></li>
 <li class="chapter" data-level="13.6.2" data-path="some-more-things-to-consider.html"><a href="some-more-things-to-consider.html#set-operations"><i class="fa fa-check"></i><b>13.6.2</b> Set operations</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7" data-path="meeting-videos-10.html"><a href="meeting-videos-10.html"><i class="fa fa-check"></i><b>13.7</b> Meeting Videos</a><ul>
+<li class="chapter" data-level="13.7" data-path="meeting-videos-10.html"><a href="meeting-videos-10.html"><i class="fa fa-check"></i><b>13.7</b> Meeting Videos</a>
+<ul>
 <li class="chapter" data-level="13.7.1" data-path="meeting-videos-10.html"><a href="meeting-videos-10.html#cohort-5-10"><i class="fa fa-check"></i><b>13.7.1</b> Cohort 5</a></li>
 <li class="chapter" data-level="13.7.2" data-path="meeting-videos-10.html"><a href="meeting-videos-10.html#cohort-6-8"><i class="fa fa-check"></i><b>13.7.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>14</b> Strings</a><ul>
-<li class="chapter" data-level="14.1" data-path="introduction-4.html"><a href="introduction-4.html"><i class="fa fa-check"></i><b>14.1</b> Introduction</a><ul>
+<li class="chapter" data-level="14" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>14</b> Strings</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="introduction-4.html"><a href="introduction-4.html"><i class="fa fa-check"></i><b>14.1</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="14.1.1" data-path="introduction-4.html"><a href="introduction-4.html#pre-requisites"><i class="fa fa-check"></i><b>14.1.1</b> Pre-Requisites</a></li>
 </ul></li>
-<li class="chapter" data-level="14.2" data-path="string-basics.html"><a href="string-basics.html"><i class="fa fa-check"></i><b>14.2</b> String Basics</a><ul>
+<li class="chapter" data-level="14.2" data-path="string-basics.html"><a href="string-basics.html"><i class="fa fa-check"></i><b>14.2</b> String Basics</a>
+<ul>
 <li class="chapter" data-level="14.2.1" data-path="string-basics.html"><a href="string-basics.html#string-length"><i class="fa fa-check"></i><b>14.2.1</b> String Length</a></li>
 <li class="chapter" data-level="14.2.2" data-path="string-basics.html"><a href="string-basics.html#combining-strings"><i class="fa fa-check"></i><b>14.2.2</b> Combining Strings</a></li>
 <li class="chapter" data-level="14.2.3" data-path="string-basics.html"><a href="string-basics.html#subsetting-strings"><i class="fa fa-check"></i><b>14.2.3</b> Subsetting Strings</a></li>
 <li class="chapter" data-level="14.2.4" data-path="string-basics.html"><a href="string-basics.html#locales"><i class="fa fa-check"></i><b>14.2.4</b> Locales</a></li>
 <li class="chapter" data-level="14.2.5" data-path="string-basics.html"><a href="string-basics.html#exercises-1"><i class="fa fa-check"></i><b>14.2.5</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="14.3" data-path="matching-patterns-with-regular-expressions.html"><a href="matching-patterns-with-regular-expressions.html"><i class="fa fa-check"></i><b>14.3</b> Matching Patterns with Regular Expressions</a><ul>
+<li class="chapter" data-level="14.3" data-path="matching-patterns-with-regular-expressions.html"><a href="matching-patterns-with-regular-expressions.html"><i class="fa fa-check"></i><b>14.3</b> Matching Patterns with Regular Expressions</a>
+<ul>
 <li class="chapter" data-level="14.3.1" data-path="matching-patterns-with-regular-expressions.html"><a href="matching-patterns-with-regular-expressions.html#basic-matches"><i class="fa fa-check"></i><b>14.3.1</b> Basic Matches</a></li>
 <li class="chapter" data-level="14.3.2" data-path="matching-patterns-with-regular-expressions.html"><a href="matching-patterns-with-regular-expressions.html#anchors"><i class="fa fa-check"></i><b>14.3.2</b> Anchors</a></li>
 <li class="chapter" data-level="14.3.3" data-path="matching-patterns-with-regular-expressions.html"><a href="matching-patterns-with-regular-expressions.html#character-classes-and-alternatives"><i class="fa fa-check"></i><b>14.3.3</b> Character Classes and Alternatives</a></li>
 <li class="chapter" data-level="14.3.4" data-path="matching-patterns-with-regular-expressions.html"><a href="matching-patterns-with-regular-expressions.html#repetition"><i class="fa fa-check"></i><b>14.3.4</b> Repetition</a></li>
 <li class="chapter" data-level="14.3.5" data-path="matching-patterns-with-regular-expressions.html"><a href="matching-patterns-with-regular-expressions.html#grouping-and-backreferences"><i class="fa fa-check"></i><b>14.3.5</b> Grouping and Backreferences</a></li>
 </ul></li>
-<li class="chapter" data-level="14.4" data-path="tools.html"><a href="tools.html"><i class="fa fa-check"></i><b>14.4</b> Tools</a><ul>
+<li class="chapter" data-level="14.4" data-path="tools.html"><a href="tools.html"><i class="fa fa-check"></i><b>14.4</b> Tools</a>
+<ul>
 <li class="chapter" data-level="14.4.1" data-path="tools.html"><a href="tools.html#detect-matches"><i class="fa fa-check"></i><b>14.4.1</b> Detect Matches</a></li>
 <li class="chapter" data-level="14.4.2" data-path="tools.html"><a href="tools.html#extract-matches"><i class="fa fa-check"></i><b>14.4.2</b> Extract Matches</a></li>
 <li class="chapter" data-level="14.4.3" data-path="tools.html"><a href="tools.html#grouped-matches"><i class="fa fa-check"></i><b>14.4.3</b> Grouped Matches</a></li>
@@ -332,51 +358,61 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.4.5" data-path="tools.html"><a href="tools.html#splitting"><i class="fa fa-check"></i><b>14.4.5</b> Splitting</a></li>
 <li class="chapter" data-level="14.4.6" data-path="tools.html"><a href="tools.html#find-matches"><i class="fa fa-check"></i><b>14.4.6</b> Find Matches</a></li>
 </ul></li>
-<li class="chapter" data-level="14.5" data-path="other-types-of-pattern.html"><a href="other-types-of-pattern.html"><i class="fa fa-check"></i><b>14.5</b> Other types of Pattern</a><ul>
+<li class="chapter" data-level="14.5" data-path="other-types-of-pattern.html"><a href="other-types-of-pattern.html"><i class="fa fa-check"></i><b>14.5</b> Other types of Pattern</a>
+<ul>
 <li class="chapter" data-level="14.5.1" data-path="other-types-of-pattern.html"><a href="other-types-of-pattern.html#exercises-unanswered-7"><i class="fa fa-check"></i><b>14.5.1</b> Exercises (Unanswered)</a></li>
 </ul></li>
 <li class="chapter" data-level="14.6" data-path="other-uses-of-regular-expressions.html"><a href="other-uses-of-regular-expressions.html"><i class="fa fa-check"></i><b>14.6</b> Other uses of regular expressions</a></li>
-<li class="chapter" data-level="14.7" data-path="stringi.html"><a href="stringi.html"><i class="fa fa-check"></i><b>14.7</b> stringi</a><ul>
+<li class="chapter" data-level="14.7" data-path="stringi.html"><a href="stringi.html"><i class="fa fa-check"></i><b>14.7</b> stringi</a>
+<ul>
 <li class="chapter" data-level="14.7.1" data-path="stringi.html"><a href="stringi.html#exercises-3"><i class="fa fa-check"></i><b>14.7.1</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="14.8" data-path="meeting-videos-11.html"><a href="meeting-videos-11.html"><i class="fa fa-check"></i><b>14.8</b> Meeting Videos</a><ul>
+<li class="chapter" data-level="14.8" data-path="meeting-videos-11.html"><a href="meeting-videos-11.html"><i class="fa fa-check"></i><b>14.8</b> Meeting Videos</a>
+<ul>
 <li class="chapter" data-level="14.8.1" data-path="meeting-videos-11.html"><a href="meeting-videos-11.html#cohort-5-11"><i class="fa fa-check"></i><b>14.8.1</b> Cohort 5</a></li>
 <li class="chapter" data-level="14.8.2" data-path="meeting-videos-11.html"><a href="meeting-videos-11.html#cohort-6-9"><i class="fa fa-check"></i><b>14.8.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="factors.html"><a href="factors.html"><i class="fa fa-check"></i><b>15</b> Factors</a><ul>
+<li class="chapter" data-level="15" data-path="factors.html"><a href="factors.html"><i class="fa fa-check"></i><b>15</b> Factors</a>
+<ul>
 <li class="chapter" data-level="15.1" data-path="slide-1-3.html"><a href="slide-1-3.html"><i class="fa fa-check"></i><b>15.1</b> Slide 1</a></li>
 <li class="chapter" data-level="15.2" data-path="slide-2-3.html"><a href="slide-2-3.html"><i class="fa fa-check"></i><b>15.2</b> Slide 2</a></li>
-<li class="chapter" data-level="15.3" data-path="meeting-videos-12.html"><a href="meeting-videos-12.html"><i class="fa fa-check"></i><b>15.3</b> Meeting Videos</a><ul>
+<li class="chapter" data-level="15.3" data-path="meeting-videos-12.html"><a href="meeting-videos-12.html"><i class="fa fa-check"></i><b>15.3</b> Meeting Videos</a>
+<ul>
 <li class="chapter" data-level="15.3.1" data-path="meeting-videos-12.html"><a href="meeting-videos-12.html#cohort-5-12"><i class="fa fa-check"></i><b>15.3.1</b> Cohort 5</a></li>
 <li class="chapter" data-level="15.3.2" data-path="meeting-videos-12.html"><a href="meeting-videos-12.html#cohort-6-10"><i class="fa fa-check"></i><b>15.3.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="dates-and-times.html"><a href="dates-and-times.html"><i class="fa fa-check"></i><b>16</b> Dates and times</a><ul>
+<li class="chapter" data-level="16" data-path="dates-and-times.html"><a href="dates-and-times.html"><i class="fa fa-check"></i><b>16</b> Dates and times</a>
+<ul>
 <li class="chapter" data-level="16.1" data-path="create-date-and-date-time-objects.html"><a href="create-date-and-date-time-objects.html"><i class="fa fa-check"></i><b>16.1</b> Create date and date-time objects</a></li>
 <li class="chapter" data-level="16.2" data-path="work-with-date-time-components.html"><a href="work-with-date-time-components.html"><i class="fa fa-check"></i><b>16.2</b> Work with date-time components</a></li>
 <li class="chapter" data-level="16.3" data-path="perform-arithmetic-on-timespans.html"><a href="perform-arithmetic-on-timespans.html"><i class="fa fa-check"></i><b>16.3</b> Perform arithmetic on timespans</a></li>
 <li class="chapter" data-level="16.4" data-path="time-zones.html"><a href="time-zones.html"><i class="fa fa-check"></i><b>16.4</b> Time zones</a></li>
-<li class="chapter" data-level="16.5" data-path="meeting-videos-13.html"><a href="meeting-videos-13.html"><i class="fa fa-check"></i><b>16.5</b> Meeting Videos</a><ul>
+<li class="chapter" data-level="16.5" data-path="meeting-videos-13.html"><a href="meeting-videos-13.html"><i class="fa fa-check"></i><b>16.5</b> Meeting Videos</a>
+<ul>
 <li class="chapter" data-level="16.5.1" data-path="meeting-videos-13.html"><a href="meeting-videos-13.html#cohort-5-13"><i class="fa fa-check"></i><b>16.5.1</b> Cohort 5</a></li>
 <li class="chapter" data-level="16.5.2" data-path="meeting-videos-13.html"><a href="meeting-videos-13.html#cohort-6-11"><i class="fa fa-check"></i><b>16.5.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>III Program</b></span></li>
 <li class="chapter" data-level="17" data-path="introduction-5.html"><a href="introduction-5.html"><i class="fa fa-check"></i><b>17</b> Introduction</a></li>
-<li class="chapter" data-level="18" data-path="pipes.html"><a href="pipes.html"><i class="fa fa-check"></i><b>18</b> Pipes</a><ul>
+<li class="chapter" data-level="18" data-path="pipes.html"><a href="pipes.html"><i class="fa fa-check"></i><b>18</b> Pipes</a>
+<ul>
 <li class="chapter" data-level="18.1" data-path="introduction-6.html"><a href="introduction-6.html"><i class="fa fa-check"></i><b>18.1</b> Introduction</a></li>
 <li class="chapter" data-level="18.2" data-path="lets-see-it-in-code.html"><a href="lets-see-it-in-code.html"><i class="fa fa-check"></i><b>18.2</b> Lets see it in Code!!!</a></li>
 <li class="chapter" data-level="18.3" data-path="overwritting-data-easy-right.html"><a href="overwritting-data-easy-right.html"><i class="fa fa-check"></i><b>18.3</b> Overwritting Data… easy, right?</a></li>
 <li class="chapter" data-level="18.4" data-path="the-pipe-makes-lexical-transformations.html"><a href="the-pipe-makes-lexical-transformations.html"><i class="fa fa-check"></i><b>18.4</b> The pipe makes lexical transformations</a></li>
 <li class="chapter" data-level="18.5" data-path="when-not-to-use-the-pipe.html"><a href="when-not-to-use-the-pipe.html"><i class="fa fa-check"></i><b>18.5</b> When not to use the pipe</a></li>
 <li class="chapter" data-level="18.6" data-path="other-tools-from-magrittr.html"><a href="other-tools-from-magrittr.html"><i class="fa fa-check"></i><b>18.6</b> Other tools from <code>magrittr</code></a></li>
-<li class="chapter" data-level="18.7" data-path="meeting-videos-14.html"><a href="meeting-videos-14.html"><i class="fa fa-check"></i><b>18.7</b> Meeting Videos</a><ul>
+<li class="chapter" data-level="18.7" data-path="meeting-videos-14.html"><a href="meeting-videos-14.html"><i class="fa fa-check"></i><b>18.7</b> Meeting Videos</a>
+<ul>
 <li class="chapter" data-level="18.7.1" data-path="meeting-videos-14.html"><a href="meeting-videos-14.html#cohort-5-14"><i class="fa fa-check"></i><b>18.7.1</b> Cohort 5</a></li>
 <li class="chapter" data-level="18.7.2" data-path="meeting-videos-14.html"><a href="meeting-videos-14.html#cohort-6-12"><i class="fa fa-check"></i><b>18.7.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="functions-2.html"><a href="functions-2.html"><i class="fa fa-check"></i><b>19</b> Functions</a><ul>
+<li class="chapter" data-level="19" data-path="functions-2.html"><a href="functions-2.html"><i class="fa fa-check"></i><b>19</b> Functions</a>
+<ul>
 <li class="chapter" data-level="19.1" data-path="introduction-7.html"><a href="introduction-7.html"><i class="fa fa-check"></i><b>19.1</b> Introduction</a></li>
 <li class="chapter" data-level="19.2" data-path="when-and-how-to-write-a-function.html"><a href="when-and-how-to-write-a-function.html"><i class="fa fa-check"></i><b>19.2</b> When and how to write a function</a></li>
 <li class="chapter" data-level="19.3" data-path="functions-are-for-computers-and-humans.html"><a href="functions-are-for-computers-and-humans.html"><i class="fa fa-check"></i><b>19.3</b> Functions are for computers <em>and</em> humans</a></li>
@@ -384,24 +420,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.5" data-path="function-arguments.html"><a href="function-arguments.html"><i class="fa fa-check"></i><b>19.5</b> Function arguments</a></li>
 <li class="chapter" data-level="19.6" data-path="return-values.html"><a href="return-values.html"><i class="fa fa-check"></i><b>19.6</b> Return values</a></li>
 <li class="chapter" data-level="19.7" data-path="environment.html"><a href="environment.html"><i class="fa fa-check"></i><b>19.7</b> Environment</a></li>
-<li class="chapter" data-level="19.8" data-path="meeting-videos-15.html"><a href="meeting-videos-15.html"><i class="fa fa-check"></i><b>19.8</b> Meeting Videos</a><ul>
+<li class="chapter" data-level="19.8" data-path="meeting-videos-15.html"><a href="meeting-videos-15.html"><i class="fa fa-check"></i><b>19.8</b> Meeting Videos</a>
+<ul>
 <li class="chapter" data-level="19.8.1" data-path="meeting-videos-15.html"><a href="meeting-videos-15.html#cohort-5-15"><i class="fa fa-check"></i><b>19.8.1</b> Cohort 5</a></li>
 <li class="chapter" data-level="19.8.2" data-path="meeting-videos-15.html"><a href="meeting-videos-15.html#cohort-6-13"><i class="fa fa-check"></i><b>19.8.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="vectors.html"><a href="vectors.html"><i class="fa fa-check"></i><b>20</b> Vectors</a><ul>
-<li class="chapter" data-level="20.1" data-path="introduction-8.html"><a href="introduction-8.html"><i class="fa fa-check"></i><b>20.1</b> Introduction</a><ul>
+<li class="chapter" data-level="20" data-path="vectors.html"><a href="vectors.html"><i class="fa fa-check"></i><b>20</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="introduction-8.html"><a href="introduction-8.html"><i class="fa fa-check"></i><b>20.1</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="20.1.1" data-path="introduction-8.html"><a href="introduction-8.html#prerequisites-1"><i class="fa fa-check"></i><b>20.1.1</b> Prerequisites</a></li>
 </ul></li>
 <li class="chapter" data-level="20.2" data-path="vector-basics.html"><a href="vector-basics.html"><i class="fa fa-check"></i><b>20.2</b> Vector basics</a></li>
-<li class="chapter" data-level="20.3" data-path="important-types-of-atomic-vector.html"><a href="important-types-of-atomic-vector.html"><i class="fa fa-check"></i><b>20.3</b> Important types of atomic vector</a><ul>
+<li class="chapter" data-level="20.3" data-path="important-types-of-atomic-vector.html"><a href="important-types-of-atomic-vector.html"><i class="fa fa-check"></i><b>20.3</b> Important types of atomic vector</a>
+<ul>
 <li class="chapter" data-level="20.3.1" data-path="important-types-of-atomic-vector.html"><a href="important-types-of-atomic-vector.html#logical"><i class="fa fa-check"></i><b>20.3.1</b> Logical</a></li>
 <li class="chapter" data-level="20.3.2" data-path="important-types-of-atomic-vector.html"><a href="important-types-of-atomic-vector.html#numeric"><i class="fa fa-check"></i><b>20.3.2</b> Numeric</a></li>
 <li class="chapter" data-level="20.3.3" data-path="important-types-of-atomic-vector.html"><a href="important-types-of-atomic-vector.html#character"><i class="fa fa-check"></i><b>20.3.3</b> Character</a></li>
 <li class="chapter" data-level="20.3.4" data-path="important-types-of-atomic-vector.html"><a href="important-types-of-atomic-vector.html#missing-values-2"><i class="fa fa-check"></i><b>20.3.4</b> Missing values</a></li>
 <li class="chapter" data-level="20.3.5" data-path="important-types-of-atomic-vector.html"><a href="important-types-of-atomic-vector.html#exercises-4"><i class="fa fa-check"></i><b>20.3.5</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="20.4" data-path="using-atomic-vectors.html"><a href="using-atomic-vectors.html"><i class="fa fa-check"></i><b>20.4</b> Using atomic vectors</a><ul>
+<li class="chapter" data-level="20.4" data-path="using-atomic-vectors.html"><a href="using-atomic-vectors.html"><i class="fa fa-check"></i><b>20.4</b> Using atomic vectors</a>
+<ul>
 <li class="chapter" data-level="20.4.1" data-path="using-atomic-vectors.html"><a href="using-atomic-vectors.html#coercion"><i class="fa fa-check"></i><b>20.4.1</b> Coercion</a></li>
 <li class="chapter" data-level="20.4.2" data-path="using-atomic-vectors.html"><a href="using-atomic-vectors.html#test-functions"><i class="fa fa-check"></i><b>20.4.2</b> Test functions</a></li>
 <li class="chapter" data-level="20.4.3" data-path="using-atomic-vectors.html"><a href="using-atomic-vectors.html#scalars-and-recycling-rules"><i class="fa fa-check"></i><b>20.4.3</b> Scalars and recycling rules</a></li>
@@ -409,25 +450,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.4.5" data-path="using-atomic-vectors.html"><a href="using-atomic-vectors.html#subsetting"><i class="fa fa-check"></i><b>20.4.5</b> Subsetting</a></li>
 <li class="chapter" data-level="20.4.6" data-path="using-atomic-vectors.html"><a href="using-atomic-vectors.html#exercises-5"><i class="fa fa-check"></i><b>20.4.6</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="20.5" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html"><i class="fa fa-check"></i><b>20.5</b> Recursive vectors (lists)</a><ul>
+<li class="chapter" data-level="20.5" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html"><i class="fa fa-check"></i><b>20.5</b> Recursive vectors (lists)</a>
+<ul>
 <li class="chapter" data-level="20.5.1" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html#visualising-lists"><i class="fa fa-check"></i><b>20.5.1</b> Visualising lists</a></li>
 <li class="chapter" data-level="20.5.2" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html#subsetting-1"><i class="fa fa-check"></i><b>20.5.2</b> Subsetting</a></li>
 <li class="chapter" data-level="20.5.3" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html#lists-of-condiments"><i class="fa fa-check"></i><b>20.5.3</b> Lists of condiments</a></li>
 <li class="chapter" data-level="20.5.4" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html#exercises-6"><i class="fa fa-check"></i><b>20.5.4</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="20.6" data-path="attributes.html"><a href="attributes.html"><i class="fa fa-check"></i><b>20.6</b> Attributes</a></li>
-<li class="chapter" data-level="20.7" data-path="augmented-vectors.html"><a href="augmented-vectors.html"><i class="fa fa-check"></i><b>20.7</b> Augmented vectors</a><ul>
+<li class="chapter" data-level="20.7" data-path="augmented-vectors.html"><a href="augmented-vectors.html"><i class="fa fa-check"></i><b>20.7</b> Augmented vectors</a>
+<ul>
 <li class="chapter" data-level="20.7.1" data-path="augmented-vectors.html"><a href="augmented-vectors.html#factors-1"><i class="fa fa-check"></i><b>20.7.1</b> Factors</a></li>
 <li class="chapter" data-level="20.7.2" data-path="augmented-vectors.html"><a href="augmented-vectors.html#dates-and-date-times"><i class="fa fa-check"></i><b>20.7.2</b> Dates and date-times</a></li>
 <li class="chapter" data-level="20.7.3" data-path="augmented-vectors.html"><a href="augmented-vectors.html#tibbles-1"><i class="fa fa-check"></i><b>20.7.3</b> Tibbles</a></li>
 <li class="chapter" data-level="20.7.4" data-path="augmented-vectors.html"><a href="augmented-vectors.html#exercises-7"><i class="fa fa-check"></i><b>20.7.4</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="20.8" data-path="meeting-videos-16.html"><a href="meeting-videos-16.html"><i class="fa fa-check"></i><b>20.8</b> Meeting Videos</a><ul>
+<li class="chapter" data-level="20.8" data-path="meeting-videos-16.html"><a href="meeting-videos-16.html"><i class="fa fa-check"></i><b>20.8</b> Meeting Videos</a>
+<ul>
 <li class="chapter" data-level="20.8.1" data-path="meeting-videos-16.html"><a href="meeting-videos-16.html#cohort-5-16"><i class="fa fa-check"></i><b>20.8.1</b> Cohort 5</a></li>
 <li class="chapter" data-level="20.8.2" data-path="meeting-videos-16.html"><a href="meeting-videos-16.html#cohort-6-14"><i class="fa fa-check"></i><b>20.8.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>21</b> Iteration</a><ul>
+<li class="chapter" data-level="21" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>21</b> Iteration</a>
+<ul>
 <li class="chapter" data-level="21.1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>21.1</b> 21.1 Intro</a></li>
 <li class="chapter" data-level="21.2" data-path="for-loops.html"><a href="for-loops.html"><i class="fa fa-check"></i><b>21.2</b> 21.2 For loops</a></li>
 <li class="chapter" data-level="21.3" data-path="for-loop-variations.html"><a href="for-loop-variations.html"><i class="fa fa-check"></i><b>21.3</b> 21.3 For loop variations</a></li>
@@ -437,102 +482,124 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="21.7" data-path="mapping-over-multiple-arguments.html"><a href="mapping-over-multiple-arguments.html"><i class="fa fa-check"></i><b>21.7</b> 21.7 Mapping over multiple arguments</a></li>
 <li class="chapter" data-level="21.8" data-path="walk.html"><a href="walk.html"><i class="fa fa-check"></i><b>21.8</b> 21.8 Walk</a></li>
 <li class="chapter" data-level="21.9" data-path="other-patterns-of-for-loops.html"><a href="other-patterns-of-for-loops.html"><i class="fa fa-check"></i><b>21.9</b> 21.9 Other patterns of for loops</a></li>
-<li class="chapter" data-level="21.10" data-path="meeting-videos-17.html"><a href="meeting-videos-17.html"><i class="fa fa-check"></i><b>21.10</b> Meeting Videos</a><ul>
+<li class="chapter" data-level="21.10" data-path="meeting-videos-17.html"><a href="meeting-videos-17.html"><i class="fa fa-check"></i><b>21.10</b> Meeting Videos</a>
+<ul>
 <li class="chapter" data-level="21.10.1" data-path="meeting-videos-17.html"><a href="meeting-videos-17.html#cohort-5-17"><i class="fa fa-check"></i><b>21.10.1</b> Cohort 5</a></li>
 <li class="chapter" data-level="21.10.2" data-path="meeting-videos-17.html"><a href="meeting-videos-17.html#cohort-6-15"><i class="fa fa-check"></i><b>21.10.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>IV Model</b></span></li>
-<li class="chapter" data-level="22" data-path="introduction-9.html"><a href="introduction-9.html"><i class="fa fa-check"></i><b>22</b> Introduction</a><ul>
+<li class="chapter" data-level="22" data-path="introduction-9.html"><a href="introduction-9.html"><i class="fa fa-check"></i><b>22</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="22.1" data-path="introduction-to-modeling.html"><a href="introduction-to-modeling.html"><i class="fa fa-check"></i><b>22.1</b> Introduction to modeling</a></li>
 <li class="chapter" data-level="22.2" data-path="making-hypothesis.html"><a href="making-hypothesis.html"><i class="fa fa-check"></i><b>22.2</b> Making hypothesis</a></li>
 </ul></li>
-<li class="chapter" data-level="23" data-path="model-basics.html"><a href="model-basics.html"><i class="fa fa-check"></i><b>23</b> Model basics</a><ul>
+<li class="chapter" data-level="23" data-path="model-basics.html"><a href="model-basics.html"><i class="fa fa-check"></i><b>23</b> Model basics</a>
+<ul>
 <li class="chapter" data-level="23.1" data-path="a-bit-of-mathematics.html"><a href="a-bit-of-mathematics.html"><i class="fa fa-check"></i><b>23.1</b> A bit of Mathematics:</a></li>
-<li class="chapter" data-level="23.2" data-path="linear-models-and-non-linear-models.html"><a href="linear-models-and-non-linear-models.html"><i class="fa fa-check"></i><b>23.2</b> Linear models and non linear models</a><ul>
+<li class="chapter" data-level="23.2" data-path="linear-models-and-non-linear-models.html"><a href="linear-models-and-non-linear-models.html"><i class="fa fa-check"></i><b>23.2</b> Linear models and non linear models</a>
+<ul>
 <li class="chapter" data-level="23.2.1" data-path="linear-models-and-non-linear-models.html"><a href="linear-models-and-non-linear-models.html#transformations"><i class="fa fa-check"></i><b>23.2.1</b> Transformations</a></li>
 </ul></li>
-<li class="chapter" data-level="23.3" data-path="prediction.html"><a href="prediction.html"><i class="fa fa-check"></i><b>23.3</b> Prediction</a><ul>
+<li class="chapter" data-level="23.3" data-path="prediction.html"><a href="prediction.html"><i class="fa fa-check"></i><b>23.3</b> Prediction</a>
+<ul>
 <li class="chapter" data-level="23.3.1" data-path="prediction.html"><a href="prediction.html#interaction"><i class="fa fa-check"></i><b>23.3.1</b> Interaction</a></li>
 </ul></li>
 <li class="chapter" data-level="23.4" data-path="resources-1.html"><a href="resources-1.html"><i class="fa fa-check"></i><b>23.4</b> Resources:</a></li>
-<li class="chapter" data-level="23.5" data-path="meeting-videos-18.html"><a href="meeting-videos-18.html"><i class="fa fa-check"></i><b>23.5</b> Meeting Videos</a><ul>
+<li class="chapter" data-level="23.5" data-path="meeting-videos-18.html"><a href="meeting-videos-18.html"><i class="fa fa-check"></i><b>23.5</b> Meeting Videos</a>
+<ul>
 <li class="chapter" data-level="23.5.1" data-path="meeting-videos-18.html"><a href="meeting-videos-18.html#cohort-5-18"><i class="fa fa-check"></i><b>23.5.1</b> Cohort 5</a></li>
 <li class="chapter" data-level="23.5.2" data-path="meeting-videos-18.html"><a href="meeting-videos-18.html#cohort-6-16"><i class="fa fa-check"></i><b>23.5.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="24" data-path="model-building.html"><a href="model-building.html"><i class="fa fa-check"></i><b>24</b> Model building</a><ul>
+<li class="chapter" data-level="24" data-path="model-building.html"><a href="model-building.html"><i class="fa fa-check"></i><b>24</b> Model building</a>
+<ul>
 <li class="chapter" data-level="24.1" data-path="eda-vs-prediction.html"><a href="eda-vs-prediction.html"><i class="fa fa-check"></i><b>24.1</b> EDA vs Prediction</a></li>
 <li class="chapter" data-level="24.2" data-path="build-a-linear-model.html"><a href="build-a-linear-model.html"><i class="fa fa-check"></i><b>24.2</b> Build a Linear Model</a></li>
 <li class="chapter" data-level="24.3" data-path="examine-residuals.html"><a href="examine-residuals.html"><i class="fa fa-check"></i><b>24.3</b> Examine Residuals</a></li>
 <li class="chapter" data-level="24.4" data-path="another-diamonds-model.html"><a href="another-diamonds-model.html"><i class="fa fa-check"></i><b>24.4</b> Another Diamonds Model</a></li>
 <li class="chapter" data-level="24.5" data-path="feature-engineering.html"><a href="feature-engineering.html"><i class="fa fa-check"></i><b>24.5</b> Feature Engineering</a></li>
 <li class="chapter" data-level="24.6" data-path="learning-more-1.html"><a href="learning-more-1.html"><i class="fa fa-check"></i><b>24.6</b> Learning More</a></li>
-<li class="chapter" data-level="24.7" data-path="meeting-videos-19.html"><a href="meeting-videos-19.html"><i class="fa fa-check"></i><b>24.7</b> Meeting Videos</a><ul>
+<li class="chapter" data-level="24.7" data-path="meeting-videos-19.html"><a href="meeting-videos-19.html"><i class="fa fa-check"></i><b>24.7</b> Meeting Videos</a>
+<ul>
 <li class="chapter" data-level="24.7.1" data-path="meeting-videos-19.html"><a href="meeting-videos-19.html#cohort-5-19"><i class="fa fa-check"></i><b>24.7.1</b> Cohort 5</a></li>
 <li class="chapter" data-level="24.7.2" data-path="meeting-videos-19.html"><a href="meeting-videos-19.html#cohort-6-17"><i class="fa fa-check"></i><b>24.7.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="25" data-path="many-models.html"><a href="many-models.html"><i class="fa fa-check"></i><b>25</b> Many models</a><ul>
-<li class="chapter" data-level="25.1" data-path="introduction-10.html"><a href="introduction-10.html"><i class="fa fa-check"></i><b>25.1</b> Introduction</a><ul>
+<li class="chapter" data-level="25" data-path="many-models.html"><a href="many-models.html"><i class="fa fa-check"></i><b>25</b> Many models</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="introduction-10.html"><a href="introduction-10.html"><i class="fa fa-check"></i><b>25.1</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="25.1.1" data-path="introduction-10.html"><a href="introduction-10.html#prerequisites-2"><i class="fa fa-check"></i><b>25.1.1</b> Prerequisites</a></li>
 </ul></li>
-<li class="chapter" data-level="25.2" data-path="gapminder.html"><a href="gapminder.html"><i class="fa fa-check"></i><b>25.2</b> gapminder</a><ul>
+<li class="chapter" data-level="25.2" data-path="gapminder.html"><a href="gapminder.html"><i class="fa fa-check"></i><b>25.2</b> gapminder</a>
+<ul>
 <li class="chapter" data-level="25.2.1" data-path="gapminder.html"><a href="gapminder.html#nested-data"><i class="fa fa-check"></i><b>25.2.1</b> Nested data</a></li>
 <li class="chapter" data-level="25.2.2" data-path="gapminder.html"><a href="gapminder.html#list-columns"><i class="fa fa-check"></i><b>25.2.2</b> List-columns</a></li>
 <li class="chapter" data-level="25.2.3" data-path="gapminder.html"><a href="gapminder.html#unnesting"><i class="fa fa-check"></i><b>25.2.3</b> Unnesting</a></li>
 <li class="chapter" data-level="25.2.4" data-path="gapminder.html"><a href="gapminder.html#model-quality"><i class="fa fa-check"></i><b>25.2.4</b> Model quality</a></li>
 </ul></li>
 <li class="chapter" data-level="25.3" data-path="list-columns-1.html"><a href="list-columns-1.html"><i class="fa fa-check"></i><b>25.3</b> List-columns</a></li>
-<li class="chapter" data-level="25.4" data-path="creating-list-columns.html"><a href="creating-list-columns.html"><i class="fa fa-check"></i><b>25.4</b> Creating list-columns</a><ul>
+<li class="chapter" data-level="25.4" data-path="creating-list-columns.html"><a href="creating-list-columns.html"><i class="fa fa-check"></i><b>25.4</b> Creating list-columns</a>
+<ul>
 <li class="chapter" data-level="25.4.1" data-path="creating-list-columns.html"><a href="creating-list-columns.html#with-nesting"><i class="fa fa-check"></i><b>25.4.1</b> With nesting</a></li>
 <li class="chapter" data-level="25.4.2" data-path="creating-list-columns.html"><a href="creating-list-columns.html#from-vectorised-functions"><i class="fa fa-check"></i><b>25.4.2</b> From vectorised functions</a></li>
 <li class="chapter" data-level="25.4.3" data-path="creating-list-columns.html"><a href="creating-list-columns.html#from-multivalued-summaries"><i class="fa fa-check"></i><b>25.4.3</b> From multivalued summaries</a></li>
 <li class="chapter" data-level="25.4.4" data-path="creating-list-columns.html"><a href="creating-list-columns.html#from-a-named-list"><i class="fa fa-check"></i><b>25.4.4</b> From a named list</a></li>
 </ul></li>
-<li class="chapter" data-level="25.5" data-path="simplifying-list-columns.html"><a href="simplifying-list-columns.html"><i class="fa fa-check"></i><b>25.5</b> Simplifying list-columns</a><ul>
+<li class="chapter" data-level="25.5" data-path="simplifying-list-columns.html"><a href="simplifying-list-columns.html"><i class="fa fa-check"></i><b>25.5</b> Simplifying list-columns</a>
+<ul>
 <li class="chapter" data-level="25.5.1" data-path="simplifying-list-columns.html"><a href="simplifying-list-columns.html#list-to-vector"><i class="fa fa-check"></i><b>25.5.1</b> List to vector</a></li>
 <li class="chapter" data-level="25.5.2" data-path="simplifying-list-columns.html"><a href="simplifying-list-columns.html#unnesting-1"><i class="fa fa-check"></i><b>25.5.2</b> Unnesting</a></li>
 </ul></li>
 <li class="chapter" data-level="25.6" data-path="making-tidy-data-with-broom.html"><a href="making-tidy-data-with-broom.html"><i class="fa fa-check"></i><b>25.6</b> Making tidy data with broom</a></li>
-<li class="chapter" data-level="25.7" data-path="meeting-videos-20.html"><a href="meeting-videos-20.html"><i class="fa fa-check"></i><b>25.7</b> Meeting Videos</a><ul>
+<li class="chapter" data-level="25.7" data-path="meeting-videos-20.html"><a href="meeting-videos-20.html"><i class="fa fa-check"></i><b>25.7</b> Meeting Videos</a>
+<ul>
 <li class="chapter" data-level="25.7.1" data-path="meeting-videos-20.html"><a href="meeting-videos-20.html#cohort-5-20"><i class="fa fa-check"></i><b>25.7.1</b> Cohort 5</a></li>
 <li class="chapter" data-level="25.7.2" data-path="meeting-videos-20.html"><a href="meeting-videos-20.html#cohort-6-18"><i class="fa fa-check"></i><b>25.7.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>V Communicate</b></span></li>
 <li class="chapter" data-level="26" data-path="introduction-11.html"><a href="introduction-11.html"><i class="fa fa-check"></i><b>26</b> Introduction</a></li>
-<li class="chapter" data-level="27" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>27</b> R Markdown</a><ul>
+<li class="chapter" data-level="27" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>27</b> R Markdown</a>
+<ul>
 <li class="chapter" data-level="27.1" data-path="slide-1-4.html"><a href="slide-1-4.html"><i class="fa fa-check"></i><b>27.1</b> Slide 1</a></li>
 <li class="chapter" data-level="27.2" data-path="slide-2-4.html"><a href="slide-2-4.html"><i class="fa fa-check"></i><b>27.2</b> Slide 2</a></li>
-<li class="chapter" data-level="27.3" data-path="meeting-videos-21.html"><a href="meeting-videos-21.html"><i class="fa fa-check"></i><b>27.3</b> Meeting Videos</a><ul>
+<li class="chapter" data-level="27.3" data-path="meeting-videos-21.html"><a href="meeting-videos-21.html"><i class="fa fa-check"></i><b>27.3</b> Meeting Videos</a>
+<ul>
 <li class="chapter" data-level="27.3.1" data-path="meeting-videos-21.html"><a href="meeting-videos-21.html#cohort-5-21"><i class="fa fa-check"></i><b>27.3.1</b> Cohort 5</a></li>
 <li class="chapter" data-level="27.3.2" data-path="meeting-videos-21.html"><a href="meeting-videos-21.html#cohort-6-19"><i class="fa fa-check"></i><b>27.3.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="28" data-path="graphics-for-communication.html"><a href="graphics-for-communication.html"><i class="fa fa-check"></i><b>28</b> Graphics for communication</a><ul>
+<li class="chapter" data-level="28" data-path="graphics-for-communication.html"><a href="graphics-for-communication.html"><i class="fa fa-check"></i><b>28</b> Graphics for communication</a>
+<ul>
 <li class="chapter" data-level="28.1" data-path="tools-you-need-to-create-good-graphics.html"><a href="tools-you-need-to-create-good-graphics.html"><i class="fa fa-check"></i><b>28.1</b> Tools you need to create good graphics</a></li>
 <li class="chapter" data-level="28.2" data-path="use-labels-and-annotations.html"><a href="use-labels-and-annotations.html"><i class="fa fa-check"></i><b>28.2</b> Use labels and annotations</a></li>
 <li class="chapter" data-level="28.3" data-path="scales.html"><a href="scales.html"><i class="fa fa-check"></i><b>28.3</b> Scales</a></li>
 <li class="chapter" data-level="28.4" data-path="themes.html"><a href="themes.html"><i class="fa fa-check"></i><b>28.4</b> Themes</a></li>
 <li class="chapter" data-level="28.5" data-path="save-the-plot.html"><a href="save-the-plot.html"><i class="fa fa-check"></i><b>28.5</b> Save the plot</a></li>
-<li class="chapter" data-level="28.6" data-path="meeting-videos-22.html"><a href="meeting-videos-22.html"><i class="fa fa-check"></i><b>28.6</b> Meeting Videos</a><ul>
+<li class="chapter" data-level="28.6" data-path="meeting-videos-22.html"><a href="meeting-videos-22.html"><i class="fa fa-check"></i><b>28.6</b> Meeting Videos</a>
+<ul>
 <li class="chapter" data-level="28.6.1" data-path="meeting-videos-22.html"><a href="meeting-videos-22.html#cohort-5-22"><i class="fa fa-check"></i><b>28.6.1</b> Cohort 5</a></li>
 <li class="chapter" data-level="28.6.2" data-path="meeting-videos-22.html"><a href="meeting-videos-22.html#cohort-6-20"><i class="fa fa-check"></i><b>28.6.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="29" data-path="r-markdown-formats.html"><a href="r-markdown-formats.html"><i class="fa fa-check"></i><b>29</b> R Markdown formats</a><ul>
+<li class="chapter" data-level="29" data-path="r-markdown-formats.html"><a href="r-markdown-formats.html"><i class="fa fa-check"></i><b>29</b> R Markdown formats</a>
+<ul>
 <li class="chapter" data-level="29.1" data-path="slide-1-5.html"><a href="slide-1-5.html"><i class="fa fa-check"></i><b>29.1</b> Slide 1</a></li>
 <li class="chapter" data-level="29.2" data-path="slide-2-5.html"><a href="slide-2-5.html"><i class="fa fa-check"></i><b>29.2</b> Slide 2</a></li>
-<li class="chapter" data-level="29.3" data-path="meeting-videos-23.html"><a href="meeting-videos-23.html"><i class="fa fa-check"></i><b>29.3</b> Meeting Videos</a><ul>
+<li class="chapter" data-level="29.3" data-path="meeting-videos-23.html"><a href="meeting-videos-23.html"><i class="fa fa-check"></i><b>29.3</b> Meeting Videos</a>
+<ul>
 <li class="chapter" data-level="29.3.1" data-path="meeting-videos-23.html"><a href="meeting-videos-23.html#cohort-5-23"><i class="fa fa-check"></i><b>29.3.1</b> Cohort 5</a></li>
 <li class="chapter" data-level="29.3.2" data-path="meeting-videos-23.html"><a href="meeting-videos-23.html#cohort-6-21"><i class="fa fa-check"></i><b>29.3.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="30" data-path="r-markdown-workflow.html"><a href="r-markdown-workflow.html"><i class="fa fa-check"></i><b>30</b> R Markdown workflow</a><ul>
+<li class="chapter" data-level="30" data-path="r-markdown-workflow.html"><a href="r-markdown-workflow.html"><i class="fa fa-check"></i><b>30</b> R Markdown workflow</a>
+<ul>
 <li class="chapter" data-level="30.1" data-path="slide-1-6.html"><a href="slide-1-6.html"><i class="fa fa-check"></i><b>30.1</b> Slide 1</a></li>
 <li class="chapter" data-level="30.2" data-path="slide-2-6.html"><a href="slide-2-6.html"><i class="fa fa-check"></i><b>30.2</b> Slide 2</a></li>
-<li class="chapter" data-level="30.3" data-path="meeting-videos-24.html"><a href="meeting-videos-24.html"><i class="fa fa-check"></i><b>30.3</b> Meeting Videos</a><ul>
+<li class="chapter" data-level="30.3" data-path="meeting-videos-24.html"><a href="meeting-videos-24.html"><i class="fa fa-check"></i><b>30.3</b> Meeting Videos</a>
+<ul>
 <li class="chapter" data-level="30.3.1" data-path="meeting-videos-24.html"><a href="meeting-videos-24.html#cohort-5-24"><i class="fa fa-check"></i><b>30.3.1</b> Cohort 5</a></li>
 <li class="chapter" data-level="30.3.2" data-path="meeting-videos-24.html"><a href="meeting-videos-24.html#cohort-6-22"><i class="fa fa-check"></i><b>30.3.2</b> Cohort 6</a></li>
 </ul></li>
@@ -557,23 +624,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="filter-rows-with-filter" class="section level2 hasAnchor">
+<div id="filter-rows-with-filter" class="section level2 hasAnchor" number="5.3">
 <h2><span class="header-section-number">5.3</span> Filter rows with filter()<a href="filter-rows-with-filter.html#filter-rows-with-filter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><code>filter()</code> allows you to pick out certain rows (observations) . <code>filter()</code> picks the rows which evaluates to TRUE for all criteria.</p>
 <p>The first argument to <code>filter()</code> is a data frame, the subsequent arguments are the expressions.</p>
 <p>Combine comparisons and logical operators on the columns to select rows.</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="filter-rows-with-filter.html#cb82-1"></a><span class="co"># number of rows and columns</span></span>
-<span id="cb82-2"><a href="filter-rows-with-filter.html#cb82-2"></a><span class="kw">dim</span>(flights)</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="filter-rows-with-filter.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># number of rows and columns</span></span>
+<span id="cb82-2"><a href="filter-rows-with-filter.html#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(flights)</span></code></pre></div>
 <pre><code>## [1] 336776     19</code></pre>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="filter-rows-with-filter.html#cb84-1"></a><span class="co"># get the column names</span></span>
-<span id="cb84-2"><a href="filter-rows-with-filter.html#cb84-2"></a><span class="kw">colnames</span>(flights)</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="filter-rows-with-filter.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the column names</span></span>
+<span id="cb84-2"><a href="filter-rows-with-filter.html#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(flights)</span></code></pre></div>
 <pre><code>##  [1] &quot;year&quot;           &quot;month&quot;          &quot;day&quot;            &quot;dep_time&quot;      
 ##  [5] &quot;sched_dep_time&quot; &quot;dep_delay&quot;      &quot;arr_time&quot;       &quot;sched_arr_time&quot;
 ##  [9] &quot;arr_delay&quot;      &quot;carrier&quot;        &quot;flight&quot;         &quot;tailnum&quot;       
 ## [13] &quot;origin&quot;         &quot;dest&quot;           &quot;air_time&quot;       &quot;distance&quot;      
 ## [17] &quot;hour&quot;           &quot;minute&quot;         &quot;time_hour&quot;</code></pre>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="filter-rows-with-filter.html#cb86-1"></a><span class="co"># select flights from November</span></span>
-<span id="cb86-2"><a href="filter-rows-with-filter.html#cb86-2"></a><span class="kw">filter</span>(flights, month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="filter-rows-with-filter.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select flights from November</span></span>
+<span id="cb86-2"><a href="filter-rows-with-filter.html#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">11</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 27,268 × 19
 ##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
@@ -591,8 +658,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
 ## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
 <p><code>A tibble: 27,268 × 19</code> tells you 27,268 rows match the criteria</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="filter-rows-with-filter.html#cb88-1"></a><span class="co"># select flights from December</span></span>
-<span id="cb88-2"><a href="filter-rows-with-filter.html#cb88-2"></a><span class="kw">filter</span>(flights, month <span class="op">==</span><span class="st"> </span><span class="dv">12</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="filter-rows-with-filter.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select flights from December</span></span>
+<span id="cb88-2"><a href="filter-rows-with-filter.html#cb88-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">12</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 28,135 × 19
 ##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
@@ -609,8 +676,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # … with 28,125 more rows, and 11 more variables: arr_delay &lt;dbl&gt;,
 ## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
 ## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="filter-rows-with-filter.html#cb90-1"></a><span class="co"># select flights not from December (e.g. January to November)</span></span>
-<span id="cb90-2"><a href="filter-rows-with-filter.html#cb90-2"></a><span class="kw">filter</span>(flights, month <span class="op">!=</span><span class="st"> </span><span class="dv">12</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="filter-rows-with-filter.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select flights not from December (e.g. January to November)</span></span>
+<span id="cb90-2"><a href="filter-rows-with-filter.html#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">!=</span> <span class="dv">12</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 308,641 × 19
 ##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
@@ -627,8 +694,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # … with 308,631 more rows, and 11 more variables: arr_delay &lt;dbl&gt;,
 ## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
 ## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="filter-rows-with-filter.html#cb92-1"></a><span class="co"># select flights from November or December</span></span>
-<span id="cb92-2"><a href="filter-rows-with-filter.html#cb92-2"></a><span class="kw">filter</span>(flights, month <span class="op">==</span><span class="st"> </span><span class="dv">11</span> <span class="op">|</span><span class="st"> </span>month <span class="op">==</span><span class="st"> </span><span class="dv">12</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="filter-rows-with-filter.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select flights from November or December</span></span>
+<span id="cb92-2"><a href="filter-rows-with-filter.html#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">11</span> <span class="sc">|</span> month <span class="sc">==</span> <span class="dv">12</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 55,403 × 19
 ##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
@@ -646,8 +713,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
 ## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
 <p><code>&amp;</code> (and) vs <code>|</code> (or)</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="filter-rows-with-filter.html#cb94-1"></a><span class="co"># select flights from November or from 1st day of any month</span></span>
-<span id="cb94-2"><a href="filter-rows-with-filter.html#cb94-2"></a><span class="kw">filter</span>(flights, month <span class="op">==</span><span class="st"> </span><span class="dv">11</span> <span class="op">|</span><span class="st"> </span>day <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="filter-rows-with-filter.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select flights from November or from 1st day of any month</span></span>
+<span id="cb94-2"><a href="filter-rows-with-filter.html#cb94-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">11</span> <span class="sc">|</span> day <span class="sc">==</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 37,318 × 19
 ##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
@@ -664,8 +731,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # … with 37,308 more rows, and 11 more variables: arr_delay &lt;dbl&gt;,
 ## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
 ## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="filter-rows-with-filter.html#cb96-1"></a><span class="co"># select flights from November 1st</span></span>
-<span id="cb96-2"><a href="filter-rows-with-filter.html#cb96-2"></a><span class="kw">filter</span>(flights, month <span class="op">==</span><span class="st"> </span><span class="dv">11</span> <span class="op">&amp;</span><span class="st"> </span>day <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="filter-rows-with-filter.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select flights from November 1st</span></span>
+<span id="cb96-2"><a href="filter-rows-with-filter.html#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">11</span> <span class="sc">&amp;</span> day <span class="sc">==</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 986 × 19
 ##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
@@ -683,59 +750,59 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## #   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;,
 ## #   distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
 <p>If you provide multiple comma-separated expressions, dplyr will automatically use <code>&amp;</code> to combine the expressions.</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="filter-rows-with-filter.html#cb98-1"></a><span class="co"># both will select flights from November 1st</span></span>
-<span id="cb98-2"><a href="filter-rows-with-filter.html#cb98-2"></a></span>
-<span id="cb98-3"><a href="filter-rows-with-filter.html#cb98-3"></a><span class="kw">filter</span>(flights, month <span class="op">==</span><span class="st"> </span><span class="dv">11</span> <span class="op">&amp;</span><span class="st"> </span>day <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</span>
-<span id="cb98-4"><a href="filter-rows-with-filter.html#cb98-4"></a></span>
-<span id="cb98-5"><a href="filter-rows-with-filter.html#cb98-5"></a><span class="kw">filter</span>(flights, month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, day <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="filter-rows-with-filter.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co"># both will select flights from November 1st</span></span>
+<span id="cb98-2"><a href="filter-rows-with-filter.html#cb98-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb98-3"><a href="filter-rows-with-filter.html#cb98-3" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">11</span> <span class="sc">&amp;</span> day <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb98-4"><a href="filter-rows-with-filter.html#cb98-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb98-5"><a href="filter-rows-with-filter.html#cb98-5" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">11</span>, day <span class="sc">==</span> <span class="dv">1</span>)</span></code></pre></div>
 <p>dplyr functions do not change the original data. To save the results from a function, you need to assign the results to a object.</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="filter-rows-with-filter.html#cb99-1"></a>nov1 &lt;-<span class="st"> </span><span class="kw">filter</span>(flights, month <span class="op">==</span><span class="st"> </span><span class="dv">11</span>, day <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</span>
-<span id="cb99-2"><a href="filter-rows-with-filter.html#cb99-2"></a></span>
-<span id="cb99-3"><a href="filter-rows-with-filter.html#cb99-3"></a><span class="kw">nrow</span>(nov1)</span>
-<span id="cb99-4"><a href="filter-rows-with-filter.html#cb99-4"></a><span class="co">## [1] 986</span></span>
-<span id="cb99-5"><a href="filter-rows-with-filter.html#cb99-5"></a></span>
-<span id="cb99-6"><a href="filter-rows-with-filter.html#cb99-6"></a><span class="kw">nrow</span>(flights)</span>
-<span id="cb99-7"><a href="filter-rows-with-filter.html#cb99-7"></a><span class="co">## [1] 336776</span></span></code></pre></div>
-<div id="missing-values" class="section level3 hasAnchor">
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="filter-rows-with-filter.html#cb99-1" aria-hidden="true" tabindex="-1"></a>nov1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">11</span>, day <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb99-2"><a href="filter-rows-with-filter.html#cb99-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-3"><a href="filter-rows-with-filter.html#cb99-3" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(nov1)</span>
+<span id="cb99-4"><a href="filter-rows-with-filter.html#cb99-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 986</span></span>
+<span id="cb99-5"><a href="filter-rows-with-filter.html#cb99-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-6"><a href="filter-rows-with-filter.html#cb99-6" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(flights)</span>
+<span id="cb99-7"><a href="filter-rows-with-filter.html#cb99-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 336776</span></span></code></pre></div>
+<div id="missing-values" class="section level3 hasAnchor" number="5.3.1">
 <h3><span class="header-section-number">5.3.1</span> Missing values<a href="filter-rows-with-filter.html#missing-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Often times, rows will not have data for certain columns. In spreadsheets, csv, tsv, the cells will be blank. In R data frames, the missing values are represented as <code>NA</code> (not available).</p>
 <p>Operations with <code>NA</code> will return <code>NA</code>.</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="filter-rows-with-filter.html#cb100-1"></a><span class="ot">NA</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span></span>
-<span id="cb100-2"><a href="filter-rows-with-filter.html#cb100-2"></a><span class="co"># [1] NA</span></span>
-<span id="cb100-3"><a href="filter-rows-with-filter.html#cb100-3"></a></span>
-<span id="cb100-4"><a href="filter-rows-with-filter.html#cb100-4"></a><span class="dv">10</span> <span class="op">==</span><span class="st"> </span><span class="ot">NA</span></span>
-<span id="cb100-5"><a href="filter-rows-with-filter.html#cb100-5"></a><span class="co"># [1] NA</span></span>
-<span id="cb100-6"><a href="filter-rows-with-filter.html#cb100-6"></a></span>
-<span id="cb100-7"><a href="filter-rows-with-filter.html#cb100-7"></a><span class="ot">NA</span> <span class="op">+</span><span class="st"> </span><span class="dv">10</span></span>
-<span id="cb100-8"><a href="filter-rows-with-filter.html#cb100-8"></a><span class="co"># [1] NA</span></span>
-<span id="cb100-9"><a href="filter-rows-with-filter.html#cb100-9"></a></span>
-<span id="cb100-10"><a href="filter-rows-with-filter.html#cb100-10"></a><span class="ot">NA</span> <span class="op">/</span><span class="st"> </span><span class="dv">2</span></span>
-<span id="cb100-11"><a href="filter-rows-with-filter.html#cb100-11"></a><span class="co"># [1] NA</span></span>
-<span id="cb100-12"><a href="filter-rows-with-filter.html#cb100-12"></a></span>
-<span id="cb100-13"><a href="filter-rows-with-filter.html#cb100-13"></a><span class="ot">NA</span> <span class="op">==</span><span class="st"> </span><span class="ot">NA</span></span>
-<span id="cb100-14"><a href="filter-rows-with-filter.html#cb100-14"></a><span class="co"># [1] NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="filter-rows-with-filter.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">&gt;</span> <span class="dv">5</span></span>
+<span id="cb100-2"><a href="filter-rows-with-filter.html#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] NA</span></span>
+<span id="cb100-3"><a href="filter-rows-with-filter.html#cb100-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-4"><a href="filter-rows-with-filter.html#cb100-4" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">==</span> <span class="cn">NA</span></span>
+<span id="cb100-5"><a href="filter-rows-with-filter.html#cb100-5" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] NA</span></span>
+<span id="cb100-6"><a href="filter-rows-with-filter.html#cb100-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-7"><a href="filter-rows-with-filter.html#cb100-7" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">+</span> <span class="dv">10</span></span>
+<span id="cb100-8"><a href="filter-rows-with-filter.html#cb100-8" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] NA</span></span>
+<span id="cb100-9"><a href="filter-rows-with-filter.html#cb100-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-10"><a href="filter-rows-with-filter.html#cb100-10" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb100-11"><a href="filter-rows-with-filter.html#cb100-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] NA</span></span>
+<span id="cb100-12"><a href="filter-rows-with-filter.html#cb100-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-13"><a href="filter-rows-with-filter.html#cb100-13" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">==</span> <span class="cn">NA</span></span>
+<span id="cb100-14"><a href="filter-rows-with-filter.html#cb100-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] NA</span></span></code></pre></div>
 <p>To check if value is missing use <code>is.na()</code></p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="filter-rows-with-filter.html#cb101-1"></a><span class="kw">is.na</span>(<span class="ot">NA</span>)</span>
-<span id="cb101-2"><a href="filter-rows-with-filter.html#cb101-2"></a><span class="co"># [1] TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="filter-rows-with-filter.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="cn">NA</span>)</span>
+<span id="cb101-2"><a href="filter-rows-with-filter.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] TRUE</span></span></code></pre></div>
 <p>By default, <code>filter()</code> excludes <code>NA</code> values. To include <code>NA</code> values, you must add an expression.</p>
 <p>tibble is the tidyverse version of a data frame. tibble haves some extra functions that normal data frames do not have.</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="filter-rows-with-filter.html#cb102-1"></a><span class="co"># create a tibble with a column named &quot;x&quot;, with 3 values</span></span>
-<span id="cb102-2"><a href="filter-rows-with-filter.html#cb102-2"></a>df &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="ot">NA</span>, <span class="dv">3</span>))</span>
-<span id="cb102-3"><a href="filter-rows-with-filter.html#cb102-3"></a>df</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="filter-rows-with-filter.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a tibble with a column named &quot;x&quot;, with 3 values</span></span>
+<span id="cb102-2"><a href="filter-rows-with-filter.html#cb102-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="dv">3</span>))</span>
+<span id="cb102-3"><a href="filter-rows-with-filter.html#cb102-3" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 1
 ##       x
 ##   &lt;dbl&gt;
 ## 1     1
 ## 2    NA
 ## 3     3</code></pre>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="filter-rows-with-filter.html#cb104-1"></a><span class="co"># select rows with values greater than 1</span></span>
-<span id="cb104-2"><a href="filter-rows-with-filter.html#cb104-2"></a><span class="kw">filter</span>(df, x <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="filter-rows-with-filter.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select rows with values greater than 1</span></span>
+<span id="cb104-2"><a href="filter-rows-with-filter.html#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(df, x <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 1
 ##       x
 ##   &lt;dbl&gt;
 ## 1     3</code></pre>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="filter-rows-with-filter.html#cb106-1"></a><span class="co"># select rows with NA or values greater than 1</span></span>
-<span id="cb106-2"><a href="filter-rows-with-filter.html#cb106-2"></a><span class="kw">filter</span>(df, <span class="kw">is.na</span>(x) <span class="op">|</span><span class="st"> </span>x <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="filter-rows-with-filter.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select rows with NA or values greater than 1</span></span>
+<span id="cb106-2"><a href="filter-rows-with-filter.html#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(df, <span class="fu">is.na</span>(x) <span class="sc">|</span> x <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 1
 ##       x
 ##   &lt;dbl&gt;
