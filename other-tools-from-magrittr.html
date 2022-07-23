@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>18.6 Other tools from magrittr | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="18.6 Other tools from magrittr | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-06-12" />
+<meta name="date" content="2022-07-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -641,7 +641,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="other-tools-from-magrittr.html#cb440-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span></code></pre></div>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="other-tools-from-magrittr.html#cb438-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;magrittr&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:purrr&#39;:
@@ -650,28 +650,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## The following object is masked from &#39;package:tidyr&#39;:
 ## 
 ##     extract</code></pre>
-<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="other-tools-from-magrittr.html#cb444-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb444-2"><a href="other-tools-from-magrittr.html#cb444-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb444-3"><a href="other-tools-from-magrittr.html#cb444-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb444-4"><a href="other-tools-from-magrittr.html#cb444-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="other-tools-from-magrittr.html#cb442-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb442-2"><a href="other-tools-from-magrittr.html#cb442-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb442-3"><a href="other-tools-from-magrittr.html#cb442-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb442-4"><a href="other-tools-from-magrittr.html#cb442-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str</span>()</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/Tee%20Pipe-1.png" width="672" /></p>
 <pre><code>##  NULL</code></pre>
-<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="other-tools-from-magrittr.html#cb446-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using the Tee pipe allows for seeing the data prior to plotting</span></span>
-<span id="cb446-2"><a href="other-tools-from-magrittr.html#cb446-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb446-3"><a href="other-tools-from-magrittr.html#cb446-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">%T&gt;%</span></span>
-<span id="cb446-4"><a href="other-tools-from-magrittr.html#cb446-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb446-5"><a href="other-tools-from-magrittr.html#cb446-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="other-tools-from-magrittr.html#cb444-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using the Tee pipe allows for seeing the data prior to plotting</span></span>
+<span id="cb444-2"><a href="other-tools-from-magrittr.html#cb444-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb444-3"><a href="other-tools-from-magrittr.html#cb444-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">%T&gt;%</span></span>
+<span id="cb444-4"><a href="other-tools-from-magrittr.html#cb444-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb444-5"><a href="other-tools-from-magrittr.html#cb444-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str</span>()</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/Tee%20Pipe-2.png" width="672" /></p>
-<pre><code>##  num [1:50, 1:2] -0.394 0.92 -0.389 0.586 -0.178 ...</code></pre>
+<pre><code>##  num [1:50, 1:2] 0.0966 -1.0299 -1.0658 -1.3988 -1.9732 ...</code></pre>
 <ul>
 <li><strong>Exposition</strong> pipe: <code>%$%</code>
 <ul>
 <li>It <em>explodes</em> out the variables in a data frame so that you can refer to them explicitly</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="other-tools-from-magrittr.html#cb448-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output the correlation of `disp` to `mpg`</span></span>
-<span id="cb448-2"><a href="other-tools-from-magrittr.html#cb448-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%$%</span></span>
-<span id="cb448-3"><a href="other-tools-from-magrittr.html#cb448-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>(disp, mpg)</span></code></pre></div>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="other-tools-from-magrittr.html#cb446-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output the correlation of `disp` to `mpg`</span></span>
+<span id="cb446-2"><a href="other-tools-from-magrittr.html#cb446-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%$%</span></span>
+<span id="cb446-3"><a href="other-tools-from-magrittr.html#cb446-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>(disp, mpg)</span></code></pre></div>
 <pre><code>## [1] -0.8475514</code></pre>
 <ul>
 <li><strong>Assignment</strong> pipe: <code>%&lt;&gt;%</code>
@@ -679,10 +679,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Allows you to replace code</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="other-tools-from-magrittr.html#cb450-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> </span>
-<span id="cb450-2"><a href="other-tools-from-magrittr.html#cb450-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transform</span>(<span class="at">cyl =</span> cyl <span class="sc">*</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="other-tools-from-magrittr.html#cb448-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb448-2"><a href="other-tools-from-magrittr.html#cb448-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transform</span>(<span class="at">cyl =</span> cyl <span class="sc">*</span> <span class="dv">2</span>)</span></code></pre></div>
 <p>Using the Assignment Operator <code>%&lt;&gt;%</code></p>
-<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="other-tools-from-magrittr.html#cb451-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&lt;&gt;%</span> <span class="fu">transform</span>(<span class="at">cyl =</span> cyl <span class="sc">*</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="other-tools-from-magrittr.html#cb449-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&lt;&gt;%</span> <span class="fu">transform</span>(<span class="at">cyl =</span> cyl <span class="sc">*</span> <span class="dv">2</span>)</span></code></pre></div>
 <blockquote>
 <p><em>In my opinion, a little bit of duplication (i.e. repeating the name of the object twice) is fine in return for making assignment more explicit.</em> - Hadley Wickham</p>
 </blockquote>

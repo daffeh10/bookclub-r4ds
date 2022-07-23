@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>14.3 Matching Patterns with Regular Expressions | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="14.3 Matching Patterns with Regular Expressions | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-06-12" />
+<meta name="date" content="2022-07-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -631,39 +631,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="basic-matches" class="section level3 hasAnchor" number="14.3.1">
 <h3><span class="header-section-number">14.3.1</span> Basic Matches<a href="matching-patterns-with-regular-expressions.html#basic-matches" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The simplest expressions are pattern matching:</p>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="matching-patterns-with-regular-expressions.html#cb299-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pear&quot;</span>)</span>
-<span id="cb299-2"><a href="matching-patterns-with-regular-expressions.html#cb299-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;an&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-fcb1083c6c554ac0985b" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-fcb1083c6c554ac0985b">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>b<span class='match'>an<\/span>ana<\/li>\n  <li>pear<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="matching-patterns-with-regular-expressions.html#cb297-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pear&quot;</span>)</span>
+<span id="cb297-2"><a href="matching-patterns-with-regular-expressions.html#cb297-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;an&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-b072cf573cdf7f21f15d" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b072cf573cdf7f21f15d">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>b<span class='match'>an<\/span>ana<\/li>\n  <li>pear<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <blockquote>
 <p>NOTE: If you run this locally, the window that opens looks empty. In truth, it is printed “white” on “white” and therefore hard to read.</p>
 </blockquote>
 <p>The next step up in complexity is ., which matches any character (except a newline):</p>
-<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="matching-patterns-with-regular-expressions.html#cb300-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;.a.&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-d318490b8f0bec7e1227" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d318490b8f0bec7e1227">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li><span class='match'>ban<\/span>ana<\/li>\n  <li>p<span class='match'>ear<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="matching-patterns-with-regular-expressions.html#cb298-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;.a.&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-b1794d93d8f4bbb886f2" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b1794d93d8f4bbb886f2">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li><span class='match'>ban<\/span>ana<\/li>\n  <li>p<span class='match'>ear<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>The trick here is if “<code>.</code>” matches any character…what if we want to search for “<code>.</code>”? We have to escape the term by using “<code>\</code>”. Yet…this leads to another problem. Since “<code>\</code>” is part of a string, we have to escape it twice. Therefore, it looks like this: “<code>\\.</code>”.</p>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="matching-patterns-with-regular-expressions.html#cb301-1" aria-hidden="true" tabindex="-1"></a><span class="co"># To create the regular expression, we need \\</span></span>
-<span id="cb301-2"><a href="matching-patterns-with-regular-expressions.html#cb301-2" aria-hidden="true" tabindex="-1"></a>dot <span class="ot">&lt;-</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.&quot;</span></span>
-<span id="cb301-3"><a href="matching-patterns-with-regular-expressions.html#cb301-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb301-4"><a href="matching-patterns-with-regular-expressions.html#cb301-4" aria-hidden="true" tabindex="-1"></a><span class="co"># But the expression itself only contains one:</span></span>
-<span id="cb301-5"><a href="matching-patterns-with-regular-expressions.html#cb301-5" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(dot)</span></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="matching-patterns-with-regular-expressions.html#cb299-1" aria-hidden="true" tabindex="-1"></a><span class="co"># To create the regular expression, we need \\</span></span>
+<span id="cb299-2"><a href="matching-patterns-with-regular-expressions.html#cb299-2" aria-hidden="true" tabindex="-1"></a>dot <span class="ot">&lt;-</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.&quot;</span></span>
+<span id="cb299-3"><a href="matching-patterns-with-regular-expressions.html#cb299-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb299-4"><a href="matching-patterns-with-regular-expressions.html#cb299-4" aria-hidden="true" tabindex="-1"></a><span class="co"># But the expression itself only contains one:</span></span>
+<span id="cb299-5"><a href="matching-patterns-with-regular-expressions.html#cb299-5" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(dot)</span></code></pre></div>
 <pre><code>## \.</code></pre>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="matching-patterns-with-regular-expressions.html#cb303-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; \.</span></span>
-<span id="cb303-2"><a href="matching-patterns-with-regular-expressions.html#cb303-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb303-3"><a href="matching-patterns-with-regular-expressions.html#cb303-3" aria-hidden="true" tabindex="-1"></a><span class="co"># And this tells R to look for an explicit .</span></span>
-<span id="cb303-4"><a href="matching-patterns-with-regular-expressions.html#cb303-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="fu">c</span>(<span class="st">&quot;abc&quot;</span>, <span class="st">&quot;a.c&quot;</span>, <span class="st">&quot;bef&quot;</span>), <span class="st">&quot;a</span><span class="sc">\\</span><span class="st">.c&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-8da27ca2815343451417" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8da27ca2815343451417">{"x":{"html":"<ul>\n  <li>abc<\/li>\n  <li><span class='match'>a.c<\/span><\/li>\n  <li>bef<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="matching-patterns-with-regular-expressions.html#cb301-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; \.</span></span>
+<span id="cb301-2"><a href="matching-patterns-with-regular-expressions.html#cb301-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb301-3"><a href="matching-patterns-with-regular-expressions.html#cb301-3" aria-hidden="true" tabindex="-1"></a><span class="co"># And this tells R to look for an explicit .</span></span>
+<span id="cb301-4"><a href="matching-patterns-with-regular-expressions.html#cb301-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="fu">c</span>(<span class="st">&quot;abc&quot;</span>, <span class="st">&quot;a.c&quot;</span>, <span class="st">&quot;bef&quot;</span>), <span class="st">&quot;a</span><span class="sc">\\</span><span class="st">.c&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-8bff912adbb9c2affb9a" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8bff912adbb9c2affb9a">{"x":{"html":"<ul>\n  <li>abc<\/li>\n  <li><span class='match'>a.c<\/span><\/li>\n  <li>bef<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Good, we figured out how to search for periods (<code>.</code>) by using the escape character <code>\</code>. Ok, but what if we want to search for <code>\</code>? Hmmmm….we need to “escape the escape”. HA! Therefore, we need four backslashes! “<code>\\\\</code>”.</p>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="matching-patterns-with-regular-expressions.html#cb304-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;a</span><span class="sc">\\</span><span class="st">b&quot;</span></span>
-<span id="cb304-2"><a href="matching-patterns-with-regular-expressions.html#cb304-2" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="matching-patterns-with-regular-expressions.html#cb302-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;a</span><span class="sc">\\</span><span class="st">b&quot;</span></span>
+<span id="cb302-2"><a href="matching-patterns-with-regular-expressions.html#cb302-2" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(x)</span></code></pre></div>
 <pre><code>## a\b</code></pre>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="matching-patterns-with-regular-expressions.html#cb306-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; a\b</span></span>
-<span id="cb306-2"><a href="matching-patterns-with-regular-expressions.html#cb306-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb306-3"><a href="matching-patterns-with-regular-expressions.html#cb306-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;</span><span class="sc">\\\\</span><span class="st">&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-c279453e08a9e2218d70" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c279453e08a9e2218d70">{"x":{"html":"<ul>\n  <li>a<span class='match'>\\<\/span>b<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="matching-patterns-with-regular-expressions.html#cb304-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; a\b</span></span>
+<span id="cb304-2"><a href="matching-patterns-with-regular-expressions.html#cb304-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb304-3"><a href="matching-patterns-with-regular-expressions.html#cb304-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;</span><span class="sc">\\\\</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-b24bfacc604ac2c2bef8" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b24bfacc604ac2c2bef8">{"x":{"html":"<ul>\n  <li>a<span class='match'>\\<\/span>b<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <div id="exercises-2" class="section level4 hasAnchor" number="14.3.1.1">
 <h4><span class="header-section-number">14.3.1.1</span> Exercises<a href="matching-patterns-with-regular-expressions.html#exercises-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ol style="list-style-type: decimal">
@@ -694,34 +694,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="anchors" class="section level3 hasAnchor" number="14.3.2">
 <h3><span class="header-section-number">14.3.2</span> Anchors<a href="matching-patterns-with-regular-expressions.html#anchors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>By default, regular expressions will match anywhere in a string. However, if you want the beginning or end of a string, you can “anchor” the regular expression. Lets see how this works:</p>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="matching-patterns-with-regular-expressions.html#cb307-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The following matches anywhere &quot;a&quot; shows up</span></span>
-<span id="cb307-2"><a href="matching-patterns-with-regular-expressions.html#cb307-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pear&quot;</span>)</span>
-<span id="cb307-3"><a href="matching-patterns-with-regular-expressions.html#cb307-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;a&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-f122183618390a573cb7" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f122183618390a573cb7">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>pple<\/li>\n  <li>b<span class='match'>a<\/span>nana<\/li>\n  <li>pe<span class='match'>a<\/span>r<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="matching-patterns-with-regular-expressions.html#cb305-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The following matches anywhere &quot;a&quot; shows up</span></span>
+<span id="cb305-2"><a href="matching-patterns-with-regular-expressions.html#cb305-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pear&quot;</span>)</span>
+<span id="cb305-3"><a href="matching-patterns-with-regular-expressions.html#cb305-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;a&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-fbff454a690a466ba8e8" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-fbff454a690a466ba8e8">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>pple<\/li>\n  <li>b<span class='match'>a<\/span>nana<\/li>\n  <li>pe<span class='match'>a<\/span>r<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <blockquote>
 <p>Intesting, I thought when searching for “a”, it would highlight every insteance of “a”. So “banana” would hit three times. Nevermind…<code>str_view_all()</code> is required to list ALL instances of a search term.</p>
 </blockquote>
-<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="matching-patterns-with-regular-expressions.html#cb308-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The following matches only the beginning of the string where &quot;a&quot; shows up</span></span>
-<span id="cb308-2"><a href="matching-patterns-with-regular-expressions.html#cb308-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pear&quot;</span>)</span>
-<span id="cb308-3"><a href="matching-patterns-with-regular-expressions.html#cb308-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;^a&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-3b2633a2f3b7b8dc092f" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3b2633a2f3b7b8dc092f">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>pple<\/li>\n  <li>banana<\/li>\n  <li>pear<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="matching-patterns-with-regular-expressions.html#cb309-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The following matches only the end of the string where &quot;a&quot; shows up</span></span>
-<span id="cb309-2"><a href="matching-patterns-with-regular-expressions.html#cb309-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pear&quot;</span>)</span>
-<span id="cb309-3"><a href="matching-patterns-with-regular-expressions.html#cb309-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;a$&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-5704264885ea6452a767" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5704264885ea6452a767">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>banan<span class='match'>a<\/span><\/li>\n  <li>pear<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="matching-patterns-with-regular-expressions.html#cb306-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The following matches only the beginning of the string where &quot;a&quot; shows up</span></span>
+<span id="cb306-2"><a href="matching-patterns-with-regular-expressions.html#cb306-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pear&quot;</span>)</span>
+<span id="cb306-3"><a href="matching-patterns-with-regular-expressions.html#cb306-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;^a&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-f8cb6759a29f5077d041" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f8cb6759a29f5077d041">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>pple<\/li>\n  <li>banana<\/li>\n  <li>pear<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="matching-patterns-with-regular-expressions.html#cb307-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The following matches only the end of the string where &quot;a&quot; shows up</span></span>
+<span id="cb307-2"><a href="matching-patterns-with-regular-expressions.html#cb307-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pear&quot;</span>)</span>
+<span id="cb307-3"><a href="matching-patterns-with-regular-expressions.html#cb307-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;a$&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-28703ead40215e084c57" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-28703ead40215e084c57">{"x":{"html":"<ul>\n  <li>apple<\/li>\n  <li>banan<span class='match'>a<\/span><\/li>\n  <li>pear<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <ul>
 <li>To remember which pattern to use, remember the mnemonic “if you begin with power (<code>^</code>), you end up with money (<code>$</code>). <a href="https://twitter.com/emisshula/status/323863393167613953">Evan Misshula</a></li>
 </ul>
-<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="matching-patterns-with-regular-expressions.html#cb310-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple pie&quot;</span>, <span class="st">&quot;apple&quot;</span>, <span class="st">&quot;apple cake&quot;</span>)</span>
-<span id="cb310-2"><a href="matching-patterns-with-regular-expressions.html#cb310-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;apple&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-4028fd589794aac4e0aa" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4028fd589794aac4e0aa">{"x":{"html":"<ul>\n  <li><span class='match'>apple<\/span> pie<\/li>\n  <li><span class='match'>apple<\/span><\/li>\n  <li><span class='match'>apple<\/span> cake<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="matching-patterns-with-regular-expressions.html#cb311-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;^apple$&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-ec89bb246926f361847f" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ec89bb246926f361847f">{"x":{"html":"<ul>\n  <li>apple pie<\/li>\n  <li><span class='match'>apple<\/span><\/li>\n  <li>apple cake<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="matching-patterns-with-regular-expressions.html#cb308-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple pie&quot;</span>, <span class="st">&quot;apple&quot;</span>, <span class="st">&quot;apple cake&quot;</span>)</span>
+<span id="cb308-2"><a href="matching-patterns-with-regular-expressions.html#cb308-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;apple&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-7b0dece9dd7881c8e75c" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7b0dece9dd7881c8e75c">{"x":{"html":"<ul>\n  <li><span class='match'>apple<\/span> pie<\/li>\n  <li><span class='match'>apple<\/span><\/li>\n  <li><span class='match'>apple<\/span> cake<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="matching-patterns-with-regular-expressions.html#cb309-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;^apple$&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-6f2051af7ed77ee14b9b" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6f2051af7ed77ee14b9b">{"x":{"html":"<ul>\n  <li>apple pie<\/li>\n  <li><span class='match'>apple<\/span><\/li>\n  <li>apple cake<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <div id="exercise-unanswered" class="section level4 hasAnchor" number="14.3.2.1">
 <h4><span class="header-section-number">14.3.2.1</span> Exercise (Unanswered)<a href="matching-patterns-with-regular-expressions.html#exercise-unanswered" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ol style="list-style-type: decimal">
@@ -747,21 +747,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 - <code>[abc]</code>: matches a, b, or c.
 - <code>[^abc]</code>: matches anything except a, b, or c.</p>
 <p>Remember, to create a regular expression containing <code>\d</code> or <code>\s</code>, you’ll need to escape the <code>\</code> for the string, so you’ll type “<code>\\d</code>” or “<code>\\s</code>”.</p>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="matching-patterns-with-regular-expressions.html#cb312-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Look for a literal character that normally has special meaning in a regex</span></span>
-<span id="cb312-2"><a href="matching-patterns-with-regular-expressions.html#cb312-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="fu">c</span>(<span class="st">&quot;abc&quot;</span>, <span class="st">&quot;a.c&quot;</span>, <span class="st">&quot;a*c&quot;</span>, <span class="st">&quot;a c&quot;</span>), <span class="st">&quot;a[.]c&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-a66a78cf2968a877a68a" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a66a78cf2968a877a68a">{"x":{"html":"<ul>\n  <li>abc<\/li>\n  <li><span class='match'>a.c<\/span><\/li>\n  <li>a*c<\/li>\n  <li>a c<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="matching-patterns-with-regular-expressions.html#cb313-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="fu">c</span>(<span class="st">&quot;abc&quot;</span>, <span class="st">&quot;a.c&quot;</span>, <span class="st">&quot;a*c&quot;</span>, <span class="st">&quot;a c&quot;</span>), <span class="st">&quot;.[*]c&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-fdf827497f2f1970d679" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-fdf827497f2f1970d679">{"x":{"html":"<ul>\n  <li>abc<\/li>\n  <li>a.c<\/li>\n  <li><span class='match'>a*c<\/span><\/li>\n  <li>a c<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
-<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="matching-patterns-with-regular-expressions.html#cb314-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="fu">c</span>(<span class="st">&quot;abc&quot;</span>, <span class="st">&quot;a.c&quot;</span>, <span class="st">&quot;a*c&quot;</span>, <span class="st">&quot;a c&quot;</span>), <span class="st">&quot;a[ ]&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-53efbb6ba41d0a414952" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-53efbb6ba41d0a414952">{"x":{"html":"<ul>\n  <li>abc<\/li>\n  <li>a.c<\/li>\n  <li>a*c<\/li>\n  <li><span class='match'>a <\/span>c<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="matching-patterns-with-regular-expressions.html#cb310-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Look for a literal character that normally has special meaning in a regex</span></span>
+<span id="cb310-2"><a href="matching-patterns-with-regular-expressions.html#cb310-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="fu">c</span>(<span class="st">&quot;abc&quot;</span>, <span class="st">&quot;a.c&quot;</span>, <span class="st">&quot;a*c&quot;</span>, <span class="st">&quot;a c&quot;</span>), <span class="st">&quot;a[.]c&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-17f2694ab07179f9ab5b" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-17f2694ab07179f9ab5b">{"x":{"html":"<ul>\n  <li>abc<\/li>\n  <li><span class='match'>a.c<\/span><\/li>\n  <li>a*c<\/li>\n  <li>a c<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="matching-patterns-with-regular-expressions.html#cb311-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="fu">c</span>(<span class="st">&quot;abc&quot;</span>, <span class="st">&quot;a.c&quot;</span>, <span class="st">&quot;a*c&quot;</span>, <span class="st">&quot;a c&quot;</span>), <span class="st">&quot;.[*]c&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-b397c2f0f46991712d98" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b397c2f0f46991712d98">{"x":{"html":"<ul>\n  <li>abc<\/li>\n  <li>a.c<\/li>\n  <li><span class='match'>a*c<\/span><\/li>\n  <li>a c<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="matching-patterns-with-regular-expressions.html#cb312-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="fu">c</span>(<span class="st">&quot;abc&quot;</span>, <span class="st">&quot;a.c&quot;</span>, <span class="st">&quot;a*c&quot;</span>, <span class="st">&quot;a c&quot;</span>), <span class="st">&quot;a[ ]&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-c47a5d91c8c8cc43ccdc" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c47a5d91c8c8cc43ccdc">{"x":{"html":"<ul>\n  <li>abc<\/li>\n  <li>a.c<\/li>\n  <li>a*c<\/li>\n  <li><span class='match'>a <\/span>c<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>This works for most (but not all) regex metacharacters: <code>$</code> <code>.</code> <code>|</code> <code>?</code> <code>*</code> <code>+</code> <code>(</code> <code>)</code> <code>[</code> <code>{</code>. Unfortunately, a few characters have special meaning even inside a character class and must be handled with backslash escapes: <code>]</code> <code>\</code> <code>^</code> and <code>-</code>.</p>
 <p>You can also use <em>alternation</em> to pick between one or more alternative patterns. If precedence ever gets confusing, use parentheses to make it clear what you want:</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="matching-patterns-with-regular-expressions.html#cb315-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="fu">c</span>(<span class="st">&quot;grey&quot;</span>, <span class="st">&quot;gray&quot;</span>), <span class="st">&quot;gr(e|a)y&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-74fe7a868f3c0f3198a5" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-74fe7a868f3c0f3198a5">{"x":{"html":"<ul>\n  <li><span class='match'>grey<\/span><\/li>\n  <li><span class='match'>gray<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="matching-patterns-with-regular-expressions.html#cb313-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="fu">c</span>(<span class="st">&quot;grey&quot;</span>, <span class="st">&quot;gray&quot;</span>), <span class="st">&quot;gr(e|a)y&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-5fddf447287af40da54e" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5fddf447287af40da54e">{"x":{"html":"<ul>\n  <li><span class='match'>grey<\/span><\/li>\n  <li><span class='match'>gray<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <div id="exercise-unanswered-1" class="section level4 hasAnchor" number="14.3.3.1">
 <h4><span class="header-section-number">14.3.3.1</span> Exercise (Unanswered)<a href="matching-patterns-with-regular-expressions.html#exercise-unanswered-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ol style="list-style-type: decimal">
@@ -789,16 +789,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>+</code>: 1 or more</li>
 <li><code>*</code>: 0 or more</li>
 </ul>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="matching-patterns-with-regular-expressions.html#cb316-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;1888 is the longest year in Roman numerals: MDCCCLXXXVIII&quot;</span></span>
-<span id="cb316-2"><a href="matching-patterns-with-regular-expressions.html#cb316-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;CC?&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-eae6bf4e9123a4973b9a" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-eae6bf4e9123a4973b9a">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MD<span class='match'>CC<\/span>CLXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="matching-patterns-with-regular-expressions.html#cb317-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;CC+&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-a0ebd7967d12b8b485dc" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a0ebd7967d12b8b485dc">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MD<span class='match'>CCC<\/span>LXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="matching-patterns-with-regular-expressions.html#cb318-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&#39;C[LX]+&#39;</span>)</span></code></pre></div>
-<div id="htmlwidget-b3394de11142dace2f64" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b3394de11142dace2f64">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MDCC<span class='match'>CLXXX<\/span>VIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="matching-patterns-with-regular-expressions.html#cb314-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;1888 is the longest year in Roman numerals: MDCCCLXXXVIII&quot;</span></span>
+<span id="cb314-2"><a href="matching-patterns-with-regular-expressions.html#cb314-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;CC?&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-52ea786d7c66a1b1c572" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-52ea786d7c66a1b1c572">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MD<span class='match'>CC<\/span>CLXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="matching-patterns-with-regular-expressions.html#cb315-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;CC+&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-49cdf0ab7335fafbc452" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-49cdf0ab7335fafbc452">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MD<span class='match'>CCC<\/span>LXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="matching-patterns-with-regular-expressions.html#cb316-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&#39;C[LX]+&#39;</span>)</span></code></pre></div>
+<div id="htmlwidget-056ce43b4c966373e6a0" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-056ce43b4c966373e6a0">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MDCC<span class='match'>CLXXX<\/span>VIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <blockquote>
 <p>The precedence of these operators is high which means most uses will need parentheses, like <code>bana(na)+</code>.</p>
 </blockquote>
@@ -809,22 +809,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>{,m}</code>: at most m</li>
 <li><code>{n,m}</code>: between n and m</li>
 </ul>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="matching-patterns-with-regular-expressions.html#cb319-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;C{2}&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-190240024bd39b284ecf" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-190240024bd39b284ecf">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MD<span class='match'>CC<\/span>CLXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="matching-patterns-with-regular-expressions.html#cb320-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;C{2,}&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-56765ca102c8a43c70b4" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-56765ca102c8a43c70b4">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MD<span class='match'>CCC<\/span>LXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="matching-patterns-with-regular-expressions.html#cb321-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;C{2,3}&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-cb480fad750b0acd8baa" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-cb480fad750b0acd8baa">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MD<span class='match'>CCC<\/span>LXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="matching-patterns-with-regular-expressions.html#cb317-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;C{2}&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-65c039c3fbef80645eee" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-65c039c3fbef80645eee">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MD<span class='match'>CC<\/span>CLXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="matching-patterns-with-regular-expressions.html#cb318-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;C{2,}&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-0b77b45dac8d8a8d54fb" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0b77b45dac8d8a8d54fb">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MD<span class='match'>CCC<\/span>LXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="matching-patterns-with-regular-expressions.html#cb319-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&quot;C{2,3}&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-f981087218be17aacddb" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f981087218be17aacddb">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MD<span class='match'>CCC<\/span>LXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>By default, these form of searches are greedy, which matches the longest string possible. To make them lazy (searching for the shortest string), you can add <code>?</code> at the end.</p>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="matching-patterns-with-regular-expressions.html#cb322-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&#39;C{2,3}?&#39;</span>)</span></code></pre></div>
-<div id="htmlwidget-951af39713824753e3fb" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-951af39713824753e3fb">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MD<span class='match'>CC<\/span>CLXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
-<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="matching-patterns-with-regular-expressions.html#cb323-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&#39;C[LX]+?&#39;</span>)</span></code></pre></div>
-<div id="htmlwidget-1ea8e4b4931eeb35a353" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1ea8e4b4931eeb35a353">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MDCC<span class='match'>CL<\/span>XXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="matching-patterns-with-regular-expressions.html#cb320-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&#39;C{2,3}?&#39;</span>)</span></code></pre></div>
+<div id="htmlwidget-3e657587e3f8ebea938e" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3e657587e3f8ebea938e">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MD<span class='match'>CC<\/span>CLXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="matching-patterns-with-regular-expressions.html#cb321-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x, <span class="st">&#39;C[LX]+?&#39;</span>)</span></code></pre></div>
+<div id="htmlwidget-153a4f3d7d9f3a8a1d28" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-153a4f3d7d9f3a8a1d28">{"x":{"html":"<ul>\n  <li>1888 is the longest year in Roman numerals: MDCC<span class='match'>CL<\/span>XXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <div id="exercises-unanswered" class="section level4 hasAnchor" number="14.3.4.1">
 <h4><span class="header-section-number">14.3.4.1</span> Exercises (Unanswered)<a href="matching-patterns-with-regular-expressions.html#exercises-unanswered" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ol style="list-style-type: decimal">
@@ -858,9 +858,9 @@ c.. Have two or more vowel-consonant pairs in a row.</li>
 -You can refer to the same text as previously matched by a capturing group with backreferences</li>
 </ul>
 <p>For example, the following regular expression finds all fruits that have a repeated pair of letters.</p>
-<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="matching-patterns-with-regular-expressions.html#cb324-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(fruit, <span class="st">&quot;(..)</span><span class="sc">\\</span><span class="st">1&quot;</span>, <span class="at">match =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<div id="htmlwidget-c65aa61b43d794d360bd" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c65aa61b43d794d360bd">{"x":{"html":"<ul>\n  <li>b<span class='match'>anan<\/span>a<\/li>\n  <li><span class='match'>coco<\/span>nut<\/li>\n  <li><span class='match'>cucu<\/span>mber<\/li>\n  <li><span class='match'>juju<\/span>be<\/li>\n  <li><span class='match'>papa<\/span>ya<\/li>\n  <li>s<span class='match'>alal<\/span> berry<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="matching-patterns-with-regular-expressions.html#cb322-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(fruit, <span class="st">&quot;(..)</span><span class="sc">\\</span><span class="st">1&quot;</span>, <span class="at">match =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div id="htmlwidget-d3b1be012d58a5c47c6f" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d3b1be012d58a5c47c6f">{"x":{"html":"<ul>\n  <li>b<span class='match'>anan<\/span>a<\/li>\n  <li><span class='match'>coco<\/span>nut<\/li>\n  <li><span class='match'>cucu<\/span>mber<\/li>\n  <li><span class='match'>juju<\/span>be<\/li>\n  <li><span class='match'>papa<\/span>ya<\/li>\n  <li>s<span class='match'>alal<\/span> berry<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <blockquote>
 <p>Dumb question…how does the R Environment know the object <code>fruit</code>? Use the command <code>data()</code> in Console to see all listed datasets in BaseR as well as those included in your loaded packages. For example, <em>fruit</em> is a dataset included with <code>{stringr}</code>.</p>
 </blockquote>

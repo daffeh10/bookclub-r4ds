@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.2 First Steps | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.2 First Steps | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-06-12" />
+<meta name="date" content="2022-07-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -657,8 +657,8 @@ Figure 3.1: ggplot2 package
 <li>Exercises solution are available at: <a href="https://jrnold.github.io/r4ds-exercise-solutions/">jrnold.github.io/r4ds-exercise-solutions</a></li>
 </ul>
 <p>After having loaded the library you can start building your plot. Let’s start with making an empty plot:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="first-steps.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb8-2"><a href="first-steps.html#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_blank</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="first-steps.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb6-2"><a href="first-steps.html#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_blank</span>() </span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/03-03-1.png" width="672" /></p>
 <p>The <code>ggplot()</code> function can be used by adding data inside the function as its first argument, and adding a <code>mapping</code> as a second argument:</p>
 <pre><code>ggplot( data = &lt; some data &gt; , 

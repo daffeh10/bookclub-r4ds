@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.7 To summarize: The gg in {ggplot} | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.7 To summarize: The gg in {ggplot} | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-06-12" />
+<meta name="date" content="2022-07-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -627,16 +627,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="to-summarize-the-gg-in-ggplot" class="section level2 hasAnchor" number="3.7">
 <h2><span class="header-section-number">3.7</span> To summarize: The gg in {ggplot}<a href="to-summarize-the-gg-in-ggplot.html#to-summarize-the-gg-in-ggplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><code>{ggplot}</code> implements the “layered grammar of graphics.”</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="to-summarize-the-gg-in-ggplot.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="sc">&lt;</span>DATA<span class="sc">&gt;</span>) <span class="sc">+</span> </span>
-<span id="cb26-2"><a href="to-summarize-the-gg-in-ggplot.html#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>GEOM_FUNCTION<span class="sc">&gt;</span>(</span>
-<span id="cb26-3"><a href="to-summarize-the-gg-in-ggplot.html#cb26-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="sc">&lt;</span>MAPPINGS<span class="sc">&gt;</span>),</span>
-<span id="cb26-4"><a href="to-summarize-the-gg-in-ggplot.html#cb26-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">stat =</span> <span class="sc">&lt;</span>STAT<span class="sc">&gt;</span>, </span>
-<span id="cb26-5"><a href="to-summarize-the-gg-in-ggplot.html#cb26-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">position =</span> <span class="sc">&lt;</span>POSITION<span class="sc">&gt;</span></span>
-<span id="cb26-6"><a href="to-summarize-the-gg-in-ggplot.html#cb26-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb26-7"><a href="to-summarize-the-gg-in-ggplot.html#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>COORDINATE_FUNCTION<span class="sc">&gt;</span> <span class="sc">+</span></span>
-<span id="cb26-8"><a href="to-summarize-the-gg-in-ggplot.html#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>FACET_FUNCTION<span class="sc">&gt;</span> <span class="sc">+</span></span>
-<span id="cb26-9"><a href="to-summarize-the-gg-in-ggplot.html#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>THEME_FUNCTION<span class="sc">&gt;</span> <span class="sc">+</span></span>
-<span id="cb26-10"><a href="to-summarize-the-gg-in-ggplot.html#cb26-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="to-summarize-the-gg-in-ggplot.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="sc">&lt;</span>DATA<span class="sc">&gt;</span>) <span class="sc">+</span> </span>
+<span id="cb24-2"><a href="to-summarize-the-gg-in-ggplot.html#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>GEOM_FUNCTION<span class="sc">&gt;</span>(</span>
+<span id="cb24-3"><a href="to-summarize-the-gg-in-ggplot.html#cb24-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="sc">&lt;</span>MAPPINGS<span class="sc">&gt;</span>),</span>
+<span id="cb24-4"><a href="to-summarize-the-gg-in-ggplot.html#cb24-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">stat =</span> <span class="sc">&lt;</span>STAT<span class="sc">&gt;</span>, </span>
+<span id="cb24-5"><a href="to-summarize-the-gg-in-ggplot.html#cb24-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">position =</span> <span class="sc">&lt;</span>POSITION<span class="sc">&gt;</span></span>
+<span id="cb24-6"><a href="to-summarize-the-gg-in-ggplot.html#cb24-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb24-7"><a href="to-summarize-the-gg-in-ggplot.html#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>COORDINATE_FUNCTION<span class="sc">&gt;</span> <span class="sc">+</span></span>
+<span id="cb24-8"><a href="to-summarize-the-gg-in-ggplot.html#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>FACET_FUNCTION<span class="sc">&gt;</span> <span class="sc">+</span></span>
+<span id="cb24-9"><a href="to-summarize-the-gg-in-ggplot.html#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>THEME_FUNCTION<span class="sc">&gt;</span> <span class="sc">+</span></span>
+<span id="cb24-10"><a href="to-summarize-the-gg-in-ggplot.html#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>()</span></code></pre></div>
 <ul>
 <li><code>ggplot(data = &lt;DATA&gt;)</code>: Set up a base plot with data.</li>
 <li><code>&lt;GEOM_FUNCTION&gt;(mapping = aes(&lt;MAPPINGS&gt;))</code>: Add a geometry, such as a point (<code>geom_point()</code>).

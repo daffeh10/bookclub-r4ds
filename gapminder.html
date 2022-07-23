@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>25.2 gapminder | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="25.2 gapminder | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-06-12" />
+<meta name="date" content="2022-07-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -681,7 +681,8 @@ This is good….but how do we do this for every country?</p>
 ##  8 Bahrain     Asia      &lt;tibble [12 × 4]&gt;
 ##  9 Bangladesh  Asia      &lt;tibble [12 × 4]&gt;
 ## 10 Belgium     Europe    &lt;tibble [12 × 4]&gt;
-## # … with 132 more rows</code></pre>
+## # … with 132 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <p>This creates a data frame that has one row per group (per country), and a rather unusual column:<code>data</code>. <code>data</code> is a list of data frames (or tibbles, to be precise).</p>
 <blockquote>
 <p>Note: Don’t use the Structure function <code>str()</code> as it will be difficult to view. Instead, just view a single line of your nested dataframe.</p>
@@ -731,7 +732,8 @@ This is good….but how do we do this for every country?</p>
 ##  8 Bahrain     Asia      &lt;tibble [12 × 4]&gt; &lt;lm&gt;  
 ##  9 Bangladesh  Asia      &lt;tibble [12 × 4]&gt; &lt;lm&gt;  
 ## 10 Belgium     Europe    &lt;tibble [12 × 4]&gt; &lt;lm&gt;  
-## # … with 132 more rows</code></pre>
+## # … with 132 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <p>This is a huge advantage: because all the related objects are stored together, you don’t need to manually keep them in sync when you filter or arrange.</p>
 <div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="gapminder.html#cb607-1" aria-hidden="true" tabindex="-1"></a>by_country <span class="sc">%&gt;%</span></span>
 <span id="cb607-2"><a href="gapminder.html#cb607-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">&quot;Europe&quot;</span>)</span></code></pre></div>
@@ -749,7 +751,8 @@ This is good….but how do we do this for every country?</p>
 ##  8 Denmark                Europe    &lt;tibble [12 × 4]&gt; &lt;lm&gt;  
 ##  9 Finland                Europe    &lt;tibble [12 × 4]&gt; &lt;lm&gt;  
 ## 10 France                 Europe    &lt;tibble [12 × 4]&gt; &lt;lm&gt;  
-## # … with 20 more rows</code></pre>
+## # … with 20 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="gapminder.html#cb609-1" aria-hidden="true" tabindex="-1"></a>by_country <span class="sc">%&gt;%</span></span>
 <span id="cb609-2"><a href="gapminder.html#cb609-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(continent, country)</span></code></pre></div>
 <pre><code>## # A tibble: 142 × 4
@@ -766,7 +769,8 @@ This is good….but how do we do this for every country?</p>
 ##  8 Central African Republic Africa    &lt;tibble [12 × 4]&gt; &lt;lm&gt;  
 ##  9 Chad                     Africa    &lt;tibble [12 × 4]&gt; &lt;lm&gt;  
 ## 10 Comoros                  Africa    &lt;tibble [12 × 4]&gt; &lt;lm&gt;  
-## # … with 132 more rows</code></pre>
+## # … with 132 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <p><strong><em>If your list of data frames and list of models were separate objects, you have to remember that whenever you re-order or subset one vector, you need to re-order or subset all the others in order to keep them in sync. If you forget, your code will continue to work, but it will give the wrong answer!</em></strong></p>
 </div>
 <div id="unnesting" class="section level3 hasAnchor" number="25.2.3">
@@ -791,25 +795,27 @@ This is good….but how do we do this for every country?</p>
 ##  8 Bahrain     Asia      &lt;tibble [12 × 4]&gt; &lt;lm&gt;   &lt;tibble [12 × 5]&gt;
 ##  9 Bangladesh  Asia      &lt;tibble [12 × 4]&gt; &lt;lm&gt;   &lt;tibble [12 × 5]&gt;
 ## 10 Belgium     Europe    &lt;tibble [12 × 4]&gt; &lt;lm&gt;   &lt;tibble [12 × 5]&gt;
-## # … with 132 more rows</code></pre>
+## # … with 132 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <p>By now, you should ask yourself: “How can I plot a bunch of dataframes?”. This isn’t required. We have to <em>un-nest</em>.</p>
 <div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="gapminder.html#cb613-1" aria-hidden="true" tabindex="-1"></a>resids <span class="ot">&lt;-</span> <span class="fu">unnest</span>(by_country, resids)</span>
 <span id="cb613-2"><a href="gapminder.html#cb613-2" aria-hidden="true" tabindex="-1"></a>resids</span></code></pre></div>
 <pre><code>## # A tibble: 1,704 × 9
 ## # Groups:   country, continent [142]
-##    country     continent data     model   year lifeExp     pop gdpPercap   resid
-##    &lt;fct&gt;       &lt;fct&gt;     &lt;list&gt;   &lt;list&gt; &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;   &lt;dbl&gt;
-##  1 Afghanistan Asia      &lt;tibble&gt; &lt;lm&gt;    1952    28.8  8.43e6      779. -1.11  
-##  2 Afghanistan Asia      &lt;tibble&gt; &lt;lm&gt;    1957    30.3  9.24e6      821. -0.952 
-##  3 Afghanistan Asia      &lt;tibble&gt; &lt;lm&gt;    1962    32.0  1.03e7      853. -0.664 
-##  4 Afghanistan Asia      &lt;tibble&gt; &lt;lm&gt;    1967    34.0  1.15e7      836. -0.0172
-##  5 Afghanistan Asia      &lt;tibble&gt; &lt;lm&gt;    1972    36.1  1.31e7      740.  0.674 
-##  6 Afghanistan Asia      &lt;tibble&gt; &lt;lm&gt;    1977    38.4  1.49e7      786.  1.65  
-##  7 Afghanistan Asia      &lt;tibble&gt; &lt;lm&gt;    1982    39.9  1.29e7      978.  1.69  
-##  8 Afghanistan Asia      &lt;tibble&gt; &lt;lm&gt;    1987    40.8  1.39e7      852.  1.28  
-##  9 Afghanistan Asia      &lt;tibble&gt; &lt;lm&gt;    1992    41.7  1.63e7      649.  0.754 
-## 10 Afghanistan Asia      &lt;tibble&gt; &lt;lm&gt;    1997    41.8  2.22e7      635. -0.534 
-## # … with 1,694 more rows</code></pre>
+##    country     continent data     model   year lifeExp      pop gdpPer…¹   resid
+##    &lt;fct&gt;       &lt;fct&gt;     &lt;list&gt;   &lt;list&gt; &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;    &lt;dbl&gt;   &lt;dbl&gt;
+##  1 Afghanistan Asia      &lt;tibble&gt; &lt;lm&gt;    1952    28.8  8425333     779. -1.11  
+##  2 Afghanistan Asia      &lt;tibble&gt; &lt;lm&gt;    1957    30.3  9240934     821. -0.952 
+##  3 Afghanistan Asia      &lt;tibble&gt; &lt;lm&gt;    1962    32.0 10267083     853. -0.664 
+##  4 Afghanistan Asia      &lt;tibble&gt; &lt;lm&gt;    1967    34.0 11537966     836. -0.0172
+##  5 Afghanistan Asia      &lt;tibble&gt; &lt;lm&gt;    1972    36.1 13079460     740.  0.674 
+##  6 Afghanistan Asia      &lt;tibble&gt; &lt;lm&gt;    1977    38.4 14880372     786.  1.65  
+##  7 Afghanistan Asia      &lt;tibble&gt; &lt;lm&gt;    1982    39.9 12881816     978.  1.69  
+##  8 Afghanistan Asia      &lt;tibble&gt; &lt;lm&gt;    1987    40.8 13867957     852.  1.28  
+##  9 Afghanistan Asia      &lt;tibble&gt; &lt;lm&gt;    1992    41.7 16317921     649.  0.754 
+## 10 Afghanistan Asia      &lt;tibble&gt; &lt;lm&gt;    1997    41.8 22227415     635. -0.534 
+## # … with 1,694 more rows, and abbreviated variable name ¹​gdpPercap
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <p>Now, we can plot ALL the residuals.</p>
 <div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="gapminder.html#cb615-1" aria-hidden="true" tabindex="-1"></a>resids <span class="sc">%&gt;%</span></span>
 <span id="cb615-2"><a href="gapminder.html#cb615-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, resid)) <span class="sc">+</span></span>
@@ -831,31 +837,35 @@ We can note that we still have very large residuals, namely in Africa suggesting
 <p>We’ll use <code>broom::glance()</code> to extract some model quality metrics.</p>
 <div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="gapminder.html#cb618-1" aria-hidden="true" tabindex="-1"></a>broom<span class="sc">::</span><span class="fu">glance</span>(nz_mod)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 12
-##   r.squared adj.r.squared sigma statistic      p.value    df logLik   AIC   BIC
-##       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1     0.954         0.949 0.804      205. 0.0000000541     1  -13.3  32.6  34.1
-## # … with 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
+##   r.squ…¹ adj.r…² sigma stati…³ p.value    df logLik   AIC   BIC devia…⁴ df.re…⁵
+##     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;int&gt;
+## 1   0.954   0.949 0.804    205. 5.41e-8     1  -13.3  32.6  34.1    6.47      10
+## # … with 1 more variable: nobs &lt;int&gt;, and abbreviated variable names
+## #   ¹​r.squared, ²​adj.r.squared, ³​statistic, ⁴​deviance, ⁵​df.residual
+## # ℹ Use `colnames()` to see all variable names</code></pre>
 <p>We can use mutate() and unnest() to create a data frame with a row for each country.</p>
 <div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="gapminder.html#cb620-1" aria-hidden="true" tabindex="-1"></a>by_country <span class="sc">%&gt;%</span></span>
 <span id="cb620-2"><a href="gapminder.html#cb620-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">glance =</span> <span class="fu">map</span>(model, broom<span class="sc">::</span>glance)) <span class="sc">%&gt;%</span></span>
 <span id="cb620-3"><a href="gapminder.html#cb620-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(glance)</span></code></pre></div>
 <pre><code>## # A tibble: 142 × 17
 ## # Groups:   country, continent [142]
-##    country     continent data     model  resids   r.squared adj.r.squared sigma
-##    &lt;fct&gt;       &lt;fct&gt;     &lt;list&gt;   &lt;list&gt; &lt;list&gt;       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;
-##  1 Afghanistan Asia      &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;     0.948         0.942 1.22 
-##  2 Albania     Europe    &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;     0.911         0.902 1.98 
-##  3 Algeria     Africa    &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;     0.985         0.984 1.32 
-##  4 Angola      Africa    &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;     0.888         0.877 1.41 
-##  5 Argentina   Americas  &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;     0.996         0.995 0.292
-##  6 Australia   Oceania   &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;     0.980         0.978 0.621
-##  7 Austria     Europe    &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;     0.992         0.991 0.407
-##  8 Bahrain     Asia      &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;     0.967         0.963 1.64 
-##  9 Bangladesh  Asia      &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;     0.989         0.988 0.977
-## 10 Belgium     Europe    &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;     0.995         0.994 0.293
-## # … with 132 more rows, and 9 more variables: statistic &lt;dbl&gt;, p.value &lt;dbl&gt;,
-## #   df &lt;dbl&gt;, logLik &lt;dbl&gt;, AIC &lt;dbl&gt;, BIC &lt;dbl&gt;, deviance &lt;dbl&gt;,
-## #   df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
+##    country     continent data     model  resids   r.squa…¹ adj.r…² sigma stati…³
+##    &lt;fct&gt;       &lt;fct&gt;     &lt;list&gt;   &lt;list&gt; &lt;list&gt;      &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+##  1 Afghanistan Asia      &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;    0.948   0.942 1.22    181. 
+##  2 Albania     Europe    &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;    0.911   0.902 1.98    102. 
+##  3 Algeria     Africa    &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;    0.985   0.984 1.32    662. 
+##  4 Angola      Africa    &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;    0.888   0.877 1.41     79.1
+##  5 Argentina   Americas  &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;    0.996   0.995 0.292  2246. 
+##  6 Australia   Oceania   &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;    0.980   0.978 0.621   481. 
+##  7 Austria     Europe    &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;    0.992   0.991 0.407  1261. 
+##  8 Bahrain     Asia      &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;    0.967   0.963 1.64    291. 
+##  9 Bangladesh  Asia      &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;    0.989   0.988 0.977   930. 
+## 10 Belgium     Europe    &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;    0.995   0.994 0.293  1822. 
+## # … with 132 more rows, 8 more variables: p.value &lt;dbl&gt;, df &lt;dbl&gt;,
+## #   logLik &lt;dbl&gt;, AIC &lt;dbl&gt;, BIC &lt;dbl&gt;, deviance &lt;dbl&gt;, df.residual &lt;int&gt;,
+## #   nobs &lt;int&gt;, and abbreviated variable names ¹​r.squared, ²​adj.r.squared,
+## #   ³​statistic
+## # ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
 <p>This isn’t quite the output we want, because it still includes all the list columns. This is default behaviour when <code>unnest()</code> works on single row data frames. To suppress these columns we use <code>.drop = TRUE</code></p>
 <blockquote>
 <p>Note, <code>.drop=TRUE</code> has been depricated.</p>
@@ -870,41 +880,45 @@ We can note that we still have very large residuals, namely in Africa suggesting
 <div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="gapminder.html#cb624-1" aria-hidden="true" tabindex="-1"></a>glance</span></code></pre></div>
 <pre><code>## # A tibble: 142 × 17
 ## # Groups:   country, continent [142]
-##    country     continent data     model  resids   r.squared adj.r.squared sigma
-##    &lt;fct&gt;       &lt;fct&gt;     &lt;list&gt;   &lt;list&gt; &lt;list&gt;       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;
-##  1 Afghanistan Asia      &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;     0.948         0.942 1.22 
-##  2 Albania     Europe    &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;     0.911         0.902 1.98 
-##  3 Algeria     Africa    &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;     0.985         0.984 1.32 
-##  4 Angola      Africa    &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;     0.888         0.877 1.41 
-##  5 Argentina   Americas  &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;     0.996         0.995 0.292
-##  6 Australia   Oceania   &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;     0.980         0.978 0.621
-##  7 Austria     Europe    &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;     0.992         0.991 0.407
-##  8 Bahrain     Asia      &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;     0.967         0.963 1.64 
-##  9 Bangladesh  Asia      &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;     0.989         0.988 0.977
-## 10 Belgium     Europe    &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;     0.995         0.994 0.293
-## # … with 132 more rows, and 9 more variables: statistic &lt;dbl&gt;, p.value &lt;dbl&gt;,
-## #   df &lt;dbl&gt;, logLik &lt;dbl&gt;, AIC &lt;dbl&gt;, BIC &lt;dbl&gt;, deviance &lt;dbl&gt;,
-## #   df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
+##    country     continent data     model  resids   r.squa…¹ adj.r…² sigma stati…³
+##    &lt;fct&gt;       &lt;fct&gt;     &lt;list&gt;   &lt;list&gt; &lt;list&gt;      &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+##  1 Afghanistan Asia      &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;    0.948   0.942 1.22    181. 
+##  2 Albania     Europe    &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;    0.911   0.902 1.98    102. 
+##  3 Algeria     Africa    &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;    0.985   0.984 1.32    662. 
+##  4 Angola      Africa    &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;    0.888   0.877 1.41     79.1
+##  5 Argentina   Americas  &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;    0.996   0.995 0.292  2246. 
+##  6 Australia   Oceania   &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;    0.980   0.978 0.621   481. 
+##  7 Austria     Europe    &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;    0.992   0.991 0.407  1261. 
+##  8 Bahrain     Asia      &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;    0.967   0.963 1.64    291. 
+##  9 Bangladesh  Asia      &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;    0.989   0.988 0.977   930. 
+## 10 Belgium     Europe    &lt;tibble&gt; &lt;lm&gt;   &lt;tibble&gt;    0.995   0.994 0.293  1822. 
+## # … with 132 more rows, 8 more variables: p.value &lt;dbl&gt;, df &lt;dbl&gt;,
+## #   logLik &lt;dbl&gt;, AIC &lt;dbl&gt;, BIC &lt;dbl&gt;, deviance &lt;dbl&gt;, df.residual &lt;int&gt;,
+## #   nobs &lt;int&gt;, and abbreviated variable names ¹​r.squared, ²​adj.r.squared,
+## #   ³​statistic
+## # ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
 <p>Now, we can look for countries that don’t fit our model well.</p>
 <div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb626-1"><a href="gapminder.html#cb626-1" aria-hidden="true" tabindex="-1"></a>glance <span class="sc">%&gt;%</span></span>
 <span id="cb626-2"><a href="gapminder.html#cb626-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(r.squared)</span></code></pre></div>
 <pre><code>## # A tibble: 142 × 17
 ## # Groups:   country, continent [142]
-##    country       continent data     model resids   r.squared adj.r.squared sigma
-##    &lt;fct&gt;         &lt;fct&gt;     &lt;list&gt;   &lt;lis&gt; &lt;list&gt;       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;
-##  1 Rwanda        Africa    &lt;tibble&gt; &lt;lm&gt;  &lt;tibble&gt;    0.0172      -0.0811   6.56
-##  2 Botswana      Africa    &lt;tibble&gt; &lt;lm&gt;  &lt;tibble&gt;    0.0340      -0.0626   6.11
-##  3 Zimbabwe      Africa    &lt;tibble&gt; &lt;lm&gt;  &lt;tibble&gt;    0.0562      -0.0381   7.21
-##  4 Zambia        Africa    &lt;tibble&gt; &lt;lm&gt;  &lt;tibble&gt;    0.0598      -0.0342   4.53
-##  5 Swaziland     Africa    &lt;tibble&gt; &lt;lm&gt;  &lt;tibble&gt;    0.0682      -0.0250   6.64
-##  6 Lesotho       Africa    &lt;tibble&gt; &lt;lm&gt;  &lt;tibble&gt;    0.0849      -0.00666  5.93
-##  7 Cote d&#39;Ivoire Africa    &lt;tibble&gt; &lt;lm&gt;  &lt;tibble&gt;    0.283        0.212    3.93
-##  8 South Africa  Africa    &lt;tibble&gt; &lt;lm&gt;  &lt;tibble&gt;    0.312        0.244    4.74
-##  9 Uganda        Africa    &lt;tibble&gt; &lt;lm&gt;  &lt;tibble&gt;    0.342        0.276    3.19
-## 10 Congo, Dem. … Africa    &lt;tibble&gt; &lt;lm&gt;  &lt;tibble&gt;    0.348        0.283    2.43
-## # … with 132 more rows, and 9 more variables: statistic &lt;dbl&gt;, p.value &lt;dbl&gt;,
-## #   df &lt;dbl&gt;, logLik &lt;dbl&gt;, AIC &lt;dbl&gt;, BIC &lt;dbl&gt;, deviance &lt;dbl&gt;,
-## #   df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
+##    country        conti…¹ data     model resids   r.squ…² adj.r.…³ sigma stati…⁴
+##    &lt;fct&gt;          &lt;fct&gt;   &lt;list&gt;   &lt;lis&gt; &lt;list&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+##  1 Rwanda         Africa  &lt;tibble&gt; &lt;lm&gt;  &lt;tibble&gt;  0.0172 -0.0811   6.56   0.175
+##  2 Botswana       Africa  &lt;tibble&gt; &lt;lm&gt;  &lt;tibble&gt;  0.0340 -0.0626   6.11   0.352
+##  3 Zimbabwe       Africa  &lt;tibble&gt; &lt;lm&gt;  &lt;tibble&gt;  0.0562 -0.0381   7.21   0.596
+##  4 Zambia         Africa  &lt;tibble&gt; &lt;lm&gt;  &lt;tibble&gt;  0.0598 -0.0342   4.53   0.636
+##  5 Swaziland      Africa  &lt;tibble&gt; &lt;lm&gt;  &lt;tibble&gt;  0.0682 -0.0250   6.64   0.732
+##  6 Lesotho        Africa  &lt;tibble&gt; &lt;lm&gt;  &lt;tibble&gt;  0.0849 -0.00666  5.93   0.927
+##  7 Cote d&#39;Ivoire  Africa  &lt;tibble&gt; &lt;lm&gt;  &lt;tibble&gt;  0.283   0.212    3.93   3.95 
+##  8 South Africa   Africa  &lt;tibble&gt; &lt;lm&gt;  &lt;tibble&gt;  0.312   0.244    4.74   4.54 
+##  9 Uganda         Africa  &lt;tibble&gt; &lt;lm&gt;  &lt;tibble&gt;  0.342   0.276    3.19   5.20 
+## 10 Congo, Dem. R… Africa  &lt;tibble&gt; &lt;lm&gt;  &lt;tibble&gt;  0.348   0.283    2.43   5.34 
+## # … with 132 more rows, 8 more variables: p.value &lt;dbl&gt;, df &lt;dbl&gt;,
+## #   logLik &lt;dbl&gt;, AIC &lt;dbl&gt;, BIC &lt;dbl&gt;, deviance &lt;dbl&gt;, df.residual &lt;int&gt;,
+## #   nobs &lt;int&gt;, and abbreviated variable names ¹​continent, ²​r.squared,
+## #   ³​adj.r.squared, ⁴​statistic
+## # ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
 <p>The worst fitting models seem to be in Africa. We’ll add <code>geom_jitter()</code> to make it more apparent.</p>
 <p>We can also plot the particular bad <span class="math display">\[R^2\]</span> and plot the data.</p>
 <div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb628-1"><a href="gapminder.html#cb628-1" aria-hidden="true" tabindex="-1"></a>glance <span class="sc">%&gt;%</span></span>

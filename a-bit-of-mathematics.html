@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>23.1 A bit of Mathematics: | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="23.1 A bit of Mathematics: | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-06-12" />
+<meta name="date" content="2022-07-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -657,7 +657,7 @@ For this purpose we use some metrics to identify the residual level, such as:</p
 <span id="cb541-8"><a href="a-bit-of-mathematics.html#cb541-8" aria-hidden="true" tabindex="-1"></a>             <span class="fu">geom_point</span>()<span class="sc">+</span></span>
 <span id="cb541-9"><a href="a-bit-of-mathematics.html#cb541-9" aria-hidden="true" tabindex="-1"></a>             <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)<span class="sc">+</span></span>
 <span id="cb541-10"><a href="a-bit-of-mathematics.html#cb541-10" aria-hidden="true" tabindex="-1"></a>             <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="bookclub-r4ds_files/figure-html/23-plot1-7.png" width="672" /></p>
+<p><img src="bookclub-r4ds_files/figure-html/23-plot1-8.png" width="672" /></p>
 <p>We can use the function <code>manipulate()</code> from {manipulate} package, to assess the level of the slope to identify the model line:</p>
 <pre><code>manipulate(ggplot(sim1,aes(x,y))+
          geom_point()+

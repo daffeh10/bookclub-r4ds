@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>14.6 Other uses of regular expressions | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="14.6 Other uses of regular expressions | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-06-12" />
+<meta name="date" content="2022-07-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -630,13 +630,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><code>apropos()</code> searches all objects available from the global environment. This is useful if you can’t quite remember the name of the function.</li>
 </ul>
-<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="other-uses-of-regular-expressions.html#cb423-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apropos</span>(<span class="st">&quot;replace&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="other-uses-of-regular-expressions.html#cb421-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apropos</span>(<span class="st">&quot;replace&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;%+replace%&quot;       &quot;replace&quot;          &quot;replace_na&quot;       &quot;setReplaceMethod&quot;
 ## [5] &quot;str_replace&quot;      &quot;str_replace_all&quot;  &quot;str_replace_na&quot;   &quot;theme_replace&quot;</code></pre>
 <ul>
 <li><code>dir()</code> lists all the files in a directory. The <code>pattern</code> argument takes a regular expression and only returns file names that match the pattern.</li>
 </ul>
-<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="other-uses-of-regular-expressions.html#cb425-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">dir</span>(<span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.Rmd$&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="other-uses-of-regular-expressions.html#cb423-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">dir</span>(<span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.Rmd$&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;01-preface.Rmd&quot;             &quot;02-explore.Rmd&quot;            
 ## [3] &quot;03-data_visualisation.Rmd&quot;  &quot;04-workflow_basics.Rmd&quot;    
 ## [5] &quot;05-data_transformation.Rmd&quot; &quot;06-workflow_scripts.Rmd&quot;</code></pre>

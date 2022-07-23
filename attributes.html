@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>20.6 Attributes | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="20.6 Attributes | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-06-12" />
+<meta name="date" content="2022-07-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -633,11 +633,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li>We can get and set individual attribute values with <code>attr()</code> or see them all at once with <code>attributes()</code>.</li>
 </ul>
-<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="attributes.html#cb519-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb519-2"><a href="attributes.html#cb519-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attr</span>(x, <span class="st">&quot;greeting&quot;</span>)</span>
-<span id="cb519-3"><a href="attributes.html#cb519-3" aria-hidden="true" tabindex="-1"></a><span class="fu">attr</span>(x, <span class="st">&quot;greeting&quot;</span>) <span class="ot">&lt;-</span> <span class="st">&quot;Hi!&quot;</span></span>
-<span id="cb519-4"><a href="attributes.html#cb519-4" aria-hidden="true" tabindex="-1"></a><span class="fu">attr</span>(x, <span class="st">&quot;farewell&quot;</span>) <span class="ot">&lt;-</span> <span class="st">&quot;Bye!&quot;</span></span>
-<span id="cb519-5"><a href="attributes.html#cb519-5" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="attributes.html#cb518-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb518-2"><a href="attributes.html#cb518-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attr</span>(x, <span class="st">&quot;greeting&quot;</span>)</span>
+<span id="cb518-3"><a href="attributes.html#cb518-3" aria-hidden="true" tabindex="-1"></a><span class="fu">attr</span>(x, <span class="st">&quot;greeting&quot;</span>) <span class="ot">&lt;-</span> <span class="st">&quot;Hi!&quot;</span></span>
+<span id="cb518-4"><a href="attributes.html#cb518-4" aria-hidden="true" tabindex="-1"></a><span class="fu">attr</span>(x, <span class="st">&quot;farewell&quot;</span>) <span class="ot">&lt;-</span> <span class="st">&quot;Bye!&quot;</span></span>
+<span id="cb518-5"><a href="attributes.html#cb518-5" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(x)</span></code></pre></div>
 <ul>
 <li>Three very important attributes that used to implement fundamental parts of R:
 <ul>
@@ -656,7 +656,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li>An example of generic function:</li>
 </ul>
-<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="attributes.html#cb520-1" aria-hidden="true" tabindex="-1"></a>as.Date</span></code></pre></div>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="attributes.html#cb519-1" aria-hidden="true" tabindex="-1"></a>as.Date</span></code></pre></div>
 <ul>
 <li>The call to “UseMethod” means that this is a generic function, and it calls a specific <strong>method</strong>, a function, based on the class of the first argument.</li>
 </ul>
@@ -666,13 +666,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>To list all the methods for a generic, use <code>methods()</code>:</li>
 </ul>
-<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="attributes.html#cb521-1" aria-hidden="true" tabindex="-1"></a><span class="fu">methods</span>(<span class="st">&quot;as.Date&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="attributes.html#cb520-1" aria-hidden="true" tabindex="-1"></a><span class="fu">methods</span>(<span class="st">&quot;as.Date&quot;</span>)</span></code></pre></div>
 <ul>
 <li>For example, if <code>x</code> is a character vector, <code>as.Date()</code> will call <code>as.Date.character()</code>; if it’s a factor, it’ll call <code>as.Date.factor().</code></li>
 <li>We can see the specific implementation of a method with <code>getS3method()</code>:</li>
 </ul>
-<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="attributes.html#cb522-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getS3method</span>(<span class="st">&quot;as.Date&quot;</span>, <span class="st">&quot;default&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="attributes.html#cb523-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getS3method</span>(<span class="st">&quot;as.Date&quot;</span>, <span class="st">&quot;numeric&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="attributes.html#cb521-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getS3method</span>(<span class="st">&quot;as.Date&quot;</span>, <span class="st">&quot;default&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="attributes.html#cb522-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getS3method</span>(<span class="st">&quot;as.Date&quot;</span>, <span class="st">&quot;numeric&quot;</span>)</span></code></pre></div>
 <ul>
 <li>The most important S3 generic is <code>print()</code> -&gt; controls how the object is printed when we type its name at the console.</li>
 <li>Subsetting functions: <code>[</code>, <code>[[</code> and <code>$</code> are other important generics.</li>

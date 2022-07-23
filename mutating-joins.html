@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>13.4 Mutating joins | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="13.4 Mutating joins | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-06-12" />
+<meta name="date" content="2022-07-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -651,10 +651,10 @@ Figure 13.3: Two tables
 </div>
 <div id="inner-join" class="section level3 hasAnchor" number="13.4.2">
 <h3><span class="header-section-number">13.4.2</span> Inner join<a href="mutating-joins.html#inner-join" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="mutating-joins.html#cb222-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> </span>
-<span id="cb222-2"><a href="mutating-joins.html#cb222-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb222-3"><a href="mutating-joins.html#cb222-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(origin,year,month) <span class="sc">%&gt;%</span></span>
-<span id="cb222-4"><a href="mutating-joins.html#cb222-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(<span class="fu">select</span>(weather,origin,temp,wind_dir),<span class="at">by =</span> <span class="st">&quot;origin&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="mutating-joins.html#cb220-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> </span>
+<span id="cb220-2"><a href="mutating-joins.html#cb220-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb220-3"><a href="mutating-joins.html#cb220-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(origin,year,month) <span class="sc">%&gt;%</span></span>
+<span id="cb220-4"><a href="mutating-joins.html#cb220-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(<span class="fu">select</span>(weather,origin,temp,wind_dir),<span class="at">by =</span> <span class="st">&quot;origin&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 870,507 × 5
 ##    origin  year month  temp wind_dir
 ##    &lt;chr&gt;  &lt;int&gt; &lt;int&gt; &lt;dbl&gt;    &lt;dbl&gt;
@@ -668,7 +668,8 @@ Figure 13.3: Two tables
 ##  8 EWR     2013     1  39.9      250
 ##  9 EWR     2013     1  39.9      260
 ## 10 EWR     2013     1  41        260
-## # … with 870,497 more rows</code></pre>
+## # … with 870,497 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:innerjoin"></span>
 <img src="images/innerjoin.png" alt="inner join" width="100%" />
 <p class="caption">
@@ -692,10 +693,10 @@ Figure 13.4: inner join
 <ul>
 <li>left_join</li>
 </ul>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="mutating-joins.html#cb224-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> </span>
-<span id="cb224-2"><a href="mutating-joins.html#cb224-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year<span class="sc">:</span>day, hour, origin, dest, tailnum, carrier) <span class="sc">%&gt;%</span></span>
-<span id="cb224-3"><a href="mutating-joins.html#cb224-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>origin, <span class="sc">-</span>dest) <span class="sc">%&gt;%</span> </span>
-<span id="cb224-4"><a href="mutating-joins.html#cb224-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(airlines, <span class="at">by =</span> <span class="st">&quot;carrier&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="mutating-joins.html#cb222-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> </span>
+<span id="cb222-2"><a href="mutating-joins.html#cb222-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year<span class="sc">:</span>day, hour, origin, dest, tailnum, carrier) <span class="sc">%&gt;%</span></span>
+<span id="cb222-3"><a href="mutating-joins.html#cb222-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>origin, <span class="sc">-</span>dest) <span class="sc">%&gt;%</span> </span>
+<span id="cb222-4"><a href="mutating-joins.html#cb222-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(airlines, <span class="at">by =</span> <span class="st">&quot;carrier&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 336,776 × 7
 ##     year month   day  hour tailnum carrier name                    
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;                   
@@ -709,14 +710,15 @@ Figure 13.4: inner join
 ##  8  2013     1     1     6 N829AS  EV      ExpressJet Airlines Inc.
 ##  9  2013     1     1     6 N593JB  B6      JetBlue Airways         
 ## 10  2013     1     1     6 N3ALAA  AA      American Airlines Inc.  
-## # … with 336,766 more rows</code></pre>
+## # … with 336,766 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <ul>
 <li>same thing with <code>mutate()</code></li>
 </ul>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="mutating-joins.html#cb226-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> </span>
-<span id="cb226-2"><a href="mutating-joins.html#cb226-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year<span class="sc">:</span>day, hour, origin, dest, tailnum, carrier) <span class="sc">%&gt;%</span></span>
-<span id="cb226-3"><a href="mutating-joins.html#cb226-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>origin, <span class="sc">-</span>dest) <span class="sc">%&gt;%</span> </span>
-<span id="cb226-4"><a href="mutating-joins.html#cb226-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">name =</span> airlines<span class="sc">$</span>name[<span class="fu">match</span>(carrier, airlines<span class="sc">$</span>carrier)])</span></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="mutating-joins.html#cb224-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> </span>
+<span id="cb224-2"><a href="mutating-joins.html#cb224-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year<span class="sc">:</span>day, hour, origin, dest, tailnum, carrier) <span class="sc">%&gt;%</span></span>
+<span id="cb224-3"><a href="mutating-joins.html#cb224-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>origin, <span class="sc">-</span>dest) <span class="sc">%&gt;%</span> </span>
+<span id="cb224-4"><a href="mutating-joins.html#cb224-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">name =</span> airlines<span class="sc">$</span>name[<span class="fu">match</span>(carrier, airlines<span class="sc">$</span>carrier)])</span></code></pre></div>
 <pre><code>## # A tibble: 336,776 × 7
 ##     year month   day  hour tailnum carrier name                    
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;                   
@@ -730,13 +732,14 @@ Figure 13.4: inner join
 ##  8  2013     1     1     6 N829AS  EV      ExpressJet Airlines Inc.
 ##  9  2013     1     1     6 N593JB  B6      JetBlue Airways         
 ## 10  2013     1     1     6 N3ALAA  AA      American Airlines Inc.  
-## # … with 336,766 more rows</code></pre>
+## # … with 336,766 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <ul>
 <li>right_join</li>
 </ul>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="mutating-joins.html#cb228-1" aria-hidden="true" tabindex="-1"></a>weather <span class="sc">%&gt;%</span> </span>
-<span id="cb228-2"><a href="mutating-joins.html#cb228-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(origin,temp, humid, wind_dir, precip) <span class="sc">%&gt;%</span></span>
-<span id="cb228-3"><a href="mutating-joins.html#cb228-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(airports, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;origin&quot;</span> <span class="ot">=</span> <span class="st">&quot;faa&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="mutating-joins.html#cb226-1" aria-hidden="true" tabindex="-1"></a>weather <span class="sc">%&gt;%</span> </span>
+<span id="cb226-2"><a href="mutating-joins.html#cb226-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(origin,temp, humid, wind_dir, precip) <span class="sc">%&gt;%</span></span>
+<span id="cb226-3"><a href="mutating-joins.html#cb226-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(airports, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;origin&quot;</span> <span class="ot">=</span> <span class="st">&quot;faa&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 27,570 × 12
 ##    origin  temp humid wind_dir precip name     lat   lon   alt    tz dst   tzone
 ##    &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;
@@ -750,13 +753,14 @@ Figure 13.4: inner join
 ##  8 EWR     39.9  62.2      250      0 Newar…  40.7 -74.2    18    -5 A     Amer…
 ##  9 EWR     39.9  62.2      260      0 Newar…  40.7 -74.2    18    -5 A     Amer…
 ## 10 EWR     41    59.6      260      0 Newar…  40.7 -74.2    18    -5 A     Amer…
-## # … with 27,560 more rows</code></pre>
+## # … with 27,560 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <ul>
 <li>full_join</li>
 </ul>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="mutating-joins.html#cb230-1" aria-hidden="true" tabindex="-1"></a>airports <span class="sc">%&gt;%</span></span>
-<span id="cb230-2"><a href="mutating-joins.html#cb230-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name,lat,lon) <span class="sc">%&gt;%</span></span>
-<span id="cb230-3"><a href="mutating-joins.html#cb230-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(airlines,<span class="at">by =</span> <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="mutating-joins.html#cb228-1" aria-hidden="true" tabindex="-1"></a>airports <span class="sc">%&gt;%</span></span>
+<span id="cb228-2"><a href="mutating-joins.html#cb228-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name,lat,lon) <span class="sc">%&gt;%</span></span>
+<span id="cb228-3"><a href="mutating-joins.html#cb228-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(airlines,<span class="at">by =</span> <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1,474 × 4
 ##    name                             lat    lon carrier
 ##    &lt;chr&gt;                          &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;  
@@ -770,7 +774,8 @@ Figure 13.4: inner join
 ##  8 Finger Lakes Regional Airport   42.9  -76.8 &lt;NA&gt;   
 ##  9 Shoestring Aviation Airfield    39.8  -76.6 &lt;NA&gt;   
 ## 10 Jefferson County Intl           48.1 -123.  &lt;NA&gt;   
-## # … with 1,464 more rows</code></pre>
+## # … with 1,464 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 <div id="duplicate-keys" class="section level3 hasAnchor" number="13.4.4">
 <h3><span class="header-section-number">13.4.4</span> Duplicate keys<a href="mutating-joins.html#duplicate-keys" class="anchor-section" aria-label="Anchor link to header"></a></h3>

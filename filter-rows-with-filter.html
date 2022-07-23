@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.3 Filter rows with filter() | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.3 Filter rows with filter() | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-06-12" />
+<meta name="date" content="2022-07-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -629,180 +629,192 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>filter()</code> allows you to pick out certain rows (observations) . <code>filter()</code> picks the rows which evaluates to TRUE for all criteria.</p>
 <p>The first argument to <code>filter()</code> is a data frame, the subsequent arguments are the expressions.</p>
 <p>Combine comparisons and logical operators on the columns to select rows.</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="filter-rows-with-filter.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># number of rows and columns</span></span>
-<span id="cb82-2"><a href="filter-rows-with-filter.html#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(flights)</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="filter-rows-with-filter.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># number of rows and columns</span></span>
+<span id="cb80-2"><a href="filter-rows-with-filter.html#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(flights)</span></code></pre></div>
 <pre><code>## [1] 336776     19</code></pre>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="filter-rows-with-filter.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the column names</span></span>
-<span id="cb84-2"><a href="filter-rows-with-filter.html#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(flights)</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="filter-rows-with-filter.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the column names</span></span>
+<span id="cb82-2"><a href="filter-rows-with-filter.html#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(flights)</span></code></pre></div>
 <pre><code>##  [1] &quot;year&quot;           &quot;month&quot;          &quot;day&quot;            &quot;dep_time&quot;      
 ##  [5] &quot;sched_dep_time&quot; &quot;dep_delay&quot;      &quot;arr_time&quot;       &quot;sched_arr_time&quot;
 ##  [9] &quot;arr_delay&quot;      &quot;carrier&quot;        &quot;flight&quot;         &quot;tailnum&quot;       
 ## [13] &quot;origin&quot;         &quot;dest&quot;           &quot;air_time&quot;       &quot;distance&quot;      
 ## [17] &quot;hour&quot;           &quot;minute&quot;         &quot;time_hour&quot;</code></pre>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="filter-rows-with-filter.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select flights from November</span></span>
-<span id="cb86-2"><a href="filter-rows-with-filter.html#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">11</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="filter-rows-with-filter.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select flights from November</span></span>
+<span id="cb84-2"><a href="filter-rows-with-filter.html#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">11</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 27,268 × 19
-##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2013    11     1        5           2359         6      352            345
-##  2  2013    11     1       35           2250       105      123           2356
-##  3  2013    11     1      455            500        -5      641            651
-##  4  2013    11     1      539            545        -6      856            827
-##  5  2013    11     1      542            545        -3      831            855
-##  6  2013    11     1      549            600       -11      912            923
-##  7  2013    11     1      550            600       -10      705            659
-##  8  2013    11     1      554            600        -6      659            701
-##  9  2013    11     1      554            600        -6      826            827
-## 10  2013    11     1      554            600        -6      749            751
-## # … with 27,258 more rows, and 11 more variables: arr_delay &lt;dbl&gt;,
-## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
-## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+##     year month   day dep_time sched_de…¹ dep_d…² arr_t…³ sched…⁴ arr_d…⁵ carrier
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;      &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;  
+##  1  2013    11     1        5       2359       6     352     345       7 B6     
+##  2  2013    11     1       35       2250     105     123    2356      87 B6     
+##  3  2013    11     1      455        500      -5     641     651     -10 US     
+##  4  2013    11     1      539        545      -6     856     827      29 UA     
+##  5  2013    11     1      542        545      -3     831     855     -24 AA     
+##  6  2013    11     1      549        600     -11     912     923     -11 UA     
+##  7  2013    11     1      550        600     -10     705     659       6 US     
+##  8  2013    11     1      554        600      -6     659     701      -2 US     
+##  9  2013    11     1      554        600      -6     826     827      -1 DL     
+## 10  2013    11     1      554        600      -6     749     751      -2 DL     
+## # … with 27,258 more rows, 9 more variables: flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;, and abbreviated variable names
+## #   ¹​sched_dep_time, ²​dep_delay, ³​arr_time, ⁴​sched_arr_time, ⁵​arr_delay
+## # ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
 <p><code>A tibble: 27,268 × 19</code> tells you 27,268 rows match the criteria</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="filter-rows-with-filter.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select flights from December</span></span>
-<span id="cb88-2"><a href="filter-rows-with-filter.html#cb88-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">12</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="filter-rows-with-filter.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select flights from December</span></span>
+<span id="cb86-2"><a href="filter-rows-with-filter.html#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">12</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 28,135 × 19
-##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2013    12     1       13           2359        14      446            445
-##  2  2013    12     1       17           2359        18      443            437
-##  3  2013    12     1      453            500        -7      636            651
-##  4  2013    12     1      520            515         5      749            808
-##  5  2013    12     1      536            540        -4      845            850
-##  6  2013    12     1      540            550       -10     1005           1027
-##  7  2013    12     1      541            545        -4      734            755
-##  8  2013    12     1      546            545         1      826            835
-##  9  2013    12     1      549            600       -11      648            659
-## 10  2013    12     1      550            600       -10      825            854
-## # … with 28,125 more rows, and 11 more variables: arr_delay &lt;dbl&gt;,
-## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
-## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="filter-rows-with-filter.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select flights not from December (e.g. January to November)</span></span>
-<span id="cb90-2"><a href="filter-rows-with-filter.html#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">!=</span> <span class="dv">12</span>)</span></code></pre></div>
+##     year month   day dep_time sched_de…¹ dep_d…² arr_t…³ sched…⁴ arr_d…⁵ carrier
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;      &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;  
+##  1  2013    12     1       13       2359      14     446     445       1 B6     
+##  2  2013    12     1       17       2359      18     443     437       6 B6     
+##  3  2013    12     1      453        500      -7     636     651     -15 US     
+##  4  2013    12     1      520        515       5     749     808     -19 UA     
+##  5  2013    12     1      536        540      -4     845     850      -5 AA     
+##  6  2013    12     1      540        550     -10    1005    1027     -22 B6     
+##  7  2013    12     1      541        545      -4     734     755     -21 EV     
+##  8  2013    12     1      546        545       1     826     835      -9 UA     
+##  9  2013    12     1      549        600     -11     648     659     -11 US     
+## 10  2013    12     1      550        600     -10     825     854     -29 B6     
+## # … with 28,125 more rows, 9 more variables: flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;, and abbreviated variable names
+## #   ¹​sched_dep_time, ²​dep_delay, ³​arr_time, ⁴​sched_arr_time, ⁵​arr_delay
+## # ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="filter-rows-with-filter.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select flights not from December (e.g. January to November)</span></span>
+<span id="cb88-2"><a href="filter-rows-with-filter.html#cb88-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">!=</span> <span class="dv">12</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 308,641 × 19
-##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2013     1     1      517            515         2      830            819
-##  2  2013     1     1      533            529         4      850            830
-##  3  2013     1     1      542            540         2      923            850
-##  4  2013     1     1      544            545        -1     1004           1022
-##  5  2013     1     1      554            600        -6      812            837
-##  6  2013     1     1      554            558        -4      740            728
-##  7  2013     1     1      555            600        -5      913            854
-##  8  2013     1     1      557            600        -3      709            723
-##  9  2013     1     1      557            600        -3      838            846
-## 10  2013     1     1      558            600        -2      753            745
-## # … with 308,631 more rows, and 11 more variables: arr_delay &lt;dbl&gt;,
-## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
-## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="filter-rows-with-filter.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select flights from November or December</span></span>
-<span id="cb92-2"><a href="filter-rows-with-filter.html#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">11</span> <span class="sc">|</span> month <span class="sc">==</span> <span class="dv">12</span>)</span></code></pre></div>
+##     year month   day dep_time sched_de…¹ dep_d…² arr_t…³ sched…⁴ arr_d…⁵ carrier
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;      &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;  
+##  1  2013     1     1      517        515       2     830     819      11 UA     
+##  2  2013     1     1      533        529       4     850     830      20 UA     
+##  3  2013     1     1      542        540       2     923     850      33 AA     
+##  4  2013     1     1      544        545      -1    1004    1022     -18 B6     
+##  5  2013     1     1      554        600      -6     812     837     -25 DL     
+##  6  2013     1     1      554        558      -4     740     728      12 UA     
+##  7  2013     1     1      555        600      -5     913     854      19 B6     
+##  8  2013     1     1      557        600      -3     709     723     -14 EV     
+##  9  2013     1     1      557        600      -3     838     846      -8 B6     
+## 10  2013     1     1      558        600      -2     753     745       8 AA     
+## # … with 308,631 more rows, 9 more variables: flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;, and abbreviated variable names
+## #   ¹​sched_dep_time, ²​dep_delay, ³​arr_time, ⁴​sched_arr_time, ⁵​arr_delay
+## # ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="filter-rows-with-filter.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select flights from November or December</span></span>
+<span id="cb90-2"><a href="filter-rows-with-filter.html#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">11</span> <span class="sc">|</span> month <span class="sc">==</span> <span class="dv">12</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 55,403 × 19
-##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2013    11     1        5           2359         6      352            345
-##  2  2013    11     1       35           2250       105      123           2356
-##  3  2013    11     1      455            500        -5      641            651
-##  4  2013    11     1      539            545        -6      856            827
-##  5  2013    11     1      542            545        -3      831            855
-##  6  2013    11     1      549            600       -11      912            923
-##  7  2013    11     1      550            600       -10      705            659
-##  8  2013    11     1      554            600        -6      659            701
-##  9  2013    11     1      554            600        -6      826            827
-## 10  2013    11     1      554            600        -6      749            751
-## # … with 55,393 more rows, and 11 more variables: arr_delay &lt;dbl&gt;,
-## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
-## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+##     year month   day dep_time sched_de…¹ dep_d…² arr_t…³ sched…⁴ arr_d…⁵ carrier
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;      &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;  
+##  1  2013    11     1        5       2359       6     352     345       7 B6     
+##  2  2013    11     1       35       2250     105     123    2356      87 B6     
+##  3  2013    11     1      455        500      -5     641     651     -10 US     
+##  4  2013    11     1      539        545      -6     856     827      29 UA     
+##  5  2013    11     1      542        545      -3     831     855     -24 AA     
+##  6  2013    11     1      549        600     -11     912     923     -11 UA     
+##  7  2013    11     1      550        600     -10     705     659       6 US     
+##  8  2013    11     1      554        600      -6     659     701      -2 US     
+##  9  2013    11     1      554        600      -6     826     827      -1 DL     
+## 10  2013    11     1      554        600      -6     749     751      -2 DL     
+## # … with 55,393 more rows, 9 more variables: flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;, and abbreviated variable names
+## #   ¹​sched_dep_time, ²​dep_delay, ³​arr_time, ⁴​sched_arr_time, ⁵​arr_delay
+## # ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
 <p><code>&amp;</code> (and) vs <code>|</code> (or)</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="filter-rows-with-filter.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select flights from November or from 1st day of any month</span></span>
-<span id="cb94-2"><a href="filter-rows-with-filter.html#cb94-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">11</span> <span class="sc">|</span> day <span class="sc">==</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="filter-rows-with-filter.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select flights from November or from 1st day of any month</span></span>
+<span id="cb92-2"><a href="filter-rows-with-filter.html#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">11</span> <span class="sc">|</span> day <span class="sc">==</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 37,318 × 19
-##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2013     1     1      517            515         2      830            819
-##  2  2013     1     1      533            529         4      850            830
-##  3  2013     1     1      542            540         2      923            850
-##  4  2013     1     1      544            545        -1     1004           1022
-##  5  2013     1     1      554            600        -6      812            837
-##  6  2013     1     1      554            558        -4      740            728
-##  7  2013     1     1      555            600        -5      913            854
-##  8  2013     1     1      557            600        -3      709            723
-##  9  2013     1     1      557            600        -3      838            846
-## 10  2013     1     1      558            600        -2      753            745
-## # … with 37,308 more rows, and 11 more variables: arr_delay &lt;dbl&gt;,
-## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
-## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="filter-rows-with-filter.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select flights from November 1st</span></span>
-<span id="cb96-2"><a href="filter-rows-with-filter.html#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">11</span> <span class="sc">&amp;</span> day <span class="sc">==</span> <span class="dv">1</span>)</span></code></pre></div>
+##     year month   day dep_time sched_de…¹ dep_d…² arr_t…³ sched…⁴ arr_d…⁵ carrier
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;      &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;  
+##  1  2013     1     1      517        515       2     830     819      11 UA     
+##  2  2013     1     1      533        529       4     850     830      20 UA     
+##  3  2013     1     1      542        540       2     923     850      33 AA     
+##  4  2013     1     1      544        545      -1    1004    1022     -18 B6     
+##  5  2013     1     1      554        600      -6     812     837     -25 DL     
+##  6  2013     1     1      554        558      -4     740     728      12 UA     
+##  7  2013     1     1      555        600      -5     913     854      19 B6     
+##  8  2013     1     1      557        600      -3     709     723     -14 EV     
+##  9  2013     1     1      557        600      -3     838     846      -8 B6     
+## 10  2013     1     1      558        600      -2     753     745       8 AA     
+## # … with 37,308 more rows, 9 more variables: flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;, and abbreviated variable names
+## #   ¹​sched_dep_time, ²​dep_delay, ³​arr_time, ⁴​sched_arr_time, ⁵​arr_delay
+## # ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="filter-rows-with-filter.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select flights from November 1st</span></span>
+<span id="cb94-2"><a href="filter-rows-with-filter.html#cb94-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">11</span> <span class="sc">&amp;</span> day <span class="sc">==</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 986 × 19
-##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2013    11     1        5           2359         6      352            345
-##  2  2013    11     1       35           2250       105      123           2356
-##  3  2013    11     1      455            500        -5      641            651
-##  4  2013    11     1      539            545        -6      856            827
-##  5  2013    11     1      542            545        -3      831            855
-##  6  2013    11     1      549            600       -11      912            923
-##  7  2013    11     1      550            600       -10      705            659
-##  8  2013    11     1      554            600        -6      659            701
-##  9  2013    11     1      554            600        -6      826            827
-## 10  2013    11     1      554            600        -6      749            751
-## # … with 976 more rows, and 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,
-## #   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;,
-## #   distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+##     year month   day dep_time sched_de…¹ dep_d…² arr_t…³ sched…⁴ arr_d…⁵ carrier
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;      &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;  
+##  1  2013    11     1        5       2359       6     352     345       7 B6     
+##  2  2013    11     1       35       2250     105     123    2356      87 B6     
+##  3  2013    11     1      455        500      -5     641     651     -10 US     
+##  4  2013    11     1      539        545      -6     856     827      29 UA     
+##  5  2013    11     1      542        545      -3     831     855     -24 AA     
+##  6  2013    11     1      549        600     -11     912     923     -11 UA     
+##  7  2013    11     1      550        600     -10     705     659       6 US     
+##  8  2013    11     1      554        600      -6     659     701      -2 US     
+##  9  2013    11     1      554        600      -6     826     827      -1 DL     
+## 10  2013    11     1      554        600      -6     749     751      -2 DL     
+## # … with 976 more rows, 9 more variables: flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;, and abbreviated variable names
+## #   ¹​sched_dep_time, ²​dep_delay, ³​arr_time, ⁴​sched_arr_time, ⁵​arr_delay
+## # ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
 <p>If you provide multiple comma-separated expressions, dplyr will automatically use <code>&amp;</code> to combine the expressions.</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="filter-rows-with-filter.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co"># both will select flights from November 1st</span></span>
-<span id="cb98-2"><a href="filter-rows-with-filter.html#cb98-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb98-3"><a href="filter-rows-with-filter.html#cb98-3" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">11</span> <span class="sc">&amp;</span> day <span class="sc">==</span> <span class="dv">1</span>)</span>
-<span id="cb98-4"><a href="filter-rows-with-filter.html#cb98-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb98-5"><a href="filter-rows-with-filter.html#cb98-5" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">11</span>, day <span class="sc">==</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="filter-rows-with-filter.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co"># both will select flights from November 1st</span></span>
+<span id="cb96-2"><a href="filter-rows-with-filter.html#cb96-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-3"><a href="filter-rows-with-filter.html#cb96-3" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">11</span> <span class="sc">&amp;</span> day <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb96-4"><a href="filter-rows-with-filter.html#cb96-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-5"><a href="filter-rows-with-filter.html#cb96-5" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">11</span>, day <span class="sc">==</span> <span class="dv">1</span>)</span></code></pre></div>
 <p>dplyr functions do not change the original data. To save the results from a function, you need to assign the results to a object.</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="filter-rows-with-filter.html#cb99-1" aria-hidden="true" tabindex="-1"></a>nov1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">11</span>, day <span class="sc">==</span> <span class="dv">1</span>)</span>
-<span id="cb99-2"><a href="filter-rows-with-filter.html#cb99-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-3"><a href="filter-rows-with-filter.html#cb99-3" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(nov1)</span>
-<span id="cb99-4"><a href="filter-rows-with-filter.html#cb99-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 986</span></span>
-<span id="cb99-5"><a href="filter-rows-with-filter.html#cb99-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-6"><a href="filter-rows-with-filter.html#cb99-6" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(flights)</span>
-<span id="cb99-7"><a href="filter-rows-with-filter.html#cb99-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 336776</span></span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="filter-rows-with-filter.html#cb97-1" aria-hidden="true" tabindex="-1"></a>nov1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">11</span>, day <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb97-2"><a href="filter-rows-with-filter.html#cb97-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-3"><a href="filter-rows-with-filter.html#cb97-3" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(nov1)</span>
+<span id="cb97-4"><a href="filter-rows-with-filter.html#cb97-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 986</span></span>
+<span id="cb97-5"><a href="filter-rows-with-filter.html#cb97-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-6"><a href="filter-rows-with-filter.html#cb97-6" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(flights)</span>
+<span id="cb97-7"><a href="filter-rows-with-filter.html#cb97-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 336776</span></span></code></pre></div>
 <div id="missing-values" class="section level3 hasAnchor" number="5.3.1">
 <h3><span class="header-section-number">5.3.1</span> Missing values<a href="filter-rows-with-filter.html#missing-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Often times, rows will not have data for certain columns. In spreadsheets, csv, tsv, the cells will be blank. In R data frames, the missing values are represented as <code>NA</code> (not available).</p>
 <p>Operations with <code>NA</code> will return <code>NA</code>.</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="filter-rows-with-filter.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">&gt;</span> <span class="dv">5</span></span>
-<span id="cb100-2"><a href="filter-rows-with-filter.html#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] NA</span></span>
-<span id="cb100-3"><a href="filter-rows-with-filter.html#cb100-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb100-4"><a href="filter-rows-with-filter.html#cb100-4" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">==</span> <span class="cn">NA</span></span>
-<span id="cb100-5"><a href="filter-rows-with-filter.html#cb100-5" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] NA</span></span>
-<span id="cb100-6"><a href="filter-rows-with-filter.html#cb100-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb100-7"><a href="filter-rows-with-filter.html#cb100-7" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">+</span> <span class="dv">10</span></span>
-<span id="cb100-8"><a href="filter-rows-with-filter.html#cb100-8" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] NA</span></span>
-<span id="cb100-9"><a href="filter-rows-with-filter.html#cb100-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb100-10"><a href="filter-rows-with-filter.html#cb100-10" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">/</span> <span class="dv">2</span></span>
-<span id="cb100-11"><a href="filter-rows-with-filter.html#cb100-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] NA</span></span>
-<span id="cb100-12"><a href="filter-rows-with-filter.html#cb100-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb100-13"><a href="filter-rows-with-filter.html#cb100-13" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">==</span> <span class="cn">NA</span></span>
-<span id="cb100-14"><a href="filter-rows-with-filter.html#cb100-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="filter-rows-with-filter.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">&gt;</span> <span class="dv">5</span></span>
+<span id="cb98-2"><a href="filter-rows-with-filter.html#cb98-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] NA</span></span>
+<span id="cb98-3"><a href="filter-rows-with-filter.html#cb98-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb98-4"><a href="filter-rows-with-filter.html#cb98-4" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">==</span> <span class="cn">NA</span></span>
+<span id="cb98-5"><a href="filter-rows-with-filter.html#cb98-5" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] NA</span></span>
+<span id="cb98-6"><a href="filter-rows-with-filter.html#cb98-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb98-7"><a href="filter-rows-with-filter.html#cb98-7" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">+</span> <span class="dv">10</span></span>
+<span id="cb98-8"><a href="filter-rows-with-filter.html#cb98-8" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] NA</span></span>
+<span id="cb98-9"><a href="filter-rows-with-filter.html#cb98-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb98-10"><a href="filter-rows-with-filter.html#cb98-10" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb98-11"><a href="filter-rows-with-filter.html#cb98-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] NA</span></span>
+<span id="cb98-12"><a href="filter-rows-with-filter.html#cb98-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb98-13"><a href="filter-rows-with-filter.html#cb98-13" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">==</span> <span class="cn">NA</span></span>
+<span id="cb98-14"><a href="filter-rows-with-filter.html#cb98-14" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] NA</span></span></code></pre></div>
 <p>To check if value is missing use <code>is.na()</code></p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="filter-rows-with-filter.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="cn">NA</span>)</span>
-<span id="cb101-2"><a href="filter-rows-with-filter.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="filter-rows-with-filter.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="cn">NA</span>)</span>
+<span id="cb99-2"><a href="filter-rows-with-filter.html#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] TRUE</span></span></code></pre></div>
 <p>By default, <code>filter()</code> excludes <code>NA</code> values. To include <code>NA</code> values, you must add an expression.</p>
 <p>tibble is the tidyverse version of a data frame. tibble haves some extra functions that normal data frames do not have.</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="filter-rows-with-filter.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a tibble with a column named &quot;x&quot;, with 3 values</span></span>
-<span id="cb102-2"><a href="filter-rows-with-filter.html#cb102-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="dv">3</span>))</span>
-<span id="cb102-3"><a href="filter-rows-with-filter.html#cb102-3" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="filter-rows-with-filter.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a tibble with a column named &quot;x&quot;, with 3 values</span></span>
+<span id="cb100-2"><a href="filter-rows-with-filter.html#cb100-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="dv">3</span>))</span>
+<span id="cb100-3"><a href="filter-rows-with-filter.html#cb100-3" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 1
 ##       x
 ##   &lt;dbl&gt;
 ## 1     1
 ## 2    NA
 ## 3     3</code></pre>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="filter-rows-with-filter.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select rows with values greater than 1</span></span>
-<span id="cb104-2"><a href="filter-rows-with-filter.html#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(df, x <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="filter-rows-with-filter.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select rows with values greater than 1</span></span>
+<span id="cb102-2"><a href="filter-rows-with-filter.html#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(df, x <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 1
 ##       x
 ##   &lt;dbl&gt;
 ## 1     3</code></pre>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="filter-rows-with-filter.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select rows with NA or values greater than 1</span></span>
-<span id="cb106-2"><a href="filter-rows-with-filter.html#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(df, <span class="fu">is.na</span>(x) <span class="sc">|</span> x <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="filter-rows-with-filter.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select rows with NA or values greater than 1</span></span>
+<span id="cb104-2"><a href="filter-rows-with-filter.html#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(df, <span class="fu">is.na</span>(x) <span class="sc">|</span> x <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 1
 ##       x
 ##   &lt;dbl&gt;

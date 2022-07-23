@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>18.2 Lets see it in Code!!! | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="18.2 Lets see it in Code!!! | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-06-12" />
+<meta name="date" content="2022-07-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -627,33 +627,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="lets-see-it-in-code" class="section level2 hasAnchor" number="18.2">
 <h2><span class="header-section-number">18.2</span> Lets see it in Code!!!<a href="lets-see-it-in-code.html#lets-see-it-in-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The following example will highlight a code snippet <strong>without</strong> piping (Object Assignment and Nested) and <strong>with</strong> piping.</p>
-<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="lets-see-it-in-code.html#cb437-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(mtcars, carb <span class="sc">&gt;</span> <span class="dv">1</span>)</span>
-<span id="cb437-2"><a href="lets-see-it-in-code.html#cb437-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">group_by</span>(a, cyl)</span>
-<span id="cb437-3"><a href="lets-see-it-in-code.html#cb437-3" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">summarise</span>(b, <span class="at">Avg_mpg =</span> <span class="fu">mean</span>(mpg))</span>
-<span id="cb437-4"><a href="lets-see-it-in-code.html#cb437-4" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">arrange</span>(c, <span class="fu">desc</span>(Avg_mpg))</span>
-<span id="cb437-5"><a href="lets-see-it-in-code.html#cb437-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(d)</span></code></pre></div>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="lets-see-it-in-code.html#cb435-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(mtcars, carb <span class="sc">&gt;</span> <span class="dv">1</span>)</span>
+<span id="cb435-2"><a href="lets-see-it-in-code.html#cb435-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">group_by</span>(a, cyl)</span>
+<span id="cb435-3"><a href="lets-see-it-in-code.html#cb435-3" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">summarise</span>(b, <span class="at">Avg_mpg =</span> <span class="fu">mean</span>(mpg))</span>
+<span id="cb435-4"><a href="lets-see-it-in-code.html#cb435-4" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">arrange</span>(c, <span class="fu">desc</span>(Avg_mpg))</span>
+<span id="cb435-5"><a href="lets-see-it-in-code.html#cb435-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(d)</span></code></pre></div>
 <p>Above, objects <code>a-d</code> are created as “placeholders”. Objects that are nothing more then memory space to hold the output of a function. The difference is, each of these can be called upon in future script.</p>
 <blockquote>
 <p>One of my favorite talks: <a href="https://youtu.be/4MfUCX_KpdE">Jenny Bryant at Plotcon, 2016</a>. Specific to the topic, start at min 15:00. The discussion is related to Dataframes and the key takeaway is wrangle your data once.</p>
 </blockquote>
 <p>But couldn’t I just nest my function?</p>
-<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="lets-see-it-in-code.html#cb438-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">arrange</span>(</span>
-<span id="cb438-2"><a href="lets-see-it-in-code.html#cb438-2" aria-hidden="true" tabindex="-1"></a>   dplyr<span class="sc">::</span><span class="fu">summarize</span>(</span>
-<span id="cb438-3"><a href="lets-see-it-in-code.html#cb438-3" aria-hidden="true" tabindex="-1"></a>       dplyr<span class="sc">::</span><span class="fu">group_by</span>(</span>
-<span id="cb438-4"><a href="lets-see-it-in-code.html#cb438-4" aria-hidden="true" tabindex="-1"></a>           dplyr<span class="sc">::</span><span class="fu">filter</span>(mtcars, carb <span class="sc">&gt;</span> <span class="dv">1</span>),</span>
-<span id="cb438-5"><a href="lets-see-it-in-code.html#cb438-5" aria-hidden="true" tabindex="-1"></a>           cyl</span>
-<span id="cb438-6"><a href="lets-see-it-in-code.html#cb438-6" aria-hidden="true" tabindex="-1"></a>       ),</span>
-<span id="cb438-7"><a href="lets-see-it-in-code.html#cb438-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">Avg_mpg =</span> <span class="fu">mean</span>(mpg)</span>
-<span id="cb438-8"><a href="lets-see-it-in-code.html#cb438-8" aria-hidden="true" tabindex="-1"></a>   ),</span>
-<span id="cb438-9"><a href="lets-see-it-in-code.html#cb438-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">desc</span>(Avg_mpg)</span>
-<span id="cb438-10"><a href="lets-see-it-in-code.html#cb438-10" aria-hidden="true" tabindex="-1"></a> )</span></code></pre></div>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="lets-see-it-in-code.html#cb436-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">arrange</span>(</span>
+<span id="cb436-2"><a href="lets-see-it-in-code.html#cb436-2" aria-hidden="true" tabindex="-1"></a>   dplyr<span class="sc">::</span><span class="fu">summarize</span>(</span>
+<span id="cb436-3"><a href="lets-see-it-in-code.html#cb436-3" aria-hidden="true" tabindex="-1"></a>       dplyr<span class="sc">::</span><span class="fu">group_by</span>(</span>
+<span id="cb436-4"><a href="lets-see-it-in-code.html#cb436-4" aria-hidden="true" tabindex="-1"></a>           dplyr<span class="sc">::</span><span class="fu">filter</span>(mtcars, carb <span class="sc">&gt;</span> <span class="dv">1</span>),</span>
+<span id="cb436-5"><a href="lets-see-it-in-code.html#cb436-5" aria-hidden="true" tabindex="-1"></a>           cyl</span>
+<span id="cb436-6"><a href="lets-see-it-in-code.html#cb436-6" aria-hidden="true" tabindex="-1"></a>       ),</span>
+<span id="cb436-7"><a href="lets-see-it-in-code.html#cb436-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">Avg_mpg =</span> <span class="fu">mean</span>(mpg)</span>
+<span id="cb436-8"><a href="lets-see-it-in-code.html#cb436-8" aria-hidden="true" tabindex="-1"></a>   ),</span>
+<span id="cb436-9"><a href="lets-see-it-in-code.html#cb436-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">desc</span>(Avg_mpg)</span>
+<span id="cb436-10"><a href="lets-see-it-in-code.html#cb436-10" aria-hidden="true" tabindex="-1"></a> )</span></code></pre></div>
 <p>Nesting a long function is acceptable and in some languages preferred. However, given the structure of RStudio and its plethora of packages, there is no need.</p>
 <p>Using the Pipe</p>
-<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="lets-see-it-in-code.html#cb439-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
-<span id="cb439-2"><a href="lets-see-it-in-code.html#cb439-2" aria-hidden="true" tabindex="-1"></a>        dplyr<span class="sc">::</span><span class="fu">filter</span>(carb <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb439-3"><a href="lets-see-it-in-code.html#cb439-3" aria-hidden="true" tabindex="-1"></a>        dplyr<span class="sc">::</span><span class="fu">group_by</span>(cyl) <span class="sc">%&gt;%</span></span>
-<span id="cb439-4"><a href="lets-see-it-in-code.html#cb439-4" aria-hidden="true" tabindex="-1"></a>        dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">Avg_mpg =</span> <span class="fu">mean</span>(mpg)) <span class="sc">%&gt;%</span></span>
-<span id="cb439-5"><a href="lets-see-it-in-code.html#cb439-5" aria-hidden="true" tabindex="-1"></a>        dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(Avg_mpg))</span></code></pre></div>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="lets-see-it-in-code.html#cb437-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb437-2"><a href="lets-see-it-in-code.html#cb437-2" aria-hidden="true" tabindex="-1"></a>        dplyr<span class="sc">::</span><span class="fu">filter</span>(carb <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb437-3"><a href="lets-see-it-in-code.html#cb437-3" aria-hidden="true" tabindex="-1"></a>        dplyr<span class="sc">::</span><span class="fu">group_by</span>(cyl) <span class="sc">%&gt;%</span></span>
+<span id="cb437-4"><a href="lets-see-it-in-code.html#cb437-4" aria-hidden="true" tabindex="-1"></a>        dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">Avg_mpg =</span> <span class="fu">mean</span>(mpg)) <span class="sc">%&gt;%</span></span>
+<span id="cb437-5"><a href="lets-see-it-in-code.html#cb437-5" aria-hidden="true" tabindex="-1"></a>        dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(Avg_mpg))</span></code></pre></div>
 <p>The third example not only reduces complexity… you are building a pipeline to process the <code>mtcars</code> dataset. There is no difference in computation from the first example… only, now everything is in memory.</p>
 <blockquote>
 <p>NOTE: There is a section in here about <code>pryr</code> that I wasn’t sure the intent other then a discussion on memory use. R is intellegent and will share colums across dataframes. The material was excluded from the discussion.</p>

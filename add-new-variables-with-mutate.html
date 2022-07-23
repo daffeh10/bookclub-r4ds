@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.6 Add new variables with mutate() | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.6 Add new variables with mutate() | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-06-12" />
+<meta name="date" content="2022-07-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -627,42 +627,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="add-new-variables-with-mutate" class="section level2 hasAnchor" number="5.6">
 <h2><span class="header-section-number">5.6</span> Add new variables with mutate()<a href="add-new-variables-with-mutate.html#add-new-variables-with-mutate" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><code>mutate()</code> adds new columns based on values from existing columns. Data frame includes existing and new columns.</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="add-new-variables-with-mutate.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create data frame with  7 columns: year, month, day, dep_delay, arr_delay, distance, air_time</span></span>
-<span id="cb138-2"><a href="add-new-variables-with-mutate.html#cb138-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb138-3"><a href="add-new-variables-with-mutate.html#cb138-3" aria-hidden="true" tabindex="-1"></a>flights_7_columns <span class="ot">&lt;-</span> <span class="fu">select</span>(flights,</span>
-<span id="cb138-4"><a href="add-new-variables-with-mutate.html#cb138-4" aria-hidden="true" tabindex="-1"></a>  year<span class="sc">:</span>day,</span>
-<span id="cb138-5"><a href="add-new-variables-with-mutate.html#cb138-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ends_with</span>(<span class="st">&quot;delay&quot;</span>),</span>
-<span id="cb138-6"><a href="add-new-variables-with-mutate.html#cb138-6" aria-hidden="true" tabindex="-1"></a>  distance,</span>
-<span id="cb138-7"><a href="add-new-variables-with-mutate.html#cb138-7" aria-hidden="true" tabindex="-1"></a>  air_time</span>
-<span id="cb138-8"><a href="add-new-variables-with-mutate.html#cb138-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="add-new-variables-with-mutate.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate and add columns for gain, hours, and gain_per_hour</span></span>
-<span id="cb139-2"><a href="add-new-variables-with-mutate.html#cb139-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb139-3"><a href="add-new-variables-with-mutate.html#cb139-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(flights_7_columns,</span>
-<span id="cb139-4"><a href="add-new-variables-with-mutate.html#cb139-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">gain =</span> dep_delay <span class="sc">-</span> arr_delay,</span>
-<span id="cb139-5"><a href="add-new-variables-with-mutate.html#cb139-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">hours =</span> air_time <span class="sc">/</span> <span class="dv">60</span>,</span>
-<span id="cb139-6"><a href="add-new-variables-with-mutate.html#cb139-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">gain_per_hour =</span> gain <span class="sc">/</span> hours</span>
-<span id="cb139-7"><a href="add-new-variables-with-mutate.html#cb139-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="add-new-variables-with-mutate.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create data frame with  7 columns: year, month, day, dep_delay, arr_delay, distance, air_time</span></span>
+<span id="cb136-2"><a href="add-new-variables-with-mutate.html#cb136-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-3"><a href="add-new-variables-with-mutate.html#cb136-3" aria-hidden="true" tabindex="-1"></a>flights_7_columns <span class="ot">&lt;-</span> <span class="fu">select</span>(flights,</span>
+<span id="cb136-4"><a href="add-new-variables-with-mutate.html#cb136-4" aria-hidden="true" tabindex="-1"></a>  year<span class="sc">:</span>day,</span>
+<span id="cb136-5"><a href="add-new-variables-with-mutate.html#cb136-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ends_with</span>(<span class="st">&quot;delay&quot;</span>),</span>
+<span id="cb136-6"><a href="add-new-variables-with-mutate.html#cb136-6" aria-hidden="true" tabindex="-1"></a>  distance,</span>
+<span id="cb136-7"><a href="add-new-variables-with-mutate.html#cb136-7" aria-hidden="true" tabindex="-1"></a>  air_time</span>
+<span id="cb136-8"><a href="add-new-variables-with-mutate.html#cb136-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="add-new-variables-with-mutate.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate and add columns for gain, hours, and gain_per_hour</span></span>
+<span id="cb137-2"><a href="add-new-variables-with-mutate.html#cb137-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-3"><a href="add-new-variables-with-mutate.html#cb137-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(flights_7_columns,</span>
+<span id="cb137-4"><a href="add-new-variables-with-mutate.html#cb137-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">gain =</span> dep_delay <span class="sc">-</span> arr_delay,</span>
+<span id="cb137-5"><a href="add-new-variables-with-mutate.html#cb137-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">hours =</span> air_time <span class="sc">/</span> <span class="dv">60</span>,</span>
+<span id="cb137-6"><a href="add-new-variables-with-mutate.html#cb137-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">gain_per_hour =</span> gain <span class="sc">/</span> hours</span>
+<span id="cb137-7"><a href="add-new-variables-with-mutate.html#cb137-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>## # A tibble: 336,776 × 10
-##     year month   day dep_delay arr_delay distance air_time  gain hours
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1  2013     1     1         2        11     1400      227    -9 3.78 
-##  2  2013     1     1         4        20     1416      227   -16 3.78 
-##  3  2013     1     1         2        33     1089      160   -31 2.67 
-##  4  2013     1     1        -1       -18     1576      183    17 3.05 
-##  5  2013     1     1        -6       -25      762      116    19 1.93 
-##  6  2013     1     1        -4        12      719      150   -16 2.5  
-##  7  2013     1     1        -5        19     1065      158   -24 2.63 
-##  8  2013     1     1        -3       -14      229       53    11 0.883
-##  9  2013     1     1        -3        -8      944      140     5 2.33 
-## 10  2013     1     1        -2         8      733      138   -10 2.3  
-## # … with 336,766 more rows, and 1 more variable: gain_per_hour &lt;dbl&gt;</code></pre>
+##     year month   day dep_delay arr_delay distance air_time  gain hours gain_pe…¹
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;
+##  1  2013     1     1         2        11     1400      227    -9 3.78      -2.38
+##  2  2013     1     1         4        20     1416      227   -16 3.78      -4.23
+##  3  2013     1     1         2        33     1089      160   -31 2.67     -11.6 
+##  4  2013     1     1        -1       -18     1576      183    17 3.05       5.57
+##  5  2013     1     1        -6       -25      762      116    19 1.93       9.83
+##  6  2013     1     1        -4        12      719      150   -16 2.5       -6.4 
+##  7  2013     1     1        -5        19     1065      158   -24 2.63      -9.11
+##  8  2013     1     1        -3       -14      229       53    11 0.883     12.5 
+##  9  2013     1     1        -3        -8      944      140     5 2.33       2.14
+## 10  2013     1     1        -2         8      733      138   -10 2.3       -4.35
+## # … with 336,766 more rows, and abbreviated variable name ¹​gain_per_hour
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <p><code>transmute()</code> adds new columns based on values from existing columns. Data frame only includes new columns.</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="add-new-variables-with-mutate.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate and add columns for gain, hours, and gain_per_hour</span></span>
-<span id="cb141-2"><a href="add-new-variables-with-mutate.html#cb141-2" aria-hidden="true" tabindex="-1"></a><span class="fu">transmute</span>(flights_7_columns,</span>
-<span id="cb141-3"><a href="add-new-variables-with-mutate.html#cb141-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">gain =</span> dep_delay <span class="sc">-</span> arr_delay,</span>
-<span id="cb141-4"><a href="add-new-variables-with-mutate.html#cb141-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">hours =</span> air_time <span class="sc">/</span> <span class="dv">60</span>,</span>
-<span id="cb141-5"><a href="add-new-variables-with-mutate.html#cb141-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">gain_per_hour =</span> gain <span class="sc">/</span> hours</span>
-<span id="cb141-6"><a href="add-new-variables-with-mutate.html#cb141-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="add-new-variables-with-mutate.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate and add columns for gain, hours, and gain_per_hour</span></span>
+<span id="cb139-2"><a href="add-new-variables-with-mutate.html#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="fu">transmute</span>(flights_7_columns,</span>
+<span id="cb139-3"><a href="add-new-variables-with-mutate.html#cb139-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">gain =</span> dep_delay <span class="sc">-</span> arr_delay,</span>
+<span id="cb139-4"><a href="add-new-variables-with-mutate.html#cb139-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">hours =</span> air_time <span class="sc">/</span> <span class="dv">60</span>,</span>
+<span id="cb139-5"><a href="add-new-variables-with-mutate.html#cb139-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">gain_per_hour =</span> gain <span class="sc">/</span> hours</span>
+<span id="cb139-6"><a href="add-new-variables-with-mutate.html#cb139-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>## # A tibble: 336,776 × 3
 ##     gain hours gain_per_hour
 ##    &lt;dbl&gt; &lt;dbl&gt;         &lt;dbl&gt;
@@ -676,7 +677,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8    11 0.883         12.5 
 ##  9     5 2.33           2.14
 ## 10   -10 2.3           -4.35
-## # … with 336,766 more rows</code></pre>
+## # … with 336,766 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <div id="useful-creation-functions" class="section level3 hasAnchor" number="5.6.1">
 <h3><span class="header-section-number">5.6.1</span> Useful creation functions<a href="add-new-variables-with-mutate.html#useful-creation-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are many functions to use with <code>mutate()</code>. The function must be vectorised: it must take a vector of values as input, return a vector with the same number of values as output.</p>
@@ -689,19 +691,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Logical comparisons: <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>!=</code>, and <code>==</code></p>
 <p>Ranking: <code>min_rank(x)</code> gives ranks from smallest to largest. <code>min_rank(desc(x))</code> gives ranks from largest to smallest. <code>row_number()</code>, <code>dense_rank()</code>, <code>percent_rank()</code>, <code>cume_dist()</code>, <code>ntile()</code>.</p>
 <p>Testing out various functions to see what they do.</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="add-new-variables-with-mutate.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">transmute</span>(flights,</span>
-<span id="cb143-2"><a href="add-new-variables-with-mutate.html#cb143-2" aria-hidden="true" tabindex="-1"></a>  dep_time,</span>
-<span id="cb143-3"><a href="add-new-variables-with-mutate.html#cb143-3" aria-hidden="true" tabindex="-1"></a>  arr_time,</span>
-<span id="cb143-4"><a href="add-new-variables-with-mutate.html#cb143-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Modular arithmetic</span></span>
-<span id="cb143-5"><a href="add-new-variables-with-mutate.html#cb143-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">dep_hour =</span> dep_time <span class="sc">%/%</span> <span class="dv">100</span>,</span>
-<span id="cb143-6"><a href="add-new-variables-with-mutate.html#cb143-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">dep_minute =</span> dep_time <span class="sc">%%</span> <span class="dv">100</span>,</span>
-<span id="cb143-7"><a href="add-new-variables-with-mutate.html#cb143-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Arithmetic</span></span>
-<span id="cb143-8"><a href="add-new-variables-with-mutate.html#cb143-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">duration =</span> arr_time <span class="sc">-</span> dep_time,</span>
-<span id="cb143-9"><a href="add-new-variables-with-mutate.html#cb143-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># logs</span></span>
-<span id="cb143-10"><a href="add-new-variables-with-mutate.html#cb143-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_duration =</span> <span class="fu">log2</span>(duration),</span>
-<span id="cb143-11"><a href="add-new-variables-with-mutate.html#cb143-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Offsets</span></span>
-<span id="cb143-12"><a href="add-new-variables-with-mutate.html#cb143-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">lead_duration =</span> <span class="fu">lead</span>(duration)</span>
-<span id="cb143-13"><a href="add-new-variables-with-mutate.html#cb143-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="add-new-variables-with-mutate.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">transmute</span>(flights,</span>
+<span id="cb141-2"><a href="add-new-variables-with-mutate.html#cb141-2" aria-hidden="true" tabindex="-1"></a>  dep_time,</span>
+<span id="cb141-3"><a href="add-new-variables-with-mutate.html#cb141-3" aria-hidden="true" tabindex="-1"></a>  arr_time,</span>
+<span id="cb141-4"><a href="add-new-variables-with-mutate.html#cb141-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Modular arithmetic</span></span>
+<span id="cb141-5"><a href="add-new-variables-with-mutate.html#cb141-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">dep_hour =</span> dep_time <span class="sc">%/%</span> <span class="dv">100</span>,</span>
+<span id="cb141-6"><a href="add-new-variables-with-mutate.html#cb141-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">dep_minute =</span> dep_time <span class="sc">%%</span> <span class="dv">100</span>,</span>
+<span id="cb141-7"><a href="add-new-variables-with-mutate.html#cb141-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Arithmetic</span></span>
+<span id="cb141-8"><a href="add-new-variables-with-mutate.html#cb141-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">duration =</span> arr_time <span class="sc">-</span> dep_time,</span>
+<span id="cb141-9"><a href="add-new-variables-with-mutate.html#cb141-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># logs</span></span>
+<span id="cb141-10"><a href="add-new-variables-with-mutate.html#cb141-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_duration =</span> <span class="fu">log2</span>(duration),</span>
+<span id="cb141-11"><a href="add-new-variables-with-mutate.html#cb141-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Offsets</span></span>
+<span id="cb141-12"><a href="add-new-variables-with-mutate.html#cb141-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">lead_duration =</span> <span class="fu">lead</span>(duration)</span>
+<span id="cb141-13"><a href="add-new-variables-with-mutate.html#cb141-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>## Warning in mask$eval_all_mutate(quo): NaNs produced</code></pre>
 <pre><code>## # A tibble: 336,776 × 7
 ##    dep_time arr_time dep_hour dep_minute duration log_duration lead_duration
@@ -716,19 +718,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8      557      709        5         57      152         7.25           281
 ##  9      557      838        5         57      281         8.13           195
 ## 10      558      753        5         58      195         7.61           291
-## # … with 336,766 more rows</code></pre>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="add-new-variables-with-mutate.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">transmute</span>(flights,</span>
-<span id="cb146-2"><a href="add-new-variables-with-mutate.html#cb146-2" aria-hidden="true" tabindex="-1"></a>  dep_time,</span>
-<span id="cb146-3"><a href="add-new-variables-with-mutate.html#cb146-3" aria-hidden="true" tabindex="-1"></a>  arr_time,</span>
-<span id="cb146-4"><a href="add-new-variables-with-mutate.html#cb146-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Arithmetic</span></span>
-<span id="cb146-5"><a href="add-new-variables-with-mutate.html#cb146-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">duration =</span> arr_time <span class="sc">-</span> dep_time,</span>
-<span id="cb146-6"><a href="add-new-variables-with-mutate.html#cb146-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Cumulative aggregates</span></span>
-<span id="cb146-7"><a href="add-new-variables-with-mutate.html#cb146-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">cumsum_duration =</span> <span class="fu">cumsum</span>(duration),</span>
-<span id="cb146-8"><a href="add-new-variables-with-mutate.html#cb146-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Logical comparisons</span></span>
-<span id="cb146-9"><a href="add-new-variables-with-mutate.html#cb146-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">long_duration =</span> duration <span class="sc">&gt;</span> <span class="dv">300</span>,</span>
-<span id="cb146-10"><a href="add-new-variables-with-mutate.html#cb146-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ranking</span></span>
-<span id="cb146-11"><a href="add-new-variables-with-mutate.html#cb146-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">rank_duration =</span> <span class="fu">min_rank</span>(duration)</span>
-<span id="cb146-12"><a href="add-new-variables-with-mutate.html#cb146-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+## # … with 336,766 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="add-new-variables-with-mutate.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="fu">transmute</span>(flights,</span>
+<span id="cb144-2"><a href="add-new-variables-with-mutate.html#cb144-2" aria-hidden="true" tabindex="-1"></a>  dep_time,</span>
+<span id="cb144-3"><a href="add-new-variables-with-mutate.html#cb144-3" aria-hidden="true" tabindex="-1"></a>  arr_time,</span>
+<span id="cb144-4"><a href="add-new-variables-with-mutate.html#cb144-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Arithmetic</span></span>
+<span id="cb144-5"><a href="add-new-variables-with-mutate.html#cb144-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">duration =</span> arr_time <span class="sc">-</span> dep_time,</span>
+<span id="cb144-6"><a href="add-new-variables-with-mutate.html#cb144-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Cumulative aggregates</span></span>
+<span id="cb144-7"><a href="add-new-variables-with-mutate.html#cb144-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">cumsum_duration =</span> <span class="fu">cumsum</span>(duration),</span>
+<span id="cb144-8"><a href="add-new-variables-with-mutate.html#cb144-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Logical comparisons</span></span>
+<span id="cb144-9"><a href="add-new-variables-with-mutate.html#cb144-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">long_duration =</span> duration <span class="sc">&gt;</span> <span class="dv">300</span>,</span>
+<span id="cb144-10"><a href="add-new-variables-with-mutate.html#cb144-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ranking</span></span>
+<span id="cb144-11"><a href="add-new-variables-with-mutate.html#cb144-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">rank_duration =</span> <span class="fu">min_rank</span>(duration)</span>
+<span id="cb144-12"><a href="add-new-variables-with-mutate.html#cb144-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>## # A tibble: 336,776 × 6
 ##    dep_time arr_time duration cumsum_duration long_duration rank_duration
 ##       &lt;int&gt;    &lt;int&gt;    &lt;int&gt;           &lt;int&gt; &lt;lgl&gt;                 &lt;int&gt;
@@ -742,7 +745,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8      557      709      152            2425 FALSE                 77988
 ##  9      557      838      281            2706 FALSE                224583
 ## 10      558      753      195            2901 FALSE                129730
-## # … with 336,766 more rows</code></pre>
+## # … with 336,766 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
             </section>

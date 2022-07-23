@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7.7 Simplified ggplot2 | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7.7 Simplified ggplot2 | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-06-12" />
+<meta name="date" content="2022-07-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -626,16 +626,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="simplified-ggplot2" class="section level2 hasAnchor" number="7.7">
 <h2><span class="header-section-number">7.7</span> Simplified ggplot2<a href="simplified-ggplot2.html#simplified-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="simplified-ggplot2.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> faithful, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> eruptions)) <span class="sc">+</span> </span>
-<span id="cb207-2"><a href="simplified-ggplot2.html#cb207-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="fl">0.25</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="simplified-ggplot2.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> faithful, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> eruptions)) <span class="sc">+</span> </span>
+<span id="cb205-2"><a href="simplified-ggplot2.html#cb205-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="fl">0.25</span>)</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/07-ggplot-simplified-1.png" width="672" /></p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="simplified-ggplot2.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(faithful, <span class="fu">aes</span>(eruptions)) <span class="sc">+</span> </span>
-<span id="cb208-2"><a href="simplified-ggplot2.html#cb208-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="fl">0.25</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="simplified-ggplot2.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(faithful, <span class="fu">aes</span>(eruptions)) <span class="sc">+</span> </span>
+<span id="cb206-2"><a href="simplified-ggplot2.html#cb206-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="fl">0.25</span>)</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/07-ggplot-simplified-2.png" width="672" /></p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="simplified-ggplot2.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Or Jon&#39;s crazy way</span></span>
-<span id="cb209-2"><a href="simplified-ggplot2.html#cb209-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(faithful) <span class="sc">+</span></span>
-<span id="cb209-3"><a href="simplified-ggplot2.html#cb209-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(eruptions) <span class="sc">+</span></span>
-<span id="cb209-4"><a href="simplified-ggplot2.html#cb209-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="fl">0.25</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="simplified-ggplot2.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Or Jon&#39;s crazy way</span></span>
+<span id="cb207-2"><a href="simplified-ggplot2.html#cb207-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(faithful) <span class="sc">+</span></span>
+<span id="cb207-3"><a href="simplified-ggplot2.html#cb207-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(eruptions) <span class="sc">+</span></span>
+<span id="cb207-4"><a href="simplified-ggplot2.html#cb207-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="fl">0.25</span>)</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/07-ggplot-simplified-3.png" width="672" /></p>
 </div>
             </section>

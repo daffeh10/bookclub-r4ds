@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.8 Grouped mutates (and filters) | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.8 Grouped mutates (and filters) | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-06-12" />
+<meta name="date" content="2022-07-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -627,11 +627,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="grouped-mutates-and-filters" class="section level2 hasAnchor" number="5.8">
 <h2><span class="header-section-number">5.8</span> Grouped mutates (and filters)<a href="grouped-mutates-and-filters.html#grouped-mutates-and-filters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>use <code>group()</code> with <code>mutate()</code> and <code>filter()</code></p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="grouped-mutates-and-filters.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the flights with the top 10  largest arrival delays per day</span></span>
-<span id="cb194-2"><a href="grouped-mutates-and-filters.html#cb194-2" aria-hidden="true" tabindex="-1"></a>top_delay <span class="ot">&lt;-</span> flights_7_columns <span class="sc">%&gt;%</span></span>
-<span id="cb194-3"><a href="grouped-mutates-and-filters.html#cb194-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, month, day) <span class="sc">%&gt;%</span></span>
-<span id="cb194-4"><a href="grouped-mutates-and-filters.html#cb194-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">rank</span>(<span class="fu">desc</span>(arr_delay)) <span class="sc">&lt;=</span> <span class="dv">10</span>)</span>
-<span id="cb194-5"><a href="grouped-mutates-and-filters.html#cb194-5" aria-hidden="true" tabindex="-1"></a>top_delay</span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="grouped-mutates-and-filters.html#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the flights with the top 10  largest arrival delays per day</span></span>
+<span id="cb192-2"><a href="grouped-mutates-and-filters.html#cb192-2" aria-hidden="true" tabindex="-1"></a>top_delay <span class="ot">&lt;-</span> flights_7_columns <span class="sc">%&gt;%</span></span>
+<span id="cb192-3"><a href="grouped-mutates-and-filters.html#cb192-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, month, day) <span class="sc">%&gt;%</span></span>
+<span id="cb192-4"><a href="grouped-mutates-and-filters.html#cb192-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">rank</span>(<span class="fu">desc</span>(arr_delay)) <span class="sc">&lt;=</span> <span class="dv">10</span>)</span>
+<span id="cb192-5"><a href="grouped-mutates-and-filters.html#cb192-5" aria-hidden="true" tabindex="-1"></a>top_delay</span></code></pre></div>
 <pre><code>## # A tibble: 3,609 × 7
 ## # Groups:   year, month, day [365]
 ##     year month   day dep_delay arr_delay distance air_time
@@ -646,12 +646,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8  2013     1     1       285       246     1085      146
 ##  9  2013     1     1       192       191      199       44
 ## 10  2013     1     1       379       456     1092      222
-## # … with 3,599 more rows</code></pre>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="grouped-mutates-and-filters.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add rank column, and sort the rows by day and rank to check if top_delay</span></span>
-<span id="cb196-2"><a href="grouped-mutates-and-filters.html#cb196-2" aria-hidden="true" tabindex="-1"></a><span class="co"># is returning what we expect</span></span>
-<span id="cb196-3"><a href="grouped-mutates-and-filters.html#cb196-3" aria-hidden="true" tabindex="-1"></a>top_delay <span class="sc">%&gt;%</span></span>
-<span id="cb196-4"><a href="grouped-mutates-and-filters.html#cb196-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rank =</span> <span class="fu">rank</span>(<span class="fu">desc</span>(arr_delay)) ) <span class="sc">%&gt;%</span></span>
-<span id="cb196-5"><a href="grouped-mutates-and-filters.html#cb196-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(year, month, day, rank)</span></code></pre></div>
+## # … with 3,599 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="grouped-mutates-and-filters.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add rank column, and sort the rows by day and rank to check if top_delay</span></span>
+<span id="cb194-2"><a href="grouped-mutates-and-filters.html#cb194-2" aria-hidden="true" tabindex="-1"></a><span class="co"># is returning what we expect</span></span>
+<span id="cb194-3"><a href="grouped-mutates-and-filters.html#cb194-3" aria-hidden="true" tabindex="-1"></a>top_delay <span class="sc">%&gt;%</span></span>
+<span id="cb194-4"><a href="grouped-mutates-and-filters.html#cb194-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rank =</span> <span class="fu">rank</span>(<span class="fu">desc</span>(arr_delay)) ) <span class="sc">%&gt;%</span></span>
+<span id="cb194-5"><a href="grouped-mutates-and-filters.html#cb194-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(year, month, day, rank)</span></code></pre></div>
 <pre><code>## # A tibble: 3,609 × 8
 ## # Groups:   year, month, day [365]
 ##     year month   day dep_delay arr_delay distance air_time  rank
@@ -666,7 +667,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8  2013     1     1       192       191      199       44     8
 ##  9  2013     1     1       157       174      213       60     9
 ## 10  2013     1     1       155       166      277       68    10
-## # … with 3,599 more rows</code></pre>
+## # … with 3,599 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
             </section>
 
