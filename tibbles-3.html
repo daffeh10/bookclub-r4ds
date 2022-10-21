@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.2 Naming Things | R for Data Science Book Club</title>
+  <title>Chapter 27 Tibbles | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
   <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.2 Naming Things | R for Data Science Book Club" />
+  <meta property="og:title" content="Chapter 27 Tibbles | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
   <meta name="github-repo" content="r4ds/bookclub-r4ds" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.2 Naming Things | R for Data Science Book Club" />
+  <meta name="twitter:title" content="Chapter 27 Tibbles | R for Data Science Book Club" />
   
   <meta name="twitter:description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="pronouncing-code.html"/>
-<link rel="next" href="functions.html"/>
+<link rel="prev" href="meeting-videos-25.html"/>
+<link rel="next" href="slide-1-1.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -815,25 +815,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="naming-things" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> Naming Things<a href="naming-things.html#naming-things" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><font size="4"> <em>There are only two hard things in computer science: cache invalidation and naming things. And off-by-one errors.</em> </font></p>
+<div id="tibbles-3" class="section level1 hasAnchor" number="27">
+<h1><span class="header-section-number">Chapter 27</span> Tibbles<a href="tibbles-3.html#tibbles-3" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><strong>Learning objectives:</strong></p>
 <ul>
-<li>Picking good names for things is both harder and more important than you might guess.</li>
-<li>Having good guidelines for naming things can save you a lot of mental effort down the road.</li>
-<li>Names in R can only contain letters, numbers, <code>_</code>, and <code>.</code>.</li>
-<li>R is case-sensitive! And it can’t read your mind.</li>
-<li>Sticking with a good style convention will make your code more readable, both for others, and for yourself in the future.</li>
-</ul>
-<p>Some suggestions:</p>
-<ul>
-<li>Use descriptive names. Long names are ok!</li>
-<li>Use all lowercase by default, with <code>_</code> as a separator.
-<ul>
-<li><code>student_item_data</code></li>
-<li><code>num_students</code></li>
-<li><code>fall2020_math_courses_with_multiple_sections</code></li>
-</ul></li>
+<li><strong>Create tibbles</strong> in various ways.</li>
+<li>Compare and contrast <strong>tibbles</strong> with base R <strong>data.frames</strong>.</li>
+<li><strong>Convert a tibble</strong> back to a data.frame, when needed.</li>
 </ul>
 </div>
             </section>
@@ -841,8 +829,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="pronouncing-code.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="meeting-videos-25.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="slide-1-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -873,7 +861,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/r4ds/bookclub-r4ds/edit/main/03-workflow_basics.Rmd",
+"link": "https://github.com/r4ds/bookclub-r4ds/edit/main/27-tibbles.Rmd",
 "text": "Edit"
 },
 "history": {

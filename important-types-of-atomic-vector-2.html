@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>28.3 Important types of atomic vector | R for Data Science Book Club</title>
+  <title>26.3 Important types of atomic vector | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="28.3 Important types of atomic vector | R for Data Science Book Club" />
+  <meta property="og:title" content="26.3 Important types of atomic vector | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
   <meta name="github-repo" content="r4ds/bookclub-r4ds" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="28.3 Important types of atomic vector | R for Data Science Book Club" />
+  <meta name="twitter:title" content="26.3 Important types of atomic vector | R for Data Science Book Club" />
   
   <meta name="twitter:description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
   
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-08-20" />
+<meta name="date" content="2022-10-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -54,7 +54,7 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
-<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
+<script src="libs/str_view-binding-1.4.1/str_view.js"></script>
 
 
 <style type="text/css">
@@ -315,539 +315,484 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="part"><span><b>II Transform</b></span></li>
-<li class="chapter" data-level="12" data-path="tibbles.html"><a href="tibbles.html"><i class="fa fa-check"></i><b>12</b> Tibbles</a>
+<li class="chapter" data-level="12" data-path="logical-vectors.html"><a href="logical-vectors.html"><i class="fa fa-check"></i><b>12</b> Logical vectors</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="slide-1.html"><a href="slide-1.html"><i class="fa fa-check"></i><b>12.1</b> Slide 1</a></li>
-<li class="chapter" data-level="12.2" data-path="slide-2.html"><a href="slide-2.html"><i class="fa fa-check"></i><b>12.2</b> Slide 2</a></li>
-<li class="chapter" data-level="12.3" data-path="meeting-videos-11.html"><a href="meeting-videos-11.html"><i class="fa fa-check"></i><b>12.3</b> Meeting Videos</a>
+<li class="chapter" data-level="12.1" data-path="introduction-3.html"><a href="introduction-3.html"><i class="fa fa-check"></i><b>12.1</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="12.3.1" data-path="meeting-videos-11.html"><a href="meeting-videos-11.html#cohort-5-9"><i class="fa fa-check"></i><b>12.3.1</b> Cohort 5</a></li>
+<li class="chapter" data-level="12.1.1" data-path="introduction-3.html"><a href="introduction-3.html#prerequisites-1"><i class="fa fa-check"></i><b>12.1.1</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="vector-basics.html"><a href="vector-basics.html"><i class="fa fa-check"></i><b>12.2</b> Vector basics</a></li>
+<li class="chapter" data-level="12.3" data-path="important-types-of-atomic-vector.html"><a href="important-types-of-atomic-vector.html"><i class="fa fa-check"></i><b>12.3</b> Important types of atomic vector</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="important-types-of-atomic-vector.html"><a href="important-types-of-atomic-vector.html#logical"><i class="fa fa-check"></i><b>12.3.1</b> Logical</a></li>
+<li class="chapter" data-level="12.3.2" data-path="important-types-of-atomic-vector.html"><a href="important-types-of-atomic-vector.html#numeric"><i class="fa fa-check"></i><b>12.3.2</b> Numeric</a></li>
+<li class="chapter" data-level="12.3.3" data-path="important-types-of-atomic-vector.html"><a href="important-types-of-atomic-vector.html#character"><i class="fa fa-check"></i><b>12.3.3</b> Character</a></li>
+<li class="chapter" data-level="12.3.4" data-path="important-types-of-atomic-vector.html"><a href="important-types-of-atomic-vector.html#missing-values-2"><i class="fa fa-check"></i><b>12.3.4</b> Missing values</a></li>
+<li class="chapter" data-level="12.3.5" data-path="important-types-of-atomic-vector.html"><a href="important-types-of-atomic-vector.html#exercises-1"><i class="fa fa-check"></i><b>12.3.5</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="using-atomic-vectors.html"><a href="using-atomic-vectors.html"><i class="fa fa-check"></i><b>12.4</b> Using atomic vectors</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="using-atomic-vectors.html"><a href="using-atomic-vectors.html#coercion"><i class="fa fa-check"></i><b>12.4.1</b> Coercion</a></li>
+<li class="chapter" data-level="12.4.2" data-path="using-atomic-vectors.html"><a href="using-atomic-vectors.html#test-functions"><i class="fa fa-check"></i><b>12.4.2</b> Test functions</a></li>
+<li class="chapter" data-level="12.4.3" data-path="using-atomic-vectors.html"><a href="using-atomic-vectors.html#scalars-and-recycling-rules"><i class="fa fa-check"></i><b>12.4.3</b> Scalars and recycling rules</a></li>
+<li class="chapter" data-level="12.4.4" data-path="using-atomic-vectors.html"><a href="using-atomic-vectors.html#naming-vectors"><i class="fa fa-check"></i><b>12.4.4</b> Naming vectors</a></li>
+<li class="chapter" data-level="12.4.5" data-path="using-atomic-vectors.html"><a href="using-atomic-vectors.html#subsetting"><i class="fa fa-check"></i><b>12.4.5</b> Subsetting</a></li>
+<li class="chapter" data-level="12.4.6" data-path="using-atomic-vectors.html"><a href="using-atomic-vectors.html#exercises-2"><i class="fa fa-check"></i><b>12.4.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html"><i class="fa fa-check"></i><b>12.5</b> Recursive vectors (lists)</a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html#visualising-lists"><i class="fa fa-check"></i><b>12.5.1</b> Visualising lists</a></li>
+<li class="chapter" data-level="12.5.2" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html#subsetting-1"><i class="fa fa-check"></i><b>12.5.2</b> Subsetting</a></li>
+<li class="chapter" data-level="12.5.3" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html#lists-of-condiments"><i class="fa fa-check"></i><b>12.5.3</b> Lists of condiments</a></li>
+<li class="chapter" data-level="12.5.4" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html#exercises-3"><i class="fa fa-check"></i><b>12.5.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="attributes.html"><a href="attributes.html"><i class="fa fa-check"></i><b>12.6</b> Attributes</a></li>
+<li class="chapter" data-level="12.7" data-path="augmented-vectors.html"><a href="augmented-vectors.html"><i class="fa fa-check"></i><b>12.7</b> Augmented vectors</a>
+<ul>
+<li class="chapter" data-level="12.7.1" data-path="augmented-vectors.html"><a href="augmented-vectors.html#factors"><i class="fa fa-check"></i><b>12.7.1</b> Factors</a></li>
+<li class="chapter" data-level="12.7.2" data-path="augmented-vectors.html"><a href="augmented-vectors.html#dates-and-date-times"><i class="fa fa-check"></i><b>12.7.2</b> Dates and date-times</a></li>
+<li class="chapter" data-level="12.7.3" data-path="augmented-vectors.html"><a href="augmented-vectors.html#tibbles"><i class="fa fa-check"></i><b>12.7.3</b> Tibbles</a></li>
+<li class="chapter" data-level="12.7.4" data-path="augmented-vectors.html"><a href="augmented-vectors.html#exercises-4"><i class="fa fa-check"></i><b>12.7.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="meeting-videos-11.html"><a href="meeting-videos-11.html"><i class="fa fa-check"></i><b>12.8</b> Meeting Videos</a>
+<ul>
+<li class="chapter" data-level="12.8.1" data-path="meeting-videos-11.html"><a href="meeting-videos-11.html#cohort-5-9"><i class="fa fa-check"></i><b>12.8.1</b> Cohort 5</a></li>
+<li class="chapter" data-level="12.8.2" data-path="meeting-videos-11.html"><a href="meeting-videos-11.html#cohort-6-8"><i class="fa fa-check"></i><b>12.8.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="joins.html"><a href="joins.html"><i class="fa fa-check"></i><b>13</b> Joins</a>
+<li class="chapter" data-level="13" data-path="numbers.html"><a href="numbers.html"><i class="fa fa-check"></i><b>13</b> Numbers</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="introduction-3.html"><a href="introduction-3.html"><i class="fa fa-check"></i><b>13.1</b> Introduction</a></li>
-<li class="chapter" data-level="13.2" data-path="nycflights13-1.html"><a href="nycflights13-1.html"><i class="fa fa-check"></i><b>13.2</b> nycflights13</a></li>
-<li class="chapter" data-level="13.3" data-path="keys.html"><a href="keys.html"><i class="fa fa-check"></i><b>13.3</b> Keys</a></li>
-<li class="chapter" data-level="13.4" data-path="mutating-joins.html"><a href="mutating-joins.html"><i class="fa fa-check"></i><b>13.4</b> Mutating joins</a>
+<li class="chapter" data-level="13.1" data-path="introduction-4.html"><a href="introduction-4.html"><i class="fa fa-check"></i><b>13.1</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="13.4.1" data-path="mutating-joins.html"><a href="mutating-joins.html#understanding-joins"><i class="fa fa-check"></i><b>13.4.1</b> Understanding joins</a></li>
-<li class="chapter" data-level="13.4.2" data-path="mutating-joins.html"><a href="mutating-joins.html#inner-join"><i class="fa fa-check"></i><b>13.4.2</b> Inner join</a></li>
-<li class="chapter" data-level="13.4.3" data-path="mutating-joins.html"><a href="mutating-joins.html#outer-joins"><i class="fa fa-check"></i><b>13.4.3</b> Outer joins</a></li>
-<li class="chapter" data-level="13.4.4" data-path="mutating-joins.html"><a href="mutating-joins.html#duplicate-keys"><i class="fa fa-check"></i><b>13.4.4</b> Duplicate keys</a></li>
+<li class="chapter" data-level="13.1.1" data-path="introduction-4.html"><a href="introduction-4.html#prerequisites-2"><i class="fa fa-check"></i><b>13.1.1</b> Prerequisites</a></li>
 </ul></li>
-<li class="chapter" data-level="13.5" data-path="filtering-joins.html"><a href="filtering-joins.html"><i class="fa fa-check"></i><b>13.5</b> Filtering joins</a></li>
-<li class="chapter" data-level="13.6" data-path="some-more-things-to-consider.html"><a href="some-more-things-to-consider.html"><i class="fa fa-check"></i><b>13.6</b> Some more things to consider</a>
+<li class="chapter" data-level="13.2" data-path="vector-basics-1.html"><a href="vector-basics-1.html"><i class="fa fa-check"></i><b>13.2</b> Vector basics</a></li>
+<li class="chapter" data-level="13.3" data-path="important-types-of-atomic-vector-1.html"><a href="important-types-of-atomic-vector-1.html"><i class="fa fa-check"></i><b>13.3</b> Important types of atomic vector</a>
 <ul>
-<li class="chapter" data-level="13.6.1" data-path="some-more-things-to-consider.html"><a href="some-more-things-to-consider.html#join-problems"><i class="fa fa-check"></i><b>13.6.1</b> Join problems</a></li>
-<li class="chapter" data-level="13.6.2" data-path="some-more-things-to-consider.html"><a href="some-more-things-to-consider.html#set-operations"><i class="fa fa-check"></i><b>13.6.2</b> Set operations</a></li>
+<li class="chapter" data-level="13.3.1" data-path="important-types-of-atomic-vector-1.html"><a href="important-types-of-atomic-vector-1.html#logical-1"><i class="fa fa-check"></i><b>13.3.1</b> Logical</a></li>
+<li class="chapter" data-level="13.3.2" data-path="important-types-of-atomic-vector-1.html"><a href="important-types-of-atomic-vector-1.html#numeric-1"><i class="fa fa-check"></i><b>13.3.2</b> Numeric</a></li>
+<li class="chapter" data-level="13.3.3" data-path="important-types-of-atomic-vector-1.html"><a href="important-types-of-atomic-vector-1.html#character-1"><i class="fa fa-check"></i><b>13.3.3</b> Character</a></li>
+<li class="chapter" data-level="13.3.4" data-path="important-types-of-atomic-vector-1.html"><a href="important-types-of-atomic-vector-1.html#missing-values-3"><i class="fa fa-check"></i><b>13.3.4</b> Missing values</a></li>
+<li class="chapter" data-level="13.3.5" data-path="important-types-of-atomic-vector-1.html"><a href="important-types-of-atomic-vector-1.html#exercises-5"><i class="fa fa-check"></i><b>13.3.5</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7" data-path="meeting-videos-12.html"><a href="meeting-videos-12.html"><i class="fa fa-check"></i><b>13.7</b> Meeting Videos</a>
+<li class="chapter" data-level="13.4" data-path="using-atomic-vectors-1.html"><a href="using-atomic-vectors-1.html"><i class="fa fa-check"></i><b>13.4</b> Using atomic vectors</a>
 <ul>
-<li class="chapter" data-level="13.7.1" data-path="meeting-videos-12.html"><a href="meeting-videos-12.html#cohort-5-10"><i class="fa fa-check"></i><b>13.7.1</b> Cohort 5</a></li>
-<li class="chapter" data-level="13.7.2" data-path="meeting-videos-12.html"><a href="meeting-videos-12.html#cohort-6-8"><i class="fa fa-check"></i><b>13.7.2</b> Cohort 6</a></li>
+<li class="chapter" data-level="13.4.1" data-path="using-atomic-vectors-1.html"><a href="using-atomic-vectors-1.html#coercion-1"><i class="fa fa-check"></i><b>13.4.1</b> Coercion</a></li>
+<li class="chapter" data-level="13.4.2" data-path="using-atomic-vectors-1.html"><a href="using-atomic-vectors-1.html#test-functions-1"><i class="fa fa-check"></i><b>13.4.2</b> Test functions</a></li>
+<li class="chapter" data-level="13.4.3" data-path="using-atomic-vectors-1.html"><a href="using-atomic-vectors-1.html#scalars-and-recycling-rules-1"><i class="fa fa-check"></i><b>13.4.3</b> Scalars and recycling rules</a></li>
+<li class="chapter" data-level="13.4.4" data-path="using-atomic-vectors-1.html"><a href="using-atomic-vectors-1.html#naming-vectors-1"><i class="fa fa-check"></i><b>13.4.4</b> Naming vectors</a></li>
+<li class="chapter" data-level="13.4.5" data-path="using-atomic-vectors-1.html"><a href="using-atomic-vectors-1.html#subsetting-2"><i class="fa fa-check"></i><b>13.4.5</b> Subsetting</a></li>
+<li class="chapter" data-level="13.4.6" data-path="using-atomic-vectors-1.html"><a href="using-atomic-vectors-1.html#exercises-6"><i class="fa fa-check"></i><b>13.4.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="recursive-vectors-lists-1.html"><a href="recursive-vectors-lists-1.html"><i class="fa fa-check"></i><b>13.5</b> Recursive vectors (lists)</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="recursive-vectors-lists-1.html"><a href="recursive-vectors-lists-1.html#visualising-lists-1"><i class="fa fa-check"></i><b>13.5.1</b> Visualising lists</a></li>
+<li class="chapter" data-level="13.5.2" data-path="recursive-vectors-lists-1.html"><a href="recursive-vectors-lists-1.html#subsetting-3"><i class="fa fa-check"></i><b>13.5.2</b> Subsetting</a></li>
+<li class="chapter" data-level="13.5.3" data-path="recursive-vectors-lists-1.html"><a href="recursive-vectors-lists-1.html#lists-of-condiments-1"><i class="fa fa-check"></i><b>13.5.3</b> Lists of condiments</a></li>
+<li class="chapter" data-level="13.5.4" data-path="recursive-vectors-lists-1.html"><a href="recursive-vectors-lists-1.html#exercises-7"><i class="fa fa-check"></i><b>13.5.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="attributes-1.html"><a href="attributes-1.html"><i class="fa fa-check"></i><b>13.6</b> Attributes</a></li>
+<li class="chapter" data-level="13.7" data-path="augmented-vectors-1.html"><a href="augmented-vectors-1.html"><i class="fa fa-check"></i><b>13.7</b> Augmented vectors</a>
+<ul>
+<li class="chapter" data-level="13.7.1" data-path="augmented-vectors-1.html"><a href="augmented-vectors-1.html#factors-1"><i class="fa fa-check"></i><b>13.7.1</b> Factors</a></li>
+<li class="chapter" data-level="13.7.2" data-path="augmented-vectors-1.html"><a href="augmented-vectors-1.html#dates-and-date-times-1"><i class="fa fa-check"></i><b>13.7.2</b> Dates and date-times</a></li>
+<li class="chapter" data-level="13.7.3" data-path="augmented-vectors-1.html"><a href="augmented-vectors-1.html#tibbles-1"><i class="fa fa-check"></i><b>13.7.3</b> Tibbles</a></li>
+<li class="chapter" data-level="13.7.4" data-path="augmented-vectors-1.html"><a href="augmented-vectors-1.html#exercises-8"><i class="fa fa-check"></i><b>13.7.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13.8" data-path="meeting-videos-12.html"><a href="meeting-videos-12.html"><i class="fa fa-check"></i><b>13.8</b> Meeting Videos</a>
+<ul>
+<li class="chapter" data-level="13.8.1" data-path="meeting-videos-12.html"><a href="meeting-videos-12.html#cohort-5-10"><i class="fa fa-check"></i><b>13.8.1</b> Cohort 5</a></li>
+<li class="chapter" data-level="13.8.2" data-path="meeting-videos-12.html"><a href="meeting-videos-12.html#cohort-6-9"><i class="fa fa-check"></i><b>13.8.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="logical-vectors.html"><a href="logical-vectors.html"><i class="fa fa-check"></i><b>14</b> Logical vectors</a>
+<li class="chapter" data-level="14" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>14</b> Strings</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="introduction-4.html"><a href="introduction-4.html"><i class="fa fa-check"></i><b>14.1</b> Introduction</a>
+<li class="chapter" data-level="14.1" data-path="introduction-5.html"><a href="introduction-5.html"><i class="fa fa-check"></i><b>14.1</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="14.1.1" data-path="introduction-4.html"><a href="introduction-4.html#prerequisites-1"><i class="fa fa-check"></i><b>14.1.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="14.1.1" data-path="introduction-5.html"><a href="introduction-5.html#pre-requisites"><i class="fa fa-check"></i><b>14.1.1</b> Pre-Requisites</a></li>
 </ul></li>
-<li class="chapter" data-level="14.2" data-path="vector-basics.html"><a href="vector-basics.html"><i class="fa fa-check"></i><b>14.2</b> Vector basics</a></li>
-<li class="chapter" data-level="14.3" data-path="important-types-of-atomic-vector.html"><a href="important-types-of-atomic-vector.html"><i class="fa fa-check"></i><b>14.3</b> Important types of atomic vector</a>
+<li class="chapter" data-level="14.2" data-path="string-basics.html"><a href="string-basics.html"><i class="fa fa-check"></i><b>14.2</b> String Basics</a>
 <ul>
-<li class="chapter" data-level="14.3.1" data-path="important-types-of-atomic-vector.html"><a href="important-types-of-atomic-vector.html#logical"><i class="fa fa-check"></i><b>14.3.1</b> Logical</a></li>
-<li class="chapter" data-level="14.3.2" data-path="important-types-of-atomic-vector.html"><a href="important-types-of-atomic-vector.html#numeric"><i class="fa fa-check"></i><b>14.3.2</b> Numeric</a></li>
-<li class="chapter" data-level="14.3.3" data-path="important-types-of-atomic-vector.html"><a href="important-types-of-atomic-vector.html#character"><i class="fa fa-check"></i><b>14.3.3</b> Character</a></li>
-<li class="chapter" data-level="14.3.4" data-path="important-types-of-atomic-vector.html"><a href="important-types-of-atomic-vector.html#missing-values-2"><i class="fa fa-check"></i><b>14.3.4</b> Missing values</a></li>
-<li class="chapter" data-level="14.3.5" data-path="important-types-of-atomic-vector.html"><a href="important-types-of-atomic-vector.html#exercises-1"><i class="fa fa-check"></i><b>14.3.5</b> Exercises</a></li>
+<li class="chapter" data-level="14.2.1" data-path="string-basics.html"><a href="string-basics.html#string-length"><i class="fa fa-check"></i><b>14.2.1</b> String Length</a></li>
+<li class="chapter" data-level="14.2.2" data-path="string-basics.html"><a href="string-basics.html#combining-strings"><i class="fa fa-check"></i><b>14.2.2</b> Combining Strings</a></li>
+<li class="chapter" data-level="14.2.3" data-path="string-basics.html"><a href="string-basics.html#subsetting-strings"><i class="fa fa-check"></i><b>14.2.3</b> Subsetting Strings</a></li>
+<li class="chapter" data-level="14.2.4" data-path="string-basics.html"><a href="string-basics.html#locales"><i class="fa fa-check"></i><b>14.2.4</b> Locales</a></li>
+<li class="chapter" data-level="14.2.5" data-path="string-basics.html"><a href="string-basics.html#exercises-9"><i class="fa fa-check"></i><b>14.2.5</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="14.4" data-path="using-atomic-vectors.html"><a href="using-atomic-vectors.html"><i class="fa fa-check"></i><b>14.4</b> Using atomic vectors</a>
+<li class="chapter" data-level="14.3" data-path="matching-patterns-with-regular-expressions.html"><a href="matching-patterns-with-regular-expressions.html"><i class="fa fa-check"></i><b>14.3</b> Matching Patterns with Regular Expressions</a>
 <ul>
-<li class="chapter" data-level="14.4.1" data-path="using-atomic-vectors.html"><a href="using-atomic-vectors.html#coercion"><i class="fa fa-check"></i><b>14.4.1</b> Coercion</a></li>
-<li class="chapter" data-level="14.4.2" data-path="using-atomic-vectors.html"><a href="using-atomic-vectors.html#test-functions"><i class="fa fa-check"></i><b>14.4.2</b> Test functions</a></li>
-<li class="chapter" data-level="14.4.3" data-path="using-atomic-vectors.html"><a href="using-atomic-vectors.html#scalars-and-recycling-rules"><i class="fa fa-check"></i><b>14.4.3</b> Scalars and recycling rules</a></li>
-<li class="chapter" data-level="14.4.4" data-path="using-atomic-vectors.html"><a href="using-atomic-vectors.html#naming-vectors"><i class="fa fa-check"></i><b>14.4.4</b> Naming vectors</a></li>
-<li class="chapter" data-level="14.4.5" data-path="using-atomic-vectors.html"><a href="using-atomic-vectors.html#subsetting"><i class="fa fa-check"></i><b>14.4.5</b> Subsetting</a></li>
-<li class="chapter" data-level="14.4.6" data-path="using-atomic-vectors.html"><a href="using-atomic-vectors.html#exercises-2"><i class="fa fa-check"></i><b>14.4.6</b> Exercises</a></li>
+<li class="chapter" data-level="14.3.1" data-path="matching-patterns-with-regular-expressions.html"><a href="matching-patterns-with-regular-expressions.html#basic-matches"><i class="fa fa-check"></i><b>14.3.1</b> Basic Matches</a></li>
+<li class="chapter" data-level="14.3.2" data-path="matching-patterns-with-regular-expressions.html"><a href="matching-patterns-with-regular-expressions.html#anchors"><i class="fa fa-check"></i><b>14.3.2</b> Anchors</a></li>
+<li class="chapter" data-level="14.3.3" data-path="matching-patterns-with-regular-expressions.html"><a href="matching-patterns-with-regular-expressions.html#character-classes-and-alternatives"><i class="fa fa-check"></i><b>14.3.3</b> Character Classes and Alternatives</a></li>
+<li class="chapter" data-level="14.3.4" data-path="matching-patterns-with-regular-expressions.html"><a href="matching-patterns-with-regular-expressions.html#repetition"><i class="fa fa-check"></i><b>14.3.4</b> Repetition</a></li>
+<li class="chapter" data-level="14.3.5" data-path="matching-patterns-with-regular-expressions.html"><a href="matching-patterns-with-regular-expressions.html#grouping-and-backreferences"><i class="fa fa-check"></i><b>14.3.5</b> Grouping and Backreferences</a></li>
 </ul></li>
-<li class="chapter" data-level="14.5" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html"><i class="fa fa-check"></i><b>14.5</b> Recursive vectors (lists)</a>
+<li class="chapter" data-level="14.4" data-path="tools.html"><a href="tools.html"><i class="fa fa-check"></i><b>14.4</b> Tools</a>
 <ul>
-<li class="chapter" data-level="14.5.1" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html#visualising-lists"><i class="fa fa-check"></i><b>14.5.1</b> Visualising lists</a></li>
-<li class="chapter" data-level="14.5.2" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html#subsetting-1"><i class="fa fa-check"></i><b>14.5.2</b> Subsetting</a></li>
-<li class="chapter" data-level="14.5.3" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html#lists-of-condiments"><i class="fa fa-check"></i><b>14.5.3</b> Lists of condiments</a></li>
-<li class="chapter" data-level="14.5.4" data-path="recursive-vectors-lists.html"><a href="recursive-vectors-lists.html#exercises-3"><i class="fa fa-check"></i><b>14.5.4</b> Exercises</a></li>
+<li class="chapter" data-level="14.4.1" data-path="tools.html"><a href="tools.html#detect-matches"><i class="fa fa-check"></i><b>14.4.1</b> Detect Matches</a></li>
+<li class="chapter" data-level="14.4.2" data-path="tools.html"><a href="tools.html#extract-matches"><i class="fa fa-check"></i><b>14.4.2</b> Extract Matches</a></li>
+<li class="chapter" data-level="14.4.3" data-path="tools.html"><a href="tools.html#grouped-matches"><i class="fa fa-check"></i><b>14.4.3</b> Grouped Matches</a></li>
+<li class="chapter" data-level="14.4.4" data-path="tools.html"><a href="tools.html#replacing-matches"><i class="fa fa-check"></i><b>14.4.4</b> Replacing Matches</a></li>
+<li class="chapter" data-level="14.4.5" data-path="tools.html"><a href="tools.html#splitting"><i class="fa fa-check"></i><b>14.4.5</b> Splitting</a></li>
+<li class="chapter" data-level="14.4.6" data-path="tools.html"><a href="tools.html#find-matches"><i class="fa fa-check"></i><b>14.4.6</b> Find Matches</a></li>
 </ul></li>
-<li class="chapter" data-level="14.6" data-path="attributes.html"><a href="attributes.html"><i class="fa fa-check"></i><b>14.6</b> Attributes</a></li>
-<li class="chapter" data-level="14.7" data-path="augmented-vectors.html"><a href="augmented-vectors.html"><i class="fa fa-check"></i><b>14.7</b> Augmented vectors</a>
+<li class="chapter" data-level="14.5" data-path="other-types-of-pattern.html"><a href="other-types-of-pattern.html"><i class="fa fa-check"></i><b>14.5</b> Other types of Pattern</a>
 <ul>
-<li class="chapter" data-level="14.7.1" data-path="augmented-vectors.html"><a href="augmented-vectors.html#factors"><i class="fa fa-check"></i><b>14.7.1</b> Factors</a></li>
-<li class="chapter" data-level="14.7.2" data-path="augmented-vectors.html"><a href="augmented-vectors.html#dates-and-date-times"><i class="fa fa-check"></i><b>14.7.2</b> Dates and date-times</a></li>
-<li class="chapter" data-level="14.7.3" data-path="augmented-vectors.html"><a href="augmented-vectors.html#tibbles-1"><i class="fa fa-check"></i><b>14.7.3</b> Tibbles</a></li>
-<li class="chapter" data-level="14.7.4" data-path="augmented-vectors.html"><a href="augmented-vectors.html#exercises-4"><i class="fa fa-check"></i><b>14.7.4</b> Exercises</a></li>
+<li class="chapter" data-level="14.5.1" data-path="other-types-of-pattern.html"><a href="other-types-of-pattern.html#exercises-unanswered-7"><i class="fa fa-check"></i><b>14.5.1</b> Exercises (Unanswered)</a></li>
+</ul></li>
+<li class="chapter" data-level="14.6" data-path="other-uses-of-regular-expressions.html"><a href="other-uses-of-regular-expressions.html"><i class="fa fa-check"></i><b>14.6</b> Other uses of regular expressions</a></li>
+<li class="chapter" data-level="14.7" data-path="stringi.html"><a href="stringi.html"><i class="fa fa-check"></i><b>14.7</b> stringi</a>
+<ul>
+<li class="chapter" data-level="14.7.1" data-path="stringi.html"><a href="stringi.html#exercises-11"><i class="fa fa-check"></i><b>14.7.1</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="14.8" data-path="meeting-videos-13.html"><a href="meeting-videos-13.html"><i class="fa fa-check"></i><b>14.8</b> Meeting Videos</a>
 <ul>
 <li class="chapter" data-level="14.8.1" data-path="meeting-videos-13.html"><a href="meeting-videos-13.html#cohort-5-11"><i class="fa fa-check"></i><b>14.8.1</b> Cohort 5</a></li>
-<li class="chapter" data-level="14.8.2" data-path="meeting-videos-13.html"><a href="meeting-videos-13.html#cohort-6-9"><i class="fa fa-check"></i><b>14.8.2</b> Cohort 6</a></li>
+<li class="chapter" data-level="14.8.2" data-path="meeting-videos-13.html"><a href="meeting-videos-13.html#cohort-6-10"><i class="fa fa-check"></i><b>14.8.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="numbers.html"><a href="numbers.html"><i class="fa fa-check"></i><b>15</b> Numbers</a>
+<li class="chapter" data-level="15" data-path="regular-expressions.html"><a href="regular-expressions.html"><i class="fa fa-check"></i><b>15</b> Regular expressions</a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="introduction-5.html"><a href="introduction-5.html"><i class="fa fa-check"></i><b>15.1</b> Introduction</a>
+<li class="chapter" data-level="15.1" data-path="introduction-6.html"><a href="introduction-6.html"><i class="fa fa-check"></i><b>15.1</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="15.1.1" data-path="introduction-5.html"><a href="introduction-5.html#prerequisites-2"><i class="fa fa-check"></i><b>15.1.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="15.1.1" data-path="introduction-6.html"><a href="introduction-6.html#pre-requisites-1"><i class="fa fa-check"></i><b>15.1.1</b> Pre-Requisites</a></li>
 </ul></li>
-<li class="chapter" data-level="15.2" data-path="vector-basics-1.html"><a href="vector-basics-1.html"><i class="fa fa-check"></i><b>15.2</b> Vector basics</a></li>
-<li class="chapter" data-level="15.3" data-path="important-types-of-atomic-vector-1.html"><a href="important-types-of-atomic-vector-1.html"><i class="fa fa-check"></i><b>15.3</b> Important types of atomic vector</a>
+<li class="chapter" data-level="15.2" data-path="string-basics-1.html"><a href="string-basics-1.html"><i class="fa fa-check"></i><b>15.2</b> String Basics</a>
 <ul>
-<li class="chapter" data-level="15.3.1" data-path="important-types-of-atomic-vector-1.html"><a href="important-types-of-atomic-vector-1.html#logical-1"><i class="fa fa-check"></i><b>15.3.1</b> Logical</a></li>
-<li class="chapter" data-level="15.3.2" data-path="important-types-of-atomic-vector-1.html"><a href="important-types-of-atomic-vector-1.html#numeric-1"><i class="fa fa-check"></i><b>15.3.2</b> Numeric</a></li>
-<li class="chapter" data-level="15.3.3" data-path="important-types-of-atomic-vector-1.html"><a href="important-types-of-atomic-vector-1.html#character-1"><i class="fa fa-check"></i><b>15.3.3</b> Character</a></li>
-<li class="chapter" data-level="15.3.4" data-path="important-types-of-atomic-vector-1.html"><a href="important-types-of-atomic-vector-1.html#missing-values-3"><i class="fa fa-check"></i><b>15.3.4</b> Missing values</a></li>
-<li class="chapter" data-level="15.3.5" data-path="important-types-of-atomic-vector-1.html"><a href="important-types-of-atomic-vector-1.html#exercises-5"><i class="fa fa-check"></i><b>15.3.5</b> Exercises</a></li>
+<li class="chapter" data-level="15.2.1" data-path="string-basics-1.html"><a href="string-basics-1.html#string-length-1"><i class="fa fa-check"></i><b>15.2.1</b> String Length</a></li>
+<li class="chapter" data-level="15.2.2" data-path="string-basics-1.html"><a href="string-basics-1.html#combining-strings-1"><i class="fa fa-check"></i><b>15.2.2</b> Combining Strings</a></li>
+<li class="chapter" data-level="15.2.3" data-path="string-basics-1.html"><a href="string-basics-1.html#subsetting-strings-1"><i class="fa fa-check"></i><b>15.2.3</b> Subsetting Strings</a></li>
+<li class="chapter" data-level="15.2.4" data-path="string-basics-1.html"><a href="string-basics-1.html#locales-1"><i class="fa fa-check"></i><b>15.2.4</b> Locales</a></li>
+<li class="chapter" data-level="15.2.5" data-path="string-basics-1.html"><a href="string-basics-1.html#exercises-12"><i class="fa fa-check"></i><b>15.2.5</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="15.4" data-path="using-atomic-vectors-1.html"><a href="using-atomic-vectors-1.html"><i class="fa fa-check"></i><b>15.4</b> Using atomic vectors</a>
+<li class="chapter" data-level="15.3" data-path="matching-patterns-with-regular-expressions-1.html"><a href="matching-patterns-with-regular-expressions-1.html"><i class="fa fa-check"></i><b>15.3</b> Matching Patterns with Regular Expressions</a>
 <ul>
-<li class="chapter" data-level="15.4.1" data-path="using-atomic-vectors-1.html"><a href="using-atomic-vectors-1.html#coercion-1"><i class="fa fa-check"></i><b>15.4.1</b> Coercion</a></li>
-<li class="chapter" data-level="15.4.2" data-path="using-atomic-vectors-1.html"><a href="using-atomic-vectors-1.html#test-functions-1"><i class="fa fa-check"></i><b>15.4.2</b> Test functions</a></li>
-<li class="chapter" data-level="15.4.3" data-path="using-atomic-vectors-1.html"><a href="using-atomic-vectors-1.html#scalars-and-recycling-rules-1"><i class="fa fa-check"></i><b>15.4.3</b> Scalars and recycling rules</a></li>
-<li class="chapter" data-level="15.4.4" data-path="using-atomic-vectors-1.html"><a href="using-atomic-vectors-1.html#naming-vectors-1"><i class="fa fa-check"></i><b>15.4.4</b> Naming vectors</a></li>
-<li class="chapter" data-level="15.4.5" data-path="using-atomic-vectors-1.html"><a href="using-atomic-vectors-1.html#subsetting-2"><i class="fa fa-check"></i><b>15.4.5</b> Subsetting</a></li>
-<li class="chapter" data-level="15.4.6" data-path="using-atomic-vectors-1.html"><a href="using-atomic-vectors-1.html#exercises-6"><i class="fa fa-check"></i><b>15.4.6</b> Exercises</a></li>
+<li class="chapter" data-level="15.3.1" data-path="matching-patterns-with-regular-expressions-1.html"><a href="matching-patterns-with-regular-expressions-1.html#basic-matches-1"><i class="fa fa-check"></i><b>15.3.1</b> Basic Matches</a></li>
+<li class="chapter" data-level="15.3.2" data-path="matching-patterns-with-regular-expressions-1.html"><a href="matching-patterns-with-regular-expressions-1.html#anchors-1"><i class="fa fa-check"></i><b>15.3.2</b> Anchors</a></li>
+<li class="chapter" data-level="15.3.3" data-path="matching-patterns-with-regular-expressions-1.html"><a href="matching-patterns-with-regular-expressions-1.html#character-classes-and-alternatives-1"><i class="fa fa-check"></i><b>15.3.3</b> Character Classes and Alternatives</a></li>
+<li class="chapter" data-level="15.3.4" data-path="matching-patterns-with-regular-expressions-1.html"><a href="matching-patterns-with-regular-expressions-1.html#repetition-1"><i class="fa fa-check"></i><b>15.3.4</b> Repetition</a></li>
+<li class="chapter" data-level="15.3.5" data-path="matching-patterns-with-regular-expressions-1.html"><a href="matching-patterns-with-regular-expressions-1.html#grouping-and-backreferences-1"><i class="fa fa-check"></i><b>15.3.5</b> Grouping and Backreferences</a></li>
 </ul></li>
-<li class="chapter" data-level="15.5" data-path="recursive-vectors-lists-1.html"><a href="recursive-vectors-lists-1.html"><i class="fa fa-check"></i><b>15.5</b> Recursive vectors (lists)</a>
+<li class="chapter" data-level="15.4" data-path="tools-1.html"><a href="tools-1.html"><i class="fa fa-check"></i><b>15.4</b> Tools</a>
 <ul>
-<li class="chapter" data-level="15.5.1" data-path="recursive-vectors-lists-1.html"><a href="recursive-vectors-lists-1.html#visualising-lists-1"><i class="fa fa-check"></i><b>15.5.1</b> Visualising lists</a></li>
-<li class="chapter" data-level="15.5.2" data-path="recursive-vectors-lists-1.html"><a href="recursive-vectors-lists-1.html#subsetting-3"><i class="fa fa-check"></i><b>15.5.2</b> Subsetting</a></li>
-<li class="chapter" data-level="15.5.3" data-path="recursive-vectors-lists-1.html"><a href="recursive-vectors-lists-1.html#lists-of-condiments-1"><i class="fa fa-check"></i><b>15.5.3</b> Lists of condiments</a></li>
-<li class="chapter" data-level="15.5.4" data-path="recursive-vectors-lists-1.html"><a href="recursive-vectors-lists-1.html#exercises-7"><i class="fa fa-check"></i><b>15.5.4</b> Exercises</a></li>
+<li class="chapter" data-level="15.4.1" data-path="tools-1.html"><a href="tools-1.html#detect-matches-1"><i class="fa fa-check"></i><b>15.4.1</b> Detect Matches</a></li>
+<li class="chapter" data-level="15.4.2" data-path="tools-1.html"><a href="tools-1.html#extract-matches-1"><i class="fa fa-check"></i><b>15.4.2</b> Extract Matches</a></li>
+<li class="chapter" data-level="15.4.3" data-path="tools-1.html"><a href="tools-1.html#grouped-matches-1"><i class="fa fa-check"></i><b>15.4.3</b> Grouped Matches</a></li>
+<li class="chapter" data-level="15.4.4" data-path="tools-1.html"><a href="tools-1.html#replacing-matches-1"><i class="fa fa-check"></i><b>15.4.4</b> Replacing Matches</a></li>
+<li class="chapter" data-level="15.4.5" data-path="tools-1.html"><a href="tools-1.html#splitting-1"><i class="fa fa-check"></i><b>15.4.5</b> Splitting</a></li>
+<li class="chapter" data-level="15.4.6" data-path="tools-1.html"><a href="tools-1.html#find-matches-1"><i class="fa fa-check"></i><b>15.4.6</b> Find Matches</a></li>
 </ul></li>
-<li class="chapter" data-level="15.6" data-path="attributes-1.html"><a href="attributes-1.html"><i class="fa fa-check"></i><b>15.6</b> Attributes</a></li>
-<li class="chapter" data-level="15.7" data-path="augmented-vectors-1.html"><a href="augmented-vectors-1.html"><i class="fa fa-check"></i><b>15.7</b> Augmented vectors</a>
+<li class="chapter" data-level="15.5" data-path="other-types-of-pattern-1.html"><a href="other-types-of-pattern-1.html"><i class="fa fa-check"></i><b>15.5</b> Other types of Pattern</a>
 <ul>
-<li class="chapter" data-level="15.7.1" data-path="augmented-vectors-1.html"><a href="augmented-vectors-1.html#factors-1"><i class="fa fa-check"></i><b>15.7.1</b> Factors</a></li>
-<li class="chapter" data-level="15.7.2" data-path="augmented-vectors-1.html"><a href="augmented-vectors-1.html#dates-and-date-times-1"><i class="fa fa-check"></i><b>15.7.2</b> Dates and date-times</a></li>
-<li class="chapter" data-level="15.7.3" data-path="augmented-vectors-1.html"><a href="augmented-vectors-1.html#tibbles-2"><i class="fa fa-check"></i><b>15.7.3</b> Tibbles</a></li>
-<li class="chapter" data-level="15.7.4" data-path="augmented-vectors-1.html"><a href="augmented-vectors-1.html#exercises-8"><i class="fa fa-check"></i><b>15.7.4</b> Exercises</a></li>
+<li class="chapter" data-level="15.5.1" data-path="other-types-of-pattern-1.html"><a href="other-types-of-pattern-1.html#exercises-unanswered-15"><i class="fa fa-check"></i><b>15.5.1</b> Exercises (Unanswered)</a></li>
+</ul></li>
+<li class="chapter" data-level="15.6" data-path="other-uses-of-regular-expressions-1.html"><a href="other-uses-of-regular-expressions-1.html"><i class="fa fa-check"></i><b>15.6</b> Other uses of regular expressions</a></li>
+<li class="chapter" data-level="15.7" data-path="stringi-1.html"><a href="stringi-1.html"><i class="fa fa-check"></i><b>15.7</b> stringi</a>
+<ul>
+<li class="chapter" data-level="15.7.1" data-path="stringi-1.html"><a href="stringi-1.html#exercises-14"><i class="fa fa-check"></i><b>15.7.1</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="15.8" data-path="meeting-videos-14.html"><a href="meeting-videos-14.html"><i class="fa fa-check"></i><b>15.8</b> Meeting Videos</a>
 <ul>
 <li class="chapter" data-level="15.8.1" data-path="meeting-videos-14.html"><a href="meeting-videos-14.html#cohort-5-12"><i class="fa fa-check"></i><b>15.8.1</b> Cohort 5</a></li>
-<li class="chapter" data-level="15.8.2" data-path="meeting-videos-14.html"><a href="meeting-videos-14.html#cohort-6-10"><i class="fa fa-check"></i><b>15.8.2</b> Cohort 6</a></li>
+<li class="chapter" data-level="15.8.2" data-path="meeting-videos-14.html"><a href="meeting-videos-14.html#cohort-6-11"><i class="fa fa-check"></i><b>15.8.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>16</b> Strings</a>
+<li class="chapter" data-level="16" data-path="factors-2.html"><a href="factors-2.html"><i class="fa fa-check"></i><b>16</b> Factors</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="introduction-6.html"><a href="introduction-6.html"><i class="fa fa-check"></i><b>16.1</b> Introduction</a>
+<li class="chapter" data-level="16.1" data-path="slide-1.html"><a href="slide-1.html"><i class="fa fa-check"></i><b>16.1</b> Slide 1</a></li>
+<li class="chapter" data-level="16.2" data-path="slide-2.html"><a href="slide-2.html"><i class="fa fa-check"></i><b>16.2</b> Slide 2</a></li>
+<li class="chapter" data-level="16.3" data-path="meeting-videos-15.html"><a href="meeting-videos-15.html"><i class="fa fa-check"></i><b>16.3</b> Meeting Videos</a>
 <ul>
-<li class="chapter" data-level="16.1.1" data-path="introduction-6.html"><a href="introduction-6.html#pre-requisites"><i class="fa fa-check"></i><b>16.1.1</b> Pre-Requisites</a></li>
-</ul></li>
-<li class="chapter" data-level="16.2" data-path="string-basics.html"><a href="string-basics.html"><i class="fa fa-check"></i><b>16.2</b> String Basics</a>
-<ul>
-<li class="chapter" data-level="16.2.1" data-path="string-basics.html"><a href="string-basics.html#string-length"><i class="fa fa-check"></i><b>16.2.1</b> String Length</a></li>
-<li class="chapter" data-level="16.2.2" data-path="string-basics.html"><a href="string-basics.html#combining-strings"><i class="fa fa-check"></i><b>16.2.2</b> Combining Strings</a></li>
-<li class="chapter" data-level="16.2.3" data-path="string-basics.html"><a href="string-basics.html#subsetting-strings"><i class="fa fa-check"></i><b>16.2.3</b> Subsetting Strings</a></li>
-<li class="chapter" data-level="16.2.4" data-path="string-basics.html"><a href="string-basics.html#locales"><i class="fa fa-check"></i><b>16.2.4</b> Locales</a></li>
-<li class="chapter" data-level="16.2.5" data-path="string-basics.html"><a href="string-basics.html#exercises-9"><i class="fa fa-check"></i><b>16.2.5</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="16.3" data-path="matching-patterns-with-regular-expressions.html"><a href="matching-patterns-with-regular-expressions.html"><i class="fa fa-check"></i><b>16.3</b> Matching Patterns with Regular Expressions</a>
-<ul>
-<li class="chapter" data-level="16.3.1" data-path="matching-patterns-with-regular-expressions.html"><a href="matching-patterns-with-regular-expressions.html#basic-matches"><i class="fa fa-check"></i><b>16.3.1</b> Basic Matches</a></li>
-<li class="chapter" data-level="16.3.2" data-path="matching-patterns-with-regular-expressions.html"><a href="matching-patterns-with-regular-expressions.html#anchors"><i class="fa fa-check"></i><b>16.3.2</b> Anchors</a></li>
-<li class="chapter" data-level="16.3.3" data-path="matching-patterns-with-regular-expressions.html"><a href="matching-patterns-with-regular-expressions.html#character-classes-and-alternatives"><i class="fa fa-check"></i><b>16.3.3</b> Character Classes and Alternatives</a></li>
-<li class="chapter" data-level="16.3.4" data-path="matching-patterns-with-regular-expressions.html"><a href="matching-patterns-with-regular-expressions.html#repetition"><i class="fa fa-check"></i><b>16.3.4</b> Repetition</a></li>
-<li class="chapter" data-level="16.3.5" data-path="matching-patterns-with-regular-expressions.html"><a href="matching-patterns-with-regular-expressions.html#grouping-and-backreferences"><i class="fa fa-check"></i><b>16.3.5</b> Grouping and Backreferences</a></li>
-</ul></li>
-<li class="chapter" data-level="16.4" data-path="tools.html"><a href="tools.html"><i class="fa fa-check"></i><b>16.4</b> Tools</a>
-<ul>
-<li class="chapter" data-level="16.4.1" data-path="tools.html"><a href="tools.html#detect-matches"><i class="fa fa-check"></i><b>16.4.1</b> Detect Matches</a></li>
-<li class="chapter" data-level="16.4.2" data-path="tools.html"><a href="tools.html#extract-matches"><i class="fa fa-check"></i><b>16.4.2</b> Extract Matches</a></li>
-<li class="chapter" data-level="16.4.3" data-path="tools.html"><a href="tools.html#grouped-matches"><i class="fa fa-check"></i><b>16.4.3</b> Grouped Matches</a></li>
-<li class="chapter" data-level="16.4.4" data-path="tools.html"><a href="tools.html#replacing-matches"><i class="fa fa-check"></i><b>16.4.4</b> Replacing Matches</a></li>
-<li class="chapter" data-level="16.4.5" data-path="tools.html"><a href="tools.html#splitting"><i class="fa fa-check"></i><b>16.4.5</b> Splitting</a></li>
-<li class="chapter" data-level="16.4.6" data-path="tools.html"><a href="tools.html#find-matches"><i class="fa fa-check"></i><b>16.4.6</b> Find Matches</a></li>
-</ul></li>
-<li class="chapter" data-level="16.5" data-path="other-types-of-pattern.html"><a href="other-types-of-pattern.html"><i class="fa fa-check"></i><b>16.5</b> Other types of Pattern</a>
-<ul>
-<li class="chapter" data-level="16.5.1" data-path="other-types-of-pattern.html"><a href="other-types-of-pattern.html#exercises-unanswered-7"><i class="fa fa-check"></i><b>16.5.1</b> Exercises (Unanswered)</a></li>
-</ul></li>
-<li class="chapter" data-level="16.6" data-path="other-uses-of-regular-expressions.html"><a href="other-uses-of-regular-expressions.html"><i class="fa fa-check"></i><b>16.6</b> Other uses of regular expressions</a></li>
-<li class="chapter" data-level="16.7" data-path="stringi.html"><a href="stringi.html"><i class="fa fa-check"></i><b>16.7</b> stringi</a>
-<ul>
-<li class="chapter" data-level="16.7.1" data-path="stringi.html"><a href="stringi.html#exercises-11"><i class="fa fa-check"></i><b>16.7.1</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="16.8" data-path="meeting-videos-15.html"><a href="meeting-videos-15.html"><i class="fa fa-check"></i><b>16.8</b> Meeting Videos</a>
-<ul>
-<li class="chapter" data-level="16.8.1" data-path="meeting-videos-15.html"><a href="meeting-videos-15.html#cohort-5-13"><i class="fa fa-check"></i><b>16.8.1</b> Cohort 5</a></li>
-<li class="chapter" data-level="16.8.2" data-path="meeting-videos-15.html"><a href="meeting-videos-15.html#cohort-6-11"><i class="fa fa-check"></i><b>16.8.2</b> Cohort 6</a></li>
+<li class="chapter" data-level="16.3.1" data-path="meeting-videos-15.html"><a href="meeting-videos-15.html#cohort-5-13"><i class="fa fa-check"></i><b>16.3.1</b> Cohort 5</a></li>
+<li class="chapter" data-level="16.3.2" data-path="meeting-videos-15.html"><a href="meeting-videos-15.html#cohort-6-12"><i class="fa fa-check"></i><b>16.3.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="regular-expressions.html"><a href="regular-expressions.html"><i class="fa fa-check"></i><b>17</b> Regular expressions</a>
+<li class="chapter" data-level="17" data-path="dates-and-times.html"><a href="dates-and-times.html"><i class="fa fa-check"></i><b>17</b> Dates and times</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="introduction-7.html"><a href="introduction-7.html"><i class="fa fa-check"></i><b>17.1</b> Introduction</a>
+<li class="chapter" data-level="17.1" data-path="create-date-and-date-time-objects.html"><a href="create-date-and-date-time-objects.html"><i class="fa fa-check"></i><b>17.1</b> Create date and date-time objects</a></li>
+<li class="chapter" data-level="17.2" data-path="work-with-date-time-components.html"><a href="work-with-date-time-components.html"><i class="fa fa-check"></i><b>17.2</b> Work with date-time components</a></li>
+<li class="chapter" data-level="17.3" data-path="perform-arithmetic-on-timespans.html"><a href="perform-arithmetic-on-timespans.html"><i class="fa fa-check"></i><b>17.3</b> Perform arithmetic on timespans</a></li>
+<li class="chapter" data-level="17.4" data-path="time-zones.html"><a href="time-zones.html"><i class="fa fa-check"></i><b>17.4</b> Time zones</a></li>
+<li class="chapter" data-level="17.5" data-path="meeting-videos-16.html"><a href="meeting-videos-16.html"><i class="fa fa-check"></i><b>17.5</b> Meeting Videos</a>
 <ul>
-<li class="chapter" data-level="17.1.1" data-path="introduction-7.html"><a href="introduction-7.html#pre-requisites-1"><i class="fa fa-check"></i><b>17.1.1</b> Pre-Requisites</a></li>
-</ul></li>
-<li class="chapter" data-level="17.2" data-path="string-basics-1.html"><a href="string-basics-1.html"><i class="fa fa-check"></i><b>17.2</b> String Basics</a>
-<ul>
-<li class="chapter" data-level="17.2.1" data-path="string-basics-1.html"><a href="string-basics-1.html#string-length-1"><i class="fa fa-check"></i><b>17.2.1</b> String Length</a></li>
-<li class="chapter" data-level="17.2.2" data-path="string-basics-1.html"><a href="string-basics-1.html#combining-strings-1"><i class="fa fa-check"></i><b>17.2.2</b> Combining Strings</a></li>
-<li class="chapter" data-level="17.2.3" data-path="string-basics-1.html"><a href="string-basics-1.html#subsetting-strings-1"><i class="fa fa-check"></i><b>17.2.3</b> Subsetting Strings</a></li>
-<li class="chapter" data-level="17.2.4" data-path="string-basics-1.html"><a href="string-basics-1.html#locales-1"><i class="fa fa-check"></i><b>17.2.4</b> Locales</a></li>
-<li class="chapter" data-level="17.2.5" data-path="string-basics-1.html"><a href="string-basics-1.html#exercises-12"><i class="fa fa-check"></i><b>17.2.5</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="17.3" data-path="matching-patterns-with-regular-expressions-1.html"><a href="matching-patterns-with-regular-expressions-1.html"><i class="fa fa-check"></i><b>17.3</b> Matching Patterns with Regular Expressions</a>
-<ul>
-<li class="chapter" data-level="17.3.1" data-path="matching-patterns-with-regular-expressions-1.html"><a href="matching-patterns-with-regular-expressions-1.html#basic-matches-1"><i class="fa fa-check"></i><b>17.3.1</b> Basic Matches</a></li>
-<li class="chapter" data-level="17.3.2" data-path="matching-patterns-with-regular-expressions-1.html"><a href="matching-patterns-with-regular-expressions-1.html#anchors-1"><i class="fa fa-check"></i><b>17.3.2</b> Anchors</a></li>
-<li class="chapter" data-level="17.3.3" data-path="matching-patterns-with-regular-expressions-1.html"><a href="matching-patterns-with-regular-expressions-1.html#character-classes-and-alternatives-1"><i class="fa fa-check"></i><b>17.3.3</b> Character Classes and Alternatives</a></li>
-<li class="chapter" data-level="17.3.4" data-path="matching-patterns-with-regular-expressions-1.html"><a href="matching-patterns-with-regular-expressions-1.html#repetition-1"><i class="fa fa-check"></i><b>17.3.4</b> Repetition</a></li>
-<li class="chapter" data-level="17.3.5" data-path="matching-patterns-with-regular-expressions-1.html"><a href="matching-patterns-with-regular-expressions-1.html#grouping-and-backreferences-1"><i class="fa fa-check"></i><b>17.3.5</b> Grouping and Backreferences</a></li>
-</ul></li>
-<li class="chapter" data-level="17.4" data-path="tools-1.html"><a href="tools-1.html"><i class="fa fa-check"></i><b>17.4</b> Tools</a>
-<ul>
-<li class="chapter" data-level="17.4.1" data-path="tools-1.html"><a href="tools-1.html#detect-matches-1"><i class="fa fa-check"></i><b>17.4.1</b> Detect Matches</a></li>
-<li class="chapter" data-level="17.4.2" data-path="tools-1.html"><a href="tools-1.html#extract-matches-1"><i class="fa fa-check"></i><b>17.4.2</b> Extract Matches</a></li>
-<li class="chapter" data-level="17.4.3" data-path="tools-1.html"><a href="tools-1.html#grouped-matches-1"><i class="fa fa-check"></i><b>17.4.3</b> Grouped Matches</a></li>
-<li class="chapter" data-level="17.4.4" data-path="tools-1.html"><a href="tools-1.html#replacing-matches-1"><i class="fa fa-check"></i><b>17.4.4</b> Replacing Matches</a></li>
-<li class="chapter" data-level="17.4.5" data-path="tools-1.html"><a href="tools-1.html#splitting-1"><i class="fa fa-check"></i><b>17.4.5</b> Splitting</a></li>
-<li class="chapter" data-level="17.4.6" data-path="tools-1.html"><a href="tools-1.html#find-matches-1"><i class="fa fa-check"></i><b>17.4.6</b> Find Matches</a></li>
-</ul></li>
-<li class="chapter" data-level="17.5" data-path="other-types-of-pattern-1.html"><a href="other-types-of-pattern-1.html"><i class="fa fa-check"></i><b>17.5</b> Other types of Pattern</a>
-<ul>
-<li class="chapter" data-level="17.5.1" data-path="other-types-of-pattern-1.html"><a href="other-types-of-pattern-1.html#exercises-unanswered-15"><i class="fa fa-check"></i><b>17.5.1</b> Exercises (Unanswered)</a></li>
-</ul></li>
-<li class="chapter" data-level="17.6" data-path="other-uses-of-regular-expressions-1.html"><a href="other-uses-of-regular-expressions-1.html"><i class="fa fa-check"></i><b>17.6</b> Other uses of regular expressions</a></li>
-<li class="chapter" data-level="17.7" data-path="stringi-1.html"><a href="stringi-1.html"><i class="fa fa-check"></i><b>17.7</b> stringi</a>
-<ul>
-<li class="chapter" data-level="17.7.1" data-path="stringi-1.html"><a href="stringi-1.html#exercises-14"><i class="fa fa-check"></i><b>17.7.1</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="17.8" data-path="meeting-videos-16.html"><a href="meeting-videos-16.html"><i class="fa fa-check"></i><b>17.8</b> Meeting Videos</a>
-<ul>
-<li class="chapter" data-level="17.8.1" data-path="meeting-videos-16.html"><a href="meeting-videos-16.html#cohort-5-14"><i class="fa fa-check"></i><b>17.8.1</b> Cohort 5</a></li>
-<li class="chapter" data-level="17.8.2" data-path="meeting-videos-16.html"><a href="meeting-videos-16.html#cohort-6-12"><i class="fa fa-check"></i><b>17.8.2</b> Cohort 6</a></li>
+<li class="chapter" data-level="17.5.1" data-path="meeting-videos-16.html"><a href="meeting-videos-16.html#cohort-5-14"><i class="fa fa-check"></i><b>17.5.1</b> Cohort 5</a></li>
+<li class="chapter" data-level="17.5.2" data-path="meeting-videos-16.html"><a href="meeting-videos-16.html#cohort-6-13"><i class="fa fa-check"></i><b>17.5.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="factors-2.html"><a href="factors-2.html"><i class="fa fa-check"></i><b>18</b> Factors</a>
+<li class="chapter" data-level="18" data-path="missing-values-4.html"><a href="missing-values-4.html"><i class="fa fa-check"></i><b>18</b> Missing values</a>
 <ul>
-<li class="chapter" data-level="18.1" data-path="slide-1-1.html"><a href="slide-1-1.html"><i class="fa fa-check"></i><b>18.1</b> Slide 1</a></li>
-<li class="chapter" data-level="18.2" data-path="slide-2-1.html"><a href="slide-2-1.html"><i class="fa fa-check"></i><b>18.2</b> Slide 2</a></li>
-<li class="chapter" data-level="18.3" data-path="meeting-videos-17.html"><a href="meeting-videos-17.html"><i class="fa fa-check"></i><b>18.3</b> Meeting Videos</a>
+<li class="chapter" data-level="18.1" data-path="slide-title-5.html"><a href="slide-title-5.html"><i class="fa fa-check"></i><b>18.1</b> SLIDE TITLE</a></li>
+<li class="chapter" data-level="18.2" data-path="meeting-videos-17.html"><a href="meeting-videos-17.html"><i class="fa fa-check"></i><b>18.2</b> Meeting Videos</a>
 <ul>
-<li class="chapter" data-level="18.3.1" data-path="meeting-videos-17.html"><a href="meeting-videos-17.html#cohort-5-15"><i class="fa fa-check"></i><b>18.3.1</b> Cohort 5</a></li>
-<li class="chapter" data-level="18.3.2" data-path="meeting-videos-17.html"><a href="meeting-videos-17.html#cohort-6-13"><i class="fa fa-check"></i><b>18.3.2</b> Cohort 6</a></li>
+<li class="chapter" data-level="18.2.1" data-path="meeting-videos-17.html"><a href="meeting-videos-17.html#cohort-7-2"><i class="fa fa-check"></i><b>18.2.1</b> Cohort 7</a></li>
+<li class="chapter" data-level="18.2.2" data-path="meeting-videos-17.html"><a href="meeting-videos-17.html#cohort-8-2"><i class="fa fa-check"></i><b>18.2.2</b> Cohort 8</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="dates-and-times.html"><a href="dates-and-times.html"><i class="fa fa-check"></i><b>19</b> Dates and times</a>
+<li class="chapter" data-level="19" data-path="joins.html"><a href="joins.html"><i class="fa fa-check"></i><b>19</b> Joins</a>
 <ul>
-<li class="chapter" data-level="19.1" data-path="create-date-and-date-time-objects.html"><a href="create-date-and-date-time-objects.html"><i class="fa fa-check"></i><b>19.1</b> Create date and date-time objects</a></li>
-<li class="chapter" data-level="19.2" data-path="work-with-date-time-components.html"><a href="work-with-date-time-components.html"><i class="fa fa-check"></i><b>19.2</b> Work with date-time components</a></li>
-<li class="chapter" data-level="19.3" data-path="perform-arithmetic-on-timespans.html"><a href="perform-arithmetic-on-timespans.html"><i class="fa fa-check"></i><b>19.3</b> Perform arithmetic on timespans</a></li>
-<li class="chapter" data-level="19.4" data-path="time-zones.html"><a href="time-zones.html"><i class="fa fa-check"></i><b>19.4</b> Time zones</a></li>
-<li class="chapter" data-level="19.5" data-path="meeting-videos-18.html"><a href="meeting-videos-18.html"><i class="fa fa-check"></i><b>19.5</b> Meeting Videos</a>
+<li class="chapter" data-level="19.1" data-path="introduction-7.html"><a href="introduction-7.html"><i class="fa fa-check"></i><b>19.1</b> Introduction</a></li>
+<li class="chapter" data-level="19.2" data-path="nycflights13-1.html"><a href="nycflights13-1.html"><i class="fa fa-check"></i><b>19.2</b> nycflights13</a></li>
+<li class="chapter" data-level="19.3" data-path="keys.html"><a href="keys.html"><i class="fa fa-check"></i><b>19.3</b> Keys</a></li>
+<li class="chapter" data-level="19.4" data-path="mutating-joins.html"><a href="mutating-joins.html"><i class="fa fa-check"></i><b>19.4</b> Mutating joins</a>
 <ul>
-<li class="chapter" data-level="19.5.1" data-path="meeting-videos-18.html"><a href="meeting-videos-18.html#cohort-5-16"><i class="fa fa-check"></i><b>19.5.1</b> Cohort 5</a></li>
-<li class="chapter" data-level="19.5.2" data-path="meeting-videos-18.html"><a href="meeting-videos-18.html#cohort-6-14"><i class="fa fa-check"></i><b>19.5.2</b> Cohort 6</a></li>
+<li class="chapter" data-level="19.4.1" data-path="mutating-joins.html"><a href="mutating-joins.html#understanding-joins"><i class="fa fa-check"></i><b>19.4.1</b> Understanding joins</a></li>
+<li class="chapter" data-level="19.4.2" data-path="mutating-joins.html"><a href="mutating-joins.html#inner-join"><i class="fa fa-check"></i><b>19.4.2</b> Inner join</a></li>
+<li class="chapter" data-level="19.4.3" data-path="mutating-joins.html"><a href="mutating-joins.html#outer-joins"><i class="fa fa-check"></i><b>19.4.3</b> Outer joins</a></li>
+<li class="chapter" data-level="19.4.4" data-path="mutating-joins.html"><a href="mutating-joins.html#duplicate-keys"><i class="fa fa-check"></i><b>19.4.4</b> Duplicate keys</a></li>
 </ul></li>
+<li class="chapter" data-level="19.5" data-path="filtering-joins.html"><a href="filtering-joins.html"><i class="fa fa-check"></i><b>19.5</b> Filtering joins</a></li>
+<li class="chapter" data-level="19.6" data-path="some-more-things-to-consider.html"><a href="some-more-things-to-consider.html"><i class="fa fa-check"></i><b>19.6</b> Some more things to consider</a>
+<ul>
+<li class="chapter" data-level="19.6.1" data-path="some-more-things-to-consider.html"><a href="some-more-things-to-consider.html#join-problems"><i class="fa fa-check"></i><b>19.6.1</b> Join problems</a></li>
+<li class="chapter" data-level="19.6.2" data-path="some-more-things-to-consider.html"><a href="some-more-things-to-consider.html#set-operations"><i class="fa fa-check"></i><b>19.6.2</b> Set operations</a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="missing-values-4.html"><a href="missing-values-4.html"><i class="fa fa-check"></i><b>20</b> Missing values</a>
+<li class="chapter" data-level="19.7" data-path="meeting-videos-18.html"><a href="meeting-videos-18.html"><i class="fa fa-check"></i><b>19.7</b> Meeting Videos</a>
 <ul>
-<li class="chapter" data-level="20.1" data-path="slide-title-5.html"><a href="slide-title-5.html"><i class="fa fa-check"></i><b>20.1</b> SLIDE TITLE</a></li>
-<li class="chapter" data-level="20.2" data-path="meeting-videos-19.html"><a href="meeting-videos-19.html"><i class="fa fa-check"></i><b>20.2</b> Meeting Videos</a>
-<ul>
-<li class="chapter" data-level="20.2.1" data-path="meeting-videos-19.html"><a href="meeting-videos-19.html#cohort-7-2"><i class="fa fa-check"></i><b>20.2.1</b> Cohort 7</a></li>
-<li class="chapter" data-level="20.2.2" data-path="meeting-videos-19.html"><a href="meeting-videos-19.html#cohort-8-2"><i class="fa fa-check"></i><b>20.2.2</b> Cohort 8</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="21" data-path="column-wise-operations.html"><a href="column-wise-operations.html"><i class="fa fa-check"></i><b>21</b> Column-wise operations</a>
-<ul>
-<li class="chapter" data-level="21.1" data-path="slide-title-6.html"><a href="slide-title-6.html"><i class="fa fa-check"></i><b>21.1</b> SLIDE TITLE</a></li>
-<li class="chapter" data-level="21.2" data-path="meeting-videos-20.html"><a href="meeting-videos-20.html"><i class="fa fa-check"></i><b>21.2</b> Meeting Videos</a>
-<ul>
-<li class="chapter" data-level="21.2.1" data-path="meeting-videos-20.html"><a href="meeting-videos-20.html#cohort-7-3"><i class="fa fa-check"></i><b>21.2.1</b> Cohort 7</a></li>
-<li class="chapter" data-level="21.2.2" data-path="meeting-videos-20.html"><a href="meeting-videos-20.html#cohort-8-3"><i class="fa fa-check"></i><b>21.2.2</b> Cohort 8</a></li>
+<li class="chapter" data-level="19.7.1" data-path="meeting-videos-18.html"><a href="meeting-videos-18.html#cohort-5-15"><i class="fa fa-check"></i><b>19.7.1</b> Cohort 5</a></li>
+<li class="chapter" data-level="19.7.2" data-path="meeting-videos-18.html"><a href="meeting-videos-18.html#cohort-6-14"><i class="fa fa-check"></i><b>19.7.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>III Import</b></span></li>
-<li class="chapter" data-level="22" data-path="parsing.html"><a href="parsing.html"><i class="fa fa-check"></i><b>22</b> Parsing</a>
+<li class="chapter" data-level="20" data-path="parsing.html"><a href="parsing.html"><i class="fa fa-check"></i><b>20</b> Parsing</a>
 <ul>
-<li class="chapter" data-level="22.1" data-path="slide-title-7.html"><a href="slide-title-7.html"><i class="fa fa-check"></i><b>22.1</b> SLIDE TITLE</a></li>
+<li class="chapter" data-level="20.1" data-path="slide-title-6.html"><a href="slide-title-6.html"><i class="fa fa-check"></i><b>20.1</b> SLIDE TITLE</a></li>
+<li class="chapter" data-level="20.2" data-path="meeting-videos-19.html"><a href="meeting-videos-19.html"><i class="fa fa-check"></i><b>20.2</b> Meeting Videos</a>
+<ul>
+<li class="chapter" data-level="20.2.1" data-path="meeting-videos-19.html"><a href="meeting-videos-19.html#cohort-7-3"><i class="fa fa-check"></i><b>20.2.1</b> Cohort 7</a></li>
+<li class="chapter" data-level="20.2.2" data-path="meeting-videos-19.html"><a href="meeting-videos-19.html#cohort-8-3"><i class="fa fa-check"></i><b>20.2.2</b> Cohort 8</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="spreadsheets.html"><a href="spreadsheets.html"><i class="fa fa-check"></i><b>21</b> Spreadsheets</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="slide-title-7.html"><a href="slide-title-7.html"><i class="fa fa-check"></i><b>21.1</b> SLIDE TITLE</a></li>
+<li class="chapter" data-level="21.2" data-path="meeting-videos-20.html"><a href="meeting-videos-20.html"><i class="fa fa-check"></i><b>21.2</b> Meeting Videos</a>
+<ul>
+<li class="chapter" data-level="21.2.1" data-path="meeting-videos-20.html"><a href="meeting-videos-20.html#cohort-7-4"><i class="fa fa-check"></i><b>21.2.1</b> Cohort 7</a></li>
+<li class="chapter" data-level="21.2.2" data-path="meeting-videos-20.html"><a href="meeting-videos-20.html#cohort-8-4"><i class="fa fa-check"></i><b>21.2.2</b> Cohort 8</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="databases.html"><a href="databases.html"><i class="fa fa-check"></i><b>22</b> Databases</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="slide-title-8.html"><a href="slide-title-8.html"><i class="fa fa-check"></i><b>22.1</b> SLIDE TITLE</a></li>
 <li class="chapter" data-level="22.2" data-path="meeting-videos-21.html"><a href="meeting-videos-21.html"><i class="fa fa-check"></i><b>22.2</b> Meeting Videos</a>
 <ul>
-<li class="chapter" data-level="22.2.1" data-path="meeting-videos-21.html"><a href="meeting-videos-21.html#cohort-7-4"><i class="fa fa-check"></i><b>22.2.1</b> Cohort 7</a></li>
-<li class="chapter" data-level="22.2.2" data-path="meeting-videos-21.html"><a href="meeting-videos-21.html#cohort-8-4"><i class="fa fa-check"></i><b>22.2.2</b> Cohort 8</a></li>
+<li class="chapter" data-level="22.2.1" data-path="meeting-videos-21.html"><a href="meeting-videos-21.html#cohort-7-5"><i class="fa fa-check"></i><b>22.2.1</b> Cohort 7</a></li>
+<li class="chapter" data-level="22.2.2" data-path="meeting-videos-21.html"><a href="meeting-videos-21.html#cohort-8-5"><i class="fa fa-check"></i><b>22.2.2</b> Cohort 8</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="23" data-path="spreadsheets.html"><a href="spreadsheets.html"><i class="fa fa-check"></i><b>23</b> Spreadsheets</a>
+<li class="chapter" data-level="23" data-path="data-rectangling.html"><a href="data-rectangling.html"><i class="fa fa-check"></i><b>23</b> Data rectangling</a>
 <ul>
-<li class="chapter" data-level="23.1" data-path="slide-title-8.html"><a href="slide-title-8.html"><i class="fa fa-check"></i><b>23.1</b> SLIDE TITLE</a></li>
+<li class="chapter" data-level="23.1" data-path="slide-title-9.html"><a href="slide-title-9.html"><i class="fa fa-check"></i><b>23.1</b> SLIDE TITLE</a></li>
 <li class="chapter" data-level="23.2" data-path="meeting-videos-22.html"><a href="meeting-videos-22.html"><i class="fa fa-check"></i><b>23.2</b> Meeting Videos</a>
 <ul>
-<li class="chapter" data-level="23.2.1" data-path="meeting-videos-22.html"><a href="meeting-videos-22.html#cohort-7-5"><i class="fa fa-check"></i><b>23.2.1</b> Cohort 7</a></li>
-<li class="chapter" data-level="23.2.2" data-path="meeting-videos-22.html"><a href="meeting-videos-22.html#cohort-8-5"><i class="fa fa-check"></i><b>23.2.2</b> Cohort 8</a></li>
+<li class="chapter" data-level="23.2.1" data-path="meeting-videos-22.html"><a href="meeting-videos-22.html#cohort-7-6"><i class="fa fa-check"></i><b>23.2.1</b> Cohort 7</a></li>
+<li class="chapter" data-level="23.2.2" data-path="meeting-videos-22.html"><a href="meeting-videos-22.html#cohort-8-6"><i class="fa fa-check"></i><b>23.2.2</b> Cohort 8</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="24" data-path="databases.html"><a href="databases.html"><i class="fa fa-check"></i><b>24</b> Databases</a>
+<li class="chapter" data-level="24" data-path="web-scraping.html"><a href="web-scraping.html"><i class="fa fa-check"></i><b>24</b> Web scraping</a>
 <ul>
-<li class="chapter" data-level="24.1" data-path="slide-title-9.html"><a href="slide-title-9.html"><i class="fa fa-check"></i><b>24.1</b> SLIDE TITLE</a></li>
+<li class="chapter" data-level="24.1" data-path="slide-title-10.html"><a href="slide-title-10.html"><i class="fa fa-check"></i><b>24.1</b> SLIDE TITLE</a></li>
 <li class="chapter" data-level="24.2" data-path="meeting-videos-23.html"><a href="meeting-videos-23.html"><i class="fa fa-check"></i><b>24.2</b> Meeting Videos</a>
 <ul>
-<li class="chapter" data-level="24.2.1" data-path="meeting-videos-23.html"><a href="meeting-videos-23.html#cohort-7-6"><i class="fa fa-check"></i><b>24.2.1</b> Cohort 7</a></li>
-<li class="chapter" data-level="24.2.2" data-path="meeting-videos-23.html"><a href="meeting-videos-23.html#cohort-8-6"><i class="fa fa-check"></i><b>24.2.2</b> Cohort 8</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="25" data-path="data-rectangling.html"><a href="data-rectangling.html"><i class="fa fa-check"></i><b>25</b> Data rectangling</a>
-<ul>
-<li class="chapter" data-level="25.1" data-path="slide-title-10.html"><a href="slide-title-10.html"><i class="fa fa-check"></i><b>25.1</b> SLIDE TITLE</a></li>
-<li class="chapter" data-level="25.2" data-path="meeting-videos-24.html"><a href="meeting-videos-24.html"><i class="fa fa-check"></i><b>25.2</b> Meeting Videos</a>
-<ul>
-<li class="chapter" data-level="25.2.1" data-path="meeting-videos-24.html"><a href="meeting-videos-24.html#cohort-7-7"><i class="fa fa-check"></i><b>25.2.1</b> Cohort 7</a></li>
-<li class="chapter" data-level="25.2.2" data-path="meeting-videos-24.html"><a href="meeting-videos-24.html#cohort-8-7"><i class="fa fa-check"></i><b>25.2.2</b> Cohort 8</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="26" data-path="web-scraping.html"><a href="web-scraping.html"><i class="fa fa-check"></i><b>26</b> Web scraping</a>
-<ul>
-<li class="chapter" data-level="26.1" data-path="slide-title-11.html"><a href="slide-title-11.html"><i class="fa fa-check"></i><b>26.1</b> SLIDE TITLE</a></li>
-<li class="chapter" data-level="26.2" data-path="meeting-videos-25.html"><a href="meeting-videos-25.html"><i class="fa fa-check"></i><b>26.2</b> Meeting Videos</a>
-<ul>
-<li class="chapter" data-level="26.2.1" data-path="meeting-videos-25.html"><a href="meeting-videos-25.html#cohort-7-8"><i class="fa fa-check"></i><b>26.2.1</b> Cohort 7</a></li>
-<li class="chapter" data-level="26.2.2" data-path="meeting-videos-25.html"><a href="meeting-videos-25.html#cohort-8-8"><i class="fa fa-check"></i><b>26.2.2</b> Cohort 8</a></li>
+<li class="chapter" data-level="24.2.1" data-path="meeting-videos-23.html"><a href="meeting-videos-23.html#cohort-7-7"><i class="fa fa-check"></i><b>24.2.1</b> Cohort 7</a></li>
+<li class="chapter" data-level="24.2.2" data-path="meeting-videos-23.html"><a href="meeting-videos-23.html#cohort-8-7"><i class="fa fa-check"></i><b>24.2.2</b> Cohort 8</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>IV Program</b></span></li>
-<li class="chapter" data-level="27" data-path="functions-2.html"><a href="functions-2.html"><i class="fa fa-check"></i><b>27</b> Functions</a>
+<li class="chapter" data-level="25" data-path="functions-2.html"><a href="functions-2.html"><i class="fa fa-check"></i><b>25</b> Functions</a>
 <ul>
-<li class="chapter" data-level="27.1" data-path="introduction-8.html"><a href="introduction-8.html"><i class="fa fa-check"></i><b>27.1</b> Introduction</a></li>
-<li class="chapter" data-level="27.2" data-path="when-and-how-to-write-a-function.html"><a href="when-and-how-to-write-a-function.html"><i class="fa fa-check"></i><b>27.2</b> When and how to write a function</a></li>
-<li class="chapter" data-level="27.3" data-path="functions-are-for-computers-and-humans.html"><a href="functions-are-for-computers-and-humans.html"><i class="fa fa-check"></i><b>27.3</b> Functions are for computers <em>and</em> humans</a></li>
-<li class="chapter" data-level="27.4" data-path="conditional-execution.html"><a href="conditional-execution.html"><i class="fa fa-check"></i><b>27.4</b> Conditional execution</a></li>
-<li class="chapter" data-level="27.5" data-path="function-arguments.html"><a href="function-arguments.html"><i class="fa fa-check"></i><b>27.5</b> Function arguments</a></li>
-<li class="chapter" data-level="27.6" data-path="return-values.html"><a href="return-values.html"><i class="fa fa-check"></i><b>27.6</b> Return values</a></li>
-<li class="chapter" data-level="27.7" data-path="environment.html"><a href="environment.html"><i class="fa fa-check"></i><b>27.7</b> Environment</a></li>
-<li class="chapter" data-level="27.8" data-path="meeting-videos-26.html"><a href="meeting-videos-26.html"><i class="fa fa-check"></i><b>27.8</b> Meeting Videos</a>
+<li class="chapter" data-level="25.1" data-path="introduction-8.html"><a href="introduction-8.html"><i class="fa fa-check"></i><b>25.1</b> Introduction</a></li>
+<li class="chapter" data-level="25.2" data-path="when-and-how-to-write-a-function.html"><a href="when-and-how-to-write-a-function.html"><i class="fa fa-check"></i><b>25.2</b> When and how to write a function</a></li>
+<li class="chapter" data-level="25.3" data-path="functions-are-for-computers-and-humans.html"><a href="functions-are-for-computers-and-humans.html"><i class="fa fa-check"></i><b>25.3</b> Functions are for computers <em>and</em> humans</a></li>
+<li class="chapter" data-level="25.4" data-path="conditional-execution.html"><a href="conditional-execution.html"><i class="fa fa-check"></i><b>25.4</b> Conditional execution</a></li>
+<li class="chapter" data-level="25.5" data-path="function-arguments.html"><a href="function-arguments.html"><i class="fa fa-check"></i><b>25.5</b> Function arguments</a></li>
+<li class="chapter" data-level="25.6" data-path="return-values.html"><a href="return-values.html"><i class="fa fa-check"></i><b>25.6</b> Return values</a></li>
+<li class="chapter" data-level="25.7" data-path="environment.html"><a href="environment.html"><i class="fa fa-check"></i><b>25.7</b> Environment</a></li>
+<li class="chapter" data-level="25.8" data-path="meeting-videos-24.html"><a href="meeting-videos-24.html"><i class="fa fa-check"></i><b>25.8</b> Meeting Videos</a>
 <ul>
-<li class="chapter" data-level="27.8.1" data-path="meeting-videos-26.html"><a href="meeting-videos-26.html#cohort-5-17"><i class="fa fa-check"></i><b>27.8.1</b> Cohort 5</a></li>
-<li class="chapter" data-level="27.8.2" data-path="meeting-videos-26.html"><a href="meeting-videos-26.html#cohort-6-15"><i class="fa fa-check"></i><b>27.8.2</b> Cohort 6</a></li>
+<li class="chapter" data-level="25.8.1" data-path="meeting-videos-24.html"><a href="meeting-videos-24.html#cohort-5-16"><i class="fa fa-check"></i><b>25.8.1</b> Cohort 5</a></li>
+<li class="chapter" data-level="25.8.2" data-path="meeting-videos-24.html"><a href="meeting-videos-24.html#cohort-6-15"><i class="fa fa-check"></i><b>25.8.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="28" data-path="vectors.html"><a href="vectors.html"><i class="fa fa-check"></i><b>28</b> Vectors</a>
+<li class="chapter" data-level="26" data-path="vectors.html"><a href="vectors.html"><i class="fa fa-check"></i><b>26</b> Vectors</a>
 <ul>
-<li class="chapter" data-level="28.1" data-path="introduction-9.html"><a href="introduction-9.html"><i class="fa fa-check"></i><b>28.1</b> Introduction</a>
+<li class="chapter" data-level="26.1" data-path="introduction-9.html"><a href="introduction-9.html"><i class="fa fa-check"></i><b>26.1</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="28.1.1" data-path="introduction-9.html"><a href="introduction-9.html#prerequisites-3"><i class="fa fa-check"></i><b>28.1.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="26.1.1" data-path="introduction-9.html"><a href="introduction-9.html#prerequisites-3"><i class="fa fa-check"></i><b>26.1.1</b> Prerequisites</a></li>
 </ul></li>
-<li class="chapter" data-level="28.2" data-path="vector-basics-2.html"><a href="vector-basics-2.html"><i class="fa fa-check"></i><b>28.2</b> Vector basics</a></li>
-<li class="chapter" data-level="28.3" data-path="important-types-of-atomic-vector-2.html"><a href="important-types-of-atomic-vector-2.html"><i class="fa fa-check"></i><b>28.3</b> Important types of atomic vector</a>
+<li class="chapter" data-level="26.2" data-path="vector-basics-2.html"><a href="vector-basics-2.html"><i class="fa fa-check"></i><b>26.2</b> Vector basics</a></li>
+<li class="chapter" data-level="26.3" data-path="important-types-of-atomic-vector-2.html"><a href="important-types-of-atomic-vector-2.html"><i class="fa fa-check"></i><b>26.3</b> Important types of atomic vector</a>
 <ul>
-<li class="chapter" data-level="28.3.1" data-path="important-types-of-atomic-vector-2.html"><a href="important-types-of-atomic-vector-2.html#logical-2"><i class="fa fa-check"></i><b>28.3.1</b> Logical</a></li>
-<li class="chapter" data-level="28.3.2" data-path="important-types-of-atomic-vector-2.html"><a href="important-types-of-atomic-vector-2.html#numeric-2"><i class="fa fa-check"></i><b>28.3.2</b> Numeric</a></li>
-<li class="chapter" data-level="28.3.3" data-path="important-types-of-atomic-vector-2.html"><a href="important-types-of-atomic-vector-2.html#character-2"><i class="fa fa-check"></i><b>28.3.3</b> Character</a></li>
-<li class="chapter" data-level="28.3.4" data-path="important-types-of-atomic-vector-2.html"><a href="important-types-of-atomic-vector-2.html#missing-values-5"><i class="fa fa-check"></i><b>28.3.4</b> Missing values</a></li>
-<li class="chapter" data-level="28.3.5" data-path="important-types-of-atomic-vector-2.html"><a href="important-types-of-atomic-vector-2.html#exercises-15"><i class="fa fa-check"></i><b>28.3.5</b> Exercises</a></li>
+<li class="chapter" data-level="26.3.1" data-path="important-types-of-atomic-vector-2.html"><a href="important-types-of-atomic-vector-2.html#logical-2"><i class="fa fa-check"></i><b>26.3.1</b> Logical</a></li>
+<li class="chapter" data-level="26.3.2" data-path="important-types-of-atomic-vector-2.html"><a href="important-types-of-atomic-vector-2.html#numeric-2"><i class="fa fa-check"></i><b>26.3.2</b> Numeric</a></li>
+<li class="chapter" data-level="26.3.3" data-path="important-types-of-atomic-vector-2.html"><a href="important-types-of-atomic-vector-2.html#character-2"><i class="fa fa-check"></i><b>26.3.3</b> Character</a></li>
+<li class="chapter" data-level="26.3.4" data-path="important-types-of-atomic-vector-2.html"><a href="important-types-of-atomic-vector-2.html#missing-values-5"><i class="fa fa-check"></i><b>26.3.4</b> Missing values</a></li>
+<li class="chapter" data-level="26.3.5" data-path="important-types-of-atomic-vector-2.html"><a href="important-types-of-atomic-vector-2.html#exercises-15"><i class="fa fa-check"></i><b>26.3.5</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="28.4" data-path="using-atomic-vectors-2.html"><a href="using-atomic-vectors-2.html"><i class="fa fa-check"></i><b>28.4</b> Using atomic vectors</a>
+<li class="chapter" data-level="26.4" data-path="using-atomic-vectors-2.html"><a href="using-atomic-vectors-2.html"><i class="fa fa-check"></i><b>26.4</b> Using atomic vectors</a>
 <ul>
-<li class="chapter" data-level="28.4.1" data-path="using-atomic-vectors-2.html"><a href="using-atomic-vectors-2.html#coercion-2"><i class="fa fa-check"></i><b>28.4.1</b> Coercion</a></li>
-<li class="chapter" data-level="28.4.2" data-path="using-atomic-vectors-2.html"><a href="using-atomic-vectors-2.html#test-functions-2"><i class="fa fa-check"></i><b>28.4.2</b> Test functions</a></li>
-<li class="chapter" data-level="28.4.3" data-path="using-atomic-vectors-2.html"><a href="using-atomic-vectors-2.html#scalars-and-recycling-rules-2"><i class="fa fa-check"></i><b>28.4.3</b> Scalars and recycling rules</a></li>
-<li class="chapter" data-level="28.4.4" data-path="using-atomic-vectors-2.html"><a href="using-atomic-vectors-2.html#naming-vectors-2"><i class="fa fa-check"></i><b>28.4.4</b> Naming vectors</a></li>
-<li class="chapter" data-level="28.4.5" data-path="using-atomic-vectors-2.html"><a href="using-atomic-vectors-2.html#subsetting-4"><i class="fa fa-check"></i><b>28.4.5</b> Subsetting</a></li>
-<li class="chapter" data-level="28.4.6" data-path="using-atomic-vectors-2.html"><a href="using-atomic-vectors-2.html#exercises-16"><i class="fa fa-check"></i><b>28.4.6</b> Exercises</a></li>
+<li class="chapter" data-level="26.4.1" data-path="using-atomic-vectors-2.html"><a href="using-atomic-vectors-2.html#coercion-2"><i class="fa fa-check"></i><b>26.4.1</b> Coercion</a></li>
+<li class="chapter" data-level="26.4.2" data-path="using-atomic-vectors-2.html"><a href="using-atomic-vectors-2.html#test-functions-2"><i class="fa fa-check"></i><b>26.4.2</b> Test functions</a></li>
+<li class="chapter" data-level="26.4.3" data-path="using-atomic-vectors-2.html"><a href="using-atomic-vectors-2.html#scalars-and-recycling-rules-2"><i class="fa fa-check"></i><b>26.4.3</b> Scalars and recycling rules</a></li>
+<li class="chapter" data-level="26.4.4" data-path="using-atomic-vectors-2.html"><a href="using-atomic-vectors-2.html#naming-vectors-2"><i class="fa fa-check"></i><b>26.4.4</b> Naming vectors</a></li>
+<li class="chapter" data-level="26.4.5" data-path="using-atomic-vectors-2.html"><a href="using-atomic-vectors-2.html#subsetting-4"><i class="fa fa-check"></i><b>26.4.5</b> Subsetting</a></li>
+<li class="chapter" data-level="26.4.6" data-path="using-atomic-vectors-2.html"><a href="using-atomic-vectors-2.html#exercises-16"><i class="fa fa-check"></i><b>26.4.6</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="28.5" data-path="recursive-vectors-lists-2.html"><a href="recursive-vectors-lists-2.html"><i class="fa fa-check"></i><b>28.5</b> Recursive vectors (lists)</a>
+<li class="chapter" data-level="26.5" data-path="recursive-vectors-lists-2.html"><a href="recursive-vectors-lists-2.html"><i class="fa fa-check"></i><b>26.5</b> Recursive vectors (lists)</a>
 <ul>
-<li class="chapter" data-level="28.5.1" data-path="recursive-vectors-lists-2.html"><a href="recursive-vectors-lists-2.html#visualising-lists-2"><i class="fa fa-check"></i><b>28.5.1</b> Visualising lists</a></li>
-<li class="chapter" data-level="28.5.2" data-path="recursive-vectors-lists-2.html"><a href="recursive-vectors-lists-2.html#subsetting-5"><i class="fa fa-check"></i><b>28.5.2</b> Subsetting</a></li>
-<li class="chapter" data-level="28.5.3" data-path="recursive-vectors-lists-2.html"><a href="recursive-vectors-lists-2.html#lists-of-condiments-2"><i class="fa fa-check"></i><b>28.5.3</b> Lists of condiments</a></li>
-<li class="chapter" data-level="28.5.4" data-path="recursive-vectors-lists-2.html"><a href="recursive-vectors-lists-2.html#exercises-17"><i class="fa fa-check"></i><b>28.5.4</b> Exercises</a></li>
+<li class="chapter" data-level="26.5.1" data-path="recursive-vectors-lists-2.html"><a href="recursive-vectors-lists-2.html#visualising-lists-2"><i class="fa fa-check"></i><b>26.5.1</b> Visualising lists</a></li>
+<li class="chapter" data-level="26.5.2" data-path="recursive-vectors-lists-2.html"><a href="recursive-vectors-lists-2.html#subsetting-5"><i class="fa fa-check"></i><b>26.5.2</b> Subsetting</a></li>
+<li class="chapter" data-level="26.5.3" data-path="recursive-vectors-lists-2.html"><a href="recursive-vectors-lists-2.html#lists-of-condiments-2"><i class="fa fa-check"></i><b>26.5.3</b> Lists of condiments</a></li>
+<li class="chapter" data-level="26.5.4" data-path="recursive-vectors-lists-2.html"><a href="recursive-vectors-lists-2.html#exercises-17"><i class="fa fa-check"></i><b>26.5.4</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="28.6" data-path="attributes-2.html"><a href="attributes-2.html"><i class="fa fa-check"></i><b>28.6</b> Attributes</a></li>
-<li class="chapter" data-level="28.7" data-path="augmented-vectors-2.html"><a href="augmented-vectors-2.html"><i class="fa fa-check"></i><b>28.7</b> Augmented vectors</a>
+<li class="chapter" data-level="26.6" data-path="attributes-2.html"><a href="attributes-2.html"><i class="fa fa-check"></i><b>26.6</b> Attributes</a></li>
+<li class="chapter" data-level="26.7" data-path="augmented-vectors-2.html"><a href="augmented-vectors-2.html"><i class="fa fa-check"></i><b>26.7</b> Augmented vectors</a>
 <ul>
-<li class="chapter" data-level="28.7.1" data-path="augmented-vectors-2.html"><a href="augmented-vectors-2.html#factors-3"><i class="fa fa-check"></i><b>28.7.1</b> Factors</a></li>
-<li class="chapter" data-level="28.7.2" data-path="augmented-vectors-2.html"><a href="augmented-vectors-2.html#dates-and-date-times-2"><i class="fa fa-check"></i><b>28.7.2</b> Dates and date-times</a></li>
-<li class="chapter" data-level="28.7.3" data-path="augmented-vectors-2.html"><a href="augmented-vectors-2.html#tibbles-3"><i class="fa fa-check"></i><b>28.7.3</b> Tibbles</a></li>
-<li class="chapter" data-level="28.7.4" data-path="augmented-vectors-2.html"><a href="augmented-vectors-2.html#exercises-18"><i class="fa fa-check"></i><b>28.7.4</b> Exercises</a></li>
+<li class="chapter" data-level="26.7.1" data-path="augmented-vectors-2.html"><a href="augmented-vectors-2.html#factors-3"><i class="fa fa-check"></i><b>26.7.1</b> Factors</a></li>
+<li class="chapter" data-level="26.7.2" data-path="augmented-vectors-2.html"><a href="augmented-vectors-2.html#dates-and-date-times-2"><i class="fa fa-check"></i><b>26.7.2</b> Dates and date-times</a></li>
+<li class="chapter" data-level="26.7.3" data-path="augmented-vectors-2.html"><a href="augmented-vectors-2.html#tibbles-2"><i class="fa fa-check"></i><b>26.7.3</b> Tibbles</a></li>
+<li class="chapter" data-level="26.7.4" data-path="augmented-vectors-2.html"><a href="augmented-vectors-2.html#exercises-18"><i class="fa fa-check"></i><b>26.7.4</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="28.8" data-path="meeting-videos-27.html"><a href="meeting-videos-27.html"><i class="fa fa-check"></i><b>28.8</b> Meeting Videos</a>
+<li class="chapter" data-level="26.8" data-path="meeting-videos-25.html"><a href="meeting-videos-25.html"><i class="fa fa-check"></i><b>26.8</b> Meeting Videos</a>
 <ul>
-<li class="chapter" data-level="28.8.1" data-path="meeting-videos-27.html"><a href="meeting-videos-27.html#cohort-5-18"><i class="fa fa-check"></i><b>28.8.1</b> Cohort 5</a></li>
-<li class="chapter" data-level="28.8.2" data-path="meeting-videos-27.html"><a href="meeting-videos-27.html#cohort-6-16"><i class="fa fa-check"></i><b>28.8.2</b> Cohort 6</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="29" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>29</b> Iteration</a>
-<ul>
-<li class="chapter" data-level="29.1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>29.1</b> 21.1 Intro</a></li>
-<li class="chapter" data-level="29.2" data-path="for-loops.html"><a href="for-loops.html"><i class="fa fa-check"></i><b>29.2</b> 21.2 For loops</a></li>
-<li class="chapter" data-level="29.3" data-path="for-loop-variations.html"><a href="for-loop-variations.html"><i class="fa fa-check"></i><b>29.3</b> 21.3 For loop variations</a></li>
-<li class="chapter" data-level="29.4" data-path="for-loops-vs.html"><a href="for-loops-vs.html"><i class="fa fa-check"></i><b>29.4</b> 21.4 For loops vs. functionals</a></li>
-<li class="chapter" data-level="29.5" data-path="the-map-functions.html"><a href="the-map-functions.html"><i class="fa fa-check"></i><b>29.5</b> 21.5 The map functions</a></li>
-<li class="chapter" data-level="29.6" data-path="dealing-with-failure.html"><a href="dealing-with-failure.html"><i class="fa fa-check"></i><b>29.6</b> 21.6 Dealing with failure</a></li>
-<li class="chapter" data-level="29.7" data-path="mapping-over-multiple-arguments.html"><a href="mapping-over-multiple-arguments.html"><i class="fa fa-check"></i><b>29.7</b> 21.7 Mapping over multiple arguments</a></li>
-<li class="chapter" data-level="29.8" data-path="walk.html"><a href="walk.html"><i class="fa fa-check"></i><b>29.8</b> 21.8 Walk</a></li>
-<li class="chapter" data-level="29.9" data-path="other-patterns-of-for-loops.html"><a href="other-patterns-of-for-loops.html"><i class="fa fa-check"></i><b>29.9</b> 21.9 Other patterns of for loops</a></li>
-<li class="chapter" data-level="29.10" data-path="meeting-videos-28.html"><a href="meeting-videos-28.html"><i class="fa fa-check"></i><b>29.10</b> Meeting Videos</a>
-<ul>
-<li class="chapter" data-level="29.10.1" data-path="meeting-videos-28.html"><a href="meeting-videos-28.html#cohort-5-19"><i class="fa fa-check"></i><b>29.10.1</b> Cohort 5</a></li>
-<li class="chapter" data-level="29.10.2" data-path="meeting-videos-28.html"><a href="meeting-videos-28.html#cohort-6-17"><i class="fa fa-check"></i><b>29.10.2</b> Cohort 6</a></li>
+<li class="chapter" data-level="26.8.1" data-path="meeting-videos-25.html"><a href="meeting-videos-25.html#cohort-5-17"><i class="fa fa-check"></i><b>26.8.1</b> Cohort 5</a></li>
+<li class="chapter" data-level="26.8.2" data-path="meeting-videos-25.html"><a href="meeting-videos-25.html#cohort-6-16"><i class="fa fa-check"></i><b>26.8.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="30" data-path="programming-with-strings.html"><a href="programming-with-strings.html"><i class="fa fa-check"></i><b>30</b> Programming with strings</a>
+<li class="chapter" data-level="27" data-path="tibbles-3.html"><a href="tibbles-3.html"><i class="fa fa-check"></i><b>27</b> Tibbles</a>
 <ul>
-<li class="chapter" data-level="30.1" data-path="introduction-10.html"><a href="introduction-10.html"><i class="fa fa-check"></i><b>30.1</b> Introduction</a>
+<li class="chapter" data-level="27.1" data-path="slide-1-1.html"><a href="slide-1-1.html"><i class="fa fa-check"></i><b>27.1</b> Slide 1</a></li>
+<li class="chapter" data-level="27.2" data-path="slide-2-1.html"><a href="slide-2-1.html"><i class="fa fa-check"></i><b>27.2</b> Slide 2</a></li>
+<li class="chapter" data-level="27.3" data-path="meeting-videos-26.html"><a href="meeting-videos-26.html"><i class="fa fa-check"></i><b>27.3</b> Meeting Videos</a>
 <ul>
-<li class="chapter" data-level="30.1.1" data-path="introduction-10.html"><a href="introduction-10.html#pre-requisites-2"><i class="fa fa-check"></i><b>30.1.1</b> Pre-Requisites</a></li>
+<li class="chapter" data-level="27.3.1" data-path="meeting-videos-26.html"><a href="meeting-videos-26.html#cohort-5-18"><i class="fa fa-check"></i><b>27.3.1</b> Cohort 5</a></li>
 </ul></li>
-<li class="chapter" data-level="30.2" data-path="string-basics-2.html"><a href="string-basics-2.html"><i class="fa fa-check"></i><b>30.2</b> String Basics</a>
-<ul>
-<li class="chapter" data-level="30.2.1" data-path="string-basics-2.html"><a href="string-basics-2.html#string-length-2"><i class="fa fa-check"></i><b>30.2.1</b> String Length</a></li>
-<li class="chapter" data-level="30.2.2" data-path="string-basics-2.html"><a href="string-basics-2.html#combining-strings-2"><i class="fa fa-check"></i><b>30.2.2</b> Combining Strings</a></li>
-<li class="chapter" data-level="30.2.3" data-path="string-basics-2.html"><a href="string-basics-2.html#subsetting-strings-2"><i class="fa fa-check"></i><b>30.2.3</b> Subsetting Strings</a></li>
-<li class="chapter" data-level="30.2.4" data-path="string-basics-2.html"><a href="string-basics-2.html#locales-2"><i class="fa fa-check"></i><b>30.2.4</b> Locales</a></li>
-<li class="chapter" data-level="30.2.5" data-path="string-basics-2.html"><a href="string-basics-2.html#exercises-19"><i class="fa fa-check"></i><b>30.2.5</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="30.3" data-path="matching-patterns-with-regular-expressions-2.html"><a href="matching-patterns-with-regular-expressions-2.html"><i class="fa fa-check"></i><b>30.3</b> Matching Patterns with Regular Expressions</a>
+<li class="chapter" data-level="28" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>28</b> Iteration</a>
 <ul>
-<li class="chapter" data-level="30.3.1" data-path="matching-patterns-with-regular-expressions-2.html"><a href="matching-patterns-with-regular-expressions-2.html#basic-matches-2"><i class="fa fa-check"></i><b>30.3.1</b> Basic Matches</a></li>
-<li class="chapter" data-level="30.3.2" data-path="matching-patterns-with-regular-expressions-2.html"><a href="matching-patterns-with-regular-expressions-2.html#anchors-2"><i class="fa fa-check"></i><b>30.3.2</b> Anchors</a></li>
-<li class="chapter" data-level="30.3.3" data-path="matching-patterns-with-regular-expressions-2.html"><a href="matching-patterns-with-regular-expressions-2.html#character-classes-and-alternatives-2"><i class="fa fa-check"></i><b>30.3.3</b> Character Classes and Alternatives</a></li>
-<li class="chapter" data-level="30.3.4" data-path="matching-patterns-with-regular-expressions-2.html"><a href="matching-patterns-with-regular-expressions-2.html#repetition-2"><i class="fa fa-check"></i><b>30.3.4</b> Repetition</a></li>
-<li class="chapter" data-level="30.3.5" data-path="matching-patterns-with-regular-expressions-2.html"><a href="matching-patterns-with-regular-expressions-2.html#grouping-and-backreferences-2"><i class="fa fa-check"></i><b>30.3.5</b> Grouping and Backreferences</a></li>
-</ul></li>
-<li class="chapter" data-level="30.4" data-path="tools-2.html"><a href="tools-2.html"><i class="fa fa-check"></i><b>30.4</b> Tools</a>
+<li class="chapter" data-level="28.1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>28.1</b> Intro</a></li>
+<li class="chapter" data-level="28.2" data-path="for-loops.html"><a href="for-loops.html"><i class="fa fa-check"></i><b>28.2</b> For loops</a></li>
+<li class="chapter" data-level="28.3" data-path="for-loop-variations.html"><a href="for-loop-variations.html"><i class="fa fa-check"></i><b>28.3</b> For loop variations</a></li>
+<li class="chapter" data-level="28.4" data-path="for-loops-vs.-functionals.html"><a href="for-loops-vs.-functionals.html"><i class="fa fa-check"></i><b>28.4</b> For loops vs. functionals</a></li>
+<li class="chapter" data-level="28.5" data-path="the-map-functions.html"><a href="the-map-functions.html"><i class="fa fa-check"></i><b>28.5</b> The map functions</a></li>
+<li class="chapter" data-level="28.6" data-path="dealing-with-failure.html"><a href="dealing-with-failure.html"><i class="fa fa-check"></i><b>28.6</b> Dealing with failure</a></li>
+<li class="chapter" data-level="28.7" data-path="mapping-over-multiple-arguments.html"><a href="mapping-over-multiple-arguments.html"><i class="fa fa-check"></i><b>28.7</b> Mapping over multiple arguments</a></li>
+<li class="chapter" data-level="28.8" data-path="walk.html"><a href="walk.html"><i class="fa fa-check"></i><b>28.8</b> Walk</a></li>
+<li class="chapter" data-level="28.9" data-path="other-patterns-of-for-loops.html"><a href="other-patterns-of-for-loops.html"><i class="fa fa-check"></i><b>28.9</b> Other patterns of for loops</a></li>
+<li class="chapter" data-level="28.10" data-path="meeting-videos-27.html"><a href="meeting-videos-27.html"><i class="fa fa-check"></i><b>28.10</b> Meeting Videos</a>
 <ul>
-<li class="chapter" data-level="30.4.1" data-path="tools-2.html"><a href="tools-2.html#detect-matches-2"><i class="fa fa-check"></i><b>30.4.1</b> Detect Matches</a></li>
-<li class="chapter" data-level="30.4.2" data-path="tools-2.html"><a href="tools-2.html#extract-matches-2"><i class="fa fa-check"></i><b>30.4.2</b> Extract Matches</a></li>
-<li class="chapter" data-level="30.4.3" data-path="tools-2.html"><a href="tools-2.html#grouped-matches-2"><i class="fa fa-check"></i><b>30.4.3</b> Grouped Matches</a></li>
-<li class="chapter" data-level="30.4.4" data-path="tools-2.html"><a href="tools-2.html#replacing-matches-2"><i class="fa fa-check"></i><b>30.4.4</b> Replacing Matches</a></li>
-<li class="chapter" data-level="30.4.5" data-path="tools-2.html"><a href="tools-2.html#splitting-2"><i class="fa fa-check"></i><b>30.4.5</b> Splitting</a></li>
-<li class="chapter" data-level="30.4.6" data-path="tools-2.html"><a href="tools-2.html#find-matches-2"><i class="fa fa-check"></i><b>30.4.6</b> Find Matches</a></li>
-</ul></li>
-<li class="chapter" data-level="30.5" data-path="other-types-of-pattern-2.html"><a href="other-types-of-pattern-2.html"><i class="fa fa-check"></i><b>30.5</b> Other types of Pattern</a>
-<ul>
-<li class="chapter" data-level="30.5.1" data-path="other-types-of-pattern-2.html"><a href="other-types-of-pattern-2.html#exercises-unanswered-23"><i class="fa fa-check"></i><b>30.5.1</b> Exercises (Unanswered)</a></li>
-</ul></li>
-<li class="chapter" data-level="30.6" data-path="other-uses-of-regular-expressions-2.html"><a href="other-uses-of-regular-expressions-2.html"><i class="fa fa-check"></i><b>30.6</b> Other uses of regular expressions</a></li>
-<li class="chapter" data-level="30.7" data-path="stringi-2.html"><a href="stringi-2.html"><i class="fa fa-check"></i><b>30.7</b> stringi</a>
-<ul>
-<li class="chapter" data-level="30.7.1" data-path="stringi-2.html"><a href="stringi-2.html#exercises-21"><i class="fa fa-check"></i><b>30.7.1</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="30.8" data-path="meeting-videos-29.html"><a href="meeting-videos-29.html"><i class="fa fa-check"></i><b>30.8</b> Meeting Videos</a>
-<ul>
-<li class="chapter" data-level="30.8.1" data-path="meeting-videos-29.html"><a href="meeting-videos-29.html#cohort-5-20"><i class="fa fa-check"></i><b>30.8.1</b> Cohort 5</a></li>
-<li class="chapter" data-level="30.8.2" data-path="meeting-videos-29.html"><a href="meeting-videos-29.html#cohort-6-18"><i class="fa fa-check"></i><b>30.8.2</b> Cohort 6</a></li>
+<li class="chapter" data-level="28.10.1" data-path="meeting-videos-27.html"><a href="meeting-videos-27.html#cohort-5-19"><i class="fa fa-check"></i><b>28.10.1</b> Cohort 5</a></li>
+<li class="chapter" data-level="28.10.2" data-path="meeting-videos-27.html"><a href="meeting-videos-27.html#cohort-6-17"><i class="fa fa-check"></i><b>28.10.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>V Communicate</b></span></li>
-<li class="chapter" data-level="31" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>31</b> R Markdown</a>
+<li class="chapter" data-level="29" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>29</b> R Markdown</a>
 <ul>
-<li class="chapter" data-level="31.1" data-path="slide-1-2.html"><a href="slide-1-2.html"><i class="fa fa-check"></i><b>31.1</b> Slide 1</a></li>
-<li class="chapter" data-level="31.2" data-path="slide-2-2.html"><a href="slide-2-2.html"><i class="fa fa-check"></i><b>31.2</b> Slide 2</a></li>
+<li class="chapter" data-level="29.1" data-path="slide-1-2.html"><a href="slide-1-2.html"><i class="fa fa-check"></i><b>29.1</b> Slide 1</a></li>
+<li class="chapter" data-level="29.2" data-path="slide-2-2.html"><a href="slide-2-2.html"><i class="fa fa-check"></i><b>29.2</b> Slide 2</a></li>
+<li class="chapter" data-level="29.3" data-path="meeting-videos-28.html"><a href="meeting-videos-28.html"><i class="fa fa-check"></i><b>29.3</b> Meeting Videos</a>
+<ul>
+<li class="chapter" data-level="29.3.1" data-path="meeting-videos-28.html"><a href="meeting-videos-28.html#cohort-5-20"><i class="fa fa-check"></i><b>29.3.1</b> Cohort 5</a></li>
+<li class="chapter" data-level="29.3.2" data-path="meeting-videos-28.html"><a href="meeting-videos-28.html#cohort-6-18"><i class="fa fa-check"></i><b>29.3.2</b> Cohort 6</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="30" data-path="graphics-for-communication.html"><a href="graphics-for-communication.html"><i class="fa fa-check"></i><b>30</b> Graphics for communication</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="tools-you-need-to-create-good-graphics.html"><a href="tools-you-need-to-create-good-graphics.html"><i class="fa fa-check"></i><b>30.1</b> Tools you need to create good graphics</a></li>
+<li class="chapter" data-level="30.2" data-path="use-labels-and-annotations.html"><a href="use-labels-and-annotations.html"><i class="fa fa-check"></i><b>30.2</b> Use labels and annotations</a></li>
+<li class="chapter" data-level="30.3" data-path="scales.html"><a href="scales.html"><i class="fa fa-check"></i><b>30.3</b> Scales</a></li>
+<li class="chapter" data-level="30.4" data-path="themes.html"><a href="themes.html"><i class="fa fa-check"></i><b>30.4</b> Themes</a></li>
+<li class="chapter" data-level="30.5" data-path="save-the-plot.html"><a href="save-the-plot.html"><i class="fa fa-check"></i><b>30.5</b> Save the plot</a></li>
+<li class="chapter" data-level="30.6" data-path="meeting-videos-29.html"><a href="meeting-videos-29.html"><i class="fa fa-check"></i><b>30.6</b> Meeting Videos</a>
+<ul>
+<li class="chapter" data-level="30.6.1" data-path="meeting-videos-29.html"><a href="meeting-videos-29.html#cohort-5-21"><i class="fa fa-check"></i><b>30.6.1</b> Cohort 5</a></li>
+<li class="chapter" data-level="30.6.2" data-path="meeting-videos-29.html"><a href="meeting-videos-29.html#cohort-6-19"><i class="fa fa-check"></i><b>30.6.2</b> Cohort 6</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="31" data-path="r-markdown-formats.html"><a href="r-markdown-formats.html"><i class="fa fa-check"></i><b>31</b> R Markdown formats</a>
+<ul>
+<li class="chapter" data-level="31.1" data-path="slide-1-3.html"><a href="slide-1-3.html"><i class="fa fa-check"></i><b>31.1</b> Slide 1</a></li>
+<li class="chapter" data-level="31.2" data-path="slide-2-3.html"><a href="slide-2-3.html"><i class="fa fa-check"></i><b>31.2</b> Slide 2</a></li>
 <li class="chapter" data-level="31.3" data-path="meeting-videos-30.html"><a href="meeting-videos-30.html"><i class="fa fa-check"></i><b>31.3</b> Meeting Videos</a>
 <ul>
-<li class="chapter" data-level="31.3.1" data-path="meeting-videos-30.html"><a href="meeting-videos-30.html#cohort-5-21"><i class="fa fa-check"></i><b>31.3.1</b> Cohort 5</a></li>
-<li class="chapter" data-level="31.3.2" data-path="meeting-videos-30.html"><a href="meeting-videos-30.html#cohort-6-19"><i class="fa fa-check"></i><b>31.3.2</b> Cohort 6</a></li>
+<li class="chapter" data-level="31.3.1" data-path="meeting-videos-30.html"><a href="meeting-videos-30.html#cohort-5-22"><i class="fa fa-check"></i><b>31.3.1</b> Cohort 5</a></li>
+<li class="chapter" data-level="31.3.2" data-path="meeting-videos-30.html"><a href="meeting-videos-30.html#cohort-6-20"><i class="fa fa-check"></i><b>31.3.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="32" data-path="graphics-for-communication.html"><a href="graphics-for-communication.html"><i class="fa fa-check"></i><b>32</b> Graphics for communication</a>
+<li class="chapter" data-level="32" data-path="r-markdown-workflow.html"><a href="r-markdown-workflow.html"><i class="fa fa-check"></i><b>32</b> R Markdown workflow</a>
 <ul>
-<li class="chapter" data-level="32.1" data-path="tools-you-need-to-create-good-graphics.html"><a href="tools-you-need-to-create-good-graphics.html"><i class="fa fa-check"></i><b>32.1</b> Tools you need to create good graphics</a></li>
-<li class="chapter" data-level="32.2" data-path="use-labels-and-annotations.html"><a href="use-labels-and-annotations.html"><i class="fa fa-check"></i><b>32.2</b> Use labels and annotations</a></li>
-<li class="chapter" data-level="32.3" data-path="scales.html"><a href="scales.html"><i class="fa fa-check"></i><b>32.3</b> Scales</a></li>
-<li class="chapter" data-level="32.4" data-path="themes.html"><a href="themes.html"><i class="fa fa-check"></i><b>32.4</b> Themes</a></li>
-<li class="chapter" data-level="32.5" data-path="save-the-plot.html"><a href="save-the-plot.html"><i class="fa fa-check"></i><b>32.5</b> Save the plot</a></li>
-<li class="chapter" data-level="32.6" data-path="meeting-videos-31.html"><a href="meeting-videos-31.html"><i class="fa fa-check"></i><b>32.6</b> Meeting Videos</a>
+<li class="chapter" data-level="32.1" data-path="slide-1-4.html"><a href="slide-1-4.html"><i class="fa fa-check"></i><b>32.1</b> Slide 1</a></li>
+<li class="chapter" data-level="32.2" data-path="slide-2-4.html"><a href="slide-2-4.html"><i class="fa fa-check"></i><b>32.2</b> Slide 2</a></li>
+<li class="chapter" data-level="32.3" data-path="meeting-videos-31.html"><a href="meeting-videos-31.html"><i class="fa fa-check"></i><b>32.3</b> Meeting Videos</a>
 <ul>
-<li class="chapter" data-level="32.6.1" data-path="meeting-videos-31.html"><a href="meeting-videos-31.html#cohort-5-22"><i class="fa fa-check"></i><b>32.6.1</b> Cohort 5</a></li>
-<li class="chapter" data-level="32.6.2" data-path="meeting-videos-31.html"><a href="meeting-videos-31.html#cohort-6-20"><i class="fa fa-check"></i><b>32.6.2</b> Cohort 6</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="33" data-path="r-markdown-formats.html"><a href="r-markdown-formats.html"><i class="fa fa-check"></i><b>33</b> R Markdown formats</a>
-<ul>
-<li class="chapter" data-level="33.1" data-path="slide-1-3.html"><a href="slide-1-3.html"><i class="fa fa-check"></i><b>33.1</b> Slide 1</a></li>
-<li class="chapter" data-level="33.2" data-path="slide-2-3.html"><a href="slide-2-3.html"><i class="fa fa-check"></i><b>33.2</b> Slide 2</a></li>
-<li class="chapter" data-level="33.3" data-path="meeting-videos-32.html"><a href="meeting-videos-32.html"><i class="fa fa-check"></i><b>33.3</b> Meeting Videos</a>
-<ul>
-<li class="chapter" data-level="33.3.1" data-path="meeting-videos-32.html"><a href="meeting-videos-32.html#cohort-5-23"><i class="fa fa-check"></i><b>33.3.1</b> Cohort 5</a></li>
-<li class="chapter" data-level="33.3.2" data-path="meeting-videos-32.html"><a href="meeting-videos-32.html#cohort-6-21"><i class="fa fa-check"></i><b>33.3.2</b> Cohort 6</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="34" data-path="r-markdown-workflow.html"><a href="r-markdown-workflow.html"><i class="fa fa-check"></i><b>34</b> R Markdown workflow</a>
-<ul>
-<li class="chapter" data-level="34.1" data-path="slide-1-4.html"><a href="slide-1-4.html"><i class="fa fa-check"></i><b>34.1</b> Slide 1</a></li>
-<li class="chapter" data-level="34.2" data-path="slide-2-4.html"><a href="slide-2-4.html"><i class="fa fa-check"></i><b>34.2</b> Slide 2</a></li>
-<li class="chapter" data-level="34.3" data-path="meeting-videos-33.html"><a href="meeting-videos-33.html"><i class="fa fa-check"></i><b>34.3</b> Meeting Videos</a>
-<ul>
-<li class="chapter" data-level="34.3.1" data-path="meeting-videos-33.html"><a href="meeting-videos-33.html#cohort-5-24"><i class="fa fa-check"></i><b>34.3.1</b> Cohort 5</a></li>
-<li class="chapter" data-level="34.3.2" data-path="meeting-videos-33.html"><a href="meeting-videos-33.html#cohort-6-22"><i class="fa fa-check"></i><b>34.3.2</b> Cohort 6</a></li>
+<li class="chapter" data-level="32.3.1" data-path="meeting-videos-31.html"><a href="meeting-videos-31.html#cohort-5-23"><i class="fa fa-check"></i><b>32.3.1</b> Cohort 5</a></li>
+<li class="chapter" data-level="32.3.2" data-path="meeting-videos-31.html"><a href="meeting-videos-31.html#cohort-6-21"><i class="fa fa-check"></i><b>32.3.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>VI Removed chapters</b></span></li>
 <li class="chapter" data-level="" data-path="model-basics.html"><a href="model-basics.html"><i class="fa fa-check"></i>Model basics</a>
 <ul>
-<li class="chapter" data-level="34.4" data-path="a-bit-of-mathematics.html"><a href="a-bit-of-mathematics.html"><i class="fa fa-check"></i><b>34.4</b> A bit of Mathematics:</a></li>
-<li class="chapter" data-level="34.5" data-path="linear-models-and-non-linear-models.html"><a href="linear-models-and-non-linear-models.html"><i class="fa fa-check"></i><b>34.5</b> Linear models and non linear models</a>
+<li class="chapter" data-level="32.4" data-path="a-bit-of-mathematics.html"><a href="a-bit-of-mathematics.html"><i class="fa fa-check"></i><b>32.4</b> A bit of Mathematics:</a></li>
+<li class="chapter" data-level="32.5" data-path="linear-models-and-non-linear-models.html"><a href="linear-models-and-non-linear-models.html"><i class="fa fa-check"></i><b>32.5</b> Linear models and non linear models</a>
 <ul>
-<li class="chapter" data-level="34.5.1" data-path="linear-models-and-non-linear-models.html"><a href="linear-models-and-non-linear-models.html#transformations"><i class="fa fa-check"></i><b>34.5.1</b> Transformations</a></li>
+<li class="chapter" data-level="32.5.1" data-path="linear-models-and-non-linear-models.html"><a href="linear-models-and-non-linear-models.html#transformations"><i class="fa fa-check"></i><b>32.5.1</b> Transformations</a></li>
 </ul></li>
-<li class="chapter" data-level="34.6" data-path="prediction.html"><a href="prediction.html"><i class="fa fa-check"></i><b>34.6</b> Prediction</a>
+<li class="chapter" data-level="32.6" data-path="prediction.html"><a href="prediction.html"><i class="fa fa-check"></i><b>32.6</b> Prediction</a>
 <ul>
-<li class="chapter" data-level="34.6.1" data-path="prediction.html"><a href="prediction.html#interaction"><i class="fa fa-check"></i><b>34.6.1</b> Interaction</a></li>
+<li class="chapter" data-level="32.6.1" data-path="prediction.html"><a href="prediction.html#interaction"><i class="fa fa-check"></i><b>32.6.1</b> Interaction</a></li>
 </ul></li>
-<li class="chapter" data-level="34.7" data-path="resources-1.html"><a href="resources-1.html"><i class="fa fa-check"></i><b>34.7</b> Resources:</a></li>
-<li class="chapter" data-level="34.8" data-path="meeting-videos-34.html"><a href="meeting-videos-34.html"><i class="fa fa-check"></i><b>34.8</b> Meeting Videos</a>
+<li class="chapter" data-level="32.7" data-path="resources-1.html"><a href="resources-1.html"><i class="fa fa-check"></i><b>32.7</b> Resources:</a></li>
+<li class="chapter" data-level="32.8" data-path="meeting-videos-32.html"><a href="meeting-videos-32.html"><i class="fa fa-check"></i><b>32.8</b> Meeting Videos</a>
 <ul>
-<li class="chapter" data-level="34.8.1" data-path="meeting-videos-34.html"><a href="meeting-videos-34.html#cohort-5-25"><i class="fa fa-check"></i><b>34.8.1</b> Cohort 5</a></li>
-<li class="chapter" data-level="34.8.2" data-path="meeting-videos-34.html"><a href="meeting-videos-34.html#cohort-6-23"><i class="fa fa-check"></i><b>34.8.2</b> Cohort 6</a></li>
+<li class="chapter" data-level="32.8.1" data-path="meeting-videos-32.html"><a href="meeting-videos-32.html#cohort-5-24"><i class="fa fa-check"></i><b>32.8.1</b> Cohort 5</a></li>
+<li class="chapter" data-level="32.8.2" data-path="meeting-videos-32.html"><a href="meeting-videos-32.html#cohort-6-22"><i class="fa fa-check"></i><b>32.8.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="model-building.html"><a href="model-building.html"><i class="fa fa-check"></i>Model building</a>
 <ul>
-<li class="chapter" data-level="34.9" data-path="eda-vs-prediction.html"><a href="eda-vs-prediction.html"><i class="fa fa-check"></i><b>34.9</b> EDA vs Prediction</a></li>
-<li class="chapter" data-level="34.10" data-path="build-a-linear-model.html"><a href="build-a-linear-model.html"><i class="fa fa-check"></i><b>34.10</b> Build a Linear Model</a></li>
-<li class="chapter" data-level="34.11" data-path="examine-residuals.html"><a href="examine-residuals.html"><i class="fa fa-check"></i><b>34.11</b> Examine Residuals</a></li>
-<li class="chapter" data-level="34.12" data-path="another-diamonds-model.html"><a href="another-diamonds-model.html"><i class="fa fa-check"></i><b>34.12</b> Another Diamonds Model</a></li>
-<li class="chapter" data-level="34.13" data-path="feature-engineering.html"><a href="feature-engineering.html"><i class="fa fa-check"></i><b>34.13</b> Feature Engineering</a></li>
-<li class="chapter" data-level="34.14" data-path="learning-more-1.html"><a href="learning-more-1.html"><i class="fa fa-check"></i><b>34.14</b> Learning More</a></li>
-<li class="chapter" data-level="34.15" data-path="meeting-videos-35.html"><a href="meeting-videos-35.html"><i class="fa fa-check"></i><b>34.15</b> Meeting Videos</a>
+<li class="chapter" data-level="32.9" data-path="eda-vs-prediction.html"><a href="eda-vs-prediction.html"><i class="fa fa-check"></i><b>32.9</b> EDA vs Prediction</a></li>
+<li class="chapter" data-level="32.10" data-path="build-a-linear-model.html"><a href="build-a-linear-model.html"><i class="fa fa-check"></i><b>32.10</b> Build a Linear Model</a></li>
+<li class="chapter" data-level="32.11" data-path="examine-residuals.html"><a href="examine-residuals.html"><i class="fa fa-check"></i><b>32.11</b> Examine Residuals</a></li>
+<li class="chapter" data-level="32.12" data-path="another-diamonds-model.html"><a href="another-diamonds-model.html"><i class="fa fa-check"></i><b>32.12</b> Another Diamonds Model</a></li>
+<li class="chapter" data-level="32.13" data-path="feature-engineering.html"><a href="feature-engineering.html"><i class="fa fa-check"></i><b>32.13</b> Feature Engineering</a></li>
+<li class="chapter" data-level="32.14" data-path="learning-more-1.html"><a href="learning-more-1.html"><i class="fa fa-check"></i><b>32.14</b> Learning More</a></li>
+<li class="chapter" data-level="32.15" data-path="meeting-videos-33.html"><a href="meeting-videos-33.html"><i class="fa fa-check"></i><b>32.15</b> Meeting Videos</a>
 <ul>
-<li class="chapter" data-level="34.15.1" data-path="meeting-videos-35.html"><a href="meeting-videos-35.html#cohort-5-26"><i class="fa fa-check"></i><b>34.15.1</b> Cohort 5</a></li>
-<li class="chapter" data-level="34.15.2" data-path="meeting-videos-35.html"><a href="meeting-videos-35.html#cohort-6-24"><i class="fa fa-check"></i><b>34.15.2</b> Cohort 6</a></li>
+<li class="chapter" data-level="32.15.1" data-path="meeting-videos-33.html"><a href="meeting-videos-33.html#cohort-5-25"><i class="fa fa-check"></i><b>32.15.1</b> Cohort 5</a></li>
+<li class="chapter" data-level="32.15.2" data-path="meeting-videos-33.html"><a href="meeting-videos-33.html#cohort-6-23"><i class="fa fa-check"></i><b>32.15.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="many-models.html"><a href="many-models.html"><i class="fa fa-check"></i>Many models</a>
 <ul>
-<li class="chapter" data-level="34.16" data-path="introduction-11.html"><a href="introduction-11.html"><i class="fa fa-check"></i><b>34.16</b> Introduction</a>
+<li class="chapter" data-level="32.16" data-path="introduction-10.html"><a href="introduction-10.html"><i class="fa fa-check"></i><b>32.16</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="34.16.1" data-path="introduction-11.html"><a href="introduction-11.html#prerequisites-4"><i class="fa fa-check"></i><b>34.16.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="32.16.1" data-path="introduction-10.html"><a href="introduction-10.html#prerequisites-4"><i class="fa fa-check"></i><b>32.16.1</b> Prerequisites</a></li>
 </ul></li>
-<li class="chapter" data-level="34.17" data-path="gapminder.html"><a href="gapminder.html"><i class="fa fa-check"></i><b>34.17</b> gapminder</a>
+<li class="chapter" data-level="32.17" data-path="gapminder.html"><a href="gapminder.html"><i class="fa fa-check"></i><b>32.17</b> gapminder</a>
 <ul>
-<li class="chapter" data-level="34.17.1" data-path="gapminder.html"><a href="gapminder.html#nested-data"><i class="fa fa-check"></i><b>34.17.1</b> Nested data</a></li>
-<li class="chapter" data-level="34.17.2" data-path="gapminder.html"><a href="gapminder.html#list-columns"><i class="fa fa-check"></i><b>34.17.2</b> List-columns</a></li>
-<li class="chapter" data-level="34.17.3" data-path="gapminder.html"><a href="gapminder.html#unnesting"><i class="fa fa-check"></i><b>34.17.3</b> Unnesting</a></li>
-<li class="chapter" data-level="34.17.4" data-path="gapminder.html"><a href="gapminder.html#model-quality"><i class="fa fa-check"></i><b>34.17.4</b> Model quality</a></li>
+<li class="chapter" data-level="32.17.1" data-path="gapminder.html"><a href="gapminder.html#nested-data"><i class="fa fa-check"></i><b>32.17.1</b> Nested data</a></li>
+<li class="chapter" data-level="32.17.2" data-path="gapminder.html"><a href="gapminder.html#list-columns"><i class="fa fa-check"></i><b>32.17.2</b> List-columns</a></li>
+<li class="chapter" data-level="32.17.3" data-path="gapminder.html"><a href="gapminder.html#unnesting"><i class="fa fa-check"></i><b>32.17.3</b> Unnesting</a></li>
+<li class="chapter" data-level="32.17.4" data-path="gapminder.html"><a href="gapminder.html#model-quality"><i class="fa fa-check"></i><b>32.17.4</b> Model quality</a></li>
 </ul></li>
-<li class="chapter" data-level="34.18" data-path="list-columns-1.html"><a href="list-columns-1.html"><i class="fa fa-check"></i><b>34.18</b> List-columns</a></li>
-<li class="chapter" data-level="34.19" data-path="creating-list-columns.html"><a href="creating-list-columns.html"><i class="fa fa-check"></i><b>34.19</b> Creating list-columns</a>
+<li class="chapter" data-level="32.18" data-path="list-columns-1.html"><a href="list-columns-1.html"><i class="fa fa-check"></i><b>32.18</b> List-columns</a></li>
+<li class="chapter" data-level="32.19" data-path="creating-list-columns.html"><a href="creating-list-columns.html"><i class="fa fa-check"></i><b>32.19</b> Creating list-columns</a>
 <ul>
-<li class="chapter" data-level="34.19.1" data-path="creating-list-columns.html"><a href="creating-list-columns.html#with-nesting"><i class="fa fa-check"></i><b>34.19.1</b> With nesting</a></li>
-<li class="chapter" data-level="34.19.2" data-path="creating-list-columns.html"><a href="creating-list-columns.html#from-vectorised-functions"><i class="fa fa-check"></i><b>34.19.2</b> From vectorised functions</a></li>
-<li class="chapter" data-level="34.19.3" data-path="creating-list-columns.html"><a href="creating-list-columns.html#from-multivalued-summaries"><i class="fa fa-check"></i><b>34.19.3</b> From multivalued summaries</a></li>
-<li class="chapter" data-level="34.19.4" data-path="creating-list-columns.html"><a href="creating-list-columns.html#from-a-named-list"><i class="fa fa-check"></i><b>34.19.4</b> From a named list</a></li>
+<li class="chapter" data-level="32.19.1" data-path="creating-list-columns.html"><a href="creating-list-columns.html#with-nesting"><i class="fa fa-check"></i><b>32.19.1</b> With nesting</a></li>
+<li class="chapter" data-level="32.19.2" data-path="creating-list-columns.html"><a href="creating-list-columns.html#from-vectorised-functions"><i class="fa fa-check"></i><b>32.19.2</b> From vectorised functions</a></li>
+<li class="chapter" data-level="32.19.3" data-path="creating-list-columns.html"><a href="creating-list-columns.html#from-multivalued-summaries"><i class="fa fa-check"></i><b>32.19.3</b> From multivalued summaries</a></li>
+<li class="chapter" data-level="32.19.4" data-path="creating-list-columns.html"><a href="creating-list-columns.html#from-a-named-list"><i class="fa fa-check"></i><b>32.19.4</b> From a named list</a></li>
 </ul></li>
-<li class="chapter" data-level="34.20" data-path="simplifying-list-columns.html"><a href="simplifying-list-columns.html"><i class="fa fa-check"></i><b>34.20</b> Simplifying list-columns</a>
+<li class="chapter" data-level="32.20" data-path="simplifying-list-columns.html"><a href="simplifying-list-columns.html"><i class="fa fa-check"></i><b>32.20</b> Simplifying list-columns</a>
 <ul>
-<li class="chapter" data-level="34.20.1" data-path="simplifying-list-columns.html"><a href="simplifying-list-columns.html#list-to-vector"><i class="fa fa-check"></i><b>34.20.1</b> List to vector</a></li>
-<li class="chapter" data-level="34.20.2" data-path="simplifying-list-columns.html"><a href="simplifying-list-columns.html#unnesting-1"><i class="fa fa-check"></i><b>34.20.2</b> Unnesting</a></li>
+<li class="chapter" data-level="32.20.1" data-path="simplifying-list-columns.html"><a href="simplifying-list-columns.html#list-to-vector"><i class="fa fa-check"></i><b>32.20.1</b> List to vector</a></li>
+<li class="chapter" data-level="32.20.2" data-path="simplifying-list-columns.html"><a href="simplifying-list-columns.html#unnesting-1"><i class="fa fa-check"></i><b>32.20.2</b> Unnesting</a></li>
 </ul></li>
-<li class="chapter" data-level="34.21" data-path="making-tidy-data-with-broom.html"><a href="making-tidy-data-with-broom.html"><i class="fa fa-check"></i><b>34.21</b> Making tidy data with broom</a></li>
-<li class="chapter" data-level="34.22" data-path="meeting-videos-36.html"><a href="meeting-videos-36.html"><i class="fa fa-check"></i><b>34.22</b> Meeting Videos</a>
+<li class="chapter" data-level="32.21" data-path="making-tidy-data-with-broom.html"><a href="making-tidy-data-with-broom.html"><i class="fa fa-check"></i><b>32.21</b> Making tidy data with broom</a></li>
+<li class="chapter" data-level="32.22" data-path="meeting-videos-34.html"><a href="meeting-videos-34.html"><i class="fa fa-check"></i><b>32.22</b> Meeting Videos</a>
 <ul>
-<li class="chapter" data-level="34.22.1" data-path="meeting-videos-36.html"><a href="meeting-videos-36.html#cohort-5-27"><i class="fa fa-check"></i><b>34.22.1</b> Cohort 5</a></li>
-<li class="chapter" data-level="34.22.2" data-path="meeting-videos-36.html"><a href="meeting-videos-36.html#cohort-6-25"><i class="fa fa-check"></i><b>34.22.2</b> Cohort 6</a></li>
+<li class="chapter" data-level="32.22.1" data-path="meeting-videos-34.html"><a href="meeting-videos-34.html#cohort-5-26"><i class="fa fa-check"></i><b>32.22.1</b> Cohort 5</a></li>
+<li class="chapter" data-level="32.22.2" data-path="meeting-videos-34.html"><a href="meeting-videos-34.html#cohort-6-24"><i class="fa fa-check"></i><b>32.22.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -870,40 +815,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="important-types-of-atomic-vector-2" class="section level2 hasAnchor" number="28.3">
-<h2><span class="header-section-number">28.3</span> Important types of atomic vector<a href="important-types-of-atomic-vector-2.html#important-types-of-atomic-vector-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="important-types-of-atomic-vector-2" class="section level2 hasAnchor" number="26.3">
+<h2><span class="header-section-number">26.3</span> Important types of atomic vector<a href="important-types-of-atomic-vector-2.html#important-types-of-atomic-vector-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>The four most important types of atomic vectors: logical, integer, double, and character.</li>
 </ul>
 <blockquote>
 <p>Note: Raw and complex are rarely used during a data analysis, hence not part of this of discussion.</p>
 </blockquote>
-<div id="logical-2" class="section level3 hasAnchor" number="28.3.1">
-<h3><span class="header-section-number">28.3.1</span> Logical<a href="important-types-of-atomic-vector-2.html#logical-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="logical-2" class="section level3 hasAnchor" number="26.3.1">
+<h3><span class="header-section-number">26.3.1</span> Logical<a href="important-types-of-atomic-vector-2.html#logical-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Simplest type of atomic vector –&gt; can take only three possible values: <code>FALSE</code>, <code>TRUE</code>, and <code>NA</code>.</li>
 <li>They are constructed with comparison operators.</li>
 <li>OR, can create them by hand with <code>c()</code>:</li>
 </ul>
-<div class="sourceCode" id="cb828"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb828-1"><a href="important-types-of-atomic-vector-2.html#cb828-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="sc">%%</span> <span class="dv">3</span> <span class="sc">==</span> <span class="dv">0</span></span>
-<span id="cb828-2"><a href="important-types-of-atomic-vector-2.html#cb828-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb828-3"><a href="important-types-of-atomic-vector-2.html#cb828-3" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">NA</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb825"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb825-1"><a href="important-types-of-atomic-vector-2.html#cb825-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="sc">%%</span> <span class="dv">3</span> <span class="sc">==</span> <span class="dv">0</span></span>
+<span id="cb825-2"><a href="important-types-of-atomic-vector-2.html#cb825-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb825-3"><a href="important-types-of-atomic-vector-2.html#cb825-3" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">NA</span>)</span></code></pre></div>
 <blockquote>
 <p>Qn: what exactly is %% doing here? I understand is x modulus y…</p>
 </blockquote>
 </div>
-<div id="numeric-2" class="section level3 hasAnchor" number="28.3.2">
-<h3><span class="header-section-number">28.3.2</span> Numeric<a href="important-types-of-atomic-vector-2.html#numeric-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="numeric-2" class="section level3 hasAnchor" number="26.3.2">
+<h3><span class="header-section-number">26.3.2</span> Numeric<a href="important-types-of-atomic-vector-2.html#numeric-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>As learnt, integer and double are known collectively as numeric vectors.</li>
 <li>In R, numbers are doubles by default.</li>
 <li>To create an integer, place <code>L</code> after the number.</li>
 </ul>
-<div class="sourceCode" id="cb829"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb829-1"><a href="important-types-of-atomic-vector-2.html#cb829-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="dv">1</span>)</span>
-<span id="cb829-2"><a href="important-types-of-atomic-vector-2.html#cb829-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb829-3"><a href="important-types-of-atomic-vector-2.html#cb829-3" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(1L)</span>
-<span id="cb829-4"><a href="important-types-of-atomic-vector-2.html#cb829-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb829-5"><a href="important-types-of-atomic-vector-2.html#cb829-5" aria-hidden="true" tabindex="-1"></a><span class="fl">1.5</span>L</span></code></pre></div>
+<div class="sourceCode" id="cb826"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb826-1"><a href="important-types-of-atomic-vector-2.html#cb826-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="dv">1</span>)</span>
+<span id="cb826-2"><a href="important-types-of-atomic-vector-2.html#cb826-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb826-3"><a href="important-types-of-atomic-vector-2.html#cb826-3" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(1L)</span>
+<span id="cb826-4"><a href="important-types-of-atomic-vector-2.html#cb826-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb826-5"><a href="important-types-of-atomic-vector-2.html#cb826-5" aria-hidden="true" tabindex="-1"></a><span class="fl">1.5</span>L</span></code></pre></div>
 <blockquote>
 <p>Note: the warning after running 1.5L is because that integers only take whole numbers. I think.</p>
 </blockquote>
@@ -913,10 +858,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Doubles are approximations. They represent floating point numbers that can’t be precisely represented with a fixed amount of memory. Therefore, we should consider all doubles as approximations. E.g., the square root of two:</li>
 </ol></li>
 </ul>
-<div class="sourceCode" id="cb830"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb830-1"><a href="important-types-of-atomic-vector-2.html#cb830-1" aria-hidden="true" tabindex="-1"></a>(x3 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">2</span>) <span class="sc">^</span> <span class="dv">2</span>)</span>
-<span id="cb830-2"><a href="important-types-of-atomic-vector-2.html#cb830-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb830-3"><a href="important-types-of-atomic-vector-2.html#cb830-3" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
-<span id="cb830-4"><a href="important-types-of-atomic-vector-2.html#cb830-4" aria-hidden="true" tabindex="-1"></a>x3 <span class="sc">-</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb827"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb827-1"><a href="important-types-of-atomic-vector-2.html#cb827-1" aria-hidden="true" tabindex="-1"></a>(x3 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">2</span>) <span class="sc">^</span> <span class="dv">2</span>)</span>
+<span id="cb827-2"><a href="important-types-of-atomic-vector-2.html#cb827-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb827-3"><a href="important-types-of-atomic-vector-2.html#cb827-3" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
+<span id="cb827-4"><a href="important-types-of-atomic-vector-2.html#cb827-4" aria-hidden="true" tabindex="-1"></a>x3 <span class="sc">-</span> <span class="dv">2</span></span></code></pre></div>
 <blockquote>
 <p>Side note: <code>options(scipen = 999)</code> to remove the scientific numbers as I often confuse reading e- or e+.</p>
 </blockquote>
@@ -926,27 +871,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Hence, when we compare floating point numbers we should use <code>dplyr::near()</code> instead of <code>==</code> as it allows for some numerical tolerance. (<em>what does this mean?</em>)</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb831"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb831-1"><a href="important-types-of-atomic-vector-2.html#cb831-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">near</span>(<span class="fl">1.745</span>, <span class="dv">2</span>)</span>
-<span id="cb831-2"><a href="important-types-of-atomic-vector-2.html#cb831-2" aria-hidden="true" tabindex="-1"></a><span class="co"># compares if 1.745 is the same as 2</span></span>
-<span id="cb831-3"><a href="important-types-of-atomic-vector-2.html#cb831-3" aria-hidden="true" tabindex="-1"></a><span class="co"># FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb828"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb828-1"><a href="important-types-of-atomic-vector-2.html#cb828-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">near</span>(<span class="fl">1.745</span>, <span class="dv">2</span>)</span>
+<span id="cb828-2"><a href="important-types-of-atomic-vector-2.html#cb828-2" aria-hidden="true" tabindex="-1"></a><span class="co"># compares if 1.745 is the same as 2</span></span>
+<span id="cb828-3"><a href="important-types-of-atomic-vector-2.html#cb828-3" aria-hidden="true" tabindex="-1"></a><span class="co"># FALSE</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Integers have one special value: <code>NA</code> while doubles have four: <code>NA</code>, <code>NaN</code>, <code>Inf</code> and <code>-Inf</code>.
 <ul>
 <li><code>NaN</code>, <code>Inf</code> and <code>-Inf</code> can arise during division:</li>
 </ul></li>
 </ol>
-<div class="sourceCode" id="cb832"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb832-1"><a href="important-types-of-atomic-vector-2.html#cb832-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">/</span> <span class="dv">0</span></span></code></pre></div>
+<div class="sourceCode" id="cb829"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb829-1"><a href="important-types-of-atomic-vector-2.html#cb829-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">/</span> <span class="dv">0</span></span></code></pre></div>
 <ul>
 <li>To check for these special values, let’s use the helper functions <code>is.finite()</code>, <code>is.infinite()</code>, and <code>is.nan()</code> instead of using <code>==</code>.</li>
 </ul>
-<div class="sourceCode" id="cb833"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb833-1"><a href="important-types-of-atomic-vector-2.html#cb833-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.finite</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">/</span> <span class="dv">0</span>)</span>
-<span id="cb833-2"><a href="important-types-of-atomic-vector-2.html#cb833-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.infinite</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">/</span> <span class="dv">0</span>)</span>
-<span id="cb833-3"><a href="important-types-of-atomic-vector-2.html#cb833-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">/</span> <span class="dv">0</span>)</span>
-<span id="cb833-4"><a href="important-types-of-atomic-vector-2.html#cb833-4" aria-hidden="true" tabindex="-1"></a><span class="fu">is.nan</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">/</span> <span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb830"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb830-1"><a href="important-types-of-atomic-vector-2.html#cb830-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.finite</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">/</span> <span class="dv">0</span>)</span>
+<span id="cb830-2"><a href="important-types-of-atomic-vector-2.html#cb830-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.infinite</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">/</span> <span class="dv">0</span>)</span>
+<span id="cb830-3"><a href="important-types-of-atomic-vector-2.html#cb830-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">/</span> <span class="dv">0</span>)</span>
+<span id="cb830-4"><a href="important-types-of-atomic-vector-2.html#cb830-4" aria-hidden="true" tabindex="-1"></a><span class="fu">is.nan</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">/</span> <span class="dv">0</span>)</span></code></pre></div>
 <p><img src="images/special_missing_values_doubles.png" /></p>
 </div>
-<div id="character-2" class="section level3 hasAnchor" number="28.3.3">
-<h3><span class="header-section-number">28.3.3</span> Character<a href="important-types-of-atomic-vector-2.html#character-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="character-2" class="section level3 hasAnchor" number="26.3.3">
+<h3><span class="header-section-number">26.3.3</span> Character<a href="important-types-of-atomic-vector-2.html#character-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Most complex atomic vector because each element of a character vector is a string, and a string contains an arbitrary amount of data.</li>
 <li>R uses a global string pool.
@@ -958,59 +903,59 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb834"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb834-1"><a href="important-types-of-atomic-vector-2.html#cb834-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;This is a reasonably long string.&quot;</span></span>
-<span id="cb834-2"><a href="important-types-of-atomic-vector-2.html#cb834-2" aria-hidden="true" tabindex="-1"></a>pryr<span class="sc">::</span><span class="fu">object_size</span>(x)</span>
-<span id="cb834-3"><a href="important-types-of-atomic-vector-2.html#cb834-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb834-4"><a href="important-types-of-atomic-vector-2.html#cb834-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rep</span>(x, <span class="dv">1000</span>)</span>
-<span id="cb834-5"><a href="important-types-of-atomic-vector-2.html#cb834-5" aria-hidden="true" tabindex="-1"></a>pryr<span class="sc">::</span><span class="fu">object_size</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb831"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb831-1"><a href="important-types-of-atomic-vector-2.html#cb831-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;This is a reasonably long string.&quot;</span></span>
+<span id="cb831-2"><a href="important-types-of-atomic-vector-2.html#cb831-2" aria-hidden="true" tabindex="-1"></a>pryr<span class="sc">::</span><span class="fu">object_size</span>(x)</span>
+<span id="cb831-3"><a href="important-types-of-atomic-vector-2.html#cb831-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb831-4"><a href="important-types-of-atomic-vector-2.html#cb831-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rep</span>(x, <span class="dv">1000</span>)</span>
+<span id="cb831-5"><a href="important-types-of-atomic-vector-2.html#cb831-5" aria-hidden="true" tabindex="-1"></a>pryr<span class="sc">::</span><span class="fu">object_size</span>(y)</span></code></pre></div>
 <p><code>y</code> doesn’t take up 1,000x as much memory as <code>x</code>, because each element of <code>y</code> is just a pointer to that same string.</p>
 <p>A pointer is 8 bytes, so 1000 pointers to a 152 B string is 8 * 1000 + 152 = 8.14 kB.</p>
 </div>
-<div id="missing-values-5" class="section level3 hasAnchor" number="28.3.4">
-<h3><span class="header-section-number">28.3.4</span> Missing values<a href="important-types-of-atomic-vector-2.html#missing-values-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="missing-values-5" class="section level3 hasAnchor" number="26.3.4">
+<h3><span class="header-section-number">26.3.4</span> Missing values<a href="important-types-of-atomic-vector-2.html#missing-values-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Each atomic vector has its own missing value:</li>
 </ul>
-<div class="sourceCode" id="cb835"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb835-1"><a href="important-types-of-atomic-vector-2.html#cb835-1" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span>            <span class="co"># logical</span></span>
-<span id="cb835-2"><a href="important-types-of-atomic-vector-2.html#cb835-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb835-3"><a href="important-types-of-atomic-vector-2.html#cb835-3" aria-hidden="true" tabindex="-1"></a><span class="cn">NA_integer_</span>   <span class="co"># integer</span></span>
-<span id="cb835-4"><a href="important-types-of-atomic-vector-2.html#cb835-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb835-5"><a href="important-types-of-atomic-vector-2.html#cb835-5" aria-hidden="true" tabindex="-1"></a><span class="cn">NA_real_</span>      <span class="co"># double</span></span>
-<span id="cb835-6"><a href="important-types-of-atomic-vector-2.html#cb835-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb835-7"><a href="important-types-of-atomic-vector-2.html#cb835-7" aria-hidden="true" tabindex="-1"></a><span class="cn">NA_character_</span> <span class="co"># character</span></span></code></pre></div>
+<div class="sourceCode" id="cb832"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb832-1"><a href="important-types-of-atomic-vector-2.html#cb832-1" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span>            <span class="co"># logical</span></span>
+<span id="cb832-2"><a href="important-types-of-atomic-vector-2.html#cb832-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb832-3"><a href="important-types-of-atomic-vector-2.html#cb832-3" aria-hidden="true" tabindex="-1"></a><span class="cn">NA_integer_</span>   <span class="co"># integer</span></span>
+<span id="cb832-4"><a href="important-types-of-atomic-vector-2.html#cb832-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb832-5"><a href="important-types-of-atomic-vector-2.html#cb832-5" aria-hidden="true" tabindex="-1"></a><span class="cn">NA_real_</span>      <span class="co"># double</span></span>
+<span id="cb832-6"><a href="important-types-of-atomic-vector-2.html#cb832-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb832-7"><a href="important-types-of-atomic-vector-2.html#cb832-7" aria-hidden="true" tabindex="-1"></a><span class="cn">NA_character_</span> <span class="co"># character</span></span></code></pre></div>
 <ul>
 <li><p>But we don’t need to know about these different types since we can always use <code>NA</code> and it’ll be converted to the correct type using the implicit coercion rules.</p></li>
 <li><p><strong>However, there are some functions that are strict about their inputs, so it’s useful to have this knowledge sitting in your back pocket so you can be specific when needed.</strong></p></li>
 </ul>
 </div>
-<div id="exercises-15" class="section level3 hasAnchor" number="28.3.5">
-<h3><span class="header-section-number">28.3.5</span> Exercises<a href="important-types-of-atomic-vector-2.html#exercises-15" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exercises-15" class="section level3 hasAnchor" number="26.3.5">
+<h3><span class="header-section-number">26.3.5</span> Exercises<a href="important-types-of-atomic-vector-2.html#exercises-15" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Describe the difference between is.finite(x) and !is.infinite(x).</li>
 </ol>
-<div class="sourceCode" id="cb836"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb836-1"><a href="important-types-of-atomic-vector-2.html#cb836-1" aria-hidden="true" tabindex="-1"></a>(x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">0</span>, <span class="dv">0</span><span class="sc">/</span><span class="dv">0</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">0</span>, <span class="dv">5</span>, 5L, <span class="cn">NA</span>))</span>
-<span id="cb836-2"><a href="important-types-of-atomic-vector-2.html#cb836-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.finite</span>(x)</span>
-<span id="cb836-3"><a href="important-types-of-atomic-vector-2.html#cb836-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.infinite</span>(x)</span>
-<span id="cb836-4"><a href="important-types-of-atomic-vector-2.html#cb836-4" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="fu">is.infinite</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb833"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb833-1"><a href="important-types-of-atomic-vector-2.html#cb833-1" aria-hidden="true" tabindex="-1"></a>(x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">0</span>, <span class="dv">0</span><span class="sc">/</span><span class="dv">0</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">0</span>, <span class="dv">5</span>, 5L, <span class="cn">NA</span>))</span>
+<span id="cb833-2"><a href="important-types-of-atomic-vector-2.html#cb833-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.finite</span>(x)</span>
+<span id="cb833-3"><a href="important-types-of-atomic-vector-2.html#cb833-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.infinite</span>(x)</span>
+<span id="cb833-4"><a href="important-types-of-atomic-vector-2.html#cb833-4" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="fu">is.infinite</span>(x)</span></code></pre></div>
 <p><code>is.finite()</code> function does consider non-missing numeric values to be finite, and <code>-Inf</code>, <code>NaN</code>, <code>Inf</code> are considered not to be finite.</p>
 <p><code>is.infinite()</code> considers only <code>-Inf</code> and <code>Inf</code> as infinite. Hence, <code>!is.infinite()</code> considers <code>-Inf</code> and <code>Inf</code> to be finite while non-missing numeric values, <code>NaN</code>, and <code>NA</code> not to be infinite.</p>
 <ol start="2" style="list-style-type: decimal">
 <li>Read the source code for dplyr::near() (Hint: to see the source code, drop the ()). How does it work?</li>
 </ol>
-<div class="sourceCode" id="cb837"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb837-1"><a href="important-types-of-atomic-vector-2.html#cb837-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">near</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb834"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb834-1"><a href="important-types-of-atomic-vector-2.html#cb834-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">near</span>()</span></code></pre></div>
 <p>It doesn’t check equality as I first thought, but it checks if two numbers are within a certain tolerance (<code>tol</code>), usually given as <code>.Machine$double.eps^0.5</code>, which is the smallest floating point number that the computer can represent. (Good to know!!)</p>
 <ol start="3" style="list-style-type: decimal">
 <li>A logical vector can take 3 possible values. How many possible values can an integer vector take? How many possible values can a double take? Use google to do some research.</li>
 </ol>
-<div class="sourceCode" id="cb838"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb838-1"><a href="important-types-of-atomic-vector-2.html#cb838-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(integer)</span>
-<span id="cb838-2"><a href="important-types-of-atomic-vector-2.html#cb838-2" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(double)</span></code></pre></div>
+<div class="sourceCode" id="cb835"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb835-1"><a href="important-types-of-atomic-vector-2.html#cb835-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(integer)</span>
+<span id="cb835-2"><a href="important-types-of-atomic-vector-2.html#cb835-2" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(double)</span></code></pre></div>
 <p>For integers vectors, R uses a 32-bit representation. I.e., it can represent <span class="math inline">\(2^{32}\)</span> different values with the integers. But one of these values is set aside for <code>NA_integer_</code>.</p>
-<div class="sourceCode" id="cb839"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb839-1"><a href="important-types-of-atomic-vector-2.html#cb839-1" aria-hidden="true" tabindex="-1"></a>.Machine<span class="sc">$</span>integer.max</span>
-<span id="cb839-2"><a href="important-types-of-atomic-vector-2.html#cb839-2" aria-hidden="true" tabindex="-1"></a>.Machine<span class="sc">$</span>integer.max <span class="sc">+</span> 1L</span></code></pre></div>
+<div class="sourceCode" id="cb836"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb836-1"><a href="important-types-of-atomic-vector-2.html#cb836-1" aria-hidden="true" tabindex="-1"></a>.Machine<span class="sc">$</span>integer.max</span>
+<span id="cb836-2"><a href="important-types-of-atomic-vector-2.html#cb836-2" aria-hidden="true" tabindex="-1"></a>.Machine<span class="sc">$</span>integer.max <span class="sc">+</span> 1L</span></code></pre></div>
 <p>The range of integers values represented in R is <span class="math inline">\(+- 2^{31}-1\)</span>. Hence, the maximum integer is <span class="math inline">\(2^{31}-1\)</span> instead of <span class="math inline">\(2^{32}\)</span> because 1 bit is used to represent the sign <span class="math inline">\((+ -)\)</span> and one value is to represent <span class="math inline">\(NA_integer_\)</span>.</p>
 <p>An integer greater than that value, R will return <code>NA</code> values.</p>
 <p>For double vectors, R uses a 64-bit representation, i.e., they can hold up to <span class="math inline">\(2^{64}\)</span> values. But, some of those values are assigned to special values: <code>-Inf</code>, <code>Inf</code>, <code>NA_real_</code>, and <code>NaN</code>.</p>
-<div class="sourceCode" id="cb840"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb840-1"><a href="important-types-of-atomic-vector-2.html#cb840-1" aria-hidden="true" tabindex="-1"></a>.Machine<span class="sc">$</span>double.xmax</span></code></pre></div>
+<div class="sourceCode" id="cb837"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb837-1"><a href="important-types-of-atomic-vector-2.html#cb837-1" aria-hidden="true" tabindex="-1"></a>.Machine<span class="sc">$</span>double.xmax</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>Brainstorm at least four functions that allow you to convert a double to an integer. How do they differ? Be precise.</li>
 </ol>
@@ -1030,24 +975,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Round half towards the odd integer.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb841"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb841-1"><a href="important-types-of-atomic-vector-2.html#cb841-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
-<span id="cb841-2"><a href="important-types-of-atomic-vector-2.html#cb841-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="fl">1.8</span>, <span class="fl">1.5</span>, <span class="fl">1.2</span>, <span class="fl">0.8</span>, <span class="fl">0.5</span>, <span class="fl">0.2</span>, </span>
-<span id="cb841-3"><a href="important-types-of-atomic-vector-2.html#cb841-3" aria-hidden="true" tabindex="-1"></a>        <span class="sc">-</span><span class="fl">0.2</span>, <span class="sc">-</span><span class="fl">0.5</span>, <span class="sc">-</span><span class="fl">0.8</span>, <span class="sc">-</span><span class="fl">1.2</span>, <span class="sc">-</span><span class="fl">1.5</span>, <span class="sc">-</span><span class="fl">1.8</span>),</span>
-<span id="cb841-4"><a href="important-types-of-atomic-vector-2.html#cb841-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Round down</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">floor</span>(x),</span>
-<span id="cb841-5"><a href="important-types-of-atomic-vector-2.html#cb841-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Round up</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">ceiling</span>(x),</span>
-<span id="cb841-6"><a href="important-types-of-atomic-vector-2.html#cb841-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Round towards zero</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">trunc</span>(x),</span>
-<span id="cb841-7"><a href="important-types-of-atomic-vector-2.html#cb841-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Nearest, round half to even</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(x) <span class="co"># 0.5 is rounded to 0</span></span>
-<span id="cb841-8"><a href="important-types-of-atomic-vector-2.html#cb841-8" aria-hidden="true" tabindex="-1"></a>) </span></code></pre></div>
+<div class="sourceCode" id="cb838"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb838-1"><a href="important-types-of-atomic-vector-2.html#cb838-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
+<span id="cb838-2"><a href="important-types-of-atomic-vector-2.html#cb838-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="fl">1.8</span>, <span class="fl">1.5</span>, <span class="fl">1.2</span>, <span class="fl">0.8</span>, <span class="fl">0.5</span>, <span class="fl">0.2</span>, </span>
+<span id="cb838-3"><a href="important-types-of-atomic-vector-2.html#cb838-3" aria-hidden="true" tabindex="-1"></a>        <span class="sc">-</span><span class="fl">0.2</span>, <span class="sc">-</span><span class="fl">0.5</span>, <span class="sc">-</span><span class="fl">0.8</span>, <span class="sc">-</span><span class="fl">1.2</span>, <span class="sc">-</span><span class="fl">1.5</span>, <span class="sc">-</span><span class="fl">1.8</span>),</span>
+<span id="cb838-4"><a href="important-types-of-atomic-vector-2.html#cb838-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Round down</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">floor</span>(x),</span>
+<span id="cb838-5"><a href="important-types-of-atomic-vector-2.html#cb838-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Round up</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">ceiling</span>(x),</span>
+<span id="cb838-6"><a href="important-types-of-atomic-vector-2.html#cb838-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Round towards zero</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">trunc</span>(x),</span>
+<span id="cb838-7"><a href="important-types-of-atomic-vector-2.html#cb838-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Nearest, round half to even</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(x) <span class="co"># 0.5 is rounded to 0</span></span>
+<span id="cb838-8"><a href="important-types-of-atomic-vector-2.html#cb838-8" aria-hidden="true" tabindex="-1"></a>) </span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
 <li>What functions from the readr package allow you to turn a string into logical, integer, and double vector?</li>
 </ol>
 <p><code>parse_logical()</code> parses logical values, which can appear as variations of TRUE/FALSE or 1/0.</p>
-<div class="sourceCode" id="cb842"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb842-1"><a href="important-types-of-atomic-vector-2.html#cb842-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parse_logical</span>(<span class="fu">c</span>(<span class="st">&quot;TRUE&quot;</span>, <span class="st">&quot;FALSE&quot;</span>, <span class="st">&quot;1&quot;</span>, <span class="st">&quot;0&quot;</span>, <span class="st">&quot;true&quot;</span>, <span class="st">&quot;t&quot;</span>, <span class="st">&quot;NA&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb839"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb839-1"><a href="important-types-of-atomic-vector-2.html#cb839-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parse_logical</span>(<span class="fu">c</span>(<span class="st">&quot;TRUE&quot;</span>, <span class="st">&quot;FALSE&quot;</span>, <span class="st">&quot;1&quot;</span>, <span class="st">&quot;0&quot;</span>, <span class="st">&quot;true&quot;</span>, <span class="st">&quot;t&quot;</span>, <span class="st">&quot;NA&quot;</span>))</span></code></pre></div>
 <p><code>parse_integer()</code> parses integer values.</p>
-<div class="sourceCode" id="cb843"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb843-1"><a href="important-types-of-atomic-vector-2.html#cb843-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parse_integer</span>(<span class="fu">c</span>(<span class="st">&quot;1235&quot;</span>, <span class="st">&quot;0134&quot;</span>, <span class="st">&quot;NA&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb840"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb840-1"><a href="important-types-of-atomic-vector-2.html#cb840-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parse_integer</span>(<span class="fu">c</span>(<span class="st">&quot;1235&quot;</span>, <span class="st">&quot;0134&quot;</span>, <span class="st">&quot;NA&quot;</span>))</span></code></pre></div>
 <p>In case of any non-numeric characters in the string such as commas, decimals, <code>parse_integer()</code> will throw an error unlike <code>parse_numeric()</code> which ignores all the non-numeric characters before or after the first number.</p>
-<div class="sourceCode" id="cb844"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb844-1"><a href="important-types-of-atomic-vector-2.html#cb844-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parse_integer</span>(<span class="fu">c</span>(<span class="st">&quot;1000&quot;</span>, <span class="st">&quot;$1,000&quot;</span>, <span class="st">&quot;10.00&quot;</span>))</span></code></pre></div>
-<div class="sourceCode" id="cb845"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb845-1"><a href="important-types-of-atomic-vector-2.html#cb845-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parse_number</span>(<span class="fu">c</span>(<span class="st">&quot;1.0&quot;</span>, <span class="st">&quot;3.5&quot;</span>, <span class="st">&quot;$1,000.00&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;ABCD12234.90&quot;</span>, <span class="st">&quot;1234ABC&quot;</span>, <span class="st">&quot;A123B&quot;</span>, <span class="st">&quot;A1B2C&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb841"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb841-1"><a href="important-types-of-atomic-vector-2.html#cb841-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parse_integer</span>(<span class="fu">c</span>(<span class="st">&quot;1000&quot;</span>, <span class="st">&quot;$1,000&quot;</span>, <span class="st">&quot;10.00&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb842"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb842-1"><a href="important-types-of-atomic-vector-2.html#cb842-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parse_number</span>(<span class="fu">c</span>(<span class="st">&quot;1.0&quot;</span>, <span class="st">&quot;3.5&quot;</span>, <span class="st">&quot;$1,000.00&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;ABCD12234.90&quot;</span>, <span class="st">&quot;1234ABC&quot;</span>, <span class="st">&quot;A123B&quot;</span>, <span class="st">&quot;A1B2C&quot;</span>))</span></code></pre></div>
 </div>
 </div>
             </section>
@@ -1087,7 +1032,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/r4ds/bookclub-r4ds/edit/main/28-vectors.Rmd",
+"link": "https://github.com/r4ds/bookclub-r4ds/edit/main/26-vectors.Rmd",
 "text": "Edit"
 },
 "history": {

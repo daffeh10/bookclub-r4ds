@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.2 Naming Things | R for Data Science Book Club</title>
+  <title>28.4 For loops vs. functionals | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
   <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.2 Naming Things | R for Data Science Book Club" />
+  <meta property="og:title" content="28.4 For loops vs. functionals | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
   <meta name="github-repo" content="r4ds/bookclub-r4ds" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.2 Naming Things | R for Data Science Book Club" />
+  <meta name="twitter:title" content="28.4 For loops vs. functionals | R for Data Science Book Club" />
   
   <meta name="twitter:description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="pronouncing-code.html"/>
-<link rel="next" href="functions.html"/>
+<link rel="prev" href="for-loop-variations.html"/>
+<link rel="next" href="the-map-functions.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -815,34 +815,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="naming-things" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> Naming Things<a href="naming-things.html#naming-things" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><font size="4"> <em>There are only two hard things in computer science: cache invalidation and naming things. And off-by-one errors.</em> </font></p>
-<ul>
-<li>Picking good names for things is both harder and more important than you might guess.</li>
-<li>Having good guidelines for naming things can save you a lot of mental effort down the road.</li>
-<li>Names in R can only contain letters, numbers, <code>_</code>, and <code>.</code>.</li>
-<li>R is case-sensitive! And it can’t read your mind.</li>
-<li>Sticking with a good style convention will make your code more readable, both for others, and for yourself in the future.</li>
-</ul>
-<p>Some suggestions:</p>
-<ul>
-<li>Use descriptive names. Long names are ok!</li>
-<li>Use all lowercase by default, with <code>_</code> as a separator.
-<ul>
-<li><code>student_item_data</code></li>
-<li><code>num_students</code></li>
-<li><code>fall2020_math_courses_with_multiple_sections</code></li>
-</ul></li>
-</ul>
+<div id="for-loops-vs.-functionals" class="section level2 hasAnchor" number="28.4">
+<h2><span class="header-section-number">28.4</span> For loops vs. functionals<a href="for-loops-vs.-functionals.html#for-loops-vs.-functionals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>For</code> loops are not as important in R as they are in other languages because R is a functional programming language.</p>
+<p>This means that it’s possible to put <code>for</code> loops in a function, and call that function instead of using the <code>for</code> loop directly.</p>
+<p>Base R and the <code>purrr</code> package have functions for many common loops.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="pronouncing-code.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="for-loop-variations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="the-map-functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -873,7 +858,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/r4ds/bookclub-r4ds/edit/main/03-workflow_basics.Rmd",
+"link": "https://github.com/r4ds/bookclub-r4ds/edit/main/28-iteration.Rmd",
 "text": "Edit"
 },
 "history": {
