@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-10-21" />
+<meta name="date" content="2022-10-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -686,7 +686,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="part"><span><b>V Communicate</b></span></li>
-<li class="chapter" data-level="29" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>29</b> R Markdown</a>
+<li class="chapter" data-level="29" data-path="quarto.html"><a href="quarto.html"><i class="fa fa-check"></i><b>29</b> Quarto</a>
 <ul>
 <li class="chapter" data-level="29.1" data-path="slide-1-2.html"><a href="slide-1-2.html"><i class="fa fa-check"></i><b>29.1</b> Slide 1</a></li>
 <li class="chapter" data-level="29.2" data-path="slide-2-2.html"><a href="slide-2-2.html"><i class="fa fa-check"></i><b>29.2</b> Slide 2</a></li>
@@ -709,7 +709,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="30.6.2" data-path="meeting-videos-29.html"><a href="meeting-videos-29.html#cohort-6-19"><i class="fa fa-check"></i><b>30.6.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="31" data-path="r-markdown-formats.html"><a href="r-markdown-formats.html"><i class="fa fa-check"></i><b>31</b> R Markdown formats</a>
+<li class="chapter" data-level="31" data-path="quarto-formats.html"><a href="quarto-formats.html"><i class="fa fa-check"></i><b>31</b> Quarto formats</a>
 <ul>
 <li class="chapter" data-level="31.1" data-path="slide-1-3.html"><a href="slide-1-3.html"><i class="fa fa-check"></i><b>31.1</b> Slide 1</a></li>
 <li class="chapter" data-level="31.2" data-path="slide-2-3.html"><a href="slide-2-3.html"><i class="fa fa-check"></i><b>31.2</b> Slide 2</a></li>
@@ -719,7 +719,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="31.3.2" data-path="meeting-videos-30.html"><a href="meeting-videos-30.html#cohort-6-20"><i class="fa fa-check"></i><b>31.3.2</b> Cohort 6</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="32" data-path="r-markdown-workflow.html"><a href="r-markdown-workflow.html"><i class="fa fa-check"></i><b>32</b> R Markdown workflow</a>
+<li class="chapter" data-level="32" data-path="quarto-workflow.html"><a href="quarto-workflow.html"><i class="fa fa-check"></i><b>32</b> Quarto workflow</a>
 <ul>
 <li class="chapter" data-level="32.1" data-path="slide-1-4.html"><a href="slide-1-4.html"><i class="fa fa-check"></i><b>32.1</b> Slide 1</a></li>
 <li class="chapter" data-level="32.2" data-path="slide-2-4.html"><a href="slide-2-4.html"><i class="fa fa-check"></i><b>32.2</b> Slide 2</a></li>
@@ -917,8 +917,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="tools.html#cb504-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_count</span>(<span class="st">&quot;abababa&quot;</span>, <span class="st">&quot;aba&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="tools.html#cb506-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view_all</span>(<span class="st">&quot;abababa&quot;</span>, <span class="st">&quot;aba&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-360cfafc81eb965fa4e6" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-360cfafc81eb965fa4e6">{"x":{"html":"<ul>\n  <li><span class='match'>aba<\/span>b<span class='match'>aba<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-05e8fc2338d78aafb6d4" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-05e8fc2338d78aafb6d4">{"x":{"html":"<ul>\n  <li><span class='match'>aba<\/span>b<span class='match'>aba<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <blockquote>
 <p>Note the use of <code>str_view_all()</code>. As you’ll shortly learn, many stringr functions come in pairs: one function works with a single match, and the other works with all matches. The second function will have the suffix <code>_all</code>.</p>
 </blockquote>
@@ -977,8 +977,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="tools.html#cb515-1" aria-hidden="true" tabindex="-1"></a>more <span class="ot">&lt;-</span> sentences[<span class="fu">str_count</span>(sentences, color_match) <span class="sc">&gt;</span> <span class="dv">1</span>]</span>
 <span id="cb515-2"><a href="tools.html#cb515-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view_all</span>(more, color_match)</span></code></pre></div>
-<div id="htmlwidget-e484d1f08b8fd0798ef0" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e484d1f08b8fd0798ef0">{"x":{"html":"<ul>\n  <li>It is hard to erase <span class='match'>blue<\/span> or <span class='match'>red<\/span> ink.<\/li>\n  <li>The <span class='match'>green<\/span> light in the brown box flicke<span class='match'>red<\/span>.<\/li>\n  <li>The sky in the west is tinged with <span class='match'>orange<\/span> <span class='match'>red<\/span>.<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-ea3cc566eb28e2e6a652" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ea3cc566eb28e2e6a652">{"x":{"html":"<ul>\n  <li>It is hard to erase <span class='match'>blue<\/span> or <span class='match'>red<\/span> ink.<\/li>\n  <li>The <span class='match'>green<\/span> light in the brown box flicke<span class='match'>red<\/span>.<\/li>\n  <li>The sky in the west is tinged with <span class='match'>orange<\/span> <span class='match'>red<\/span>.<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="tools.html#cb516-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract</span>(more, color_match)</span></code></pre></div>
 <pre><code>## [1] &quot;blue&quot;   &quot;green&quot;  &quot;orange&quot;</code></pre>
 <p>To get all matches, use <code>str_extract_all()</code>.</p>
@@ -1161,8 +1161,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Instead of splitting up strings by patterns, you can also split up by character, line, sentence and word <code>boundary()</code>s.</p>
 <div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="tools.html#cb546-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;This is a sentence.  This is another sentence.&quot;</span></span>
 <span id="cb546-2"><a href="tools.html#cb546-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view_all</span>(x, <span class="fu">boundary</span>(<span class="st">&quot;word&quot;</span>))</span></code></pre></div>
-<div id="htmlwidget-8fc6c7809f4a9be996a1" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8fc6c7809f4a9be996a1">{"x":{"html":"<ul>\n  <li><span class='match'>This<\/span> <span class='match'>is<\/span> <span class='match'>a<\/span> <span class='match'>sentence<\/span>.  <span class='match'>This<\/span> <span class='match'>is<\/span> <span class='match'>another<\/span> <span class='match'>sentence<\/span>.<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d06d1325d28c302bc890" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d06d1325d28c302bc890">{"x":{"html":"<ul>\n  <li><span class='match'>This<\/span> <span class='match'>is<\/span> <span class='match'>a<\/span> <span class='match'>sentence<\/span>.  <span class='match'>This<\/span> <span class='match'>is<\/span> <span class='match'>another<\/span> <span class='match'>sentence<\/span>.<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="tools.html#cb547-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_split</span>(x, <span class="st">&quot; &quot;</span>)[[<span class="dv">1</span>]]</span></code></pre></div>
 <pre><code>## [1] &quot;This&quot;      &quot;is&quot;        &quot;a&quot;         &quot;sentence.&quot; &quot;&quot;          &quot;This&quot;     
 ## [7] &quot;is&quot;        &quot;another&quot;   &quot;sentence.&quot;</code></pre>
