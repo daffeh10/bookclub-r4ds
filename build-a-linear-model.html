@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>32.10 Build a Linear Model | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
   <meta property="og:title" content="32.10 Build a Linear Model | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-10-24" />
+<meta name="date" content="2022-11-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -95,7 +95,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -108,7 +108,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -817,23 +817,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="build-a-linear-model" class="section level2 hasAnchor" number="32.10">
 <h2><span class="header-section-number">32.10</span> Build a Linear Model<a href="build-a-linear-model.html#build-a-linear-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb959"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb959-1"><a href="build-a-linear-model.html#cb959-1" aria-hidden="true" tabindex="-1"></a>diamonds2 <span class="ot">&lt;-</span> diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb959-2"><a href="build-a-linear-model.html#cb959-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(carat <span class="sc">&lt;=</span> <span class="fl">2.5</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb959-3"><a href="build-a-linear-model.html#cb959-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log_price =</span> <span class="fu">log2</span>(price), <span class="at">log_carat =</span> <span class="fu">log2</span>(carat))</span>
-<span id="cb959-4"><a href="build-a-linear-model.html#cb959-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb959-5"><a href="build-a-linear-model.html#cb959-5" aria-hidden="true" tabindex="-1"></a>mod_diamond <span class="ot">&lt;-</span> <span class="fu">lm</span>(log_price <span class="sc">~</span> log_carat, <span class="at">data =</span> diamonds2)</span>
-<span id="cb959-6"><a href="build-a-linear-model.html#cb959-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb959-7"><a href="build-a-linear-model.html#cb959-7" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> diamonds2 <span class="sc">%&gt;%</span> </span>
-<span id="cb959-8"><a href="build-a-linear-model.html#cb959-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_grid</span>(<span class="at">carat =</span> <span class="fu">seq_range</span>(carat, <span class="dv">20</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb959-9"><a href="build-a-linear-model.html#cb959-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log_carat =</span> <span class="fu">log2</span>(carat)) <span class="sc">%&gt;%</span> </span>
-<span id="cb959-10"><a href="build-a-linear-model.html#cb959-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_predictions</span>(mod_diamond, <span class="st">&quot;log_price&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb959-11"><a href="build-a-linear-model.html#cb959-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">price =</span> <span class="dv">2</span> <span class="sc">^</span> log_price)</span>
-<span id="cb959-12"><a href="build-a-linear-model.html#cb959-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb959-13"><a href="build-a-linear-model.html#cb959-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds2) <span class="sc">+</span></span>
-<span id="cb959-14"><a href="build-a-linear-model.html#cb959-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(carat, price) <span class="sc">+</span></span>
-<span id="cb959-15"><a href="build-a-linear-model.html#cb959-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">50</span>) <span class="sc">+</span></span>
-<span id="cb959-16"><a href="build-a-linear-model.html#cb959-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> grid, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>)</span></code></pre></div>
-<pre><code>## Warning: Computation failed in `stat_binhex()`:</code></pre>
+<div class="sourceCode" id="cb963"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb963-1"><a href="build-a-linear-model.html#cb963-1" aria-hidden="true" tabindex="-1"></a>diamonds2 <span class="ot">&lt;-</span> diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb963-2"><a href="build-a-linear-model.html#cb963-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(carat <span class="sc">&lt;=</span> <span class="fl">2.5</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb963-3"><a href="build-a-linear-model.html#cb963-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log_price =</span> <span class="fu">log2</span>(price), <span class="at">log_carat =</span> <span class="fu">log2</span>(carat))</span>
+<span id="cb963-4"><a href="build-a-linear-model.html#cb963-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb963-5"><a href="build-a-linear-model.html#cb963-5" aria-hidden="true" tabindex="-1"></a>mod_diamond <span class="ot">&lt;-</span> <span class="fu">lm</span>(log_price <span class="sc">~</span> log_carat, <span class="at">data =</span> diamonds2)</span>
+<span id="cb963-6"><a href="build-a-linear-model.html#cb963-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb963-7"><a href="build-a-linear-model.html#cb963-7" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> diamonds2 <span class="sc">%&gt;%</span> </span>
+<span id="cb963-8"><a href="build-a-linear-model.html#cb963-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_grid</span>(<span class="at">carat =</span> <span class="fu">seq_range</span>(carat, <span class="dv">20</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb963-9"><a href="build-a-linear-model.html#cb963-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log_carat =</span> <span class="fu">log2</span>(carat)) <span class="sc">%&gt;%</span> </span>
+<span id="cb963-10"><a href="build-a-linear-model.html#cb963-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_predictions</span>(mod_diamond, <span class="st">&quot;log_price&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb963-11"><a href="build-a-linear-model.html#cb963-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">price =</span> <span class="dv">2</span> <span class="sc">^</span> log_price)</span>
+<span id="cb963-12"><a href="build-a-linear-model.html#cb963-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb963-13"><a href="build-a-linear-model.html#cb963-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds2) <span class="sc">+</span></span>
+<span id="cb963-14"><a href="build-a-linear-model.html#cb963-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(carat, price) <span class="sc">+</span></span>
+<span id="cb963-15"><a href="build-a-linear-model.html#cb963-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">50</span>) <span class="sc">+</span></span>
+<span id="cb963-16"><a href="build-a-linear-model.html#cb963-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> grid, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## Warning: Computation failed in `stat_binhex()`
+## Caused by error in `compute_group()`:
+## ! The package `hexbin` is required for `stat_binhex()`</code></pre>
 <p><img src="bookclub-r4ds_files/figure-html/99-24-lm-1.png" width="672" /></p>
 </div>
             </section>

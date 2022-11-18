@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>14.4 Tools | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
   <meta property="og:title" content="14.4 Tools | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-10-24" />
+<meta name="date" content="2022-11-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -95,7 +95,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -108,7 +108,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -840,8 +840,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="detect-matches" class="section level3 hasAnchor" number="14.4.1">
 <h3><span class="header-section-number">14.4.1</span> Detect Matches<a href="tools.html#detect-matches" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To determine if a character vector matches a pattern, use str_detect(). It returns a logical vector the same length as the input:</p>
-<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="tools.html#cb484-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pear&quot;</span>)</span>
-<span id="cb484-2"><a href="tools.html#cb484-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_detect</span>(x, <span class="st">&quot;e&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="tools.html#cb485-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pear&quot;</span>)</span>
+<span id="cb485-2"><a href="tools.html#cb485-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_detect</span>(x, <span class="st">&quot;e&quot;</span>)</span></code></pre></div>
 <pre><code>## [1]  TRUE FALSE  TRUE</code></pre>
 <ul>
 <li>The use of a boolean output (True/False) means, we can count them!
@@ -851,34 +851,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li>Makind functions like <code>sum()</code> and <code>mean()</code> useful.</li>
 </ul>
-<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="tools.html#cb486-1" aria-hidden="true" tabindex="-1"></a><span class="co"># How many common words start with t?</span></span>
-<span id="cb486-2"><a href="tools.html#cb486-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">str_detect</span>(words, <span class="st">&quot;^t&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="tools.html#cb487-1" aria-hidden="true" tabindex="-1"></a><span class="co"># How many common words start with t?</span></span>
+<span id="cb487-2"><a href="tools.html#cb487-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">str_detect</span>(words, <span class="st">&quot;^t&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] 65</code></pre>
-<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="tools.html#cb488-1" aria-hidden="true" tabindex="-1"></a><span class="co"># What proportion of common words end with a vowel?</span></span>
-<span id="cb488-2"><a href="tools.html#cb488-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">str_detect</span>(words, <span class="st">&quot;[aeiou]$&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="tools.html#cb489-1" aria-hidden="true" tabindex="-1"></a><span class="co"># What proportion of common words end with a vowel?</span></span>
+<span id="cb489-2"><a href="tools.html#cb489-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">str_detect</span>(words, <span class="st">&quot;[aeiou]$&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] 0.2765306</code></pre>
 <p>When you create large logical conditions, you may be able to break them down to simpler search terms and then combine them together. Always try to start simple.</p>
-<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="tools.html#cb490-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find all words containing at least one vowel, and negate</span></span>
-<span id="cb490-2"><a href="tools.html#cb490-2" aria-hidden="true" tabindex="-1"></a>no_vowels_1 <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">str_detect</span>(words, <span class="st">&quot;[aeiou]&quot;</span>)</span>
-<span id="cb490-3"><a href="tools.html#cb490-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Find all words consisting only of consonants (non-vowels)</span></span>
-<span id="cb490-4"><a href="tools.html#cb490-4" aria-hidden="true" tabindex="-1"></a>no_vowels_2 <span class="ot">&lt;-</span> <span class="fu">str_detect</span>(words, <span class="st">&quot;^[^aeiou]+$&quot;</span>)</span>
-<span id="cb490-5"><a href="tools.html#cb490-5" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(no_vowels_1, no_vowels_2)</span></code></pre></div>
+<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="tools.html#cb491-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find all words containing at least one vowel, and negate</span></span>
+<span id="cb491-2"><a href="tools.html#cb491-2" aria-hidden="true" tabindex="-1"></a>no_vowels_1 <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">str_detect</span>(words, <span class="st">&quot;[aeiou]&quot;</span>)</span>
+<span id="cb491-3"><a href="tools.html#cb491-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Find all words consisting only of consonants (non-vowels)</span></span>
+<span id="cb491-4"><a href="tools.html#cb491-4" aria-hidden="true" tabindex="-1"></a>no_vowels_2 <span class="ot">&lt;-</span> <span class="fu">str_detect</span>(words, <span class="st">&quot;^[^aeiou]+$&quot;</span>)</span>
+<span id="cb491-5"><a href="tools.html#cb491-5" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(no_vowels_1, no_vowels_2)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>A common use of <code>str_detect()</code> is to match a pattern. You can do this with logical sub-setting or the convenient <code>str_subset()</code> wrapper:</p>
-<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="tools.html#cb492-1" aria-hidden="true" tabindex="-1"></a>words[<span class="fu">str_detect</span>(words, <span class="st">&quot;x$&quot;</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="tools.html#cb493-1" aria-hidden="true" tabindex="-1"></a>words[<span class="fu">str_detect</span>(words, <span class="st">&quot;x$&quot;</span>)]</span></code></pre></div>
 <pre><code>## [1] &quot;box&quot; &quot;sex&quot; &quot;six&quot; &quot;tax&quot;</code></pre>
-<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="tools.html#cb494-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_subset</span>(words, <span class="st">&quot;x$&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="tools.html#cb495-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_subset</span>(words, <span class="st">&quot;x$&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;box&quot; &quot;sex&quot; &quot;six&quot; &quot;tax&quot;</code></pre>
 <blockquote>
 <p>NOTE, the first example’s syntax is foreign to me. Would any member like to express what is happening?</p>
 </blockquote>
 <p>Filter is another tool that can make string detection easier.</p>
-<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="tools.html#cb496-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb496-2"><a href="tools.html#cb496-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">word =</span> words, </span>
-<span id="cb496-3"><a href="tools.html#cb496-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">i =</span> <span class="fu">seq_along</span>(word)</span>
-<span id="cb496-4"><a href="tools.html#cb496-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb496-5"><a href="tools.html#cb496-5" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb496-6"><a href="tools.html#cb496-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(word, <span class="st">&quot;x$&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="tools.html#cb497-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb497-2"><a href="tools.html#cb497-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">word =</span> words, </span>
+<span id="cb497-3"><a href="tools.html#cb497-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">i =</span> <span class="fu">seq_along</span>(word)</span>
+<span id="cb497-4"><a href="tools.html#cb497-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb497-5"><a href="tools.html#cb497-5" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb497-6"><a href="tools.html#cb497-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(word, <span class="st">&quot;x$&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 4 × 2
 ##   word      i
 ##   &lt;chr&gt; &lt;int&gt;
@@ -887,18 +887,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 3 six     772
 ## 4 tax     841</code></pre>
 <p>A variation on <code>str_detect()</code> is <code>str_count()</code>: rather than a simple yes or no, it tells you how many matches there are in a string:</p>
-<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="tools.html#cb498-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pear&quot;</span>)</span>
-<span id="cb498-2"><a href="tools.html#cb498-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_count</span>(x, <span class="st">&quot;a&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="tools.html#cb499-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pear&quot;</span>)</span>
+<span id="cb499-2"><a href="tools.html#cb499-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_count</span>(x, <span class="st">&quot;a&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 1 3 1</code></pre>
-<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="tools.html#cb500-1" aria-hidden="true" tabindex="-1"></a><span class="co"># On average, how many vowels per word?</span></span>
-<span id="cb500-2"><a href="tools.html#cb500-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">str_count</span>(words, <span class="st">&quot;[aeiou]&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="tools.html#cb501-1" aria-hidden="true" tabindex="-1"></a><span class="co"># On average, how many vowels per word?</span></span>
+<span id="cb501-2"><a href="tools.html#cb501-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">str_count</span>(words, <span class="st">&quot;[aeiou]&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] 1.991837</code></pre>
 <p>It’s natural to use <code>str_count()</code> with <code>mutate()</code>:</p>
-<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="tools.html#cb502-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb502-2"><a href="tools.html#cb502-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb502-3"><a href="tools.html#cb502-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">vowels =</span> <span class="fu">str_count</span>(word, <span class="st">&quot;[aeiou]&quot;</span>),</span>
-<span id="cb502-4"><a href="tools.html#cb502-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">consonants =</span> <span class="fu">str_count</span>(word, <span class="st">&quot;[^aeiou]&quot;</span>)</span>
-<span id="cb502-5"><a href="tools.html#cb502-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="tools.html#cb503-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb503-2"><a href="tools.html#cb503-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb503-3"><a href="tools.html#cb503-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">vowels =</span> <span class="fu">str_count</span>(word, <span class="st">&quot;[aeiou]&quot;</span>),</span>
+<span id="cb503-4"><a href="tools.html#cb503-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">consonants =</span> <span class="fu">str_count</span>(word, <span class="st">&quot;[^aeiou]&quot;</span>)</span>
+<span id="cb503-5"><a href="tools.html#cb503-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <pre><code>## # A tibble: 980 × 4
 ##    word         i vowels consonants
 ##    &lt;chr&gt;    &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
@@ -914,11 +914,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 active      10      3          3
 ## # … with 970 more rows</code></pre>
 <p>Note that matches never overlap. For example, in “abababa”, how many times will the pattern “aba” match? Regular expressions say two, not three:</p>
-<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="tools.html#cb504-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_count</span>(<span class="st">&quot;abababa&quot;</span>, <span class="st">&quot;aba&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="tools.html#cb505-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_count</span>(<span class="st">&quot;abababa&quot;</span>, <span class="st">&quot;aba&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="tools.html#cb506-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view_all</span>(<span class="st">&quot;abababa&quot;</span>, <span class="st">&quot;aba&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-05e8fc2338d78aafb6d4" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-05e8fc2338d78aafb6d4">{"x":{"html":"<ul>\n  <li><span class='match'>aba<\/span>b<span class='match'>aba<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="tools.html#cb507-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view_all</span>(<span class="st">&quot;abababa&quot;</span>, <span class="st">&quot;aba&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-24249f103efa37e51e15" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-24249f103efa37e51e15">{"x":{"html":"<ul>\n  <li><span class='match'>aba<\/span>b<span class='match'>aba<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <blockquote>
 <p>Note the use of <code>str_view_all()</code>. As you’ll shortly learn, many stringr functions come in pairs: one function works with a single match, and the other works with all matches. The second function will have the suffix <code>_all</code>.</p>
 </blockquote>
@@ -943,9 +943,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>str_extract()</code> to extract the actual text of a match</li>
 <li><a href="https://en.wikipedia.org/wiki/Harvard_sentences">Harvard Sentences</a></li>
 </ul>
-<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="tools.html#cb507-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(sentences)</span></code></pre></div>
+<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="tools.html#cb508-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(sentences)</span></code></pre></div>
 <pre><code>## [1] 720</code></pre>
-<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="tools.html#cb509-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sentences)</span></code></pre></div>
+<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="tools.html#cb510-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sentences)</span></code></pre></div>
 <pre><code>## [1] &quot;The birch canoe slid on the smooth planks.&quot; 
 ## [2] &quot;Glue the sheet to the dark blue background.&quot;
 ## [3] &quot;It&#39;s easy to tell the depth of a well.&quot;     
@@ -960,29 +960,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create a vector of color names</li>
 <li>Then turn it into a single regular expression</li>
 </ol>
-<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="tools.html#cb511-1" aria-hidden="true" tabindex="-1"></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;purple&quot;</span>)</span>
-<span id="cb511-2"><a href="tools.html#cb511-2" aria-hidden="true" tabindex="-1"></a>color_match <span class="ot">&lt;-</span> <span class="fu">str_c</span>(colors, <span class="at">collapse =</span> <span class="st">&quot;|&quot;</span>)</span>
-<span id="cb511-3"><a href="tools.html#cb511-3" aria-hidden="true" tabindex="-1"></a>color_match</span></code></pre></div>
+<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="tools.html#cb512-1" aria-hidden="true" tabindex="-1"></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;purple&quot;</span>)</span>
+<span id="cb512-2"><a href="tools.html#cb512-2" aria-hidden="true" tabindex="-1"></a>color_match <span class="ot">&lt;-</span> <span class="fu">str_c</span>(colors, <span class="at">collapse =</span> <span class="st">&quot;|&quot;</span>)</span>
+<span id="cb512-3"><a href="tools.html#cb512-3" aria-hidden="true" tabindex="-1"></a>color_match</span></code></pre></div>
 <pre><code>## [1] &quot;red|orange|yellow|green|blue|purple&quot;</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Select the sentences that contain a color</li>
 <li>Extract the color to figure out which one it is</li>
 </ol>
-<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="tools.html#cb513-1" aria-hidden="true" tabindex="-1"></a>has_color <span class="ot">&lt;-</span> <span class="fu">str_subset</span>(sentences, color_match)</span>
-<span id="cb513-2"><a href="tools.html#cb513-2" aria-hidden="true" tabindex="-1"></a>matches <span class="ot">&lt;-</span> <span class="fu">str_extract</span>(has_color, color_match)</span>
-<span id="cb513-3"><a href="tools.html#cb513-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(matches)</span></code></pre></div>
+<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="tools.html#cb514-1" aria-hidden="true" tabindex="-1"></a>has_color <span class="ot">&lt;-</span> <span class="fu">str_subset</span>(sentences, color_match)</span>
+<span id="cb514-2"><a href="tools.html#cb514-2" aria-hidden="true" tabindex="-1"></a>matches <span class="ot">&lt;-</span> <span class="fu">str_extract</span>(has_color, color_match)</span>
+<span id="cb514-3"><a href="tools.html#cb514-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(matches)</span></code></pre></div>
 <pre><code>## [1] &quot;blue&quot; &quot;blue&quot; &quot;red&quot;  &quot;red&quot;  &quot;red&quot;  &quot;blue&quot;</code></pre>
 <blockquote>
 <p>Note that <code>str_extract()</code> only extracts the first match.</p>
 </blockquote>
-<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="tools.html#cb515-1" aria-hidden="true" tabindex="-1"></a>more <span class="ot">&lt;-</span> sentences[<span class="fu">str_count</span>(sentences, color_match) <span class="sc">&gt;</span> <span class="dv">1</span>]</span>
-<span id="cb515-2"><a href="tools.html#cb515-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view_all</span>(more, color_match)</span></code></pre></div>
-<div id="htmlwidget-ea3cc566eb28e2e6a652" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ea3cc566eb28e2e6a652">{"x":{"html":"<ul>\n  <li>It is hard to erase <span class='match'>blue<\/span> or <span class='match'>red<\/span> ink.<\/li>\n  <li>The <span class='match'>green<\/span> light in the brown box flicke<span class='match'>red<\/span>.<\/li>\n  <li>The sky in the west is tinged with <span class='match'>orange<\/span> <span class='match'>red<\/span>.<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
-<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="tools.html#cb516-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract</span>(more, color_match)</span></code></pre></div>
+<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="tools.html#cb516-1" aria-hidden="true" tabindex="-1"></a>more <span class="ot">&lt;-</span> sentences[<span class="fu">str_count</span>(sentences, color_match) <span class="sc">&gt;</span> <span class="dv">1</span>]</span>
+<span id="cb516-2"><a href="tools.html#cb516-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view_all</span>(more, color_match)</span></code></pre></div>
+<div id="htmlwidget-da64da6f694d54fad248" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-da64da6f694d54fad248">{"x":{"html":"<ul>\n  <li>It is hard to erase <span class='match'>blue<\/span> or <span class='match'>red<\/span> ink.<\/li>\n  <li>The <span class='match'>green<\/span> light in the brown box flicke<span class='match'>red<\/span>.<\/li>\n  <li>The sky in the west is tinged with <span class='match'>orange<\/span> <span class='match'>red<\/span>.<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="tools.html#cb517-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract</span>(more, color_match)</span></code></pre></div>
 <pre><code>## [1] &quot;blue&quot;   &quot;green&quot;  &quot;orange&quot;</code></pre>
 <p>To get all matches, use <code>str_extract_all()</code>.</p>
-<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="tools.html#cb518-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract_all</span>(more, color_match)</span></code></pre></div>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="tools.html#cb519-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract_all</span>(more, color_match)</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] &quot;blue&quot; &quot;red&quot; 
 ## 
@@ -992,13 +992,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [[3]]
 ## [1] &quot;orange&quot; &quot;red&quot;</code></pre>
 <p>If you pass the argument <code>simplify = TRUE</code>, <code>str_extract_all()</code> will return a matrix with short matches expanded to the same length as the longest.</p>
-<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="tools.html#cb520-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract_all</span>(more, color_match, <span class="at">simplify =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="tools.html#cb521-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract_all</span>(more, color_match, <span class="at">simplify =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>##      [,1]     [,2] 
 ## [1,] &quot;blue&quot;   &quot;red&quot;
 ## [2,] &quot;green&quot;  &quot;red&quot;
 ## [3,] &quot;orange&quot; &quot;red&quot;</code></pre>
-<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="tools.html#cb522-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;a b&quot;</span>, <span class="st">&quot;a b c&quot;</span>)</span>
-<span id="cb522-2"><a href="tools.html#cb522-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract_all</span>(x, <span class="st">&quot;[a-z]&quot;</span>, <span class="at">simplify =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="tools.html#cb523-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;a b&quot;</span>, <span class="st">&quot;a b c&quot;</span>)</span>
+<span id="cb523-2"><a href="tools.html#cb523-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract_all</span>(x, <span class="st">&quot;[a-z]&quot;</span>, <span class="at">simplify =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,] &quot;a&quot;  &quot;&quot;   &quot;&quot;  
 ## [2,] &quot;a&quot;  &quot;b&quot;  &quot;&quot;  
@@ -1019,21 +1019,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="grouped-matches" class="section level3 hasAnchor" number="14.4.3">
 <h3><span class="header-section-number">14.4.3</span> Grouped Matches<a href="tools.html#grouped-matches" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Earlier we discussed using parentheses for clarifying precedence and for backreferences. ou can also use parentheses to extract parts of a complex match.</p>
-<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="tools.html#cb524-1" aria-hidden="true" tabindex="-1"></a>noun <span class="ot">&lt;-</span> <span class="st">&quot;(a|the) ([^ ]+)&quot;</span></span>
-<span id="cb524-2"><a href="tools.html#cb524-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb524-3"><a href="tools.html#cb524-3" aria-hidden="true" tabindex="-1"></a>has_noun <span class="ot">&lt;-</span> sentences <span class="sc">%&gt;%</span></span>
-<span id="cb524-4"><a href="tools.html#cb524-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_subset</span>(noun) <span class="sc">%&gt;%</span></span>
-<span id="cb524-5"><a href="tools.html#cb524-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
-<span id="cb524-6"><a href="tools.html#cb524-6" aria-hidden="true" tabindex="-1"></a>has_noun <span class="sc">%&gt;%</span> </span>
-<span id="cb524-7"><a href="tools.html#cb524-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_extract</span>(noun)</span></code></pre></div>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="tools.html#cb525-1" aria-hidden="true" tabindex="-1"></a>noun <span class="ot">&lt;-</span> <span class="st">&quot;(a|the) ([^ ]+)&quot;</span></span>
+<span id="cb525-2"><a href="tools.html#cb525-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb525-3"><a href="tools.html#cb525-3" aria-hidden="true" tabindex="-1"></a>has_noun <span class="ot">&lt;-</span> sentences <span class="sc">%&gt;%</span></span>
+<span id="cb525-4"><a href="tools.html#cb525-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_subset</span>(noun) <span class="sc">%&gt;%</span></span>
+<span id="cb525-5"><a href="tools.html#cb525-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
+<span id="cb525-6"><a href="tools.html#cb525-6" aria-hidden="true" tabindex="-1"></a>has_noun <span class="sc">%&gt;%</span> </span>
+<span id="cb525-7"><a href="tools.html#cb525-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_extract</span>(noun)</span></code></pre></div>
 <pre><code>##  [1] &quot;the smooth&quot; &quot;the sheet&quot;  &quot;the depth&quot;  &quot;a chicken&quot;  &quot;the parked&quot;
 ##  [6] &quot;the sun&quot;    &quot;the huge&quot;   &quot;the ball&quot;   &quot;the woman&quot;  &quot;a helps&quot;</code></pre>
 <ul>
 <li><code>str_extract()</code> gives us the complete match</li>
 <li><code>str_match()</code> gives each individual component</li>
 </ul>
-<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="tools.html#cb526-1" aria-hidden="true" tabindex="-1"></a>has_noun <span class="sc">%&gt;%</span> </span>
-<span id="cb526-2"><a href="tools.html#cb526-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_match</span>(noun)</span></code></pre></div>
+<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="tools.html#cb527-1" aria-hidden="true" tabindex="-1"></a>has_noun <span class="sc">%&gt;%</span> </span>
+<span id="cb527-2"><a href="tools.html#cb527-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_match</span>(noun)</span></code></pre></div>
 <pre><code>##       [,1]         [,2]  [,3]     
 ##  [1,] &quot;the smooth&quot; &quot;the&quot; &quot;smooth&quot; 
 ##  [2,] &quot;the sheet&quot;  &quot;the&quot; &quot;sheet&quot;  
@@ -1049,11 +1049,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>(Unsurprisingly, our heuristic for detecting nouns is poor, and also picks up adjectives like smooth and parked.)</p>
 </blockquote>
 <p>If your data is in a tibble, it’s often easier to use <code>tidyr::extract()</code>. It works like <code>str_match()</code> but requires you to name the matches, which are then placed in new columns.</p>
-<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="tools.html#cb528-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">sentence =</span> sentences) <span class="sc">%&gt;%</span> </span>
-<span id="cb528-2"><a href="tools.html#cb528-2" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">extract</span>(</span>
-<span id="cb528-3"><a href="tools.html#cb528-3" aria-hidden="true" tabindex="-1"></a>    sentence, <span class="fu">c</span>(<span class="st">&quot;article&quot;</span>, <span class="st">&quot;noun&quot;</span>), <span class="st">&quot;(a|the) ([^ ]+)&quot;</span>, </span>
-<span id="cb528-4"><a href="tools.html#cb528-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">remove =</span> <span class="cn">FALSE</span></span>
-<span id="cb528-5"><a href="tools.html#cb528-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="tools.html#cb529-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">sentence =</span> sentences) <span class="sc">%&gt;%</span> </span>
+<span id="cb529-2"><a href="tools.html#cb529-2" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">extract</span>(</span>
+<span id="cb529-3"><a href="tools.html#cb529-3" aria-hidden="true" tabindex="-1"></a>    sentence, <span class="fu">c</span>(<span class="st">&quot;article&quot;</span>, <span class="st">&quot;noun&quot;</span>), <span class="st">&quot;(a|the) ([^ ]+)&quot;</span>, </span>
+<span id="cb529-4"><a href="tools.html#cb529-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">remove =</span> <span class="cn">FALSE</span></span>
+<span id="cb529-5"><a href="tools.html#cb529-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <pre><code>## # A tibble: 720 × 3
 ##    sentence                                    article noun   
 ##    &lt;chr&gt;                                       &lt;chr&gt;   &lt;chr&gt;  
@@ -1080,19 +1080,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="replacing-matches" class="section level3 hasAnchor" number="14.4.4">
 <h3><span class="header-section-number">14.4.4</span> Replacing Matches<a href="tools.html#replacing-matches" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>str_replace()</code> and <code>str_replace_all()</code> allow you to replace matches with new strings.</p>
-<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="tools.html#cb530-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;pear&quot;</span>, <span class="st">&quot;banana&quot;</span>)</span>
-<span id="cb530-2"><a href="tools.html#cb530-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace</span>(x, <span class="st">&quot;[aeiou]&quot;</span>, <span class="st">&quot;-&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="tools.html#cb531-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;pear&quot;</span>, <span class="st">&quot;banana&quot;</span>)</span>
+<span id="cb531-2"><a href="tools.html#cb531-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace</span>(x, <span class="st">&quot;[aeiou]&quot;</span>, <span class="st">&quot;-&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;-pple&quot;  &quot;p-ar&quot;   &quot;b-nana&quot;</code></pre>
-<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="tools.html#cb532-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(x, <span class="st">&quot;[aeiou]&quot;</span>, <span class="st">&quot;-&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="tools.html#cb533-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(x, <span class="st">&quot;[aeiou]&quot;</span>, <span class="st">&quot;-&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;-ppl-&quot;  &quot;p--r&quot;   &quot;b-n-n-&quot;</code></pre>
 <p>With <code>str_replace_all()</code> you can perform multiple replacements by supplying a named vector</p>
-<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="tools.html#cb534-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;1 house&quot;</span>, <span class="st">&quot;2 cars&quot;</span>, <span class="st">&quot;3 people&quot;</span>)</span>
-<span id="cb534-2"><a href="tools.html#cb534-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(x, <span class="fu">c</span>(<span class="st">&quot;1&quot;</span> <span class="ot">=</span> <span class="st">&quot;one&quot;</span>, <span class="st">&quot;2&quot;</span> <span class="ot">=</span> <span class="st">&quot;two&quot;</span>, <span class="st">&quot;3&quot;</span> <span class="ot">=</span> <span class="st">&quot;three&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="tools.html#cb535-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;1 house&quot;</span>, <span class="st">&quot;2 cars&quot;</span>, <span class="st">&quot;3 people&quot;</span>)</span>
+<span id="cb535-2"><a href="tools.html#cb535-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(x, <span class="fu">c</span>(<span class="st">&quot;1&quot;</span> <span class="ot">=</span> <span class="st">&quot;one&quot;</span>, <span class="st">&quot;2&quot;</span> <span class="ot">=</span> <span class="st">&quot;two&quot;</span>, <span class="st">&quot;3&quot;</span> <span class="ot">=</span> <span class="st">&quot;three&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;one house&quot;    &quot;two cars&quot;     &quot;three people&quot;</code></pre>
 <p>Instead of replacing with a fixed string you can use backreferences to insert components of the match.</p>
-<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="tools.html#cb536-1" aria-hidden="true" tabindex="-1"></a>sentences <span class="sc">%&gt;%</span> </span>
-<span id="cb536-2"><a href="tools.html#cb536-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_replace</span>(<span class="st">&quot;([^ ]+) ([^ ]+) ([^ ]+)&quot;</span>, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">1 </span><span class="sc">\\</span><span class="st">3 </span><span class="sc">\\</span><span class="st">2&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb536-3"><a href="tools.html#cb536-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="tools.html#cb537-1" aria-hidden="true" tabindex="-1"></a>sentences <span class="sc">%&gt;%</span> </span>
+<span id="cb537-2"><a href="tools.html#cb537-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_replace</span>(<span class="st">&quot;([^ ]+) ([^ ]+) ([^ ]+)&quot;</span>, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">1 </span><span class="sc">\\</span><span class="st">3 </span><span class="sc">\\</span><span class="st">2&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb537-3"><a href="tools.html#cb537-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;The canoe birch slid on the smooth planks.&quot; 
 ## [2] &quot;Glue sheet the to the dark blue background.&quot;
 ## [3] &quot;It&#39;s to easy tell the depth of a well.&quot;     
@@ -1110,9 +1110,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="splitting" class="section level3 hasAnchor" number="14.4.5">
 <h3><span class="header-section-number">14.4.5</span> Splitting<a href="tools.html#splitting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Use str_split() to split a string up into pieces.</p>
-<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="tools.html#cb538-1" aria-hidden="true" tabindex="-1"></a>sentences <span class="sc">%&gt;%</span></span>
-<span id="cb538-2"><a href="tools.html#cb538-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb538-3"><a href="tools.html#cb538-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_split</span>(<span class="st">&quot; &quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="tools.html#cb539-1" aria-hidden="true" tabindex="-1"></a>sentences <span class="sc">%&gt;%</span></span>
+<span id="cb539-2"><a href="tools.html#cb539-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb539-3"><a href="tools.html#cb539-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_split</span>(<span class="st">&quot; &quot;</span>)</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] &quot;The&quot;     &quot;birch&quot;   &quot;canoe&quot;   &quot;slid&quot;    &quot;on&quot;      &quot;the&quot;     &quot;smooth&quot; 
 ## [8] &quot;planks.&quot;
@@ -1131,14 +1131,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [[5]]
 ## [1] &quot;Rice&quot;   &quot;is&quot;     &quot;often&quot;  &quot;served&quot; &quot;in&quot;     &quot;round&quot;  &quot;bowls.&quot;</code></pre>
 <p>If you’re working with a length-1 vector, the easiest thing is to just extract the first element of the list.</p>
-<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="tools.html#cb540-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;a|b|c|d&quot;</span> <span class="sc">%&gt;%</span> </span>
-<span id="cb540-2"><a href="tools.html#cb540-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_split</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">|&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb540-3"><a href="tools.html#cb540-3" aria-hidden="true" tabindex="-1"></a>  .[[<span class="dv">1</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="tools.html#cb541-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;a|b|c|d&quot;</span> <span class="sc">%&gt;%</span> </span>
+<span id="cb541-2"><a href="tools.html#cb541-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_split</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">|&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb541-3"><a href="tools.html#cb541-3" aria-hidden="true" tabindex="-1"></a>  .[[<span class="dv">1</span>]]</span></code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot;</code></pre>
 <p>You can use <code>simplify = TRUE</code> to return a matrix:</p>
-<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="tools.html#cb542-1" aria-hidden="true" tabindex="-1"></a>sentences <span class="sc">%&gt;%</span></span>
-<span id="cb542-2"><a href="tools.html#cb542-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb542-3"><a href="tools.html#cb542-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_split</span>(<span class="st">&quot; &quot;</span>, <span class="at">simplify =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="tools.html#cb543-1" aria-hidden="true" tabindex="-1"></a>sentences <span class="sc">%&gt;%</span></span>
+<span id="cb543-2"><a href="tools.html#cb543-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb543-3"><a href="tools.html#cb543-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_split</span>(<span class="st">&quot; &quot;</span>, <span class="at">simplify =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>##      [,1]    [,2]    [,3]    [,4]      [,5]  [,6]    [,7]     [,8]         
 ## [1,] &quot;The&quot;   &quot;birch&quot; &quot;canoe&quot; &quot;slid&quot;    &quot;on&quot;  &quot;the&quot;   &quot;smooth&quot; &quot;planks.&quot;    
 ## [2,] &quot;Glue&quot;  &quot;the&quot;   &quot;sheet&quot; &quot;to&quot;      &quot;the&quot; &quot;dark&quot;  &quot;blue&quot;   &quot;background.&quot;
@@ -1152,21 +1152,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [4,] &quot;dish.&quot;
 ## [5,] &quot;&quot;</code></pre>
 <p>You can also request a maximum number of pieces</p>
-<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="tools.html#cb544-1" aria-hidden="true" tabindex="-1"></a>fields <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Name: Hadley&quot;</span>, <span class="st">&quot;Country: NZ&quot;</span>, <span class="st">&quot;Age: 35&quot;</span>)</span>
-<span id="cb544-2"><a href="tools.html#cb544-2" aria-hidden="true" tabindex="-1"></a>fields <span class="sc">%&gt;%</span> <span class="fu">str_split</span>(<span class="st">&quot;: &quot;</span>, <span class="at">n =</span> <span class="dv">2</span>, <span class="at">simplify =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="tools.html#cb545-1" aria-hidden="true" tabindex="-1"></a>fields <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Name: Hadley&quot;</span>, <span class="st">&quot;Country: NZ&quot;</span>, <span class="st">&quot;Age: 35&quot;</span>)</span>
+<span id="cb545-2"><a href="tools.html#cb545-2" aria-hidden="true" tabindex="-1"></a>fields <span class="sc">%&gt;%</span> <span class="fu">str_split</span>(<span class="st">&quot;: &quot;</span>, <span class="at">n =</span> <span class="dv">2</span>, <span class="at">simplify =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>##      [,1]      [,2]    
 ## [1,] &quot;Name&quot;    &quot;Hadley&quot;
 ## [2,] &quot;Country&quot; &quot;NZ&quot;    
 ## [3,] &quot;Age&quot;     &quot;35&quot;</code></pre>
 <p>Instead of splitting up strings by patterns, you can also split up by character, line, sentence and word <code>boundary()</code>s.</p>
-<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="tools.html#cb546-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;This is a sentence.  This is another sentence.&quot;</span></span>
-<span id="cb546-2"><a href="tools.html#cb546-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view_all</span>(x, <span class="fu">boundary</span>(<span class="st">&quot;word&quot;</span>))</span></code></pre></div>
-<div id="htmlwidget-d06d1325d28c302bc890" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d06d1325d28c302bc890">{"x":{"html":"<ul>\n  <li><span class='match'>This<\/span> <span class='match'>is<\/span> <span class='match'>a<\/span> <span class='match'>sentence<\/span>.  <span class='match'>This<\/span> <span class='match'>is<\/span> <span class='match'>another<\/span> <span class='match'>sentence<\/span>.<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
-<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="tools.html#cb547-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_split</span>(x, <span class="st">&quot; &quot;</span>)[[<span class="dv">1</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="tools.html#cb547-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;This is a sentence.  This is another sentence.&quot;</span></span>
+<span id="cb547-2"><a href="tools.html#cb547-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view_all</span>(x, <span class="fu">boundary</span>(<span class="st">&quot;word&quot;</span>))</span></code></pre></div>
+<div id="htmlwidget-10077411d2cb400515f2" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-10077411d2cb400515f2">{"x":{"html":"<ul>\n  <li><span class='match'>This<\/span> <span class='match'>is<\/span> <span class='match'>a<\/span> <span class='match'>sentence<\/span>.  <span class='match'>This<\/span> <span class='match'>is<\/span> <span class='match'>another<\/span> <span class='match'>sentence<\/span>.<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="tools.html#cb548-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_split</span>(x, <span class="st">&quot; &quot;</span>)[[<span class="dv">1</span>]]</span></code></pre></div>
 <pre><code>## [1] &quot;This&quot;      &quot;is&quot;        &quot;a&quot;         &quot;sentence.&quot; &quot;&quot;          &quot;This&quot;     
 ## [7] &quot;is&quot;        &quot;another&quot;   &quot;sentence.&quot;</code></pre>
-<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="tools.html#cb549-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_split</span>(x, <span class="fu">boundary</span>(<span class="st">&quot;word&quot;</span>))[[<span class="dv">1</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="tools.html#cb550-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_split</span>(x, <span class="fu">boundary</span>(<span class="st">&quot;word&quot;</span>))[[<span class="dv">1</span>]]</span></code></pre></div>
 <pre><code>## [1] &quot;This&quot;     &quot;is&quot;       &quot;a&quot;        &quot;sentence&quot; &quot;This&quot;     &quot;is&quot;       &quot;another&quot; 
 ## [8] &quot;sentence&quot;</code></pre>
 <div id="exercises-unanswered-6" class="section level4 hasAnchor" number="14.4.5.1">

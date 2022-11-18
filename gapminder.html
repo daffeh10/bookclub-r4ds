@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>32.17 gapminder | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
   <meta property="og:title" content="32.17 gapminder | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-10-24" />
+<meta name="date" content="2022-11-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -95,7 +95,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -108,7 +108,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -820,44 +820,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Where do I begin to express the awesomness of Hans Rosling (27 July 1948 – 7 February 2017). I HIGHLY encourage you to watch the youtube video!</p>
 <p><a href="https://www.youtube.com/watch?v=jbkSRLYSojo%22">Hans Rosling’s 200 Countries, 200 Years, 4 Minutes - The Joy of Stats - BBC Four</a></p>
 <p>Furthermore, we can thank Jenny Bryan for authoring the gapminder package!</p>
-<div class="sourceCode" id="cb984"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb984-1"><a href="gapminder.html#cb984-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span></code></pre></div>
+<div class="sourceCode" id="cb987"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb987-1"><a href="gapminder.html#cb987-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span></code></pre></div>
 <p>To gain some insight to the data, we ask the question: “How does life expectancy (lifeExp) change over time (year) for each country (country)?”</p>
-<div class="sourceCode" id="cb985"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb985-1"><a href="gapminder.html#cb985-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
-<span id="cb985-2"><a href="gapminder.html#cb985-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, lifeExp, <span class="at">group =</span> country)) <span class="sc">+</span></span>
-<span id="cb985-3"><a href="gapminder.html#cb985-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb988"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb988-1"><a href="gapminder.html#cb988-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb988-2"><a href="gapminder.html#cb988-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, lifeExp, <span class="at">group =</span> country)) <span class="sc">+</span></span>
+<span id="cb988-3"><a href="gapminder.html#cb988-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>)</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/99-25-Plot%20Gapmider-1.png" width="672" /></p>
 <p>At first glance, it appears life expectancy is increasing…but not for all countries.</p>
 <p>To make it easier to view, we fit a model with a linear trend. The model captures steady growth over time, and the residuals will show what’s left.</p>
-<div class="sourceCode" id="cb986"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb986-1"><a href="gapminder.html#cb986-1" aria-hidden="true" tabindex="-1"></a>nz <span class="ot">&lt;-</span> <span class="fu">filter</span>(gapminder, country <span class="sc">==</span> <span class="st">&quot;New Zealand&quot;</span>)</span>
-<span id="cb986-2"><a href="gapminder.html#cb986-2" aria-hidden="true" tabindex="-1"></a>nz <span class="sc">%&gt;%</span></span>
-<span id="cb986-3"><a href="gapminder.html#cb986-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, lifeExp)) <span class="sc">+</span></span>
-<span id="cb986-4"><a href="gapminder.html#cb986-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb986-5"><a href="gapminder.html#cb986-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Full data = &quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb989"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb989-1"><a href="gapminder.html#cb989-1" aria-hidden="true" tabindex="-1"></a>nz <span class="ot">&lt;-</span> <span class="fu">filter</span>(gapminder, country <span class="sc">==</span> <span class="st">&quot;New Zealand&quot;</span>)</span>
+<span id="cb989-2"><a href="gapminder.html#cb989-2" aria-hidden="true" tabindex="-1"></a>nz <span class="sc">%&gt;%</span></span>
+<span id="cb989-3"><a href="gapminder.html#cb989-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, lifeExp)) <span class="sc">+</span></span>
+<span id="cb989-4"><a href="gapminder.html#cb989-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb989-5"><a href="gapminder.html#cb989-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Full data = &quot;</span>)</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/99-25-Linear%20Trend-1.png" width="672" /></p>
-<div class="sourceCode" id="cb987"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb987-1"><a href="gapminder.html#cb987-1" aria-hidden="true" tabindex="-1"></a>nz_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(lifeExp <span class="sc">~</span> year, <span class="at">data =</span> nz)</span>
-<span id="cb987-2"><a href="gapminder.html#cb987-2" aria-hidden="true" tabindex="-1"></a>nz <span class="sc">%&gt;%</span></span>
-<span id="cb987-3"><a href="gapminder.html#cb987-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_predictions</span>(nz_mod) <span class="sc">%&gt;%</span></span>
-<span id="cb987-4"><a href="gapminder.html#cb987-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, pred)) <span class="sc">+</span></span>
-<span id="cb987-5"><a href="gapminder.html#cb987-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb987-6"><a href="gapminder.html#cb987-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Linear trend + &quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb990"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb990-1"><a href="gapminder.html#cb990-1" aria-hidden="true" tabindex="-1"></a>nz_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(lifeExp <span class="sc">~</span> year, <span class="at">data =</span> nz)</span>
+<span id="cb990-2"><a href="gapminder.html#cb990-2" aria-hidden="true" tabindex="-1"></a>nz <span class="sc">%&gt;%</span></span>
+<span id="cb990-3"><a href="gapminder.html#cb990-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_predictions</span>(nz_mod) <span class="sc">%&gt;%</span></span>
+<span id="cb990-4"><a href="gapminder.html#cb990-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, pred)) <span class="sc">+</span></span>
+<span id="cb990-5"><a href="gapminder.html#cb990-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb990-6"><a href="gapminder.html#cb990-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Linear trend + &quot;</span>)</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/99-25-Linear%20Trend-2.png" width="672" /></p>
-<div class="sourceCode" id="cb988"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb988-1"><a href="gapminder.html#cb988-1" aria-hidden="true" tabindex="-1"></a>nz <span class="sc">%&gt;%</span></span>
-<span id="cb988-2"><a href="gapminder.html#cb988-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_residuals</span>(nz_mod) <span class="sc">%&gt;%</span></span>
-<span id="cb988-3"><a href="gapminder.html#cb988-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, resid)) <span class="sc">+</span></span>
-<span id="cb988-4"><a href="gapminder.html#cb988-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">colour =</span> <span class="st">&quot;white&quot;</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb988-5"><a href="gapminder.html#cb988-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb988-6"><a href="gapminder.html#cb988-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Remaining pattern&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb991"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb991-1"><a href="gapminder.html#cb991-1" aria-hidden="true" tabindex="-1"></a>nz <span class="sc">%&gt;%</span></span>
+<span id="cb991-2"><a href="gapminder.html#cb991-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_residuals</span>(nz_mod) <span class="sc">%&gt;%</span></span>
+<span id="cb991-3"><a href="gapminder.html#cb991-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, resid)) <span class="sc">+</span></span>
+<span id="cb991-4"><a href="gapminder.html#cb991-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">colour =</span> <span class="st">&quot;white&quot;</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb991-5"><a href="gapminder.html#cb991-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb991-6"><a href="gapminder.html#cb991-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Remaining pattern&quot;</span>)</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/99-25-Linear%20Trend-3.png" width="672" />
 This is good….but how do we do this for every country?</p>
 <div id="nested-data" class="section level3 hasAnchor" number="32.17.1">
 <h3><span class="header-section-number">32.17.1</span> Nested data<a href="gapminder.html#nested-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To make life easier for us (and ensure we are not copying and pasting forever), we use the <code>map</code> function from the <code>purrr</code> package.</p>
 <p>Here, we are going to make a <strong>nested data frame</strong>.</p>
-<div class="sourceCode" id="cb989"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb989-1"><a href="gapminder.html#cb989-1" aria-hidden="true" tabindex="-1"></a>by_country <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span></span>
-<span id="cb989-2"><a href="gapminder.html#cb989-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country, continent) <span class="sc">%&gt;%</span></span>
-<span id="cb989-3"><a href="gapminder.html#cb989-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>()</span>
-<span id="cb989-4"><a href="gapminder.html#cb989-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb989-5"><a href="gapminder.html#cb989-5" aria-hidden="true" tabindex="-1"></a>by_country</span></code></pre></div>
+<div class="sourceCode" id="cb992"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb992-1"><a href="gapminder.html#cb992-1" aria-hidden="true" tabindex="-1"></a>by_country <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb992-2"><a href="gapminder.html#cb992-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country, continent) <span class="sc">%&gt;%</span></span>
+<span id="cb992-3"><a href="gapminder.html#cb992-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>()</span>
+<span id="cb992-4"><a href="gapminder.html#cb992-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb992-5"><a href="gapminder.html#cb992-5" aria-hidden="true" tabindex="-1"></a>by_country</span></code></pre></div>
 <pre><code>## # A tibble: 142 × 3
 ## # Groups:   country, continent [142]
 ##    country     continent data             
@@ -877,7 +877,7 @@ This is good….but how do we do this for every country?</p>
 <blockquote>
 <p>Note: Don’t use the Structure function <code>str()</code> as it will be difficult to view. Instead, just view a single line of your nested dataframe.</p>
 </blockquote>
-<div class="sourceCode" id="cb991"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb991-1"><a href="gapminder.html#cb991-1" aria-hidden="true" tabindex="-1"></a>by_country<span class="sc">$</span>data[[<span class="dv">1</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb994"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb994-1"><a href="gapminder.html#cb994-1" aria-hidden="true" tabindex="-1"></a>by_country<span class="sc">$</span>data[[<span class="dv">1</span>]]</span></code></pre></div>
 <pre><code>## # A tibble: 12 × 4
 ##     year lifeExp      pop gdpPercap
 ##    &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -900,14 +900,14 @@ This is good….but how do we do this for every country?</p>
 <div id="list-columns" class="section level3 hasAnchor" number="32.17.2">
 <h3><span class="header-section-number">32.17.2</span> List-columns<a href="gapminder.html#list-columns" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now, lets fit some models!</p>
-<div class="sourceCode" id="cb993"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb993-1"><a href="gapminder.html#cb993-1" aria-hidden="true" tabindex="-1"></a>country_model <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
-<span id="cb993-2"><a href="gapminder.html#cb993-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lm</span>(lifeExp <span class="sc">~</span> year, <span class="at">data =</span> df)</span>
-<span id="cb993-3"><a href="gapminder.html#cb993-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb993-4"><a href="gapminder.html#cb993-4" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">map</span>(by_country<span class="sc">$</span>data, country_model)</span></code></pre></div>
+<div class="sourceCode" id="cb996"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb996-1"><a href="gapminder.html#cb996-1" aria-hidden="true" tabindex="-1"></a>country_model <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
+<span id="cb996-2"><a href="gapminder.html#cb996-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lm</span>(lifeExp <span class="sc">~</span> year, <span class="at">data =</span> df)</span>
+<span id="cb996-3"><a href="gapminder.html#cb996-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb996-4"><a href="gapminder.html#cb996-4" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">map</span>(by_country<span class="sc">$</span>data, country_model)</span></code></pre></div>
 <p>Yet, this may be too costly, so instead, lets modify (be more elegant) with our data. Storing related objects in columns is a key part of the value of data frames.</p>
-<div class="sourceCode" id="cb994"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb994-1"><a href="gapminder.html#cb994-1" aria-hidden="true" tabindex="-1"></a>by_country <span class="ot">&lt;-</span> by_country <span class="sc">%&gt;%</span></span>
-<span id="cb994-2"><a href="gapminder.html#cb994-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">model =</span> <span class="fu">map</span>(data, country_model))</span>
-<span id="cb994-3"><a href="gapminder.html#cb994-3" aria-hidden="true" tabindex="-1"></a>by_country</span></code></pre></div>
+<div class="sourceCode" id="cb997"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb997-1"><a href="gapminder.html#cb997-1" aria-hidden="true" tabindex="-1"></a>by_country <span class="ot">&lt;-</span> by_country <span class="sc">%&gt;%</span></span>
+<span id="cb997-2"><a href="gapminder.html#cb997-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">model =</span> <span class="fu">map</span>(data, country_model))</span>
+<span id="cb997-3"><a href="gapminder.html#cb997-3" aria-hidden="true" tabindex="-1"></a>by_country</span></code></pre></div>
 <pre><code>## # A tibble: 142 × 4
 ## # Groups:   country, continent [142]
 ##    country     continent data              model 
@@ -924,8 +924,8 @@ This is good….but how do we do this for every country?</p>
 ## 10 Belgium     Europe    &lt;tibble [12 × 4]&gt; &lt;lm&gt;  
 ## # … with 132 more rows</code></pre>
 <p>This is a huge advantage: because all the related objects are stored together, you don’t need to manually keep them in sync when you filter or arrange.</p>
-<div class="sourceCode" id="cb996"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb996-1"><a href="gapminder.html#cb996-1" aria-hidden="true" tabindex="-1"></a>by_country <span class="sc">%&gt;%</span></span>
-<span id="cb996-2"><a href="gapminder.html#cb996-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">&quot;Europe&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb999"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb999-1"><a href="gapminder.html#cb999-1" aria-hidden="true" tabindex="-1"></a>by_country <span class="sc">%&gt;%</span></span>
+<span id="cb999-2"><a href="gapminder.html#cb999-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">&quot;Europe&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 30 × 4
 ## # Groups:   country, continent [30]
 ##    country                continent data              model 
@@ -941,8 +941,8 @@ This is good….but how do we do this for every country?</p>
 ##  9 Finland                Europe    &lt;tibble [12 × 4]&gt; &lt;lm&gt;  
 ## 10 France                 Europe    &lt;tibble [12 × 4]&gt; &lt;lm&gt;  
 ## # … with 20 more rows</code></pre>
-<div class="sourceCode" id="cb998"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb998-1"><a href="gapminder.html#cb998-1" aria-hidden="true" tabindex="-1"></a>by_country <span class="sc">%&gt;%</span></span>
-<span id="cb998-2"><a href="gapminder.html#cb998-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(continent, country)</span></code></pre></div>
+<div class="sourceCode" id="cb1001"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1001-1"><a href="gapminder.html#cb1001-1" aria-hidden="true" tabindex="-1"></a>by_country <span class="sc">%&gt;%</span></span>
+<span id="cb1001-2"><a href="gapminder.html#cb1001-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(continent, country)</span></code></pre></div>
 <pre><code>## # A tibble: 142 × 4
 ## # Groups:   country, continent [142]
 ##    country                  continent data              model 
@@ -963,11 +963,11 @@ This is good….but how do we do this for every country?</p>
 <div id="unnesting" class="section level3 hasAnchor" number="32.17.3">
 <h3><span class="header-section-number">32.17.3</span> Unnesting<a href="gapminder.html#unnesting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Previously, we were working with only one country. Now, lets compute the residuals of ALL countries.</p>
-<div class="sourceCode" id="cb1000"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1000-1"><a href="gapminder.html#cb1000-1" aria-hidden="true" tabindex="-1"></a>by_country <span class="ot">&lt;-</span> by_country <span class="sc">%&gt;%</span></span>
-<span id="cb1000-2"><a href="gapminder.html#cb1000-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb1000-3"><a href="gapminder.html#cb1000-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">resids =</span> <span class="fu">map2</span>(data, model, add_residuals)</span>
-<span id="cb1000-4"><a href="gapminder.html#cb1000-4" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1000-5"><a href="gapminder.html#cb1000-5" aria-hidden="true" tabindex="-1"></a>by_country</span></code></pre></div>
+<div class="sourceCode" id="cb1003"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1003-1"><a href="gapminder.html#cb1003-1" aria-hidden="true" tabindex="-1"></a>by_country <span class="ot">&lt;-</span> by_country <span class="sc">%&gt;%</span></span>
+<span id="cb1003-2"><a href="gapminder.html#cb1003-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1003-3"><a href="gapminder.html#cb1003-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">resids =</span> <span class="fu">map2</span>(data, model, add_residuals)</span>
+<span id="cb1003-4"><a href="gapminder.html#cb1003-4" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1003-5"><a href="gapminder.html#cb1003-5" aria-hidden="true" tabindex="-1"></a>by_country</span></code></pre></div>
 <pre><code>## # A tibble: 142 × 5
 ## # Groups:   country, continent [142]
 ##    country     continent data              model  resids           
@@ -984,8 +984,8 @@ This is good….but how do we do this for every country?</p>
 ## 10 Belgium     Europe    &lt;tibble [12 × 4]&gt; &lt;lm&gt;   &lt;tibble [12 × 5]&gt;
 ## # … with 132 more rows</code></pre>
 <p>By now, you should ask yourself: “How can I plot a bunch of dataframes?”. This isn’t required. We have to <em>un-nest</em>.</p>
-<div class="sourceCode" id="cb1002"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1002-1"><a href="gapminder.html#cb1002-1" aria-hidden="true" tabindex="-1"></a>resids <span class="ot">&lt;-</span> <span class="fu">unnest</span>(by_country, resids)</span>
-<span id="cb1002-2"><a href="gapminder.html#cb1002-2" aria-hidden="true" tabindex="-1"></a>resids</span></code></pre></div>
+<div class="sourceCode" id="cb1005"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1005-1"><a href="gapminder.html#cb1005-1" aria-hidden="true" tabindex="-1"></a>resids <span class="ot">&lt;-</span> <span class="fu">unnest</span>(by_country, resids)</span>
+<span id="cb1005-2"><a href="gapminder.html#cb1005-2" aria-hidden="true" tabindex="-1"></a>resids</span></code></pre></div>
 <pre><code>## # A tibble: 1,704 × 9
 ## # Groups:   country, continent [142]
 ##    country     continent data     model   year lifeExp      pop gdpPer…¹   resid
@@ -1002,17 +1002,17 @@ This is good….but how do we do this for every country?</p>
 ## 10 Afghanistan Asia      &lt;tibble&gt; &lt;lm&gt;    1997    41.8 22227415     635. -0.534 
 ## # … with 1,694 more rows, and abbreviated variable name ¹​gdpPercap</code></pre>
 <p>Now, we can plot ALL the residuals.</p>
-<div class="sourceCode" id="cb1004"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1004-1"><a href="gapminder.html#cb1004-1" aria-hidden="true" tabindex="-1"></a>resids <span class="sc">%&gt;%</span></span>
-<span id="cb1004-2"><a href="gapminder.html#cb1004-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, resid)) <span class="sc">+</span></span>
-<span id="cb1004-3"><a href="gapminder.html#cb1004-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> country), <span class="at">alpha =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb1004-4"><a href="gapminder.html#cb1004-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<pre><code>## `geom_smooth()` using method = &#39;gam&#39; and formula &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
+<div class="sourceCode" id="cb1007"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1007-1"><a href="gapminder.html#cb1007-1" aria-hidden="true" tabindex="-1"></a>resids <span class="sc">%&gt;%</span></span>
+<span id="cb1007-2"><a href="gapminder.html#cb1007-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, resid)) <span class="sc">+</span></span>
+<span id="cb1007-3"><a href="gapminder.html#cb1007-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> country), <span class="at">alpha =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb1007-4"><a href="gapminder.html#cb1007-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using method = &#39;gam&#39; and formula = &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
 <p><img src="bookclub-r4ds_files/figure-html/99-25-Plot%20Residuals-1.png" width="672" />
 We can now plot each country as a facet.</p>
-<div class="sourceCode" id="cb1006"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1006-1"><a href="gapminder.html#cb1006-1" aria-hidden="true" tabindex="-1"></a>resids <span class="sc">%&gt;%</span></span>
-<span id="cb1006-2"><a href="gapminder.html#cb1006-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, resid, <span class="at">group =</span> country)) <span class="sc">+</span></span>
-<span id="cb1006-3"><a href="gapminder.html#cb1006-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb1006-4"><a href="gapminder.html#cb1006-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>continent)</span></code></pre></div>
+<div class="sourceCode" id="cb1009"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1009-1"><a href="gapminder.html#cb1009-1" aria-hidden="true" tabindex="-1"></a>resids <span class="sc">%&gt;%</span></span>
+<span id="cb1009-2"><a href="gapminder.html#cb1009-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, resid, <span class="at">group =</span> country)) <span class="sc">+</span></span>
+<span id="cb1009-3"><a href="gapminder.html#cb1009-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb1009-4"><a href="gapminder.html#cb1009-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>continent)</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/99-25-Facet%20by%20Country-1.png" width="672" />
 We can note that we still have very large residuals, namely in Africa suggesting our model isn’t fitting very well.</p>
 </div>
@@ -1020,7 +1020,7 @@ We can note that we still have very large residuals, namely in Africa suggesting
 <h3><span class="header-section-number">32.17.4</span> Model quality<a href="gapminder.html#model-quality" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Instead of looking at the residuals from the model, we could look at some general measurements of model quality.</p>
 <p>We’ll use <code>broom::glance()</code> to extract some model quality metrics.</p>
-<div class="sourceCode" id="cb1007"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1007-1"><a href="gapminder.html#cb1007-1" aria-hidden="true" tabindex="-1"></a>broom<span class="sc">::</span><span class="fu">glance</span>(nz_mod)</span></code></pre></div>
+<div class="sourceCode" id="cb1010"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1010-1"><a href="gapminder.html#cb1010-1" aria-hidden="true" tabindex="-1"></a>broom<span class="sc">::</span><span class="fu">glance</span>(nz_mod)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 12
 ##   r.squ…¹ adj.r…² sigma stati…³ p.value    df logLik   AIC   BIC devia…⁴ df.re…⁵
 ##     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;int&gt;
@@ -1028,9 +1028,9 @@ We can note that we still have very large residuals, namely in Africa suggesting
 ## # … with 1 more variable: nobs &lt;int&gt;, and abbreviated variable names
 ## #   ¹​r.squared, ²​adj.r.squared, ³​statistic, ⁴​deviance, ⁵​df.residual</code></pre>
 <p>We can use mutate() and unnest() to create a data frame with a row for each country.</p>
-<div class="sourceCode" id="cb1009"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1009-1"><a href="gapminder.html#cb1009-1" aria-hidden="true" tabindex="-1"></a>by_country <span class="sc">%&gt;%</span></span>
-<span id="cb1009-2"><a href="gapminder.html#cb1009-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">glance =</span> <span class="fu">map</span>(model, broom<span class="sc">::</span>glance)) <span class="sc">%&gt;%</span></span>
-<span id="cb1009-3"><a href="gapminder.html#cb1009-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(glance)</span></code></pre></div>
+<div class="sourceCode" id="cb1012"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1012-1"><a href="gapminder.html#cb1012-1" aria-hidden="true" tabindex="-1"></a>by_country <span class="sc">%&gt;%</span></span>
+<span id="cb1012-2"><a href="gapminder.html#cb1012-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">glance =</span> <span class="fu">map</span>(model, broom<span class="sc">::</span>glance)) <span class="sc">%&gt;%</span></span>
+<span id="cb1012-3"><a href="gapminder.html#cb1012-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(glance)</span></code></pre></div>
 <pre><code>## # A tibble: 142 × 17
 ## # Groups:   country, continent [142]
 ##    country     continent data     model  resids   r.squa…¹ adj.r…² sigma stati…³
@@ -1053,12 +1053,12 @@ We can note that we still have very large residuals, namely in Africa suggesting
 <blockquote>
 <p>Note, <code>.drop=TRUE</code> has been depricated.</p>
 </blockquote>
-<div class="sourceCode" id="cb1011"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1011-1"><a href="gapminder.html#cb1011-1" aria-hidden="true" tabindex="-1"></a>glance <span class="ot">&lt;-</span> by_country <span class="sc">%&gt;%</span></span>
-<span id="cb1011-2"><a href="gapminder.html#cb1011-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">glance =</span> <span class="fu">map</span>(model, broom<span class="sc">::</span>glance)) <span class="sc">%&gt;%</span></span>
-<span id="cb1011-3"><a href="gapminder.html#cb1011-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(glance, <span class="at">.drop =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1014"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1014-1"><a href="gapminder.html#cb1014-1" aria-hidden="true" tabindex="-1"></a>glance <span class="ot">&lt;-</span> by_country <span class="sc">%&gt;%</span></span>
+<span id="cb1014-2"><a href="gapminder.html#cb1014-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">glance =</span> <span class="fu">map</span>(model, broom<span class="sc">::</span>glance)) <span class="sc">%&gt;%</span></span>
+<span id="cb1014-3"><a href="gapminder.html#cb1014-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(glance, <span class="at">.drop =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## Warning: The `.drop` argument of `unnest()` is deprecated as of tidyr 1.0.0.
 ## ℹ All list-columns are now preserved.</code></pre>
-<div class="sourceCode" id="cb1013"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1013-1"><a href="gapminder.html#cb1013-1" aria-hidden="true" tabindex="-1"></a>glance</span></code></pre></div>
+<div class="sourceCode" id="cb1016"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1016-1"><a href="gapminder.html#cb1016-1" aria-hidden="true" tabindex="-1"></a>glance</span></code></pre></div>
 <pre><code>## # A tibble: 142 × 17
 ## # Groups:   country, continent [142]
 ##    country     continent data     model  resids   r.squa…¹ adj.r…² sigma stati…³
@@ -1078,8 +1078,8 @@ We can note that we still have very large residuals, namely in Africa suggesting
 ## #   nobs &lt;int&gt;, and abbreviated variable names ¹​r.squared, ²​adj.r.squared,
 ## #   ³​statistic</code></pre>
 <p>Now, we can look for countries that don’t fit our model well.</p>
-<div class="sourceCode" id="cb1015"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1015-1"><a href="gapminder.html#cb1015-1" aria-hidden="true" tabindex="-1"></a>glance <span class="sc">%&gt;%</span></span>
-<span id="cb1015-2"><a href="gapminder.html#cb1015-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(r.squared)</span></code></pre></div>
+<div class="sourceCode" id="cb1018"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1018-1"><a href="gapminder.html#cb1018-1" aria-hidden="true" tabindex="-1"></a>glance <span class="sc">%&gt;%</span></span>
+<span id="cb1018-2"><a href="gapminder.html#cb1018-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(r.squared)</span></code></pre></div>
 <pre><code>## # A tibble: 142 × 17
 ## # Groups:   country, continent [142]
 ##    country        conti…¹ data     model resids   r.squ…² adj.r.…³ sigma stati…⁴
@@ -1100,16 +1100,16 @@ We can note that we still have very large residuals, namely in Africa suggesting
 ## #   ³​adj.r.squared, ⁴​statistic</code></pre>
 <p>The worst fitting models seem to be in Africa. We’ll add <code>geom_jitter()</code> to make it more apparent.</p>
 <p>We can also plot the particular bad <span class="math display">\[R^2\]</span> and plot the data.</p>
-<div class="sourceCode" id="cb1017"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1017-1"><a href="gapminder.html#cb1017-1" aria-hidden="true" tabindex="-1"></a>glance <span class="sc">%&gt;%</span></span>
-<span id="cb1017-2"><a href="gapminder.html#cb1017-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(continent, r.squared)) <span class="sc">+</span></span>
-<span id="cb1017-3"><a href="gapminder.html#cb1017-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1020"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1020-1"><a href="gapminder.html#cb1020-1" aria-hidden="true" tabindex="-1"></a>glance <span class="sc">%&gt;%</span></span>
+<span id="cb1020-2"><a href="gapminder.html#cb1020-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(continent, r.squared)) <span class="sc">+</span></span>
+<span id="cb1020-3"><a href="gapminder.html#cb1020-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.5</span>)</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/99-25-Geom_Jitter%20plus%20bad%20R2-1.png" width="672" /></p>
-<div class="sourceCode" id="cb1018"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1018-1"><a href="gapminder.html#cb1018-1" aria-hidden="true" tabindex="-1"></a>bad_fit <span class="ot">&lt;-</span> <span class="fu">filter</span>(glance, r.squared <span class="sc">&lt;</span> <span class="fl">0.25</span>)</span>
-<span id="cb1018-2"><a href="gapminder.html#cb1018-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1018-3"><a href="gapminder.html#cb1018-3" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
-<span id="cb1018-4"><a href="gapminder.html#cb1018-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">semi_join</span>(bad_fit, <span class="at">by =</span> <span class="st">&quot;country&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb1018-5"><a href="gapminder.html#cb1018-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, lifeExp, <span class="at">colour =</span> country)) <span class="sc">+</span></span>
-<span id="cb1018-6"><a href="gapminder.html#cb1018-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1021"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1021-1"><a href="gapminder.html#cb1021-1" aria-hidden="true" tabindex="-1"></a>bad_fit <span class="ot">&lt;-</span> <span class="fu">filter</span>(glance, r.squared <span class="sc">&lt;</span> <span class="fl">0.25</span>)</span>
+<span id="cb1021-2"><a href="gapminder.html#cb1021-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1021-3"><a href="gapminder.html#cb1021-3" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb1021-4"><a href="gapminder.html#cb1021-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">semi_join</span>(bad_fit, <span class="at">by =</span> <span class="st">&quot;country&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1021-5"><a href="gapminder.html#cb1021-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, lifeExp, <span class="at">colour =</span> country)) <span class="sc">+</span></span>
+<span id="cb1021-6"><a href="gapminder.html#cb1021-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>()</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/99-25-Geom_Jitter%20plus%20bad%20R2-2.png" width="672" />
 The relation of this visual is the tragidies of HIV/AIDs epidemic and the Rwanda genocide.</p>
 </div>

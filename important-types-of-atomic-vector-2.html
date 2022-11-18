@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>26.3 Important types of atomic vector | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
   <meta property="og:title" content="26.3 Important types of atomic vector | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-10-24" />
+<meta name="date" content="2022-11-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -95,7 +95,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -108,7 +108,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -830,9 +830,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>They are constructed with comparison operators.</li>
 <li>OR, can create them by hand with <code>c()</code>:</li>
 </ul>
-<div class="sourceCode" id="cb825"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb825-1"><a href="important-types-of-atomic-vector-2.html#cb825-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="sc">%%</span> <span class="dv">3</span> <span class="sc">==</span> <span class="dv">0</span></span>
-<span id="cb825-2"><a href="important-types-of-atomic-vector-2.html#cb825-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb825-3"><a href="important-types-of-atomic-vector-2.html#cb825-3" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">NA</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb826"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb826-1"><a href="important-types-of-atomic-vector-2.html#cb826-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="sc">%%</span> <span class="dv">3</span> <span class="sc">==</span> <span class="dv">0</span></span>
+<span id="cb826-2"><a href="important-types-of-atomic-vector-2.html#cb826-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb826-3"><a href="important-types-of-atomic-vector-2.html#cb826-3" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">NA</span>)</span></code></pre></div>
 <blockquote>
 <p>Qn: what exactly is %% doing here? I understand is x modulus y…</p>
 </blockquote>
@@ -844,11 +844,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>In R, numbers are doubles by default.</li>
 <li>To create an integer, place <code>L</code> after the number.</li>
 </ul>
-<div class="sourceCode" id="cb826"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb826-1"><a href="important-types-of-atomic-vector-2.html#cb826-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="dv">1</span>)</span>
-<span id="cb826-2"><a href="important-types-of-atomic-vector-2.html#cb826-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb826-3"><a href="important-types-of-atomic-vector-2.html#cb826-3" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(1L)</span>
-<span id="cb826-4"><a href="important-types-of-atomic-vector-2.html#cb826-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb826-5"><a href="important-types-of-atomic-vector-2.html#cb826-5" aria-hidden="true" tabindex="-1"></a><span class="fl">1.5</span>L</span></code></pre></div>
+<div class="sourceCode" id="cb827"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb827-1"><a href="important-types-of-atomic-vector-2.html#cb827-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="dv">1</span>)</span>
+<span id="cb827-2"><a href="important-types-of-atomic-vector-2.html#cb827-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb827-3"><a href="important-types-of-atomic-vector-2.html#cb827-3" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(1L)</span>
+<span id="cb827-4"><a href="important-types-of-atomic-vector-2.html#cb827-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb827-5"><a href="important-types-of-atomic-vector-2.html#cb827-5" aria-hidden="true" tabindex="-1"></a><span class="fl">1.5</span>L</span></code></pre></div>
 <blockquote>
 <p>Note: the warning after running 1.5L is because that integers only take whole numbers. I think.</p>
 </blockquote>
@@ -858,10 +858,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Doubles are approximations. They represent floating point numbers that can’t be precisely represented with a fixed amount of memory. Therefore, we should consider all doubles as approximations. E.g., the square root of two:</li>
 </ol></li>
 </ul>
-<div class="sourceCode" id="cb827"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb827-1"><a href="important-types-of-atomic-vector-2.html#cb827-1" aria-hidden="true" tabindex="-1"></a>(x3 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">2</span>) <span class="sc">^</span> <span class="dv">2</span>)</span>
-<span id="cb827-2"><a href="important-types-of-atomic-vector-2.html#cb827-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb827-3"><a href="important-types-of-atomic-vector-2.html#cb827-3" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
-<span id="cb827-4"><a href="important-types-of-atomic-vector-2.html#cb827-4" aria-hidden="true" tabindex="-1"></a>x3 <span class="sc">-</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb828"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb828-1"><a href="important-types-of-atomic-vector-2.html#cb828-1" aria-hidden="true" tabindex="-1"></a>(x3 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">2</span>) <span class="sc">^</span> <span class="dv">2</span>)</span>
+<span id="cb828-2"><a href="important-types-of-atomic-vector-2.html#cb828-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb828-3"><a href="important-types-of-atomic-vector-2.html#cb828-3" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
+<span id="cb828-4"><a href="important-types-of-atomic-vector-2.html#cb828-4" aria-hidden="true" tabindex="-1"></a>x3 <span class="sc">-</span> <span class="dv">2</span></span></code></pre></div>
 <blockquote>
 <p>Side note: <code>options(scipen = 999)</code> to remove the scientific numbers as I often confuse reading e- or e+.</p>
 </blockquote>
@@ -871,23 +871,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Hence, when we compare floating point numbers we should use <code>dplyr::near()</code> instead of <code>==</code> as it allows for some numerical tolerance. (<em>what does this mean?</em>)</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb828"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb828-1"><a href="important-types-of-atomic-vector-2.html#cb828-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">near</span>(<span class="fl">1.745</span>, <span class="dv">2</span>)</span>
-<span id="cb828-2"><a href="important-types-of-atomic-vector-2.html#cb828-2" aria-hidden="true" tabindex="-1"></a><span class="co"># compares if 1.745 is the same as 2</span></span>
-<span id="cb828-3"><a href="important-types-of-atomic-vector-2.html#cb828-3" aria-hidden="true" tabindex="-1"></a><span class="co"># FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb829"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb829-1"><a href="important-types-of-atomic-vector-2.html#cb829-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">near</span>(<span class="fl">1.745</span>, <span class="dv">2</span>)</span>
+<span id="cb829-2"><a href="important-types-of-atomic-vector-2.html#cb829-2" aria-hidden="true" tabindex="-1"></a><span class="co"># compares if 1.745 is the same as 2</span></span>
+<span id="cb829-3"><a href="important-types-of-atomic-vector-2.html#cb829-3" aria-hidden="true" tabindex="-1"></a><span class="co"># FALSE</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Integers have one special value: <code>NA</code> while doubles have four: <code>NA</code>, <code>NaN</code>, <code>Inf</code> and <code>-Inf</code>.
 <ul>
 <li><code>NaN</code>, <code>Inf</code> and <code>-Inf</code> can arise during division:</li>
 </ul></li>
 </ol>
-<div class="sourceCode" id="cb829"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb829-1"><a href="important-types-of-atomic-vector-2.html#cb829-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">/</span> <span class="dv">0</span></span></code></pre></div>
+<div class="sourceCode" id="cb830"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb830-1"><a href="important-types-of-atomic-vector-2.html#cb830-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">/</span> <span class="dv">0</span></span></code></pre></div>
 <ul>
 <li>To check for these special values, let’s use the helper functions <code>is.finite()</code>, <code>is.infinite()</code>, and <code>is.nan()</code> instead of using <code>==</code>.</li>
 </ul>
-<div class="sourceCode" id="cb830"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb830-1"><a href="important-types-of-atomic-vector-2.html#cb830-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.finite</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">/</span> <span class="dv">0</span>)</span>
-<span id="cb830-2"><a href="important-types-of-atomic-vector-2.html#cb830-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.infinite</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">/</span> <span class="dv">0</span>)</span>
-<span id="cb830-3"><a href="important-types-of-atomic-vector-2.html#cb830-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">/</span> <span class="dv">0</span>)</span>
-<span id="cb830-4"><a href="important-types-of-atomic-vector-2.html#cb830-4" aria-hidden="true" tabindex="-1"></a><span class="fu">is.nan</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">/</span> <span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb831"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb831-1"><a href="important-types-of-atomic-vector-2.html#cb831-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.finite</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">/</span> <span class="dv">0</span>)</span>
+<span id="cb831-2"><a href="important-types-of-atomic-vector-2.html#cb831-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.infinite</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">/</span> <span class="dv">0</span>)</span>
+<span id="cb831-3"><a href="important-types-of-atomic-vector-2.html#cb831-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">/</span> <span class="dv">0</span>)</span>
+<span id="cb831-4"><a href="important-types-of-atomic-vector-2.html#cb831-4" aria-hidden="true" tabindex="-1"></a><span class="fu">is.nan</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">/</span> <span class="dv">0</span>)</span></code></pre></div>
 <p><img src="images/special_missing_values_doubles.png" /></p>
 </div>
 <div id="character-2" class="section level3 hasAnchor" number="26.3.3">
@@ -903,11 +903,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb831"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb831-1"><a href="important-types-of-atomic-vector-2.html#cb831-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;This is a reasonably long string.&quot;</span></span>
-<span id="cb831-2"><a href="important-types-of-atomic-vector-2.html#cb831-2" aria-hidden="true" tabindex="-1"></a>pryr<span class="sc">::</span><span class="fu">object_size</span>(x)</span>
-<span id="cb831-3"><a href="important-types-of-atomic-vector-2.html#cb831-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb831-4"><a href="important-types-of-atomic-vector-2.html#cb831-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rep</span>(x, <span class="dv">1000</span>)</span>
-<span id="cb831-5"><a href="important-types-of-atomic-vector-2.html#cb831-5" aria-hidden="true" tabindex="-1"></a>pryr<span class="sc">::</span><span class="fu">object_size</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb832"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb832-1"><a href="important-types-of-atomic-vector-2.html#cb832-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;This is a reasonably long string.&quot;</span></span>
+<span id="cb832-2"><a href="important-types-of-atomic-vector-2.html#cb832-2" aria-hidden="true" tabindex="-1"></a>pryr<span class="sc">::</span><span class="fu">object_size</span>(x)</span>
+<span id="cb832-3"><a href="important-types-of-atomic-vector-2.html#cb832-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb832-4"><a href="important-types-of-atomic-vector-2.html#cb832-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rep</span>(x, <span class="dv">1000</span>)</span>
+<span id="cb832-5"><a href="important-types-of-atomic-vector-2.html#cb832-5" aria-hidden="true" tabindex="-1"></a>pryr<span class="sc">::</span><span class="fu">object_size</span>(y)</span></code></pre></div>
 <p><code>y</code> doesn’t take up 1,000x as much memory as <code>x</code>, because each element of <code>y</code> is just a pointer to that same string.</p>
 <p>A pointer is 8 bytes, so 1000 pointers to a 152 B string is 8 * 1000 + 152 = 8.14 kB.</p>
 </div>
@@ -916,13 +916,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Each atomic vector has its own missing value:</li>
 </ul>
-<div class="sourceCode" id="cb832"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb832-1"><a href="important-types-of-atomic-vector-2.html#cb832-1" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span>            <span class="co"># logical</span></span>
-<span id="cb832-2"><a href="important-types-of-atomic-vector-2.html#cb832-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb832-3"><a href="important-types-of-atomic-vector-2.html#cb832-3" aria-hidden="true" tabindex="-1"></a><span class="cn">NA_integer_</span>   <span class="co"># integer</span></span>
-<span id="cb832-4"><a href="important-types-of-atomic-vector-2.html#cb832-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb832-5"><a href="important-types-of-atomic-vector-2.html#cb832-5" aria-hidden="true" tabindex="-1"></a><span class="cn">NA_real_</span>      <span class="co"># double</span></span>
-<span id="cb832-6"><a href="important-types-of-atomic-vector-2.html#cb832-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb832-7"><a href="important-types-of-atomic-vector-2.html#cb832-7" aria-hidden="true" tabindex="-1"></a><span class="cn">NA_character_</span> <span class="co"># character</span></span></code></pre></div>
+<div class="sourceCode" id="cb833"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb833-1"><a href="important-types-of-atomic-vector-2.html#cb833-1" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span>            <span class="co"># logical</span></span>
+<span id="cb833-2"><a href="important-types-of-atomic-vector-2.html#cb833-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb833-3"><a href="important-types-of-atomic-vector-2.html#cb833-3" aria-hidden="true" tabindex="-1"></a><span class="cn">NA_integer_</span>   <span class="co"># integer</span></span>
+<span id="cb833-4"><a href="important-types-of-atomic-vector-2.html#cb833-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb833-5"><a href="important-types-of-atomic-vector-2.html#cb833-5" aria-hidden="true" tabindex="-1"></a><span class="cn">NA_real_</span>      <span class="co"># double</span></span>
+<span id="cb833-6"><a href="important-types-of-atomic-vector-2.html#cb833-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb833-7"><a href="important-types-of-atomic-vector-2.html#cb833-7" aria-hidden="true" tabindex="-1"></a><span class="cn">NA_character_</span> <span class="co"># character</span></span></code></pre></div>
 <ul>
 <li><p>But we don’t need to know about these different types since we can always use <code>NA</code> and it’ll be converted to the correct type using the implicit coercion rules.</p></li>
 <li><p><strong>However, there are some functions that are strict about their inputs, so it’s useful to have this knowledge sitting in your back pocket so you can be specific when needed.</strong></p></li>
@@ -933,29 +933,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol style="list-style-type: decimal">
 <li>Describe the difference between is.finite(x) and !is.infinite(x).</li>
 </ol>
-<div class="sourceCode" id="cb833"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb833-1"><a href="important-types-of-atomic-vector-2.html#cb833-1" aria-hidden="true" tabindex="-1"></a>(x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">0</span>, <span class="dv">0</span><span class="sc">/</span><span class="dv">0</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">0</span>, <span class="dv">5</span>, 5L, <span class="cn">NA</span>))</span>
-<span id="cb833-2"><a href="important-types-of-atomic-vector-2.html#cb833-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.finite</span>(x)</span>
-<span id="cb833-3"><a href="important-types-of-atomic-vector-2.html#cb833-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.infinite</span>(x)</span>
-<span id="cb833-4"><a href="important-types-of-atomic-vector-2.html#cb833-4" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="fu">is.infinite</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb834"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb834-1"><a href="important-types-of-atomic-vector-2.html#cb834-1" aria-hidden="true" tabindex="-1"></a>(x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">0</span>, <span class="dv">0</span><span class="sc">/</span><span class="dv">0</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">0</span>, <span class="dv">5</span>, 5L, <span class="cn">NA</span>))</span>
+<span id="cb834-2"><a href="important-types-of-atomic-vector-2.html#cb834-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.finite</span>(x)</span>
+<span id="cb834-3"><a href="important-types-of-atomic-vector-2.html#cb834-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.infinite</span>(x)</span>
+<span id="cb834-4"><a href="important-types-of-atomic-vector-2.html#cb834-4" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="fu">is.infinite</span>(x)</span></code></pre></div>
 <p><code>is.finite()</code> function does consider non-missing numeric values to be finite, and <code>-Inf</code>, <code>NaN</code>, <code>Inf</code> are considered not to be finite.</p>
 <p><code>is.infinite()</code> considers only <code>-Inf</code> and <code>Inf</code> as infinite. Hence, <code>!is.infinite()</code> considers <code>-Inf</code> and <code>Inf</code> to be finite while non-missing numeric values, <code>NaN</code>, and <code>NA</code> not to be infinite.</p>
 <ol start="2" style="list-style-type: decimal">
 <li>Read the source code for dplyr::near() (Hint: to see the source code, drop the ()). How does it work?</li>
 </ol>
-<div class="sourceCode" id="cb834"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb834-1"><a href="important-types-of-atomic-vector-2.html#cb834-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">near</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb835"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb835-1"><a href="important-types-of-atomic-vector-2.html#cb835-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">near</span>()</span></code></pre></div>
 <p>It doesn’t check equality as I first thought, but it checks if two numbers are within a certain tolerance (<code>tol</code>), usually given as <code>.Machine$double.eps^0.5</code>, which is the smallest floating point number that the computer can represent. (Good to know!!)</p>
 <ol start="3" style="list-style-type: decimal">
 <li>A logical vector can take 3 possible values. How many possible values can an integer vector take? How many possible values can a double take? Use google to do some research.</li>
 </ol>
-<div class="sourceCode" id="cb835"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb835-1"><a href="important-types-of-atomic-vector-2.html#cb835-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(integer)</span>
-<span id="cb835-2"><a href="important-types-of-atomic-vector-2.html#cb835-2" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(double)</span></code></pre></div>
+<div class="sourceCode" id="cb836"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb836-1"><a href="important-types-of-atomic-vector-2.html#cb836-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(integer)</span>
+<span id="cb836-2"><a href="important-types-of-atomic-vector-2.html#cb836-2" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(double)</span></code></pre></div>
 <p>For integers vectors, R uses a 32-bit representation. I.e., it can represent <span class="math inline">\(2^{32}\)</span> different values with the integers. But one of these values is set aside for <code>NA_integer_</code>.</p>
-<div class="sourceCode" id="cb836"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb836-1"><a href="important-types-of-atomic-vector-2.html#cb836-1" aria-hidden="true" tabindex="-1"></a>.Machine<span class="sc">$</span>integer.max</span>
-<span id="cb836-2"><a href="important-types-of-atomic-vector-2.html#cb836-2" aria-hidden="true" tabindex="-1"></a>.Machine<span class="sc">$</span>integer.max <span class="sc">+</span> 1L</span></code></pre></div>
+<div class="sourceCode" id="cb837"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb837-1"><a href="important-types-of-atomic-vector-2.html#cb837-1" aria-hidden="true" tabindex="-1"></a>.Machine<span class="sc">$</span>integer.max</span>
+<span id="cb837-2"><a href="important-types-of-atomic-vector-2.html#cb837-2" aria-hidden="true" tabindex="-1"></a>.Machine<span class="sc">$</span>integer.max <span class="sc">+</span> 1L</span></code></pre></div>
 <p>The range of integers values represented in R is <span class="math inline">\(+- 2^{31}-1\)</span>. Hence, the maximum integer is <span class="math inline">\(2^{31}-1\)</span> instead of <span class="math inline">\(2^{32}\)</span> because 1 bit is used to represent the sign <span class="math inline">\((+ -)\)</span> and one value is to represent <span class="math inline">\(NA_integer_\)</span>.</p>
 <p>An integer greater than that value, R will return <code>NA</code> values.</p>
 <p>For double vectors, R uses a 64-bit representation, i.e., they can hold up to <span class="math inline">\(2^{64}\)</span> values. But, some of those values are assigned to special values: <code>-Inf</code>, <code>Inf</code>, <code>NA_real_</code>, and <code>NaN</code>.</p>
-<div class="sourceCode" id="cb837"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb837-1"><a href="important-types-of-atomic-vector-2.html#cb837-1" aria-hidden="true" tabindex="-1"></a>.Machine<span class="sc">$</span>double.xmax</span></code></pre></div>
+<div class="sourceCode" id="cb838"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb838-1"><a href="important-types-of-atomic-vector-2.html#cb838-1" aria-hidden="true" tabindex="-1"></a>.Machine<span class="sc">$</span>double.xmax</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>Brainstorm at least four functions that allow you to convert a double to an integer. How do they differ? Be precise.</li>
 </ol>
@@ -975,24 +975,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Round half towards the odd integer.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb838"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb838-1"><a href="important-types-of-atomic-vector-2.html#cb838-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
-<span id="cb838-2"><a href="important-types-of-atomic-vector-2.html#cb838-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="fl">1.8</span>, <span class="fl">1.5</span>, <span class="fl">1.2</span>, <span class="fl">0.8</span>, <span class="fl">0.5</span>, <span class="fl">0.2</span>, </span>
-<span id="cb838-3"><a href="important-types-of-atomic-vector-2.html#cb838-3" aria-hidden="true" tabindex="-1"></a>        <span class="sc">-</span><span class="fl">0.2</span>, <span class="sc">-</span><span class="fl">0.5</span>, <span class="sc">-</span><span class="fl">0.8</span>, <span class="sc">-</span><span class="fl">1.2</span>, <span class="sc">-</span><span class="fl">1.5</span>, <span class="sc">-</span><span class="fl">1.8</span>),</span>
-<span id="cb838-4"><a href="important-types-of-atomic-vector-2.html#cb838-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Round down</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">floor</span>(x),</span>
-<span id="cb838-5"><a href="important-types-of-atomic-vector-2.html#cb838-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Round up</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">ceiling</span>(x),</span>
-<span id="cb838-6"><a href="important-types-of-atomic-vector-2.html#cb838-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Round towards zero</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">trunc</span>(x),</span>
-<span id="cb838-7"><a href="important-types-of-atomic-vector-2.html#cb838-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Nearest, round half to even</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(x) <span class="co"># 0.5 is rounded to 0</span></span>
-<span id="cb838-8"><a href="important-types-of-atomic-vector-2.html#cb838-8" aria-hidden="true" tabindex="-1"></a>) </span></code></pre></div>
+<div class="sourceCode" id="cb839"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb839-1"><a href="important-types-of-atomic-vector-2.html#cb839-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
+<span id="cb839-2"><a href="important-types-of-atomic-vector-2.html#cb839-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="fl">1.8</span>, <span class="fl">1.5</span>, <span class="fl">1.2</span>, <span class="fl">0.8</span>, <span class="fl">0.5</span>, <span class="fl">0.2</span>, </span>
+<span id="cb839-3"><a href="important-types-of-atomic-vector-2.html#cb839-3" aria-hidden="true" tabindex="-1"></a>        <span class="sc">-</span><span class="fl">0.2</span>, <span class="sc">-</span><span class="fl">0.5</span>, <span class="sc">-</span><span class="fl">0.8</span>, <span class="sc">-</span><span class="fl">1.2</span>, <span class="sc">-</span><span class="fl">1.5</span>, <span class="sc">-</span><span class="fl">1.8</span>),</span>
+<span id="cb839-4"><a href="important-types-of-atomic-vector-2.html#cb839-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Round down</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">floor</span>(x),</span>
+<span id="cb839-5"><a href="important-types-of-atomic-vector-2.html#cb839-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Round up</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">ceiling</span>(x),</span>
+<span id="cb839-6"><a href="important-types-of-atomic-vector-2.html#cb839-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Round towards zero</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">trunc</span>(x),</span>
+<span id="cb839-7"><a href="important-types-of-atomic-vector-2.html#cb839-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Nearest, round half to even</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(x) <span class="co"># 0.5 is rounded to 0</span></span>
+<span id="cb839-8"><a href="important-types-of-atomic-vector-2.html#cb839-8" aria-hidden="true" tabindex="-1"></a>) </span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
 <li>What functions from the readr package allow you to turn a string into logical, integer, and double vector?</li>
 </ol>
 <p><code>parse_logical()</code> parses logical values, which can appear as variations of TRUE/FALSE or 1/0.</p>
-<div class="sourceCode" id="cb839"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb839-1"><a href="important-types-of-atomic-vector-2.html#cb839-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parse_logical</span>(<span class="fu">c</span>(<span class="st">&quot;TRUE&quot;</span>, <span class="st">&quot;FALSE&quot;</span>, <span class="st">&quot;1&quot;</span>, <span class="st">&quot;0&quot;</span>, <span class="st">&quot;true&quot;</span>, <span class="st">&quot;t&quot;</span>, <span class="st">&quot;NA&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb840"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb840-1"><a href="important-types-of-atomic-vector-2.html#cb840-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parse_logical</span>(<span class="fu">c</span>(<span class="st">&quot;TRUE&quot;</span>, <span class="st">&quot;FALSE&quot;</span>, <span class="st">&quot;1&quot;</span>, <span class="st">&quot;0&quot;</span>, <span class="st">&quot;true&quot;</span>, <span class="st">&quot;t&quot;</span>, <span class="st">&quot;NA&quot;</span>))</span></code></pre></div>
 <p><code>parse_integer()</code> parses integer values.</p>
-<div class="sourceCode" id="cb840"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb840-1"><a href="important-types-of-atomic-vector-2.html#cb840-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parse_integer</span>(<span class="fu">c</span>(<span class="st">&quot;1235&quot;</span>, <span class="st">&quot;0134&quot;</span>, <span class="st">&quot;NA&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb841"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb841-1"><a href="important-types-of-atomic-vector-2.html#cb841-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parse_integer</span>(<span class="fu">c</span>(<span class="st">&quot;1235&quot;</span>, <span class="st">&quot;0134&quot;</span>, <span class="st">&quot;NA&quot;</span>))</span></code></pre></div>
 <p>In case of any non-numeric characters in the string such as commas, decimals, <code>parse_integer()</code> will throw an error unlike <code>parse_numeric()</code> which ignores all the non-numeric characters before or after the first number.</p>
-<div class="sourceCode" id="cb841"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb841-1"><a href="important-types-of-atomic-vector-2.html#cb841-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parse_integer</span>(<span class="fu">c</span>(<span class="st">&quot;1000&quot;</span>, <span class="st">&quot;$1,000&quot;</span>, <span class="st">&quot;10.00&quot;</span>))</span></code></pre></div>
-<div class="sourceCode" id="cb842"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb842-1"><a href="important-types-of-atomic-vector-2.html#cb842-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parse_number</span>(<span class="fu">c</span>(<span class="st">&quot;1.0&quot;</span>, <span class="st">&quot;3.5&quot;</span>, <span class="st">&quot;$1,000.00&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;ABCD12234.90&quot;</span>, <span class="st">&quot;1234ABC&quot;</span>, <span class="st">&quot;A123B&quot;</span>, <span class="st">&quot;A1B2C&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb842"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb842-1"><a href="important-types-of-atomic-vector-2.html#cb842-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parse_integer</span>(<span class="fu">c</span>(<span class="st">&quot;1000&quot;</span>, <span class="st">&quot;$1,000&quot;</span>, <span class="st">&quot;10.00&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb843"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb843-1"><a href="important-types-of-atomic-vector-2.html#cb843-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parse_number</span>(<span class="fu">c</span>(<span class="st">&quot;1.0&quot;</span>, <span class="st">&quot;3.5&quot;</span>, <span class="st">&quot;$1,000.00&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;ABCD12234.90&quot;</span>, <span class="st">&quot;1234ABC&quot;</span>, <span class="st">&quot;A123B&quot;</span>, <span class="st">&quot;A1B2C&quot;</span>))</span></code></pre></div>
 </div>
 </div>
             </section>

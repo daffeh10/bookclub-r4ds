@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4.4 Arrange rows with arrange() | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4.4 Arrange rows with arrange() | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-10-24" />
+<meta name="date" content="2022-11-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -95,7 +95,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -108,7 +108,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -820,8 +820,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>arrange()</code> changes the order of the rows. The first argument to <code>arrange()</code> is a data frame, the subsequent arguments are columns names are expression used to sort the rows.</p>
 <p>Ascending (small to big) is the default order.</p>
 <p>Use <code>desc()</code> for descending order (big to small).</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="arrange-rows-with-arrange.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sort flights by depature delay using ascending order</span></span>
-<span id="cb106-2"><a href="arrange-rows-with-arrange.html#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(flights, dep_delay)</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="arrange-rows-with-arrange.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sort flights by depature delay using ascending order</span></span>
+<span id="cb107-2"><a href="arrange-rows-with-arrange.html#cb107-2" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(flights, dep_delay)</span></code></pre></div>
 <pre><code>## # A tibble: 336,776 × 19
 ##     year month   day dep_time sched_de…¹ dep_d…² arr_t…³ sched…⁴ arr_d…⁵ carrier
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;      &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;  
@@ -839,8 +839,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
 ## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;, and abbreviated variable names
 ## #   ¹​sched_dep_time, ²​dep_delay, ³​arr_time, ⁴​sched_arr_time, ⁵​arr_delay</code></pre>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="arrange-rows-with-arrange.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sort flights by depature delay using descending order.</span></span>
-<span id="cb108-2"><a href="arrange-rows-with-arrange.html#cb108-2" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(flights, <span class="fu">desc</span>(dep_delay))</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="arrange-rows-with-arrange.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sort flights by depature delay using descending order.</span></span>
+<span id="cb109-2"><a href="arrange-rows-with-arrange.html#cb109-2" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(flights, <span class="fu">desc</span>(dep_delay))</span></code></pre></div>
 <pre><code>## # A tibble: 336,776 × 19
 ##     year month   day dep_time sched_de…¹ dep_d…² arr_t…³ sched…⁴ arr_d…⁵ carrier
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;      &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;  
@@ -859,8 +859,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;, and abbreviated variable names
 ## #   ¹​sched_dep_time, ²​dep_delay, ³​arr_time, ⁴​sched_arr_time, ⁵​arr_delay</code></pre>
 <p>sort by multiple columns</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="arrange-rows-with-arrange.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sort flights by year, month, and day using ascending order</span></span>
-<span id="cb110-2"><a href="arrange-rows-with-arrange.html#cb110-2" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(flights, year, month, day)</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="arrange-rows-with-arrange.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sort flights by year, month, and day using ascending order</span></span>
+<span id="cb111-2"><a href="arrange-rows-with-arrange.html#cb111-2" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(flights, year, month, day)</span></code></pre></div>
 <pre><code>## # A tibble: 336,776 × 19
 ##     year month   day dep_time sched_de…¹ dep_d…² arr_t…³ sched…⁴ arr_d…⁵ carrier
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;      &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;  
@@ -879,11 +879,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;, and abbreviated variable names
 ## #   ¹​sched_dep_time, ²​dep_delay, ³​arr_time, ⁴​sched_arr_time, ⁵​arr_delay</code></pre>
 <p><code>arrange()</code> puts <code>NA</code> values at the end.</p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="arrange-rows-with-arrange.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create tibble with 3 values</span></span>
-<span id="cb112-2"><a href="arrange-rows-with-arrange.html#cb112-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="dv">3</span>))</span>
-<span id="cb112-3"><a href="arrange-rows-with-arrange.html#cb112-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb112-4"><a href="arrange-rows-with-arrange.html#cb112-4" aria-hidden="true" tabindex="-1"></a><span class="co"># sort puts NA at the end</span></span>
-<span id="cb112-5"><a href="arrange-rows-with-arrange.html#cb112-5" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(df, x)</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="arrange-rows-with-arrange.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create tibble with 3 values</span></span>
+<span id="cb113-2"><a href="arrange-rows-with-arrange.html#cb113-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="dv">3</span>))</span>
+<span id="cb113-3"><a href="arrange-rows-with-arrange.html#cb113-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-4"><a href="arrange-rows-with-arrange.html#cb113-4" aria-hidden="true" tabindex="-1"></a><span class="co"># sort puts NA at the end</span></span>
+<span id="cb113-5"><a href="arrange-rows-with-arrange.html#cb113-5" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(df, x)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 1
 ##       x
 ##   &lt;dbl&gt;

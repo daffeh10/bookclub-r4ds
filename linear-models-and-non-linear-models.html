@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>32.5 Linear models and non linear models | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
   <meta property="og:title" content="32.5 Linear models and non linear models | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-10-24" />
+<meta name="date" content="2022-11-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -95,7 +95,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -108,7 +108,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -840,50 +840,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="transformations" class="section level3 hasAnchor" number="32.5.1">
 <h3><span class="header-section-number">32.5.1</span> Transformations<a href="linear-models-and-non-linear-models.html#transformations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We can switch between linear and non-linear models with some transformations:</p>
-<div class="sourceCode" id="cb933"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb933-1"><a href="linear-models-and-non-linear-models.html#cb933-1" aria-hidden="true" tabindex="-1"></a><span class="co"># weighted regression</span></span>
-<span id="cb933-2"><a href="linear-models-and-non-linear-models.html#cb933-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(sim3)</span>
-<span id="cb933-3"><a href="linear-models-and-non-linear-models.html#cb933-3" aria-hidden="true" tabindex="-1"></a>sim3_2<span class="ot">&lt;-</span>sim3<span class="sc">%&gt;%</span><span class="fu">mutate</span>(<span class="at">x3=</span><span class="fu">case_when</span>(x2<span class="sc">==</span><span class="st">&quot;a&quot;</span><span class="sc">~</span><span class="dv">1</span>,</span>
-<span id="cb933-4"><a href="linear-models-and-non-linear-models.html#cb933-4" aria-hidden="true" tabindex="-1"></a>                                   x2<span class="sc">==</span><span class="st">&quot;b&quot;</span><span class="sc">~</span><span class="dv">2</span>,</span>
-<span id="cb933-5"><a href="linear-models-and-non-linear-models.html#cb933-5" aria-hidden="true" tabindex="-1"></a>                                   x2<span class="sc">==</span><span class="st">&quot;c&quot;</span><span class="sc">~</span><span class="dv">3</span>,</span>
-<span id="cb933-6"><a href="linear-models-and-non-linear-models.html#cb933-6" aria-hidden="true" tabindex="-1"></a>                                   x2<span class="sc">==</span><span class="st">&quot;d&quot;</span><span class="sc">~</span><span class="dv">4</span>))</span>
-<span id="cb933-7"><a href="linear-models-and-non-linear-models.html#cb933-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb933-8"><a href="linear-models-and-non-linear-models.html#cb933-8" aria-hidden="true" tabindex="-1"></a>mod3w <span class="ot">&lt;-</span> <span class="fu">lm</span>(y<span class="sc">~</span>x1, sim3_2, <span class="at">weights =</span> x3)</span>
-<span id="cb933-9"><a href="linear-models-and-non-linear-models.html#cb933-9" aria-hidden="true" tabindex="-1"></a>p1<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(sim3_2, <span class="fu">aes</span>(x1, y)) <span class="sc">+</span> </span>
-<span id="cb933-10"><a href="linear-models-and-non-linear-models.html#cb933-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb933-11"><a href="linear-models-and-non-linear-models.html#cb933-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()<span class="sc">+</span></span>
-<span id="cb933-12"><a href="linear-models-and-non-linear-models.html#cb933-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Linear model&quot;</span>)</span>
-<span id="cb933-13"><a href="linear-models-and-non-linear-models.html#cb933-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb933-14"><a href="linear-models-and-non-linear-models.html#cb933-14" aria-hidden="true" tabindex="-1"></a><span class="co"># polynomial transformation</span></span>
-<span id="cb933-15"><a href="linear-models-and-non-linear-models.html#cb933-15" aria-hidden="true" tabindex="-1"></a>mod3t <span class="ot">&lt;-</span> <span class="fu">lm</span>(y<span class="sc">~</span><span class="fu">poly</span>(x1,<span class="dv">3</span>),sim3_2,<span class="at">weights =</span> x3)</span>
-<span id="cb933-16"><a href="linear-models-and-non-linear-models.html#cb933-16" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(sim3_2, <span class="fu">aes</span>(x1, y)) <span class="sc">+</span> </span>
-<span id="cb933-17"><a href="linear-models-and-non-linear-models.html#cb933-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb933-18"><a href="linear-models-and-non-linear-models.html#cb933-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>, <span class="at">se=</span><span class="cn">TRUE</span>, <span class="at">fill=</span><span class="cn">NA</span>,</span>
-<span id="cb933-19"><a href="linear-models-and-non-linear-models.html#cb933-19" aria-hidden="true" tabindex="-1"></a>                <span class="at">formula=</span>y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">3</span>, <span class="at">raw=</span><span class="cn">TRUE</span>),<span class="at">colour=</span><span class="st">&quot;red&quot;</span> )<span class="sc">+</span></span>
-<span id="cb933-20"><a href="linear-models-and-non-linear-models.html#cb933-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Polynomial transf.&quot;</span>)</span>
-<span id="cb933-21"><a href="linear-models-and-non-linear-models.html#cb933-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb933-22"><a href="linear-models-and-non-linear-models.html#cb933-22" aria-hidden="true" tabindex="-1"></a><span class="co"># splines</span></span>
-<span id="cb933-23"><a href="linear-models-and-non-linear-models.html#cb933-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(splines)</span>
-<span id="cb933-24"><a href="linear-models-and-non-linear-models.html#cb933-24" aria-hidden="true" tabindex="-1"></a>mod3s <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="fu">bs</span>(x1,<span class="dv">3</span>),sim3_2,<span class="at">weights =</span> x3)</span>
-<span id="cb933-25"><a href="linear-models-and-non-linear-models.html#cb933-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb933-26"><a href="linear-models-and-non-linear-models.html#cb933-26" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(sim3_2, <span class="fu">aes</span>(x1, y)) <span class="sc">+</span> </span>
-<span id="cb933-27"><a href="linear-models-and-non-linear-models.html#cb933-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb933-28"><a href="linear-models-and-non-linear-models.html#cb933-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>, <span class="at">se=</span><span class="cn">TRUE</span>, <span class="at">fill=</span><span class="cn">NA</span>,</span>
-<span id="cb933-29"><a href="linear-models-and-non-linear-models.html#cb933-29" aria-hidden="true" tabindex="-1"></a>                <span class="at">formula=</span>y<span class="sc">~</span>splines<span class="sc">::</span><span class="fu">bs</span>(x, <span class="dv">3</span>),<span class="at">colour=</span><span class="st">&quot;red&quot;</span> )<span class="sc">+</span></span>
-<span id="cb933-30"><a href="linear-models-and-non-linear-models.html#cb933-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Spline transf.&quot;</span>)</span>
-<span id="cb933-31"><a href="linear-models-and-non-linear-models.html#cb933-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb933-32"><a href="linear-models-and-non-linear-models.html#cb933-32" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb933-33"><a href="linear-models-and-non-linear-models.html#cb933-33" aria-hidden="true" tabindex="-1"></a>p1<span class="sc">+</span>p2<span class="sc">+</span>p3</span></code></pre></div>
+<div class="sourceCode" id="cb935"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb935-1"><a href="linear-models-and-non-linear-models.html#cb935-1" aria-hidden="true" tabindex="-1"></a><span class="co"># weighted regression</span></span>
+<span id="cb935-2"><a href="linear-models-and-non-linear-models.html#cb935-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(sim3)</span>
+<span id="cb935-3"><a href="linear-models-and-non-linear-models.html#cb935-3" aria-hidden="true" tabindex="-1"></a>sim3_2<span class="ot">&lt;-</span>sim3<span class="sc">%&gt;%</span><span class="fu">mutate</span>(<span class="at">x3=</span><span class="fu">case_when</span>(x2<span class="sc">==</span><span class="st">&quot;a&quot;</span><span class="sc">~</span><span class="dv">1</span>,</span>
+<span id="cb935-4"><a href="linear-models-and-non-linear-models.html#cb935-4" aria-hidden="true" tabindex="-1"></a>                                   x2<span class="sc">==</span><span class="st">&quot;b&quot;</span><span class="sc">~</span><span class="dv">2</span>,</span>
+<span id="cb935-5"><a href="linear-models-and-non-linear-models.html#cb935-5" aria-hidden="true" tabindex="-1"></a>                                   x2<span class="sc">==</span><span class="st">&quot;c&quot;</span><span class="sc">~</span><span class="dv">3</span>,</span>
+<span id="cb935-6"><a href="linear-models-and-non-linear-models.html#cb935-6" aria-hidden="true" tabindex="-1"></a>                                   x2<span class="sc">==</span><span class="st">&quot;d&quot;</span><span class="sc">~</span><span class="dv">4</span>))</span>
+<span id="cb935-7"><a href="linear-models-and-non-linear-models.html#cb935-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb935-8"><a href="linear-models-and-non-linear-models.html#cb935-8" aria-hidden="true" tabindex="-1"></a>mod3w <span class="ot">&lt;-</span> <span class="fu">lm</span>(y<span class="sc">~</span>x1, sim3_2, <span class="at">weights =</span> x3)</span>
+<span id="cb935-9"><a href="linear-models-and-non-linear-models.html#cb935-9" aria-hidden="true" tabindex="-1"></a>p1<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(sim3_2, <span class="fu">aes</span>(x1, y)) <span class="sc">+</span> </span>
+<span id="cb935-10"><a href="linear-models-and-non-linear-models.html#cb935-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb935-11"><a href="linear-models-and-non-linear-models.html#cb935-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()<span class="sc">+</span></span>
+<span id="cb935-12"><a href="linear-models-and-non-linear-models.html#cb935-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Linear model&quot;</span>)</span>
+<span id="cb935-13"><a href="linear-models-and-non-linear-models.html#cb935-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb935-14"><a href="linear-models-and-non-linear-models.html#cb935-14" aria-hidden="true" tabindex="-1"></a><span class="co"># polynomial transformation</span></span>
+<span id="cb935-15"><a href="linear-models-and-non-linear-models.html#cb935-15" aria-hidden="true" tabindex="-1"></a>mod3t <span class="ot">&lt;-</span> <span class="fu">lm</span>(y<span class="sc">~</span><span class="fu">poly</span>(x1,<span class="dv">3</span>),sim3_2,<span class="at">weights =</span> x3)</span>
+<span id="cb935-16"><a href="linear-models-and-non-linear-models.html#cb935-16" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(sim3_2, <span class="fu">aes</span>(x1, y)) <span class="sc">+</span> </span>
+<span id="cb935-17"><a href="linear-models-and-non-linear-models.html#cb935-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb935-18"><a href="linear-models-and-non-linear-models.html#cb935-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>, <span class="at">se=</span><span class="cn">TRUE</span>, <span class="at">fill=</span><span class="cn">NA</span>,</span>
+<span id="cb935-19"><a href="linear-models-and-non-linear-models.html#cb935-19" aria-hidden="true" tabindex="-1"></a>                <span class="at">formula=</span>y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">3</span>, <span class="at">raw=</span><span class="cn">TRUE</span>),<span class="at">colour=</span><span class="st">&quot;red&quot;</span> )<span class="sc">+</span></span>
+<span id="cb935-20"><a href="linear-models-and-non-linear-models.html#cb935-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Polynomial transf.&quot;</span>)</span>
+<span id="cb935-21"><a href="linear-models-and-non-linear-models.html#cb935-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb935-22"><a href="linear-models-and-non-linear-models.html#cb935-22" aria-hidden="true" tabindex="-1"></a><span class="co"># splines</span></span>
+<span id="cb935-23"><a href="linear-models-and-non-linear-models.html#cb935-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(splines)</span>
+<span id="cb935-24"><a href="linear-models-and-non-linear-models.html#cb935-24" aria-hidden="true" tabindex="-1"></a>mod3s <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="fu">bs</span>(x1,<span class="dv">3</span>),sim3_2,<span class="at">weights =</span> x3)</span>
+<span id="cb935-25"><a href="linear-models-and-non-linear-models.html#cb935-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb935-26"><a href="linear-models-and-non-linear-models.html#cb935-26" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(sim3_2, <span class="fu">aes</span>(x1, y)) <span class="sc">+</span> </span>
+<span id="cb935-27"><a href="linear-models-and-non-linear-models.html#cb935-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb935-28"><a href="linear-models-and-non-linear-models.html#cb935-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>, <span class="at">se=</span><span class="cn">TRUE</span>, <span class="at">fill=</span><span class="cn">NA</span>,</span>
+<span id="cb935-29"><a href="linear-models-and-non-linear-models.html#cb935-29" aria-hidden="true" tabindex="-1"></a>                <span class="at">formula=</span>y<span class="sc">~</span>splines<span class="sc">::</span><span class="fu">bs</span>(x, <span class="dv">3</span>),<span class="at">colour=</span><span class="st">&quot;red&quot;</span> )<span class="sc">+</span></span>
+<span id="cb935-30"><a href="linear-models-and-non-linear-models.html#cb935-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Spline transf.&quot;</span>)</span>
+<span id="cb935-31"><a href="linear-models-and-non-linear-models.html#cb935-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb935-32"><a href="linear-models-and-non-linear-models.html#cb935-32" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb935-33"><a href="linear-models-and-non-linear-models.html#cb935-33" aria-hidden="true" tabindex="-1"></a>p1<span class="sc">+</span>p2<span class="sc">+</span>p3</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <p>When you fit a model, you apply the estimates coefficients of your observed data to the model f</p>
 <p><span class="math display">\[y = a_1 + a_2x\]</span></p>
 <p><span class="math display">\[y = 7 + 3x\]</span></p>
 <p>So, the conversion of the linear model formula <span class="math inline">\(y\sim{x}\)</span> is <span class="math inline">\(y = a_1 + a_2x\)</span></p>
 <p>Behind the scenes, what happens is:</p>
-<div class="sourceCode" id="cb934"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb934-1"><a href="linear-models-and-non-linear-models.html#cb934-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="cf">function</span>(a, data) {</span>
-<span id="cb934-2"><a href="linear-models-and-non-linear-models.html#cb934-2" aria-hidden="true" tabindex="-1"></a>  a[<span class="dv">1</span>] <span class="sc">+</span> data<span class="sc">$</span>x <span class="sc">*</span> a[<span class="dv">2</span>] <span class="sc">+</span> a[<span class="dv">3</span>]</span>
-<span id="cb934-3"><a href="linear-models-and-non-linear-models.html#cb934-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb936"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb936-1"><a href="linear-models-and-non-linear-models.html#cb936-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="cf">function</span>(a, data) {</span>
+<span id="cb936-2"><a href="linear-models-and-non-linear-models.html#cb936-2" aria-hidden="true" tabindex="-1"></a>  a[<span class="dv">1</span>] <span class="sc">+</span> data<span class="sc">$</span>x <span class="sc">*</span> a[<span class="dv">2</span>] <span class="sc">+</span> a[<span class="dv">3</span>]</span>
+<span id="cb936-3"><a href="linear-models-and-non-linear-models.html#cb936-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>And we can see it with the function <code>model_matrix()</code>:</p>
-<div class="sourceCode" id="cb935"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb935-1"><a href="linear-models-and-non-linear-models.html#cb935-1" aria-hidden="true" tabindex="-1"></a><span class="fu">model_matrix</span>(sim3, y <span class="sc">~</span> x1)</span></code></pre></div>
+<div class="sourceCode" id="cb937"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb937-1"><a href="linear-models-and-non-linear-models.html#cb937-1" aria-hidden="true" tabindex="-1"></a><span class="fu">model_matrix</span>(sim3, y <span class="sc">~</span> x1)</span></code></pre></div>
 <pre><code>## # A tibble: 120 × 2
 ##    `(Intercept)`    x1
 ##            &lt;dbl&gt; &lt;dbl&gt;

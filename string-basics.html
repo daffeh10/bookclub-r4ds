@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>14.2 String Basics | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
   <meta property="og:title" content="14.2 String Basics | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-10-24" />
+<meta name="date" content="2022-11-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -95,7 +95,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -108,7 +108,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -823,40 +823,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>However, which ever you choose, just stick with the format throughout your script.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="string-basics.html#cb403-1" aria-hidden="true" tabindex="-1"></a>string1 <span class="ot">&lt;-</span> <span class="st">&#39;This is also a string, but uses single quotes&#39;</span></span>
-<span id="cb403-2"><a href="string-basics.html#cb403-2" aria-hidden="true" tabindex="-1"></a>string2 <span class="ot">&lt;-</span> <span class="st">&quot;This is a string with double quotes&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="string-basics.html#cb404-1" aria-hidden="true" tabindex="-1"></a>string1 <span class="ot">&lt;-</span> <span class="st">&#39;This is also a string, but uses single quotes&#39;</span></span>
+<span id="cb404-2"><a href="string-basics.html#cb404-2" aria-hidden="true" tabindex="-1"></a>string2 <span class="ot">&lt;-</span> <span class="st">&quot;This is a string with double quotes&quot;</span></span></code></pre></div>
 <p>During scripting, if you do not close a string but try to start a new line you will see the <code>+</code> line entry. But how do you quit so you can add the closing quote? Just hit the escape key.</p>
-<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="string-basics.html#cb404-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;This is a string, but I forgot to close the quote</span></span>
-<span id="cb404-2"><a href="string-basics.html#cb404-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb404-3"><a href="string-basics.html#cb404-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb404-4"><a href="string-basics.html#cb404-4" aria-hidden="true" tabindex="-1"></a><span class="st">Help, I&#39;m stuck! (Hit the escape key)</span></span></code></pre></div>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="string-basics.html#cb405-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;This is a string, but I forgot to close the quote</span></span>
+<span id="cb405-2"><a href="string-basics.html#cb405-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb405-3"><a href="string-basics.html#cb405-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb405-4"><a href="string-basics.html#cb405-4" aria-hidden="true" tabindex="-1"></a><span class="st">Help, I&#39;m stuck! (Hit the escape key)</span></span></code></pre></div>
 <p>One of the more tricky things to remember when using regular expressions is the <code>\</code> backslash when you literally want to use a special character in a search.</p>
-<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="string-basics.html#cb405-1" aria-hidden="true" tabindex="-1"></a>doublequote <span class="ot">&lt;-</span> <span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">&quot;</span> <span class="co"># or &#39;&quot;&#39;</span></span>
-<span id="cb405-2"><a href="string-basics.html#cb405-2" aria-hidden="true" tabindex="-1"></a>singlequote <span class="ot">&lt;-</span> <span class="st">&#39;</span><span class="sc">\&#39;</span><span class="st">&#39;</span> <span class="co"># or &quot;&#39;&quot;</span></span>
-<span id="cb405-3"><a href="string-basics.html#cb405-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(doublequote)</span></code></pre></div>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="string-basics.html#cb406-1" aria-hidden="true" tabindex="-1"></a>doublequote <span class="ot">&lt;-</span> <span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">&quot;</span> <span class="co"># or &#39;&quot;&#39;</span></span>
+<span id="cb406-2"><a href="string-basics.html#cb406-2" aria-hidden="true" tabindex="-1"></a>singlequote <span class="ot">&lt;-</span> <span class="st">&#39;</span><span class="sc">\&#39;</span><span class="st">&#39;</span> <span class="co"># or &quot;&#39;&quot;</span></span>
+<span id="cb406-3"><a href="string-basics.html#cb406-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(doublequote)</span></code></pre></div>
 <pre><code>## [1] &quot;\&quot;&quot;</code></pre>
-<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="string-basics.html#cb407-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(singlequote)</span></code></pre></div>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="string-basics.html#cb408-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(singlequote)</span></code></pre></div>
 <pre><code>## [1] &quot;&#39;&quot;</code></pre>
 <p>Evaluating the above makes you question if my environment is correct. Yes it is. By printing to the screen, we are treating the output as a string…confused? To execute this as a regular expression however, we have to use <code>writeLines()</code>.</p>
-<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="string-basics.html#cb409-1" aria-hidden="true" tabindex="-1"></a>doublequote <span class="ot">&lt;-</span> <span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">&quot;</span> <span class="co"># or &#39;&quot;&#39;</span></span>
-<span id="cb409-2"><a href="string-basics.html#cb409-2" aria-hidden="true" tabindex="-1"></a>singlequote <span class="ot">&lt;-</span> <span class="st">&#39;</span><span class="sc">\&#39;</span><span class="st">&#39;</span> <span class="co"># or &quot;&#39;&quot;</span></span>
-<span id="cb409-3"><a href="string-basics.html#cb409-3" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(doublequote)</span></code></pre></div>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="string-basics.html#cb410-1" aria-hidden="true" tabindex="-1"></a>doublequote <span class="ot">&lt;-</span> <span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">&quot;</span> <span class="co"># or &#39;&quot;&#39;</span></span>
+<span id="cb410-2"><a href="string-basics.html#cb410-2" aria-hidden="true" tabindex="-1"></a>singlequote <span class="ot">&lt;-</span> <span class="st">&#39;</span><span class="sc">\&#39;</span><span class="st">&#39;</span> <span class="co"># or &quot;&#39;&quot;</span></span>
+<span id="cb410-3"><a href="string-basics.html#cb410-3" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(doublequote)</span></code></pre></div>
 <pre><code>## &quot;</code></pre>
-<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="string-basics.html#cb411-1" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(singlequote)</span></code></pre></div>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="string-basics.html#cb412-1" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(singlequote)</span></code></pre></div>
 <pre><code>## &#39;</code></pre>
 <p>There are a handful of other special characters. The most common are <code>\n</code>, newline, and <code>\t</code>, tab, but you can see the complete list by requesting help on <code>: ?'"'</code>, or <code>?"'"</code>. You’ll also sometimes see strings like <code>\u00b5</code>, this is a way of writing non-English characters that works on all platforms:</p>
-<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="string-basics.html#cb413-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;\u00b5&quot;</span></span>
-<span id="cb413-2"><a href="string-basics.html#cb413-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="string-basics.html#cb414-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;\u00b5&quot;</span></span>
+<span id="cb414-2"><a href="string-basics.html#cb414-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1] &quot;µ&quot;</code></pre>
-<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="string-basics.html#cb415-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">&quot;\U1F44D&quot;</span></span>
-<span id="cb415-2"><a href="string-basics.html#cb415-2" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="string-basics.html#cb416-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">&quot;\U1F44D&quot;</span></span>
+<span id="cb416-2"><a href="string-basics.html#cb416-2" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
 <pre><code>## [1] &quot;👍&quot;</code></pre>
 <p>Another way to think “non-English” would be to say these are <a href="https://en.wikipedia.org/wiki/List_of_Unicode_characters">Unicode</a> values.</p>
 <blockquote>
 <p>NOTE: The list is quite extensive (~144K). A better way to state the comment, unicode is inteded to represent the worlds diverse linguistic and lexiconal attributes!</p>
 </blockquote>
 <p>Multiple strings are often stored in a character vector, which you can create with c():</p>
-<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="string-basics.html#cb417-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">&quot;one&quot;</span>, <span class="st">&quot;two&quot;</span>, <span class="st">&quot;three&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="string-basics.html#cb418-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">&quot;one&quot;</span>, <span class="st">&quot;two&quot;</span>, <span class="st">&quot;three&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;one&quot;   &quot;two&quot;   &quot;three&quot;</code></pre>
 <div id="string-length" class="section level3 hasAnchor" number="14.2.1">
 <h3><span class="header-section-number">14.2.1</span> String Length<a href="string-basics.html#string-length" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -864,7 +864,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>All string functions in <code>{stringr}</code> start with the root <code>str_</code> making use of the package quite intuitive.</li>
 </ul>
-<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="string-basics.html#cb419-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_length</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;R for Data Science&quot;</span>, <span class="cn">NA</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="string-basics.html#cb420-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_length</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;R for Data Science&quot;</span>, <span class="cn">NA</span>))</span></code></pre></div>
 <pre><code>## [1]  1 18 NA</code></pre>
 <p>Using the RStudio IDE makes using the autocomplete feature quiet simple
 <img src="images/stringr-autocomplete.png" alt="Stringr Autocomplete" />
@@ -873,60 +873,60 @@ This is a excellent way to quickly call on a particular <code>{stringr}</code> f
 <div id="combining-strings" class="section level3 hasAnchor" number="14.2.2">
 <h3><span class="header-section-number">14.2.2</span> Combining Strings<a href="string-basics.html#combining-strings" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To combine two or more strings, use <code>str_c()</code></p>
-<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="string-basics.html#cb421-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="st">&quot;x&quot;</span>, <span class="st">&quot;y&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="string-basics.html#cb422-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="st">&quot;x&quot;</span>, <span class="st">&quot;y&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;xy&quot;</code></pre>
-<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="string-basics.html#cb423-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="st">&quot;x&quot;</span>, <span class="st">&quot;y&quot;</span>, <span class="st">&quot;z&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="string-basics.html#cb424-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="st">&quot;x&quot;</span>, <span class="st">&quot;y&quot;</span>, <span class="st">&quot;z&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;xyz&quot;</code></pre>
 <p>You can also add the <code>sep</code> argument to control how the strings are seperated.</p>
-<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="string-basics.html#cb425-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="st">&quot;x&quot;</span>, <span class="st">&quot;y&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;, &quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="string-basics.html#cb426-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="st">&quot;x&quot;</span>, <span class="st">&quot;y&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;, &quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;x, y&quot;</code></pre>
 <p>Like many other functions in R, if you have missing data, you can add <code>NA</code>.</p>
-<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="string-basics.html#cb427-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;abc&quot;</span>, <span class="cn">NA</span>)</span>
-<span id="cb427-2"><a href="string-basics.html#cb427-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="st">&quot;|-&quot;</span>, x, <span class="st">&quot;-|&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="string-basics.html#cb428-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;abc&quot;</span>, <span class="cn">NA</span>)</span>
+<span id="cb428-2"><a href="string-basics.html#cb428-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="st">&quot;|-&quot;</span>, x, <span class="st">&quot;-|&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;|-abc-|&quot; NA</code></pre>
-<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="string-basics.html#cb429-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="st">&quot;|-&quot;</span>, <span class="fu">str_replace_na</span>(x), <span class="st">&quot;-|&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="string-basics.html#cb430-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="st">&quot;|-&quot;</span>, <span class="fu">str_replace_na</span>(x), <span class="st">&quot;-|&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;|-abc-|&quot; &quot;|-NA-|&quot;</code></pre>
 <p>As shown above, <code>str_c()</code> is vectorised, and it automatically recycles shorter vectors to the same length as the longest:</p>
-<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="string-basics.html#cb431-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="st">&quot;prefix-&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), <span class="st">&quot;-suffix&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="string-basics.html#cb432-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="st">&quot;prefix-&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), <span class="st">&quot;-suffix&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;prefix-a-suffix&quot; &quot;prefix-b-suffix&quot; &quot;prefix-c-suffix&quot;</code></pre>
 <blockquote>
 <p>I’m unsure if the use of <em>recycle</em> is accurate in the above statement. Another way to view this is a vector list inside a vector list. As the output is sent to the screen, the function acts like a for-loop inside a for-loop where each pass of the inside combination is iterated as combined with the outside combination iteration.</p>
 </blockquote>
 <p>Objects of length 0 are silently dropped. This is particularly useful in conjunction with <code>if</code>:</p>
-<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="string-basics.html#cb433-1" aria-hidden="true" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="st">&quot;Ryan&quot;</span></span>
-<span id="cb433-2"><a href="string-basics.html#cb433-2" aria-hidden="true" tabindex="-1"></a>time_of_day <span class="ot">&lt;-</span> <span class="st">&quot;afternon&quot;</span></span>
-<span id="cb433-3"><a href="string-basics.html#cb433-3" aria-hidden="true" tabindex="-1"></a>birthday <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
-<span id="cb433-4"><a href="string-basics.html#cb433-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb433-5"><a href="string-basics.html#cb433-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(</span>
-<span id="cb433-6"><a href="string-basics.html#cb433-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Good &quot;</span>, time_of_day, <span class="st">&quot; &quot;</span>, name,</span>
-<span id="cb433-7"><a href="string-basics.html#cb433-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (birthday) <span class="st">&quot; and HAPPY BIRTHDAY&quot;</span>,</span>
-<span id="cb433-8"><a href="string-basics.html#cb433-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;.&quot;</span></span>
-<span id="cb433-9"><a href="string-basics.html#cb433-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="string-basics.html#cb434-1" aria-hidden="true" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="st">&quot;Ryan&quot;</span></span>
+<span id="cb434-2"><a href="string-basics.html#cb434-2" aria-hidden="true" tabindex="-1"></a>time_of_day <span class="ot">&lt;-</span> <span class="st">&quot;afternon&quot;</span></span>
+<span id="cb434-3"><a href="string-basics.html#cb434-3" aria-hidden="true" tabindex="-1"></a>birthday <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb434-4"><a href="string-basics.html#cb434-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb434-5"><a href="string-basics.html#cb434-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(</span>
+<span id="cb434-6"><a href="string-basics.html#cb434-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Good &quot;</span>, time_of_day, <span class="st">&quot; &quot;</span>, name,</span>
+<span id="cb434-7"><a href="string-basics.html#cb434-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (birthday) <span class="st">&quot; and HAPPY BIRTHDAY&quot;</span>,</span>
+<span id="cb434-8"><a href="string-basics.html#cb434-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;.&quot;</span></span>
+<span id="cb434-9"><a href="string-basics.html#cb434-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>## [1] &quot;Good afternon Ryan.&quot;</code></pre>
 <blockquote>
 <p>The above example is written a bit confusing. The object <code>birthday</code> is passed as a boolean value of <em>FALSE</em> and therefore will never evaluate <em>TRUE</em>, making the <code>if</code> statement overhead. Maybe a better way to write the <code>if</code> statement would be to write an argument like <code>sys.date == birthday</code> in which case, if the system date of the computer matches the object <code>birthday</code>, you would get extra text.</p>
 </blockquote>
 <p>Finally, if you would like to collapse a vector of strings into a single string, use the <code>collapse</code> argument.</p>
-<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="string-basics.html#cb435-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="fu">c</span>(<span class="st">&quot;x&quot;</span>, <span class="st">&quot;y&quot;</span>, <span class="st">&quot;z&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="string-basics.html#cb436-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="fu">c</span>(<span class="st">&quot;x&quot;</span>, <span class="st">&quot;y&quot;</span>, <span class="st">&quot;z&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
-<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="string-basics.html#cb437-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="fu">c</span>(<span class="st">&quot;x&quot;</span>, <span class="st">&quot;y&quot;</span>, <span class="st">&quot;z&quot;</span>), <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="string-basics.html#cb438-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="fu">c</span>(<span class="st">&quot;x&quot;</span>, <span class="st">&quot;y&quot;</span>, <span class="st">&quot;z&quot;</span>), <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;x, y, z&quot;</code></pre>
 </div>
 <div id="subsetting-strings" class="section level3 hasAnchor" number="14.2.3">
 <h3><span class="header-section-number">14.2.3</span> Subsetting Strings<a href="string-basics.html#subsetting-strings" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You can extract parts of a string using <code>str_sub()</code>. As well as the string, <code>str_sub()</code> takes start and end arguments which give the (inclusive) position of the substring:</p>
-<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="string-basics.html#cb439-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Apple&quot;</span>, <span class="st">&quot;Banana&quot;</span>, <span class="st">&quot;Pear&quot;</span>)</span>
-<span id="cb439-2"><a href="string-basics.html#cb439-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(x, <span class="dv">1</span>, <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="string-basics.html#cb440-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Apple&quot;</span>, <span class="st">&quot;Banana&quot;</span>, <span class="st">&quot;Pear&quot;</span>)</span>
+<span id="cb440-2"><a href="string-basics.html#cb440-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(x, <span class="dv">1</span>, <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;App&quot; &quot;Ban&quot; &quot;Pea&quot;</code></pre>
-<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="string-basics.html#cb441-1" aria-hidden="true" tabindex="-1"></a><span class="co"># negative numbers count backwards from end</span></span>
-<span id="cb441-2"><a href="string-basics.html#cb441-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(x, <span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="string-basics.html#cb442-1" aria-hidden="true" tabindex="-1"></a><span class="co"># negative numbers count backwards from end</span></span>
+<span id="cb442-2"><a href="string-basics.html#cb442-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(x, <span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;ple&quot; &quot;ana&quot; &quot;ear&quot;</code></pre>
 <p>Note that str_sub() won’t fail if the string is too short: it will just return as much as possible:</p>
-<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="string-basics.html#cb443-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(<span class="st">&quot;a&quot;</span>, <span class="dv">1</span>, <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="string-basics.html#cb444-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(<span class="st">&quot;a&quot;</span>, <span class="dv">1</span>, <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;a&quot;</code></pre>
 <p>You can also use the assignment form of <code>str_sub()</code> to modify strings:</p>
-<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="string-basics.html#cb445-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(x, <span class="dv">1</span>, <span class="dv">1</span>) <span class="ot">&lt;-</span> <span class="fu">str_to_lower</span>(<span class="fu">str_sub</span>(x, <span class="dv">1</span>, <span class="dv">1</span>))</span>
-<span id="cb445-2"><a href="string-basics.html#cb445-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="string-basics.html#cb446-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(x, <span class="dv">1</span>, <span class="dv">1</span>) <span class="ot">&lt;-</span> <span class="fu">str_to_lower</span>(<span class="fu">str_sub</span>(x, <span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb446-2"><a href="string-basics.html#cb446-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1] &quot;apple&quot;  &quot;banana&quot; &quot;pear&quot;</code></pre>
 </div>
 <div id="locales" class="section level3 hasAnchor" number="14.2.4">
@@ -936,11 +936,11 @@ This is a excellent way to quickly call on a particular <code>{stringr}</code> f
 <li>Changing case is a bit more complicated then it first appears</li>
 <li>Different languages have different rules for changing case</li>
 </ul>
-<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="string-basics.html#cb447-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Turkish has two i&#39;s: with and without a dot, and it</span></span>
-<span id="cb447-2"><a href="string-basics.html#cb447-2" aria-hidden="true" tabindex="-1"></a><span class="co"># has a different rule for capitalising them:</span></span>
-<span id="cb447-3"><a href="string-basics.html#cb447-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_upper</span>(<span class="fu">c</span>(<span class="st">&quot;i&quot;</span>, <span class="st">&quot;ı&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="string-basics.html#cb448-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Turkish has two i&#39;s: with and without a dot, and it</span></span>
+<span id="cb448-2"><a href="string-basics.html#cb448-2" aria-hidden="true" tabindex="-1"></a><span class="co"># has a different rule for capitalising them:</span></span>
+<span id="cb448-3"><a href="string-basics.html#cb448-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_upper</span>(<span class="fu">c</span>(<span class="st">&quot;i&quot;</span>, <span class="st">&quot;ı&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;I&quot; &quot;I&quot;</code></pre>
-<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="string-basics.html#cb449-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_upper</span>(<span class="fu">c</span>(<span class="st">&quot;i&quot;</span>, <span class="st">&quot;ı&quot;</span>), <span class="at">locale =</span> <span class="st">&quot;tr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="string-basics.html#cb450-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_upper</span>(<span class="fu">c</span>(<span class="st">&quot;i&quot;</span>, <span class="st">&quot;ı&quot;</span>), <span class="at">locale =</span> <span class="st">&quot;tr&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;İ&quot; &quot;I&quot;</code></pre>
 <ul>
 <li><p>Locale is specified as a ISO 639 language code, see <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">Wikipedia</a></p></li>
@@ -950,11 +950,11 @@ This is a excellent way to quickly call on a particular <code>{stringr}</code> f
 <li>Using <code>{stringr}</code> adds a <code>local=</code> argument</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="string-basics.html#cb451-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;eggplant&quot;</span>, <span class="st">&quot;banana&quot;</span>)</span>
-<span id="cb451-2"><a href="string-basics.html#cb451-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb451-3"><a href="string-basics.html#cb451-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sort</span>(x, <span class="at">locale =</span> <span class="st">&quot;en&quot;</span>)  <span class="co"># English</span></span></code></pre></div>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="string-basics.html#cb452-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;eggplant&quot;</span>, <span class="st">&quot;banana&quot;</span>)</span>
+<span id="cb452-2"><a href="string-basics.html#cb452-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb452-3"><a href="string-basics.html#cb452-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sort</span>(x, <span class="at">locale =</span> <span class="st">&quot;en&quot;</span>)  <span class="co"># English</span></span></code></pre></div>
 <pre><code>## [1] &quot;apple&quot;    &quot;banana&quot;   &quot;eggplant&quot;</code></pre>
-<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="string-basics.html#cb453-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sort</span>(x, <span class="at">locale =</span> <span class="st">&quot;haw&quot;</span>) <span class="co"># Hawaiian</span></span></code></pre></div>
+<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="string-basics.html#cb454-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sort</span>(x, <span class="at">locale =</span> <span class="st">&quot;haw&quot;</span>) <span class="co"># Hawaiian</span></span></code></pre></div>
 <pre><code>## [1] &quot;apple&quot;    &quot;eggplant&quot; &quot;banana&quot;</code></pre>
 </div>
 <div id="exercises-9" class="section level3 hasAnchor" number="14.2.5">
@@ -992,10 +992,10 @@ This is a excellent way to quickly call on a particular <code>{stringr}</code> f
 <ol start="6" style="list-style-type: decimal">
 <li>Write a function that turns (e.g.) a vector c(“a”, “b”, “c”) into the string a, b, and c. Think carefully about what it should do if given a vector of length 0, 1, or 2.</li>
 </ol>
-<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="string-basics.html#cb455-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">str_c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;, &quot;</span>)</span>
-<span id="cb455-2"><a href="string-basics.html#cb455-2" aria-hidden="true" tabindex="-1"></a>z</span></code></pre></div>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="string-basics.html#cb456-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">str_c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;, &quot;</span>)</span>
+<span id="cb456-2"><a href="string-basics.html#cb456-2" aria-hidden="true" tabindex="-1"></a>z</span></code></pre></div>
 <pre><code>## [1] &quot;a, b, c&quot;</code></pre>
-<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="string-basics.html#cb457-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Unsure on the second half of hte question.</span></span></code></pre></div>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="string-basics.html#cb458-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Unsure on the second half of hte question.</span></span></code></pre></div>
 </div>
 </div>
             </section>

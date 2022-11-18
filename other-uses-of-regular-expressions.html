@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>14.6 Other uses of regular expressions | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
   <meta property="og:title" content="14.6 Other uses of regular expressions | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-10-24" />
+<meta name="date" content="2022-11-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -95,7 +95,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -108,7 +108,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -821,13 +821,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><code>apropos()</code> searches all objects available from the global environment. This is useful if you can’t quite remember the name of the function.</li>
 </ul>
-<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="other-uses-of-regular-expressions.html#cb582-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apropos</span>(<span class="st">&quot;replace&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="other-uses-of-regular-expressions.html#cb583-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apropos</span>(<span class="st">&quot;replace&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;%+replace%&quot;       &quot;replace&quot;          &quot;replace_na&quot;       &quot;setReplaceMethod&quot;
 ## [5] &quot;str_replace&quot;      &quot;str_replace_all&quot;  &quot;str_replace_na&quot;   &quot;theme_replace&quot;</code></pre>
 <ul>
 <li><code>dir()</code> lists all the files in a directory. The <code>pattern</code> argument takes a regular expression and only returns file names that match the pattern.</li>
 </ul>
-<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="other-uses-of-regular-expressions.html#cb584-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">dir</span>(<span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.Rmd$&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="other-uses-of-regular-expressions.html#cb585-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">dir</span>(<span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.Rmd$&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;01-introduction.Rmd&quot;        &quot;02--whole_game.Rmd&quot;        
 ## [3] &quot;02-data_visualisation.Rmd&quot;  &quot;03-workflow_basics.Rmd&quot;    
 ## [5] &quot;04-data_transformation.Rmd&quot; &quot;05-workflow_pipes.Rmd&quot;</code></pre>

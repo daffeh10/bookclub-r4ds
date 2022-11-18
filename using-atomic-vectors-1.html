@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>13.4 Using atomic vectors | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
   <meta property="og:title" content="13.4 Using atomic vectors | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-10-24" />
+<meta name="date" content="2022-11-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -95,7 +95,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -108,7 +108,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -843,25 +843,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>TRUE</code> is converted to <code>1</code> and <code>FALSE</code> is converted to <code>0</code>. Hence, summing the logical vector is the # of trues and the mean of a logical vector is the proportion of trues.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="using-atomic-vectors-1.html#cb342-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">20</span>, <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb342-2"><a href="using-atomic-vectors-1.html#cb342-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">&gt;</span> <span class="dv">10</span></span>
-<span id="cb342-3"><a href="using-atomic-vectors-1.html#cb342-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(y)  <span class="co"># how many are greater than 10?</span></span>
-<span id="cb342-4"><a href="using-atomic-vectors-1.html#cb342-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb342-5"><a href="using-atomic-vectors-1.html#cb342-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(y) <span class="co"># what proportion are greater than 10?</span></span></code></pre></div>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="using-atomic-vectors-1.html#cb343-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">20</span>, <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb343-2"><a href="using-atomic-vectors-1.html#cb343-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">&gt;</span> <span class="dv">10</span></span>
+<span id="cb343-3"><a href="using-atomic-vectors-1.html#cb343-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(y)  <span class="co"># how many are greater than 10?</span></span>
+<span id="cb343-4"><a href="using-atomic-vectors-1.html#cb343-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb343-5"><a href="using-atomic-vectors-1.html#cb343-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(y) <span class="co"># what proportion are greater than 10?</span></span></code></pre></div>
 <p>Or, some code that relies on implicit coercion in the opposite direction, from integer to logical:</p>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="using-atomic-vectors-1.html#cb343-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(x)) {</span>
-<span id="cb343-2"><a href="using-atomic-vectors-1.html#cb343-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># do something</span></span>
-<span id="cb343-3"><a href="using-atomic-vectors-1.html#cb343-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="using-atomic-vectors-1.html#cb344-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(x)) {</span>
+<span id="cb344-2"><a href="using-atomic-vectors-1.html#cb344-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># do something</span></span>
+<span id="cb344-3"><a href="using-atomic-vectors-1.html#cb344-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Here, 0 is converted to <code>FALSE</code> and everything else is converted to <code>TRUE</code>. For easier understanding of the code, let’s be explicit: <code>length(x) &gt; 0</code>.</p>
 <blockquote>
 <p>NOTE1: When we create a vector containing multiple types with <code>c()</code>: the most complex type always wins. –&gt; <em>Aha moment!</em></p>
 </blockquote>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="using-atomic-vectors-1.html#cb344-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, 1L)) <span class="co">#integer wins</span></span>
-<span id="cb344-2"><a href="using-atomic-vectors-1.html#cb344-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb344-3"><a href="using-atomic-vectors-1.html#cb344-3" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="fu">c</span>(1L, <span class="fl">1.5</span>)) <span class="co">#double wins </span></span>
-<span id="cb344-4"><a href="using-atomic-vectors-1.html#cb344-4" aria-hidden="true" tabindex="-1"></a><span class="co">#why? Thinking here, because integer is created from a double?</span></span>
-<span id="cb344-5"><a href="using-atomic-vectors-1.html#cb344-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb344-6"><a href="using-atomic-vectors-1.html#cb344-6" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="fu">c</span>(<span class="fl">1.5</span>, <span class="st">&quot;a&quot;</span>)) <span class="co">#character wins</span></span></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="using-atomic-vectors-1.html#cb345-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, 1L)) <span class="co">#integer wins</span></span>
+<span id="cb345-2"><a href="using-atomic-vectors-1.html#cb345-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb345-3"><a href="using-atomic-vectors-1.html#cb345-3" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="fu">c</span>(1L, <span class="fl">1.5</span>)) <span class="co">#double wins </span></span>
+<span id="cb345-4"><a href="using-atomic-vectors-1.html#cb345-4" aria-hidden="true" tabindex="-1"></a><span class="co">#why? Thinking here, because integer is created from a double?</span></span>
+<span id="cb345-5"><a href="using-atomic-vectors-1.html#cb345-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb345-6"><a href="using-atomic-vectors-1.html#cb345-6" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="fu">c</span>(<span class="fl">1.5</span>, <span class="st">&quot;a&quot;</span>)) <span class="co">#character wins</span></span></code></pre></div>
 <blockquote>
 <p>NOTE2: An atomic vector <strong>can not</strong> only have a mix of different types since the type is a property of the complete vector, not the individual elements. For a mix of multiple types in the same vector, use a list.</p>
 </blockquote>
@@ -893,33 +893,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Since there are no scalars, most built-in functions are <strong>vectorised</strong> meaning that they will operate on a vector of numbers. Hence, such a code will work:</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="using-atomic-vectors-1.html#cb345-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">10</span>) <span class="sc">+</span> <span class="dv">100</span></span>
-<span id="cb345-2"><a href="using-atomic-vectors-1.html#cb345-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb345-3"><a href="using-atomic-vectors-1.html#cb345-3" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">10</span>) <span class="sc">&gt;</span> <span class="fl">0.5</span></span></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="using-atomic-vectors-1.html#cb346-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">10</span>) <span class="sc">+</span> <span class="dv">100</span></span>
+<span id="cb346-2"><a href="using-atomic-vectors-1.html#cb346-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb346-3"><a href="using-atomic-vectors-1.html#cb346-3" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">10</span>) <span class="sc">&gt;</span> <span class="fl">0.5</span></span></code></pre></div>
 <ul>
 <li>What happens if we add two vectors of different lengths?</li>
 </ul>
-<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="using-atomic-vectors-1.html#cb346-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="sc">+</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="using-atomic-vectors-1.html#cb347-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="sc">+</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span></span></code></pre></div>
 <p>R expands the shortest vector to the same length as the longest –&gt; recycling.</p>
 <p>But what if the length of the longer is not an integer multiple of the length of the shorter:</p>
-<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="using-atomic-vectors-1.html#cb347-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="sc">+</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="using-atomic-vectors-1.html#cb348-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="sc">+</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span></span></code></pre></div>
 <p>Vector recycling can silently conceal the problem, hence, the vectorised functions in tidyverse will throw errors when recycling anything other than a scalar. We can use <code>rep()</code> to do recycling ourselves.</p>
-<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="using-atomic-vectors-1.html#cb348-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
-<span id="cb348-2"><a href="using-atomic-vectors-1.html#cb348-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb348-3"><a href="using-atomic-vectors-1.html#cb348-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">2</span>))</span>
-<span id="cb348-4"><a href="using-atomic-vectors-1.html#cb348-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb348-5"><a href="using-atomic-vectors-1.html#cb348-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">each =</span> <span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="using-atomic-vectors-1.html#cb349-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
+<span id="cb349-2"><a href="using-atomic-vectors-1.html#cb349-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb349-3"><a href="using-atomic-vectors-1.html#cb349-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb349-4"><a href="using-atomic-vectors-1.html#cb349-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb349-5"><a href="using-atomic-vectors-1.html#cb349-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">each =</span> <span class="dv">2</span>))</span></code></pre></div>
 </div>
 <div id="naming-vectors-1" class="section level3 hasAnchor" number="13.4.4">
 <h3><span class="header-section-number">13.4.4</span> Naming vectors<a href="using-atomic-vectors-1.html#naming-vectors-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>We can name all types of vectors during creation with <code>c()</code>:</li>
 </ul>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="using-atomic-vectors-1.html#cb349-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">2</span>, <span class="at">z =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="using-atomic-vectors-1.html#cb350-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">2</span>, <span class="at">z =</span> <span class="dv">4</span>)</span></code></pre></div>
 <ul>
 <li>Or, with <code>purrr::set_names()</code>:</li>
 </ul>
-<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="using-atomic-vectors-1.html#cb350-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set_names</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="using-atomic-vectors-1.html#cb351-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set_names</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>))</span></code></pre></div>
 <blockquote>
 <p>Why name vectors? Because are useful in subsetting.</p>
 </blockquote>
@@ -933,34 +933,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>A numeric vector containing only integers, and these must either be all positive, all negative, or zero.</li>
 </ol>
 <p>Subsetting with positive integers keeps the elements at those positions:</p>
-<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="using-atomic-vectors-1.html#cb351-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;one&quot;</span>, <span class="st">&quot;two&quot;</span>, <span class="st">&quot;three&quot;</span>, <span class="st">&quot;four&quot;</span>, <span class="st">&quot;five&quot;</span>)</span>
-<span id="cb351-2"><a href="using-atomic-vectors-1.html#cb351-2" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">5</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="using-atomic-vectors-1.html#cb352-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;one&quot;</span>, <span class="st">&quot;two&quot;</span>, <span class="st">&quot;three&quot;</span>, <span class="st">&quot;four&quot;</span>, <span class="st">&quot;five&quot;</span>)</span>
+<span id="cb352-2"><a href="using-atomic-vectors-1.html#cb352-2" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">5</span>)]</span></code></pre></div>
 <p>If we repeat a position, we can actually make a longer output than input:</p>
-<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="using-atomic-vectors-1.html#cb352-1" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">2</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="using-atomic-vectors-1.html#cb353-1" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">2</span>)]</span></code></pre></div>
 <p>Negative values drop the elements at the specified positions:</p>
-<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="using-atomic-vectors-1.html#cb353-1" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">5</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="using-atomic-vectors-1.html#cb354-1" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">5</span>)]</span></code></pre></div>
 <p>It’s an error to mix positive and negative values:</p>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="using-atomic-vectors-1.html#cb354-1" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="using-atomic-vectors-1.html#cb355-1" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>)]</span></code></pre></div>
 <p>The error message mentions subsetting with zero, which returns no values:</p>
-<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="using-atomic-vectors-1.html#cb355-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">0</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="using-atomic-vectors-1.html#cb356-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">0</span>]</span></code></pre></div>
 <p>This is useful if we want to create unusual data structures to functions with. (Jon, please expound!)</p>
 <ol start="2" style="list-style-type: decimal">
 <li>Subsetting with a logical vector keeps all values corresponding to a <code>TRUE</code> value; often useful in conjunction with the comparison functions.</li>
 </ol>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="using-atomic-vectors-1.html#cb356-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">1</span>, <span class="cn">NA</span>)</span>
-<span id="cb356-2"><a href="using-atomic-vectors-1.html#cb356-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb356-3"><a href="using-atomic-vectors-1.html#cb356-3" aria-hidden="true" tabindex="-1"></a><span class="co"># All non-missing values of x</span></span>
-<span id="cb356-4"><a href="using-atomic-vectors-1.html#cb356-4" aria-hidden="true" tabindex="-1"></a>x[<span class="sc">!</span><span class="fu">is.na</span>(x)]</span>
-<span id="cb356-5"><a href="using-atomic-vectors-1.html#cb356-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb356-6"><a href="using-atomic-vectors-1.html#cb356-6" aria-hidden="true" tabindex="-1"></a><span class="co"># All even (or missing!) values of x</span></span>
-<span id="cb356-7"><a href="using-atomic-vectors-1.html#cb356-7" aria-hidden="true" tabindex="-1"></a>x[x <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="using-atomic-vectors-1.html#cb357-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">1</span>, <span class="cn">NA</span>)</span>
+<span id="cb357-2"><a href="using-atomic-vectors-1.html#cb357-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb357-3"><a href="using-atomic-vectors-1.html#cb357-3" aria-hidden="true" tabindex="-1"></a><span class="co"># All non-missing values of x</span></span>
+<span id="cb357-4"><a href="using-atomic-vectors-1.html#cb357-4" aria-hidden="true" tabindex="-1"></a>x[<span class="sc">!</span><span class="fu">is.na</span>(x)]</span>
+<span id="cb357-5"><a href="using-atomic-vectors-1.html#cb357-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb357-6"><a href="using-atomic-vectors-1.html#cb357-6" aria-hidden="true" tabindex="-1"></a><span class="co"># All even (or missing!) values of x</span></span>
+<span id="cb357-7"><a href="using-atomic-vectors-1.html#cb357-7" aria-hidden="true" tabindex="-1"></a>x[x <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>]</span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>If you have a named vector, you can subset it with a character vector:</li>
 </ol>
-<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="using-atomic-vectors-1.html#cb357-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">abc =</span> <span class="dv">1</span>, <span class="at">def =</span> <span class="dv">2</span>, <span class="at">xyz =</span> <span class="dv">5</span>)</span>
-<span id="cb357-2"><a href="using-atomic-vectors-1.html#cb357-2" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="st">&quot;xyz&quot;</span>, <span class="st">&quot;def&quot;</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="using-atomic-vectors-1.html#cb358-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">abc =</span> <span class="dv">1</span>, <span class="at">def =</span> <span class="dv">2</span>, <span class="at">xyz =</span> <span class="dv">5</span>)</span>
+<span id="cb358-2"><a href="using-atomic-vectors-1.html#cb358-2" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="st">&quot;xyz&quot;</span>, <span class="st">&quot;def&quot;</span>)]</span></code></pre></div>
 <p>We can also use a character vector to duplicate individual entries.</p>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="using-atomic-vectors-1.html#cb358-1" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="st">&quot;xyz&quot;</span>, <span class="st">&quot;xyz&quot;</span>, <span class="st">&quot;def&quot;</span>, <span class="st">&quot;def&quot;</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="using-atomic-vectors-1.html#cb359-1" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="st">&quot;xyz&quot;</span>, <span class="st">&quot;xyz&quot;</span>, <span class="st">&quot;def&quot;</span>, <span class="st">&quot;def&quot;</span>)]</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>The simplest type of subsetting is nothing, <code>x[]</code>, which returns the complete <code>x</code>. This is mostly useful when subsetting matrices (and other high dimensional structures) because we can select all the rows or all the columns, by leaving that index blank. E.g., if <code>x</code> is 2d, <code>x[1, ]</code> selects the first row and all the columns.</li>
 </ol>
@@ -972,45 +972,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol style="list-style-type: decimal">
 <li>What does <code>mean(is.na(x))</code> tell you about a vector <code>x</code>? What about <code>sum(!is.finite(x))</code>?</li>
 </ol>
-<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="using-atomic-vectors-1.html#cb359-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="cn">Inf</span>, <span class="cn">NA</span>, <span class="cn">NaN</span>)</span>
-<span id="cb359-2"><a href="using-atomic-vectors-1.html#cb359-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">is.na</span>(x))</span>
-<span id="cb359-3"><a href="using-atomic-vectors-1.html#cb359-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.finite</span>(x))</span></code></pre></div>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="using-atomic-vectors-1.html#cb360-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="cn">Inf</span>, <span class="cn">NA</span>, <span class="cn">NaN</span>)</span>
+<span id="cb360-2"><a href="using-atomic-vectors-1.html#cb360-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">is.na</span>(x))</span>
+<span id="cb360-3"><a href="using-atomic-vectors-1.html#cb360-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.finite</span>(x))</span></code></pre></div>
 <p><code>mean(is.na(x))</code> calculates the proprtion of missing (<code>NA</code>) and not-a-number (<code>NaN</code>) values in a vector. The result of 0.286 is equal to 2 / 7 as expected.</p>
 <p><code>sum(!is.finite(x))</code> calculates the number of elements in the vector that are equal to missing (<code>NA</code>), not-a-number (<code>NaN</code>), or infinity (<code>Inf</code>).</p>
 <ol start="2" style="list-style-type: decimal">
 <li>Carefully read the documentation of <code>is.vector()</code>. What does it actually test for? Why does <code>is.atomic()</code> not agree with the definition of atomic vectors above?</li>
 </ol>
 <p><code>is.vector()</code> checks whether an object has no attributes other than names.</p>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="using-atomic-vectors-1.html#cb360-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.vector</span>(<span class="fu">list</span>(<span class="at">a =</span> <span class="dv">1</span>, <span class="at">b =</span> <span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="using-atomic-vectors-1.html#cb361-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.vector</span>(<span class="fu">list</span>(<span class="at">a =</span> <span class="dv">1</span>, <span class="at">b =</span> <span class="dv">2</span>))</span></code></pre></div>
 <p>But any object that has an attribute apart from names is not:</p>
-<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="using-atomic-vectors-1.html#cb361-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb361-2"><a href="using-atomic-vectors-1.html#cb361-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attr</span>(x, <span class="st">&quot;something&quot;</span>) <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
-<span id="cb361-3"><a href="using-atomic-vectors-1.html#cb361-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.vector</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="using-atomic-vectors-1.html#cb362-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb362-2"><a href="using-atomic-vectors-1.html#cb362-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attr</span>(x, <span class="st">&quot;something&quot;</span>) <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb362-3"><a href="using-atomic-vectors-1.html#cb362-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.vector</span>(x)</span></code></pre></div>
 <p><code>is.atomic()</code> explicitly checks whether an object is one of the atomic types (“logical”, “integer”, “numeric”, “complex”, “character”, and “raw”) or NULL.</p>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="using-atomic-vectors-1.html#cb362-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.atomic</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
-<span id="cb362-2"><a href="using-atomic-vectors-1.html#cb362-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.atomic</span>(<span class="fu">list</span>(<span class="at">a =</span> <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="using-atomic-vectors-1.html#cb363-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.atomic</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb363-2"><a href="using-atomic-vectors-1.html#cb363-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.atomic</span>(<span class="fu">list</span>(<span class="at">a =</span> <span class="dv">1</span>))</span></code></pre></div>
 <p><code>is.atomic()</code> will consider objects to be atomic even if they have extra attributes.</p>
-<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="using-atomic-vectors-1.html#cb363-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.atomic</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="using-atomic-vectors-1.html#cb364-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.atomic</span>(x)</span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>Compare and contrast <code>setNames()</code> with <code>purrr::set_names()</code>.</li>
 </ol>
 <p><code>setNames()</code> takes two arguments, a vector to be named and a vector of names to apply to its elements.</p>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="using-atomic-vectors-1.html#cb364-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setNames</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>))</span>
-<span id="cb364-2"><a href="using-atomic-vectors-1.html#cb364-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setNames</span>(<span class="at">nm =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="using-atomic-vectors-1.html#cb365-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setNames</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>))</span>
+<span id="cb365-2"><a href="using-atomic-vectors-1.html#cb365-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setNames</span>(<span class="at">nm =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>))</span></code></pre></div>
 <p><code>set_names()</code> has more ways to set names than <code>setNames()</code>. We can specify the names the same way as <code>setNames()</code>:</p>
-<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="using-atomic-vectors-1.html#cb365-1" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">set_names</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="using-atomic-vectors-1.html#cb366-1" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">set_names</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>))</span></code></pre></div>
 <p>The names can also be specified as unnamed arguments:</p>
-<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="using-atomic-vectors-1.html#cb366-1" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">set_names</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="using-atomic-vectors-1.html#cb367-1" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">set_names</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>)</span></code></pre></div>
 <p><code>set_names()</code> will name an object with itself if no <code>nm</code> argument is provided (the opposite of <code>setNames()</code> behavior).</p>
-<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="using-atomic-vectors-1.html#cb367-1" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">set_names</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="using-atomic-vectors-1.html#cb368-1" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">set_names</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>))</span></code></pre></div>
 <p>The main difference between <code>set_names()</code> and <code>setNames()</code> is that <strong><code>set_names()</code> allows for using a function or formula to transform the existing names.</strong></p>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="using-atomic-vectors-1.html#cb368-1" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">set_names</span>(<span class="fu">c</span>(<span class="at">a =</span> <span class="dv">1</span>, <span class="at">b =</span> <span class="dv">2</span>, <span class="at">c =</span> <span class="dv">3</span>), toupper)</span>
-<span id="cb368-2"><a href="using-atomic-vectors-1.html#cb368-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb368-3"><a href="using-atomic-vectors-1.html#cb368-3" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">set_names</span>(<span class="fu">c</span>(<span class="at">a =</span> <span class="dv">1</span>, <span class="at">b =</span> <span class="dv">2</span>, <span class="at">c =</span> <span class="dv">3</span>), <span class="sc">~</span><span class="fu">toupper</span>(.))</span></code></pre></div>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="using-atomic-vectors-1.html#cb369-1" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">set_names</span>(<span class="fu">c</span>(<span class="at">a =</span> <span class="dv">1</span>, <span class="at">b =</span> <span class="dv">2</span>, <span class="at">c =</span> <span class="dv">3</span>), toupper)</span>
+<span id="cb369-2"><a href="using-atomic-vectors-1.html#cb369-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb369-3"><a href="using-atomic-vectors-1.html#cb369-3" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">set_names</span>(<span class="fu">c</span>(<span class="at">a =</span> <span class="dv">1</span>, <span class="at">b =</span> <span class="dv">2</span>, <span class="at">c =</span> <span class="dv">3</span>), <span class="sc">~</span><span class="fu">toupper</span>(.))</span></code></pre></div>
 <p><code>set_names()</code> function also checks that the length of the names argument is the same length as the vector that is being named, and will raise an error if it is not.</p>
-<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="using-atomic-vectors-1.html#cb369-1" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">set_names</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="using-atomic-vectors-1.html#cb370-1" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">set_names</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>))</span></code></pre></div>
 <p><code>setNames()</code> function will allow the names to be shorter than the vector being named, and will set the missing names to <code>NA</code>.</p>
-<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="using-atomic-vectors-1.html#cb370-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setNames</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="using-atomic-vectors-1.html#cb371-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setNames</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>))</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li><p>Create functions that take a vector as input and returns:</p></li>
 <li><p>The last value. Should you use <code>[</code> or <code>[[</code>?</p></li>

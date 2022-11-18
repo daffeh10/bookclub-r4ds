@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>32.6 Prediction | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
   <meta property="og:title" content="32.6 Prediction | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-10-24" />
+<meta name="date" content="2022-11-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -95,7 +95,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -108,7 +108,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -818,18 +818,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="prediction" class="section level2 hasAnchor" number="32.6">
 <h2><span class="header-section-number">32.6</span> Prediction<a href="prediction.html#prediction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To make the prediction of our model,</p>
-<div class="sourceCode" id="cb937"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb937-1"><a href="prediction.html#cb937-1" aria-hidden="true" tabindex="-1"></a>sim1_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> sim1)</span>
-<span id="cb937-2"><a href="prediction.html#cb937-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(sim1_mod)</span></code></pre></div>
+<div class="sourceCode" id="cb939"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb939-1"><a href="prediction.html#cb939-1" aria-hidden="true" tabindex="-1"></a>sim1_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> sim1)</span>
+<span id="cb939-2"><a href="prediction.html#cb939-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(sim1_mod)</span></code></pre></div>
 <pre><code>## (Intercept)           x 
 ##    4.220822    2.051533</code></pre>
 <p>we construct a <code>data_grid()</code> for simulating new data to be predicted:</p>
-<div class="sourceCode" id="cb939"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb939-1"><a href="prediction.html#cb939-1" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> sim1 <span class="sc">%&gt;%</span> </span>
-<span id="cb939-2"><a href="prediction.html#cb939-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_grid</span>(x) </span></code></pre></div>
+<div class="sourceCode" id="cb941"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb941-1"><a href="prediction.html#cb941-1" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> sim1 <span class="sc">%&gt;%</span> </span>
+<span id="cb941-2"><a href="prediction.html#cb941-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_grid</span>(x) </span></code></pre></div>
 <p>and add the prediction with <code>add_predictions()</code> function:</p>
-<div class="sourceCode" id="cb940"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb940-1"><a href="prediction.html#cb940-1" aria-hidden="true" tabindex="-1"></a>data_pred <span class="ot">&lt;-</span> grid <span class="sc">%&gt;%</span> </span>
-<span id="cb940-2"><a href="prediction.html#cb940-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_predictions</span>(sim1_mod)</span>
-<span id="cb940-3"><a href="prediction.html#cb940-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb940-4"><a href="prediction.html#cb940-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_pred)</span></code></pre></div>
+<div class="sourceCode" id="cb942"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb942-1"><a href="prediction.html#cb942-1" aria-hidden="true" tabindex="-1"></a>data_pred <span class="ot">&lt;-</span> grid <span class="sc">%&gt;%</span> </span>
+<span id="cb942-2"><a href="prediction.html#cb942-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_predictions</span>(sim1_mod)</span>
+<span id="cb942-3"><a href="prediction.html#cb942-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb942-4"><a href="prediction.html#cb942-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_pred)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 2
 ##       x  pred
 ##   &lt;int&gt; &lt;dbl&gt;
@@ -839,17 +839,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4     4 12.4 
 ## 5     5 14.5 
 ## 6     6 16.5</code></pre>
-<div class="sourceCode" id="cb942"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb942-1"><a href="prediction.html#cb942-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim1, <span class="fu">aes</span>(x,y)) <span class="sc">+</span></span>
-<span id="cb942-2"><a href="prediction.html#cb942-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb942-3"><a href="prediction.html#cb942-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> pred), <span class="at">data =</span> data_pred, <span class="at">colour =</span> <span class="st">&quot;red&quot;</span>, <span class="at">size =</span> <span class="dv">2</span>)<span class="sc">+</span></span>
-<span id="cb942-4"><a href="prediction.html#cb942-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>,<span class="at">se=</span>F)</span></code></pre></div>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<div class="sourceCode" id="cb944"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb944-1"><a href="prediction.html#cb944-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim1, <span class="fu">aes</span>(x,y)) <span class="sc">+</span></span>
+<span id="cb944-2"><a href="prediction.html#cb944-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb944-3"><a href="prediction.html#cb944-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> pred), <span class="at">data =</span> data_pred, <span class="at">colour =</span> <span class="st">&quot;red&quot;</span>, <span class="at">size =</span> <span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb944-4"><a href="prediction.html#cb944-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>,<span class="at">se=</span>F)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="bookclub-r4ds_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>as well as before we can add residuals to our data to visualize their trend with <code>add_residuals()</code> function:</p>
-<div class="sourceCode" id="cb944"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb944-1"><a href="prediction.html#cb944-1" aria-hidden="true" tabindex="-1"></a>data_res <span class="ot">&lt;-</span> sim1 <span class="sc">%&gt;%</span> </span>
-<span id="cb944-2"><a href="prediction.html#cb944-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_residuals</span>(sim1_mod)</span>
-<span id="cb944-3"><a href="prediction.html#cb944-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb944-4"><a href="prediction.html#cb944-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_res)</span></code></pre></div>
+<div class="sourceCode" id="cb946"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb946-1"><a href="prediction.html#cb946-1" aria-hidden="true" tabindex="-1"></a>data_res <span class="ot">&lt;-</span> sim1 <span class="sc">%&gt;%</span> </span>
+<span id="cb946-2"><a href="prediction.html#cb946-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_residuals</span>(sim1_mod)</span>
+<span id="cb946-3"><a href="prediction.html#cb946-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb946-4"><a href="prediction.html#cb946-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_res)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 3
 ##       x     y  resid
 ##   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;
@@ -859,28 +859,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4     2  8.99  0.665
 ## 5     2 10.2   1.92 
 ## 6     2 11.3   2.97</code></pre>
-<div class="sourceCode" id="cb946"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb946-1"><a href="prediction.html#cb946-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_res, <span class="fu">aes</span>(x, resid)) <span class="sc">+</span> </span>
-<span id="cb946-2"><a href="prediction.html#cb946-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ref_line</span>(<span class="at">h =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
-<span id="cb946-3"><a href="prediction.html#cb946-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb948"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb948-1"><a href="prediction.html#cb948-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_res, <span class="fu">aes</span>(x, resid)) <span class="sc">+</span> </span>
+<span id="cb948-2"><a href="prediction.html#cb948-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ref_line</span>(<span class="at">h =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb948-3"><a href="prediction.html#cb948-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <div id="interaction" class="section level3 hasAnchor" number="32.6.1">
 <h3><span class="header-section-number">32.6.1</span> Interaction<a href="prediction.html#interaction" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When we need more investigations:</p>
-<div class="sourceCode" id="cb947"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb947-1"><a href="prediction.html#cb947-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x2, <span class="at">data =</span> sim3)</span>
-<span id="cb947-2"><a href="prediction.html#cb947-2" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">*</span> x2, <span class="at">data =</span> sim3)</span></code></pre></div>
+<div class="sourceCode" id="cb949"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb949-1"><a href="prediction.html#cb949-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x2, <span class="at">data =</span> sim3)</span>
+<span id="cb949-2"><a href="prediction.html#cb949-2" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">*</span> x2, <span class="at">data =</span> sim3)</span></code></pre></div>
 <p>In this case, as we have two models to compare we <code>gather_predictions</code>:</p>
-<div class="sourceCode" id="cb948"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb948-1"><a href="prediction.html#cb948-1" aria-hidden="true" tabindex="-1"></a>grid2 <span class="ot">&lt;-</span> sim3 <span class="sc">%&gt;%</span> </span>
-<span id="cb948-2"><a href="prediction.html#cb948-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_grid</span>(x1, x2) <span class="sc">%&gt;%</span> </span>
-<span id="cb948-3"><a href="prediction.html#cb948-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather_predictions</span>(mod1, mod2)</span>
-<span id="cb948-4"><a href="prediction.html#cb948-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb948-5"><a href="prediction.html#cb948-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb948-6"><a href="prediction.html#cb948-6" aria-hidden="true" tabindex="-1"></a>grid2<span class="sc">%&gt;%</span><span class="fu">count</span>(model)</span></code></pre></div>
+<div class="sourceCode" id="cb950"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb950-1"><a href="prediction.html#cb950-1" aria-hidden="true" tabindex="-1"></a>grid2 <span class="ot">&lt;-</span> sim3 <span class="sc">%&gt;%</span> </span>
+<span id="cb950-2"><a href="prediction.html#cb950-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_grid</span>(x1, x2) <span class="sc">%&gt;%</span> </span>
+<span id="cb950-3"><a href="prediction.html#cb950-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather_predictions</span>(mod1, mod2)</span>
+<span id="cb950-4"><a href="prediction.html#cb950-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb950-5"><a href="prediction.html#cb950-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb950-6"><a href="prediction.html#cb950-6" aria-hidden="true" tabindex="-1"></a>grid2<span class="sc">%&gt;%</span><span class="fu">count</span>(model)</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 2
 ##   model     n
 ##   &lt;chr&gt; &lt;int&gt;
 ## 1 mod1     40
 ## 2 mod2     40</code></pre>
-<div class="sourceCode" id="cb950"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb950-1"><a href="prediction.html#cb950-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(grid2)</span></code></pre></div>
+<div class="sourceCode" id="cb952"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb952-1"><a href="prediction.html#cb952-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(grid2)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 4
 ##   model    x1 x2     pred
 ##   &lt;chr&gt; &lt;int&gt; &lt;fct&gt; &lt;dbl&gt;
@@ -890,41 +890,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 mod1      1 d      4.03
 ## 5 mod1      2 a      1.48
 ## 6 mod1      2 b      4.37</code></pre>
-<div class="sourceCode" id="cb952"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb952-1"><a href="prediction.html#cb952-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim3, <span class="fu">aes</span>(x1, y, <span class="at">colour =</span> x2)) <span class="sc">+</span> </span>
-<span id="cb952-2"><a href="prediction.html#cb952-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb952-3"><a href="prediction.html#cb952-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> grid2, <span class="fu">aes</span>(<span class="at">y =</span> pred)) <span class="sc">+</span> </span>
-<span id="cb952-4"><a href="prediction.html#cb952-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> model)</span></code></pre></div>
+<div class="sourceCode" id="cb954"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb954-1"><a href="prediction.html#cb954-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim3, <span class="fu">aes</span>(x1, y, <span class="at">colour =</span> x2)) <span class="sc">+</span> </span>
+<span id="cb954-2"><a href="prediction.html#cb954-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb954-3"><a href="prediction.html#cb954-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> grid2, <span class="fu">aes</span>(<span class="at">y =</span> pred)) <span class="sc">+</span> </span>
+<span id="cb954-4"><a href="prediction.html#cb954-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> model)</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>as well as <code>gather_residuals()</code>:</p>
-<div class="sourceCode" id="cb953"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb953-1"><a href="prediction.html#cb953-1" aria-hidden="true" tabindex="-1"></a>sim3 <span class="sc">%&gt;%</span> </span>
-<span id="cb953-2"><a href="prediction.html#cb953-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather_residuals</span>(mod1, mod2)<span class="sc">%&gt;%</span></span>
-<span id="cb953-3"><a href="prediction.html#cb953-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x1, resid, <span class="at">colour =</span> x2)) <span class="sc">+</span> </span>
-<span id="cb953-4"><a href="prediction.html#cb953-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb953-5"><a href="prediction.html#cb953-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(model <span class="sc">~</span> x2)</span></code></pre></div>
+<div class="sourceCode" id="cb955"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb955-1"><a href="prediction.html#cb955-1" aria-hidden="true" tabindex="-1"></a>sim3 <span class="sc">%&gt;%</span> </span>
+<span id="cb955-2"><a href="prediction.html#cb955-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather_residuals</span>(mod1, mod2)<span class="sc">%&gt;%</span></span>
+<span id="cb955-3"><a href="prediction.html#cb955-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x1, resid, <span class="at">colour =</span> x2)) <span class="sc">+</span> </span>
+<span id="cb955-4"><a href="prediction.html#cb955-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb955-5"><a href="prediction.html#cb955-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(model <span class="sc">~</span> x2)</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p>To conclude we look at the output of different transformations:</p>
-<div class="sourceCode" id="cb954"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb954-1"><a href="prediction.html#cb954-1" aria-hidden="true" tabindex="-1"></a>sim5 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb954-2"><a href="prediction.html#cb954-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="fl">3.5</span> <span class="sc">*</span> pi, <span class="at">length =</span> <span class="dv">50</span>),</span>
-<span id="cb954-3"><a href="prediction.html#cb954-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="dv">4</span> <span class="sc">*</span> <span class="fu">sin</span>(x) <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="fu">length</span>(x))</span>
-<span id="cb954-4"><a href="prediction.html#cb954-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb954-5"><a href="prediction.html#cb954-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb954-6"><a href="prediction.html#cb954-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim5, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb954-7"><a href="prediction.html#cb954-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb956"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb956-1"><a href="prediction.html#cb956-1" aria-hidden="true" tabindex="-1"></a>sim5 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb956-2"><a href="prediction.html#cb956-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="fl">3.5</span> <span class="sc">*</span> pi, <span class="at">length =</span> <span class="dv">50</span>),</span>
+<span id="cb956-3"><a href="prediction.html#cb956-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="dv">4</span> <span class="sc">*</span> <span class="fu">sin</span>(x) <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="fu">length</span>(x))</span>
+<span id="cb956-4"><a href="prediction.html#cb956-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb956-5"><a href="prediction.html#cb956-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb956-6"><a href="prediction.html#cb956-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim5, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb956-7"><a href="prediction.html#cb956-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
-<div class="sourceCode" id="cb955"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb955-1"><a href="prediction.html#cb955-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="fu">ns</span>(x, <span class="dv">1</span>), <span class="at">data =</span> sim5)</span>
-<span id="cb955-2"><a href="prediction.html#cb955-2" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="fu">ns</span>(x, <span class="dv">2</span>), <span class="at">data =</span> sim5)</span>
-<span id="cb955-3"><a href="prediction.html#cb955-3" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="fu">ns</span>(x, <span class="dv">3</span>), <span class="at">data =</span> sim5)</span>
-<span id="cb955-4"><a href="prediction.html#cb955-4" aria-hidden="true" tabindex="-1"></a>mod4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="fu">ns</span>(x, <span class="dv">4</span>), <span class="at">data =</span> sim5)</span>
-<span id="cb955-5"><a href="prediction.html#cb955-5" aria-hidden="true" tabindex="-1"></a>mod5 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="fu">ns</span>(x, <span class="dv">5</span>), <span class="at">data =</span> sim5)</span>
-<span id="cb955-6"><a href="prediction.html#cb955-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb955-7"><a href="prediction.html#cb955-7" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> sim5 <span class="sc">%&gt;%</span> </span>
-<span id="cb955-8"><a href="prediction.html#cb955-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_grid</span>(<span class="at">x =</span> <span class="fu">seq_range</span>(x, <span class="at">n =</span> <span class="dv">50</span>, <span class="at">expand =</span> <span class="fl">0.1</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb955-9"><a href="prediction.html#cb955-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather_predictions</span>(mod1, mod2, mod3, mod4, mod5, <span class="at">.pred =</span> <span class="st">&quot;y&quot;</span>)</span>
-<span id="cb955-10"><a href="prediction.html#cb955-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb955-11"><a href="prediction.html#cb955-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim5, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> </span>
-<span id="cb955-12"><a href="prediction.html#cb955-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb955-13"><a href="prediction.html#cb955-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> grid, <span class="at">colour =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
-<span id="cb955-14"><a href="prediction.html#cb955-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> model)</span></code></pre></div>
+<div class="sourceCode" id="cb957"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb957-1"><a href="prediction.html#cb957-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="fu">ns</span>(x, <span class="dv">1</span>), <span class="at">data =</span> sim5)</span>
+<span id="cb957-2"><a href="prediction.html#cb957-2" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="fu">ns</span>(x, <span class="dv">2</span>), <span class="at">data =</span> sim5)</span>
+<span id="cb957-3"><a href="prediction.html#cb957-3" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="fu">ns</span>(x, <span class="dv">3</span>), <span class="at">data =</span> sim5)</span>
+<span id="cb957-4"><a href="prediction.html#cb957-4" aria-hidden="true" tabindex="-1"></a>mod4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="fu">ns</span>(x, <span class="dv">4</span>), <span class="at">data =</span> sim5)</span>
+<span id="cb957-5"><a href="prediction.html#cb957-5" aria-hidden="true" tabindex="-1"></a>mod5 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="fu">ns</span>(x, <span class="dv">5</span>), <span class="at">data =</span> sim5)</span>
+<span id="cb957-6"><a href="prediction.html#cb957-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb957-7"><a href="prediction.html#cb957-7" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> sim5 <span class="sc">%&gt;%</span> </span>
+<span id="cb957-8"><a href="prediction.html#cb957-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_grid</span>(<span class="at">x =</span> <span class="fu">seq_range</span>(x, <span class="at">n =</span> <span class="dv">50</span>, <span class="at">expand =</span> <span class="fl">0.1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb957-9"><a href="prediction.html#cb957-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather_predictions</span>(mod1, mod2, mod3, mod4, mod5, <span class="at">.pred =</span> <span class="st">&quot;y&quot;</span>)</span>
+<span id="cb957-10"><a href="prediction.html#cb957-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb957-11"><a href="prediction.html#cb957-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim5, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> </span>
+<span id="cb957-12"><a href="prediction.html#cb957-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb957-13"><a href="prediction.html#cb957-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> grid, <span class="at">colour =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb957-14"><a href="prediction.html#cb957-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> model)</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 </div>
 </div>

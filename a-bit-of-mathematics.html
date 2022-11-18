@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>32.4 A bit of Mathematics: | R for Data Science Book Club</title>
   <meta name="description" content="This is the product of the R4DS Online Learning Community’s Book Club." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
   <meta property="og:title" content="32.4 A bit of Mathematics: | R for Data Science Book Club" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="The R4DS Online Learning Community" />
 
 
-<meta name="date" content="2022-10-24" />
+<meta name="date" content="2022-11-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -95,7 +95,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -108,7 +108,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -838,16 +838,16 @@ For this purpose we use some metrics to identify the residual level, such as:</p
 <p>To make the formula in Rmarkdown have a look at this resource: <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html">markdown-extensions</a></p>
 <hr />
 <p>Here is the visualization of simulated data from {modelr} package, we have a look at different slope levels.</p>
-<div class="sourceCode" id="cb930"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb930-1"><a href="a-bit-of-mathematics.html#cb930-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb930-2"><a href="a-bit-of-mathematics.html#cb930-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(manipulate)</span>
-<span id="cb930-3"><a href="a-bit-of-mathematics.html#cb930-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelr)</span>
-<span id="cb930-4"><a href="a-bit-of-mathematics.html#cb930-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(sim1)  </span>
-<span id="cb930-5"><a href="a-bit-of-mathematics.html#cb930-5" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y<span class="sc">~</span>x,sim1)</span>
-<span id="cb930-6"><a href="a-bit-of-mathematics.html#cb930-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb930-7"><a href="a-bit-of-mathematics.html#cb930-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim1,<span class="fu">aes</span>(x,y))<span class="sc">+</span></span>
-<span id="cb930-8"><a href="a-bit-of-mathematics.html#cb930-8" aria-hidden="true" tabindex="-1"></a>             <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb930-9"><a href="a-bit-of-mathematics.html#cb930-9" aria-hidden="true" tabindex="-1"></a>             <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)<span class="sc">+</span></span>
-<span id="cb930-10"><a href="a-bit-of-mathematics.html#cb930-10" aria-hidden="true" tabindex="-1"></a>             <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb932"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb932-1"><a href="a-bit-of-mathematics.html#cb932-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb932-2"><a href="a-bit-of-mathematics.html#cb932-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(manipulate)</span>
+<span id="cb932-3"><a href="a-bit-of-mathematics.html#cb932-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelr)</span>
+<span id="cb932-4"><a href="a-bit-of-mathematics.html#cb932-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(sim1)  </span>
+<span id="cb932-5"><a href="a-bit-of-mathematics.html#cb932-5" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y<span class="sc">~</span>x,sim1)</span>
+<span id="cb932-6"><a href="a-bit-of-mathematics.html#cb932-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb932-7"><a href="a-bit-of-mathematics.html#cb932-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim1,<span class="fu">aes</span>(x,y))<span class="sc">+</span></span>
+<span id="cb932-8"><a href="a-bit-of-mathematics.html#cb932-8" aria-hidden="true" tabindex="-1"></a>             <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb932-9"><a href="a-bit-of-mathematics.html#cb932-9" aria-hidden="true" tabindex="-1"></a>             <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)<span class="sc">+</span></span>
+<span id="cb932-10"><a href="a-bit-of-mathematics.html#cb932-10" aria-hidden="true" tabindex="-1"></a>             <span class="fu">theme_bw</span>()</span></code></pre></div>
 <p><img src="bookclub-r4ds_files/figure-html/99-23-plot1-8.png" width="672" /></p>
 <p>We can use the function <code>manipulate()</code> from {manipulate} package, to assess the level of the slope to identify the model line:</p>
 <pre><code>manipulate(ggplot(sim1,aes(x,y))+
